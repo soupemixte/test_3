@@ -13,7 +13,11 @@ class BouteilleController extends Controller
      */
     public function index()
     {
-        return view('bottle.index');
+        // Retrieve all bottles
+        $bottles = Bouteille::all();
+
+        // Pass the bottles to the view
+        return view('bottle.index', compact('bottles'));
     }
 
     /**

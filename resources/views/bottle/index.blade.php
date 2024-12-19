@@ -2,11 +2,11 @@
 @section('title', 'Liste des Bouteiilles')
 @section('content')
 
-<x-header 
+<!-- <x-header 
     image="{{ asset('img/header/header.jpg') }}" 
     title="Découvrez notre collection" 
     subtitle="C'est ce dont nous sommes fiers" 
-/>
+/> -->
 
 <main class="flex-center">
     <section class="structure flex-col gap20">
@@ -42,132 +42,36 @@
         </header>
         
         <section class="grid">
-            <article class="card_bottle">
-                <picture>
-                    <img src="{{ asset('img/gallery/bottle_1.webp') }}" alt="Rosso Wine">
-                </picture>
-                <div class="card-title">
-                    <h2>
-                        Vin Rose Del Bruno el Rosini Liano 2009
-                    </h2>
-                </div>
-                <div class="card-category">
-                    <p>Vin Rouge</p>
-                    <div class="line"></div>
-                    <p>700 ml</p>
-                    <div class="line"></div>
-                    <p>France</p>
-                </div>
-                <div class="price">
-                    29$
-                </div>
-                <a href="" class="btn-border"> Ajouter au cellier</a>
-            </article>
-            <article class="card_bottle">
-                <picture>
-                    <img src="{{ asset('img/gallery/bottle_1.webp') }}" alt="Rosso Wine">
-                </picture>
-                <div class="card-title">
-                    <h2>
-                        Vin Rose Del Bruno el Rosini Liano 2009
-                    </h2>
-                </div>
-                <div class="card-category">
-                    <p>Vin Rouge</p>
-                    <div class="line"></div>
-                    <p>700 ml</p>
-                    <div class="line"></div>
-                    <p>France</p>
-                </div>
-                <div class="price">
-                    29$
-                </div>
-                <a href="" class="btn-border"> Ajouter au cellier</a>
-            </article>
-            <article class="card_bottle">
-                <picture>
-                    <img src="{{ asset('img/gallery/bottle_1.webp') }}" alt="Rosso Wine">
-                </picture>
-                <div class="card-title">
-                    <h2>
-                        Vin Rose Del Bruno el Rosini Liano 2009
-                    </h2>
-                </div>
-                <div class="card-category">
-                    <p>Vin Rouge</p>
-                    <div class="line"></div>
-                    <p>700 ml</p>
-                    <div class="line"></div>
-                    <p>France</p>
-                </div>
-                <div class="price">
-                    29$
-                </div>
-                <a href="" class="btn-border"> Ajouter au cellier</a>
-            </article>
-            <article class="card_bottle">
-                <picture>
-                    <img src="{{ asset('img/gallery/bottle_1.webp') }}" alt="Rosso Wine">
-                </picture>
-                <div class="card-title">
-                    <h2>
-                        Vin Rose Del Bruno el Rosini Liano 2009
-                    </h2>
-                </div>
-                <div class="card-category">
-                    <p>Vin Rouge</p>
-                    <div class="line"></div>
-                    <p>700 ml</p>
-                    <div class="line"></div>
-                    <p>France</p>
-                </div>
-                <div class="price">
-                    29$
-                </div>
-                <a href="" class="btn-border"> Ajouter au cellier</a>
-            </article>
-            <article class="card_bottle">
-                <picture>
-                    <img src="{{ asset('img/gallery/bottle_1.webp') }}" alt="Rosso Wine">
-                </picture>
-                <div class="card-title">
-                    <h2>
-                        Vin Rose Del Bruno el Rosini Liano 2009
-                    </h2>
-                </div>
-                <div class="card-category">
-                    <p>Vin Rouge</p>
-                    <div class="line"></div>
-                    <p>700 ml</p>
-                    <div class="line"></div>
-                    <p>France</p>
-                </div>
-                <div class="price">
-                    29$
-                </div>
-                <a href="" class="btn-border"> Ajouter au cellier</a>
-            </article>
-            <article class="card_bottle">
-                <picture>
-                    <img src="{{ asset('img/gallery/bottle_1.webp') }}" alt="Rosso Wine">
-                </picture>
-                <div class="card-title">
-                    <h2>
-                        Vin Rose Del Bruno el Rosini Liano 2009
-                    </h2>
-                </div>
-                <div class="card-category">
-                    <p>Vin Rouge</p>
-                    <div class="line"></div>
-                    <p>700 ml</p>
-                    <div class="line"></div>
-                    <p>France</p>
-                </div>
-                <div class="price">
-                    29$
-                </div>
-                <a href="" class="btn-border"> Ajouter au cellier</a>
-            </article>
+            @if ($bottles->isEmpty())
+                <p>Aucune bouteille disponible.</p>
+            @else
+            @foreach ($bottles as $bottle)
+                    <article class="card_bottle">
+                        <picture>
+                            <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
+                        </picture>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h2>
+                                    {{ $bottle->title }}
+                                </h2>
+                            </div>
+                            <div class="card-category">
+                                <p>{{ $bottle->color }}</p>
+                                <div class="line"></div>
+                                <p>{{ $bottle->size }}</p>
+                                <div class="line"></div>
+                                <p>{{ $bottle->country }}</p>
+                            </div>
+                            <div class="price">
+                                {{ $bottle->price }}
+                            </div>
+                            <a href="" class="btn-border">Ajouter au cellier</a>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        @endif
         </section>
 
     </section>
