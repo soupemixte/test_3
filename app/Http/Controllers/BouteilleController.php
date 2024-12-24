@@ -20,6 +20,14 @@ class BouteilleController extends Controller
         return view('bottle.index', compact('bottles'));
     }
 
+    public function details($id)
+    {
+        // Retrieve the specific bottle
+        $bottle = Bouteille::findOrFail($id);
+        // Pass the bottles to the view
+        return view('bottle.details', compact('bottle'));
+    }
+
     /**
      * Lance le scraping des bouteilles depuis le site de la SAQ en parcourant plusieurs pages.
      */
