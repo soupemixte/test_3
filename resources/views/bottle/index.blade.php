@@ -4,9 +4,8 @@
 
 
 
-<main>
-    <section class="">    
-        <section class="">
+<main> 
+        <section class="list_bottle">
             @forelse ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
@@ -25,10 +24,10 @@
                                 <div class="line"></div>
                                 <p>{{ $bottle->country }}</p>
                             </div>
-                            <div class="price">
+                            <!-- <div class="price">
                                 {{ $bottle->price }}
-                            </div>
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
+                            </div> -->
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="go_to_bottle">Ajouter au cellier</a>
                         </div>
                     </article>
                 @empty
@@ -36,8 +35,11 @@
             </div>
             @endforelse
         </section>
+        <!-- <div class="list_report">
+            <strong>Can't Find what you're looking for ?</strong>
+            <p>Send us the details and we'll look into it</p>
+        </div> -->
 
-    </section>
 </main>
 
 @endsection
