@@ -10,5 +10,6 @@ Route::get('/', function () {
 });
 
 Route::get('/bottles', [BouteilleController::class, 'index'])->name('bottle.index');
+Route::get('/bottle/{id}', [BouteilleController::class, 'details'])->name('bottle.details');
 Route::get('/scrape-bouteilles', [BouteilleController::class, 'scrape']);
 Route::get('/cellier/create', [CellierController::class, 'create'])->name('cellier.create');
