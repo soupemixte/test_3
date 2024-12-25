@@ -2,50 +2,12 @@
 @section('title', 'Liste des Bouteiilles')
 @section('content')
 
-<!-- <x-header 
-    image="{{ asset('img/header/header.jpg') }}" 
-    title="Découvrez notre collection" 
-    subtitle="C'est ce dont nous sommes fiers" 
-/> -->
 
-<main class="flex-center">
-    <section class="structure flex-col gap20">
-        <header class="filters-container">
-        <!--Filtres-->
-        <div class="custom-select-container">
-            <div class="custom-select">
-                <span class="select-text">Filtres</span>
-                <span class="select-icon">
-                    <i class="fa-solid fa-filter"></i>
-                </span>
-            </div>
-            <select class="hidden-select">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
-        <!--Options-->
-        <div class="custom-select-container">
-            <div class="custom-select">
-                <span class="select-text">Options</span>
-                <span class="select-icon">
-                    <i class="fa-solid fa-gear"></i>
-                </span>
-            </div>
-            <select class="hidden-select">
-                <option value="option1">Option 1</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-            </select>
-        </div>
-        </header>
-        
-        <section class="grid">
-            @if ($bottles->isEmpty())
-                <p>Aucune bouteille disponible.</p>
-            @else
-            @foreach ($bottles as $bottle)
+
+<main>
+    <section class="">    
+        <section class="">
+            @forelse ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
                             <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
@@ -69,9 +31,10 @@
                             <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
                         </div>
                     </article>
-                @endforeach
+                @empty
+                    <div><p>There are no bottles to display</p></div>
             </div>
-        @endif
+            @endforelse
         </section>
 
     </section>
