@@ -1,0 +1,32 @@
+.list_bottle {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card_bottle {
+
+}
+
+.card_bottle > img {
+
+}
+
+.card-body {
+
+}
+
+.card-title {
+
+}
+.card-category {
+
+}
+
+.card-category + .line {
+
+}
+
+.go_to_bottle > button{
+
+}
