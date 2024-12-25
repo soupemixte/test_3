@@ -1,3 +1,23 @@
-@import url(general/general.css);
-@import url(sections/sections.css);
-@import url(components/components.css);
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url(./general.css);
+@import url(./queries.css);
+@import url(./header.css);
+@import url(./home.css);
+@import url(./user.css);
+@import url(./search.css);
+@import url(./collection.css);
+@import url(./button.css);
+@import url(./footer.css);
+
+
+
+
+
+
+
+
+
+
+
+
+

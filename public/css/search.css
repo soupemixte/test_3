@@ -1,0 +1,16 @@
+
+.search_header input[type=text] {
+    float: right;
+    padding: 6px;
+    border: var(--gray) var(--two) solid;
+    border-radius: var(--eight);
+    margin-bottom: var(--twenty);
+    /* margin: var(--eight) var(--fifteen) var(--eight) var(--fifteen); */
+    font-size: 17px;
+  }
+
+
+.search {
+    padding-left: var(--extra_small_padding);
+    padding-right: var(--extra_small_padding);
+}

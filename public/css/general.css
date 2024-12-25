@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--font);
+}
+
+:root {
+    /* pixels */
+    --one: 1px;
+    --two: 2px;
+    --eight: 8px;
+    --ten: 10px;
+    --twelve: 12px;
+    --fifteen: 15px;
+    --sixteen: 16px;
+    --twenty: 20px;
+    --thirty: 30px;
+    --fourtyfive: 45px;
+    --fifty: 50px;
+    --sixsty: 60px;
+    --seventy: 70px;
+    --hundred: 100px;
+    --hundred_twenty: 120px;
+    --hundred_thirty: 130px;
+    --hundred_fourty: 140px;
+
+    /* colors */
+    --white: #FFFFFF;
+    --black: #000000;
+    --silver: #B2B3B4;
+    --gray: #63666F;
+    --green: #52CE65;
+    --blue: #0009FF;
+    --red: #F22C2C;
+    --orange: #F07947;
+
+    /* font */
+    /* family */
+    --font: "Inter";
+    /* size */
+    --small_font: 8px;
+    --med_small_font: 12px;
+    --medium_font: 18px;
+    --med_large_font: 24px;
+    --large_font: 40px;
+    --extra_large_font: 58px;
+    /* weight */
+    --light: 200;
+    --reg: 400;
+    --bold: 600;
+    --bolder: 800;
+    /* letter space */
+    /* --zero_percent: 0%; */
+    --one_pixel: 1px;
+    /* --three_percent: 3%; */
+    /* text-align */
+    --center: center;
+
+}
