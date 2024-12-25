@@ -4,6 +4,7 @@
 <header class="home_header">
         <div>
             <h1>Header</h1>
+            <a href="{{ route('scrape') }}">Scrape Bottles to the Database</a>
         </div>
     </header>
     <main>
