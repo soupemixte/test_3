@@ -1,0 +1,24 @@
+.home_cellar_button > button{
+    background-color: var(--silver);
+    font-weight: bold;
+    font-size: var(--med_large_font);
+    color: var(--white);
+    text-align: var(--center);
+    letter-spacing: var(--one_pixel);
+    cursor: pointer;
+}
+
+.home_button > button {
+    background-color: var(--silver);
+    font-weight: var(--bold);
+    font-size: var(--med_large_font);
+    color: var(--white);
+    text-align: var(--center);
+    letter-spacing: var(--one_pixel);
+    cursor: pointer;
+}
+
+.flex_button {
+    display: flex;
+    gap: var(--fifteen)
+}

@@ -1,0 +1,18 @@
+footer {
+    background-color: var(--black);
+}
+
+.footer_nav {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font);
+    font-size: var(--med_large_font);
+    gap: var(--hundred)
+}
+
+.footer_nav a.active {
+    background-color: #04AA6D;
+    color: white;
+    }

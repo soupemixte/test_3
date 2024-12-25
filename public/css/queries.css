@@ -1,0 +1,66 @@
+@media (max-width: 480px) {
+    /* for extra small screens */
+  }
+ 
+@media (min-width: 481px) and (max-width: 768px) {
+/* for small-ish screens */
+    :root {
+        --iphone_750_width: 750px;
+        --iphone_750_height: 1664px;
+
+        --header_height: 228px;
+
+        --footer_height: 174px;
+
+        --large_padding: 114px;
+        --medium_padding: 57px;
+        --small_padding: 30px;
+        --extra_small_padding: 18px;
+
+        --medium_button_width: 322px;
+        --medium_button_height: 132px;
+
+        --med_small_button_height: 116px;
+
+    }
+
+
+    main {
+        /* height: 100%; */
+        padding-top: var(--large_padding);
+    }
+
+    footer {
+        height: var(--footer_height);
+        padding-left: var(--medium_padding);
+        padding-right: var(--medium_padding);
+    }
+
+    .user {
+        height: var(--iphone_750_height);
+    }
+
+    .collection {
+        padding-left: var(--small_padding);
+        padding-right: var(--small_padding);
+    }
+
+    .flex_collection {
+        padding-top: var(--small_padding);
+
+    }
+
+    .home_cellar_button > button{
+        height: var(--medium_button_height);
+        width: var(--medium_button_width);
+        border-radius: var(--sixteen);
+        font-size: var(--twelve);
+    }
+
+    .home_button > button {
+        height: var(--med_small_button_height);
+        width: var(--medium_button_width);
+        border-radius: var(--sixteen);
+        font-size: var(--twelve);
+    }
+}

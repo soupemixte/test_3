@@ -1,0 +1,11 @@
+.collection > h3 {
+    font-size: var(--large_font);
+}
+
+
+.flex_collection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fifty);
+    justify-content: center;
+}

@@ -1,0 +1,48 @@
+.list_bottle {
+    display: flex;
+    flex-direction: column;
+    gap: var(--fifteen);
+    padding-left: var(--extra_small_padding);
+    padding-right: var(--extra_small_padding);
+}
+
+
+.card-body {
+    display: flex;
+}
+
+.card-body > img {
+
+}
+
+.card-content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+/* .card-body {
+
+} */
+
+.card-content-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.card-title {
+
+}
+.card-category {
+    display: flex;
+    gap: var(--eight);
+}
+
+.card-category > .line {
+    border: var(--black) var(--one) solid;
+}
+
+.go_to_bottle > button{
+
+}
