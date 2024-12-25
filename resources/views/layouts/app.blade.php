@@ -14,7 +14,7 @@
 
     <footer>
         <div class="footer_nav">
-            <a href="#home" class="active">Home</a>
+            <a href="/">Home</a>
             <a href="#collection">Collection</a>
             <a href="{{ route('bottle.index') }}">Search</a>
             <a href="#profile">Profile</a>
