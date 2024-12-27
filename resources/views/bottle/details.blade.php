@@ -16,12 +16,43 @@
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
             <span class="details-price">Prix: {{$bottle->price}}</span>
+
+
+            <!-- -------- ajout de form ---------- -->
+
+            <form action="{{ route('cellierbottle.store'), }}" method="POST">
+            @csrf
+            <label for="quantity">
+                Quantite
+                <input type="number" name="quantity" >
+                </label>
+                <label for="Cellier_idCellier">
+                @foreach( $celliers as $cellier)
+                @if($cellier->idCellier == 1)
+                <input hidden type="number" name="Cellier_idCellier" value="{{ $cellier->idCellier }}" >
+                @endif
+                @endforeach
+                </label>
+                <label for="Bottle_id">
+                <input hidden type="number" name="Bottle_id" value="{{ $bottle->id }}" >
+                </label>
+                <label for="a_commander">
+                <input hidden type="number" name="a_commander" value="0" >
+                </label>
+                <label for="bu">
+                <input hidden  type="number" name="bu" value="0" >
+                </label>
+                <input type="submit" value="Ajouter au cellier">
+            </form>
+
+
+
             <div class="quantity-input">
-                <button id="">-</button>
+                <!-- <button id="">-</button>
                 <input type="text" value="1">
-                <button id="">+</button>
+                <button id="">+</button> -->    
             </div>
-            <a href="" class="btn btn-border">Ajouter au cellier</a>
+<!-- <a href="" class="btn btn-border">Ajouter au cellier</a> -->
         </article>
 
         <div class="line"></div>

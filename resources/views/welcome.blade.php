@@ -11,9 +11,8 @@
         <section class="collection">
             <h3>Collection</h3>
             <div class="flex_collection">
-
                 <div class="home_gallery">
-                    <a href="#" class="home_cellar_button"><button>In My Cellar<br><p>0 Bottles</p></button></a>
+                    <a href="#" class="home_cellar_button"><button>In My Cellar<br><p>{{ session('qte')}}  Bottles</p></button></a>
                 </div>
                 <div class="flex_button">
                     <a href="#" class="home_button"><button>Add Bottles</button></a>

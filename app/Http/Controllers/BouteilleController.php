@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bouteille;
+use App\Models\Cellier;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,13 @@ class BouteilleController extends Controller
         // Retrieve the specific bottle
         $bottle = Bouteille::findOrFail($id);
         // Pass the bottles to the view
-        return view('bottle.details', compact('bottle'));
+
+        //    return view('bottle.details', compact('bottle'));
+
+
+        $celliers = Cellier::all();
+                      
+        return view('bottle.details', ["celliers"=>$celliers,"bottle"=>$bottle]);
     }
 
     /**

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bottle;
+use App\Models\Cellier;
+
 use Illuminate\Http\Request;
 
 class CellierController extends Controller
@@ -12,7 +13,7 @@ class CellierController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -20,7 +21,9 @@ class CellierController extends Controller
      */
     public function create()
     {
-        return view('cellier.create');
+        //
+     
+
     }
 
     /**
@@ -34,7 +37,7 @@ class CellierController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Bottle $bottle)
+    public function show(Cellier $cellier)
     {
         //
     }
@@ -42,7 +45,7 @@ class CellierController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bottle $bottle)
+    public function edit(Cellier $cellier)
     {
         //
     }
@@ -50,7 +53,7 @@ class CellierController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Bottle $bottle)
+    public function update(Request $request, Cellier $cellier)
     {
         //
     }
@@ -58,7 +61,7 @@ class CellierController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Bottle $bottle)
+    public function destroy(Cellier $cellier)
     {
         //
     }
