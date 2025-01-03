@@ -18,7 +18,7 @@
                     <a href="#" class="home_cellar_button"><button>In My Cellar<br><p>{{ session('qte')}}  Bottles</p></button></a>
                 </div>
                 <div class="flex_button">
-                    <a href="#" class="home_button"><button>Add Bottles</button></a>
+                    <a href="{{ route('bottle.formulaire') }}" class="home_button"><button>Add Bottles</button></a>
                     <a href="#" class="home_button"><button>Consume</button></a>
                 </div>
             </div>

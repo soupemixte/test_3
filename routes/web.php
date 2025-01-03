@@ -15,3 +15,5 @@ Route::get('/bottle/{id}', [BouteilleController::class, 'details'])->name('bottl
 Route::get('/scrape-bouteilles', [BouteilleController::class, 'scrape'])->name('bottle.scrape');
 Route::get('/cellier/create', [CellierController::class, 'create'])->name('cellier.create');
 Route::post('/bottle', [CellierBottleController::class, 'store'])->name('cellierbottle.store');
+Route::get('/bottles/formulaire', [BouteilleController::class, 'form'])->name('bottle.formulaire');
+Route::post('/bottles/formulaire', [BouteilleController::class, 'post'])->name('bottle.post');

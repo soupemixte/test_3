@@ -21,6 +21,18 @@ class BouteilleController extends Controller
         return view('bottle.index', compact('bottles'));
     }
 
+
+    public function form()
+    {
+        // creation de routes vers formulaire
+        return view('bottle.formulaire');
+    }
+
+    public function post( Request $request)
+    {
+    
+    }
+
     public function details($id)
     {
         // Retrieve the specific bottle
