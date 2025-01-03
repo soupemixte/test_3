@@ -2,19 +2,55 @@
 @section('title', 'Liste des Bouteiilles')
 @section('content')
 
+<!-- <x-header 
+    image="{{ asset('img/header/header.jpg') }}" 
+    title="Découvrez notre collection" 
+    subtitle="C'est ce dont nous sommes fiers" 
+/> -->
 
-
-<main> 
-    <section class="list_bottle">
-        @forelse ($bottles as $bottle)
-                <article class="card-body">
-                        <div class="card-content-left">
-                            <picture>
-                                <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
-                            </picture>
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="go_to_bottle">Ajouter au cellier</a>
-                        </div>
-                        <div class=card-content-right>
+<main class="flex-center">
+    <section class="structure flex-col gap20">
+        <header class="filters-container">
+        <!--Filtres-->
+        <div class="custom-select-container">
+            <div class="custom-select">
+                <span class="select-text">Filtres</span>
+                <span class="select-icon">
+                    <i class="fa-solid fa-filter"></i>
+                </span>
+            </div>
+            <select class="hidden-select">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+        </div>
+        <!--Options-->
+        <div class="custom-select-container">
+            <div class="custom-select">
+                <span class="select-text">Options</span>
+                <span class="select-icon">
+                    <i class="fa-solid fa-gear"></i>
+                </span>
+            </div>
+            <select class="hidden-select">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+            </select>
+        </div>
+        </header>
+        
+        <section class="grid">
+            @if ($bottles->isEmpty())
+                <p>Aucune bouteille disponible.</p>
+            @else
+            @foreach ($bottles as $bottle)
+                    <article class="card_bottle">
+                        <picture>
+                            <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
+                        </picture>
+                        <div class="card-body">
                             <div class="card-title">
                                 <h2>
                                     {{ $bottle->title }}
@@ -27,24 +63,18 @@
                                 <div class="line"></div>
                                 <p>{{ $bottle->country }}</p>
                             </div>
+                            <div class="price">
+                                {{ $bottle->price }}
+                            </div>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
                         </div>
-                        
-                        <!-- <div class="price">
-                            {{ $bottle->price }}
-                        </div> -->
-                        
+                    </article>
+                @endforeach
+            </div>
+        @endif
+        </section>
 
-                </article>
-            @empty
-                <div><p>There are no bottles to display</p></div>
-        </div>
-        @endforelse
     </section>
-    <!-- <div class="list_report">
-        <strong>Can't Find what you're looking for ?</strong>
-        <p>Send us the details and we'll look into it</p>
-    </div> -->
-
 </main>
 
 @endsection
