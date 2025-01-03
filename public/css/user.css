@@ -1,6 +1,0 @@
-.user {
-    display: flex;
-    flex-direction: column;
-    gap: var(--twelve);
-    justify-content: space-between;
-}

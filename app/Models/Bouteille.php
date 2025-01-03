@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bouteille extends Model
 {
-    protected $table = 'bottles';
+    protected $table = 'bottle';
 
     protected $fillable = [
         'title',
