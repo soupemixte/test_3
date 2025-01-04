@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BouteilleController;
-use App\Http\Controllers\CellierController;
+use App\Http\Controllers\BottleController;
+use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 
@@ -11,14 +11,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Bottles Route
-Route::get('/bottles', [BouteilleController::class, 'index'])->name('bottle.index');
-Route::get('/bottle/{id}', [BouteilleController::class, 'details'])->name('bottle.details');
-Route::get('/scrape-bouteilles', [BouteilleController::class, 'scrape'])->name('bottle.scrape');
-Route::get('/cellier/create', [CellierController::class, 'create'])->name('cellier.create');
+// Bottle Route
+Route::get('/bottles', [BottleControllerr::class, 'index'])->name('bottle.index');
+Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
+Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
+
+// Cellar Routes
+Route::get('/cellier/create', [CellarController::class, 'create'])->name('cellar.create');
 
 // TODO: Add isAdmin Boolean in user table for authentification
-// Users Routes
+// User Routes
 // Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
