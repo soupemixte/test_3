@@ -83,6 +83,8 @@ class CellarController extends Controller
      */
     public function destroy(Cellar $cellar)
     {
-        //
+        $cellar->delete();
+
+        return redirect()->route('cellar.index')->with('success', 'Cellar deleted successfully.');
     }
 }

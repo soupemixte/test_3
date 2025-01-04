@@ -22,7 +22,8 @@ Route::get('/cellar/{cellar}', [CellarController::class, 'show'])->name('cellar.
 Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
 Route::get('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');
 Route::get('/edit/cellar/{cellar}', [CellarController::class, 'edit'])->name('cellar.edit');
-Route::get('/edit/cellar/{cellar}', [CellarController::class, 'update'])->name('cellar.update');
+Route::put('/edit/cellar/{cellar}', [CellarController::class, 'update'])->name('cellar.update');
+Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('cellar.delete');
 
 // TODO: Add isAdmin Boolean in user table for authentification
 // User Routes

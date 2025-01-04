@@ -13,7 +13,7 @@
                 </div>
                 <div>
                     <a href="{{ route('cellar.edit', $cellar->id) }}" class="">Edit</a>
-                    <a href="#" class="">Delete</a>
+                    <a href="{{ route('cellar.delete', $cellar->id) }}" class="">Delete</a>
                 </div>
             </div>
         </article>
