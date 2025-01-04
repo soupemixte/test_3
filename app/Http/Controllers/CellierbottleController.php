@@ -39,6 +39,10 @@ class CellierbottleController extends Controller
             'quantity' => $request->quantity,
             'a_commander' => $request->a_commander,
             'bu' => $request->bu,
+            'title' => null,
+            'price' => null,
+            'annee' => null,
+            'image' => null,
         ]);
 
         $cellierbottles = Cellier_has_bottle::count();

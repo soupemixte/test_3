@@ -42,7 +42,7 @@
             </label>
             <label for="Bottle_id">
                 <!-- Id bottle -->
-                <input  type="text" name="Bottle_id" value="{{ session('qte_bouteille')+1 }}" >
+                <input   type="text" name="Bottle_id" value="{{ session('qte_bouteille')+1 }}" >
             </label>
             <label for="a_commander">
                 <!-- A commander -->
