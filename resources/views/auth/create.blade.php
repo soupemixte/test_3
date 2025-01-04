@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
-    @if(!$errors->isEmpty())
+    <!-- @if(!$errors->isEmpty())
     <div class="" role="alert">
         <ul>
             @foreach($errors->all() as $error)
@@ -10,7 +10,7 @@
         </ul>     
         <button type="button" class="" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
-    @endif
+    @endif -->
     <div class="login">
         <div class="">
             <div class="">
@@ -24,9 +24,19 @@
                             <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
                             </div>
+                            @if ($errors->has('username'))
+                                <div class="">
+                                    {{$errors->first('username')}}
+                                </div>
+                            @endif
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password">
+                            @if ($errors->has('password'))
+                                <div class="">
+                                    {{$errors->first('password')}}
+                                </div>
+                            @endif
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>

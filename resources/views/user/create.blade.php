@@ -24,14 +24,29 @@
                         <div class="">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" value="{{old('name')}}">
+                            @if ($errors->has('name'))
+                                <div class="">
+                                    {{$errors->first('name')}}
+                                </div>
+                            @endif
                         </div>
                         <div class="">
-                            <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
-                            </div>
+                            <label for="email" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
+                            @if ($errors->has('email'))
+                                <div class="">
+                                    {{$errors->first('email')}}
+                                </div>
+                            @endif
+                        </div>
                         <div class="">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" id="password" name="password">
+                            @if ($errors->has('password'))
+                                <div class="">
+                                    {{$errors->first('password')}}
+                                </div>
+                            @endif
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
