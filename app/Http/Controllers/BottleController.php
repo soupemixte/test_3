@@ -6,7 +6,7 @@ use App\Models\Bottle;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
-class BouteilleController extends Controller
+class BottleController extends Controller
 {
     /**
      * Display a listing of the resource.
