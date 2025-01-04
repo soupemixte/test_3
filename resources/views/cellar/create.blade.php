@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Liste des Bouteiilles')
+@section('title', 'Create Cellar')
 @section('content')
 
 <!-- <x-header 
@@ -8,9 +8,10 @@
     subtitle="Votre collection est votre vie" 
 /> -->
 
-<main class="flex-center">
+<main class="create">
     <section class="structure flex-col-center height70">   
-        <form class="form">
+        <form class="form" action="{{ route('cellar.store') }}" method="POST">
+            @csrf
             <div class="form-control">
                 <label for="title">Nom du Cellier</label>
                 <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">

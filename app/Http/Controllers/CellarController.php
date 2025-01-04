@@ -48,6 +48,7 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar)
     {
+        // return $cellar;
         return view('cellar.show', ['cellar' => $cellar]);
     }
 
@@ -56,7 +57,7 @@ class CellarController extends Controller
      */
     public function edit(Cellar $cellar)
     {
-        //
+        return view('cellar.edit', ['cellar'=>$cellar]);
     }
 
     /**

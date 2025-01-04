@@ -12,7 +12,7 @@
                     <p>{{ $cellar->description }}</p>
                 </div>
                 <div>
-                    <a href="#" class="">Edit</a>
+                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="">Edit</a>
                     <a href="#" class="">Delete</a>
                 </div>
             </div>

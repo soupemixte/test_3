@@ -19,7 +19,7 @@
                     <h5 class="">Registration</h5>
                 </div>
                 <div class="">
-                    <form  method="POST">
+                    <form action="{{ route('user.store') }}" method="POST">
                         @csrf
                         <div class="">
                             <label for="name" class="form-label">Name</label>

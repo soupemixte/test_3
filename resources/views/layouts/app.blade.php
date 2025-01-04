@@ -29,7 +29,7 @@
         <div class="logo">VINO</div>
     </header>
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="">
             {{session('success')}}
         </div>
     @endif
