@@ -14,8 +14,9 @@ class BottleController extends Controller
     public function index()
     {
         // Retrieve all bottles
-        $bottles = Bottle::all();
-
+        $bottles = Bottle::select()
+            ->orderby('title')
+            ->paginate(10);
         // Pass the bottles to the view
         return view('bottle.index', compact('bottles'));
     }
