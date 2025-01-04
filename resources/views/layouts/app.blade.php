@@ -8,8 +8,22 @@
     
     <script type="module" src="{{ asset('js/main.js')}}" defer></script>
     <title>@yield('title')</title>
+    <style>
+        nav {
+            height: 100px;
+            display: block;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{ route('user.create') }}"></a></li>
+            </ul>
+        </nav>
+    </header>
     @yield('content')
 </body>
 
