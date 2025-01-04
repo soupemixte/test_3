@@ -2,11 +2,11 @@
 @section('title', 'Liste des Bouteiilles')
 @section('content')
 
-<x-header 
+<!-- <x-header 
     image="{{ asset('img/header/cave.jpeg') }}" 
     title="Créez votre cellier" 
     subtitle="Votre collection est votre vie" 
-/>
+/> -->
 
 <main class="flex-center">
     <section class="structure flex-col-center height70">   
@@ -19,7 +19,7 @@
                 <label for="description">Nom du Cellier</label>
                 <textarea name="description"placeholder="Description de ce cellier...."></textarea>
             </div>
-            <div class="form-control">
+            <!-- <div class="form-control">
                 <label for="type">Type du Cellier</label>
                 <select name="type">
                     <option value="">Choisir le Type</option>
@@ -27,7 +27,7 @@
                     <option value="option2">Option 2</option>
                     <option value="option3">Option 3</option>
                 </select>
-            </div>
+            </div> -->
             <button type="submit" class="btn-border">Créer le Cellier</button>
         </form>
     </section>

@@ -16,13 +16,16 @@
                                 </h2>
                             </div>
                             <div class="description">
-                                {{ $cellar->description }}
+                                <p>{{ $cellar->description }}</p>
                             </div>
                         </div>
+                        <div>
+                        <a href="{{ route('cellar.show', $cellar->id) }}" class="">View</a>
+                        </div>
                     </article>
+                    @endforeach
+                    @endif
                     <a href="{{ route('cellar.create') }} " class="">Ajouter un cellier</a>
-                @endforeach
-        @endif
         </section>
 </main>
 

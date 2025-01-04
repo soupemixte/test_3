@@ -18,7 +18,9 @@ Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bot
 
 // Cellar Routes
 Route::get('/cellar/index', [CellarController::class, 'index'])->name('cellar.index');
+Route::get('/cellar/show', [CellarController::class, 'show'])->name('cellar.show');
 Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
+Route::get('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');
 
 // TODO: Add isAdmin Boolean in user table for authentification
 // User Routes
