@@ -29,7 +29,18 @@ class CellarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+    
+        $task = Task::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'user_id' => 1
+        ]);
+    
+        return redirect()->route('cellar.show', $task->id)->with('success', 'Cellar created successfully.');
     }
 
     /**
