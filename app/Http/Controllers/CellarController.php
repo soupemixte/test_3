@@ -65,7 +65,17 @@ class CellarController extends Controller
      */
     public function update(Request $request, Cellar $cellar)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+    
+        $task->update([
+            'title' => $request->title,
+            'description' => $request->description,
+        ]);
+    
+        return redirect()->route('cellar.show', $cellar->id)->with('success', 'Cellar updated successfully.');
     }
 
     /**
