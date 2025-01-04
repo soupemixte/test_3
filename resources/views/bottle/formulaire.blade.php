@@ -13,28 +13,8 @@
 
             <!-- -------- ajout de form ---------- -->
 
-            <form action="" method="POST" class="form form-control">
+            <form action="" method="POST" class="form form-control" enctype="multipart/form-data">
             @csrf
-            <label for="quantity">
-                Quantite
-                <input type="number" name="quantity" >
-            </label>
-            <label for="Cellier_idCellier">
-                Id cellier
-                <input type="number" name="Cellier_idCellier" value="" >
-            </label>
-            <label for="Bottle_id">
-                Id bottle
-                <input  type="number" name="Bottle_id" value="" >
-            </label>
-            <label for="a_commander">
-                A commander
-                <input  type="number" name="a_commander" value="0" >
-            </label>
-            <label for="bu">
-                Bu
-                <input   type="number" name="bu" value="0" >
-            </label>
             <label for="title">
                 Nom Bouteille
                 <input   type="text" name="title" value="" >
@@ -47,26 +27,33 @@
                 Annee Bouteille
                 <input   type="text" name="annee" value="" >
             </label>
-            <label for="region">
-                Region
-                <input   type="text" name="region" value="" >
-            </label>
-            <label for="country">
-                Pays
-                <input   type="text" name="country" value="" >
-            </label>
-            <label for="color">
-                Couleur
-                <input   type="text" name="color" value="" >
-            </label>
-            <label for="size">
-                Volume
-                <input   type="text" name="size" value="" >
+            <label for="quantity">
+                Quantite
+                <input type="number" name="quantity" >
             </label>
             <label for="image">
                 Photo
-                <input   type="file" name="image" value="" >
+                <input type="file" name="image"  />
             </label>
+            
+            <label for="Cellier_idCellier">
+                <!-- Id cellier -->
+                <input hidden type="number" name="Cellier_idCellier" value="1" >
+            </label>
+            <label for="Bottle_id">
+                <!-- Id bottle -->
+                <input  type="text" name="Bottle_id" value="{{ session('qte_bouteille')+1 }}" >
+            </label>
+            <label for="a_commander">
+                <!-- A commander -->
+                <input hidden type="number" name="a_commander" value="0" >
+            </label>
+            <label for="bu">
+                <!-- Bu -->
+                <input hidden  type="number" name="bu" value="0" >
+            </label>
+           
+          
                 <input type="submit" value="Ajouter au cellier">
             </form>
 

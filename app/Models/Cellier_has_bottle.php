@@ -15,6 +15,10 @@ class Cellier_has_bottle extends Model
         'quantity',
         'a_commander',
         'bu',
+        'title',
+        'price',
+        'image',
+        'annee',
         'updated_at',
         'created_at'
     ];

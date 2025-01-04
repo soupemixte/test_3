@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Session;
+use App\Models\Cellier_has_bottle;
 use App\Models\Bouteille;
 use App\Models\Cellier;
 use Goutte\Client;
@@ -22,15 +25,75 @@ class BouteilleController extends Controller
     }
 
 
-    public function form()
+    public function form(Request $request)
     {
+        $cellierbottles = Cellier_has_bottle::count();
+  
+        $request->session()->put('qte', $cellierbottles);
+
+        $bottles_qte = Bouteille::count();
+  
+        $request->session()->put('qte_bouteille', $bottles_qte);
+        
+
+        //echo session('qte_bouteille');
+
+
         // creation de routes vers formulaire
         return view('bottle.formulaire');
     }
 
     public function post( Request $request)
     {
-    
+
+        $filename = $_FILES["image"]["name"];
+        $tempname = $_FILES["image"]["tmp_name"];
+        $folder = "./uploads/" . $filename;
+
+ 
+
+        $image = $request->file('image');
+        $extension = $image->getClientOriginalExtension();//Getting extension
+        $originalname = $image->getClientOriginalName();
+        $path = $image->move('uploads/' , $originalname);
+
+            Bouteille::create([
+                'title' => $request->title,
+                'price' => 'N/A',
+                'saq_link' =>'N/A',
+                'image_src' =>'N/A',
+                'country' =>'N/A',
+                'region' =>'N/A',
+                'degree_alcohol' => 'N/A',
+                'color' => 'N/A',
+                'size' => 'N/A',
+                'designation_of_origin' =>'N/A',
+                'regulated_designation' =>'N/A',
+                'classification' =>'N/A',
+                'grape_variety' =>'N/A',
+                'sugar_content' =>'N/A',
+                'particularity' => 'N/A',
+                'producer' => 'N/A',
+                'promoting_agent' => 'N/A',
+            ]);
+
+        
+        Cellier_has_bottle::create([
+            'Cellier_idCellier' => 1,
+            'Bottle_id' => $request->Bottle_id,
+            'quantity' => $request->quantity,
+            'a_commander' => $request->a_commander,
+            'bu' => $request->bu,
+            'title' => $request->title,
+            'price' => $request->price,
+            'annee' => $request->annee,
+            'image' => $originalname,
+        ]);
+
+
+        echo "<h3> Image uploaded successfully!</h3>";
+ 
+        die();
     }
 
     public function details($id)

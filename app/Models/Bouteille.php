@@ -10,11 +10,11 @@ class Bouteille extends Model
     protected $table = 'bottle';
 
     protected $fillable = [
+
         'title',
         'price',
         'image_src',
         'saq_link',
-        'saq_code',
         'country',
         'region',
         'degree_alcohol',
@@ -30,6 +30,8 @@ class Bouteille extends Model
         'grape_variety',
         'vintage_tasted',
         'aromas',
+        'created_at'
+        
     ];
 }
 
