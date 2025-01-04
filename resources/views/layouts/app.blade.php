@@ -28,6 +28,11 @@
     <header class="header">
         <div class="logo">VINO</div>
     </header>
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
     @yield('content')
 
     <!-- Navigation -->

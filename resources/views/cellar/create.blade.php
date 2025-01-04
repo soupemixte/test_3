@@ -12,12 +12,22 @@
     <section class="structure flex-col-center height70">   
         <form class="form">
             <div class="form-control">
-                <label for="name">Nom du Cellier</label>
-                <input type="text" name="name" placeholder="Entrez le nom...">
+                <label for="title">Nom du Cellier</label>
+                <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">
+                @if ($errors->has('title'))
+                    <div class="">
+                        {{$errors->first('title')}}
+                    </div>
+                @endif
             </div>
             <div class="form-control">
                 <label for="description">Nom du Cellier</label>
-                <textarea name="description"placeholder="Description de ce cellier...."></textarea>
+                <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
+                @if ($errors->has('description'))
+                    <div class="">
+                        {{$errors->first('description')}}
+                    </div>
+                @endif
             </div>
             <!-- <div class="form-control">
                 <label for="type">Type du Cellier</label>
