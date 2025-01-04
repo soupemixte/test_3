@@ -17,7 +17,7 @@ Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.d
 Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
 
 // Cellar Routes
-Route::get('/cellar/index', [CellarController::class, 'index'])->name('cellar.index');
+Route::get('/cellars', [CellarController::class, 'index'])->name('cellar.index');
 Route::get('/cellar/{cellar}', [CellarController::class, 'show'])->name('cellar.show');
 Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
 Route::get('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');
@@ -28,6 +28,7 @@ Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('c
 // TODO: Add isAdmin Boolean in user table for authentification
 // User Routes
 // Route::get('/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 // Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
