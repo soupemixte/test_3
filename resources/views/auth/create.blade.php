@@ -40,7 +40,10 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
-                    <button class="nav-button"><a href="{{ route('user.create') }}">New User</a></button>
+                    <div>
+                        <button class="nav-button"><a class="nav-link" href="{{ route('user.index') }}">Users</a></button>
+                        <button class="nav-button"><a href="{{ route('user.create') }}">New User</a></button>
+                    </div>
                 </div>
             </div>
         </div>

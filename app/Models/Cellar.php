@@ -14,4 +14,9 @@ class Cellar extends Model
         'description',
         'user_id',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
 }
