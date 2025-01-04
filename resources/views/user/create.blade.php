@@ -11,9 +11,9 @@
         <button type="button" class="" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
     @endif
-    <h1 class="">Registration</h1>
-    <div class="">
-        <div class="">
+    <div class="register">
+
+            <h1 class="">Registration</h1>
             <div class="">
                 <div class="">
                     <h5 class="">Registration</h5>
@@ -37,6 +37,6 @@
                     </form>
                 </div>
             </div>
-        </div>
+
     </div>
 @endsection
