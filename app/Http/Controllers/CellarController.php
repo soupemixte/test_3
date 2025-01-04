@@ -12,7 +12,8 @@ class CellarController extends Controller
      */
     public function index()
     {
-        //
+        $cellars = Cellar::all();
+        return view('cellar.index', ['cellars' => $cellars]);
     }
 
     /**
@@ -36,7 +37,7 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar)
     {
-        //
+        return view('cellar.show', ['cellar' => $cellar]);
     }
 
     /**

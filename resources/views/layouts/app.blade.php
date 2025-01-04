@@ -34,7 +34,7 @@
     <!-- FIXME: if active navigation link is highlighted -->
     <nav class="navigation">
       <button class="nav-button"><a href="/">Home</a></button>
-      <button class="nav-button">Collection</button>
+      <button class="nav-button"><a href="{{ route('cellar.index') }}">Collection</a></button>
       <button class="nav-button"><a href="{{ route('bottle.index') }}">List</a></button>
       <button class="nav-button"><a href="{{ route('login') }}">Login</a></button>
     </nav>
