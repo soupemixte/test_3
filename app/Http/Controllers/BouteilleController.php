@@ -36,9 +36,6 @@ class BouteilleController extends Controller
         $request->session()->put('qte_bouteille', $bottles_qte);
         
 
-        //echo session('qte_bouteille');
-
-
         // creation de routes vers formulaire
         return view('bottle.formulaire');
     }
@@ -93,7 +90,7 @@ class BouteilleController extends Controller
 
         echo "<h3> Image uploaded successfully!</h3>";
  
-        die();
+       // die();
     }
 
     public function details($id)
