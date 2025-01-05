@@ -17,6 +17,11 @@
         <div class="welcome-user">
              @auth
                 <p>Welcome, <span>{{ Auth::user()->name }}</span></p>
+                @if(Auth::user()->isAdmin)
+                <p>test</p>
+                <button><a href="{{ route('bottle.delete') }}">Delete Bottles</a></button>
+                <button><a href="{{ route('bottle.scrape') }}">Scrape Bottles</a></button>
+                @endif
              @endauth
         </div>
         <ul>
@@ -31,7 +36,7 @@
     @yield('content')
     <!-- Navigation -->
     <nav class="navigation">
-      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image"></button> Celliers</a>
+      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image"> Celliers</a>
       <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image"> Collection</a>
       <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image"> List</a>
       <a class="nav-link" href="{{ route('user.show') }}"> <img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">Profil</a>
