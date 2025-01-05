@@ -11,7 +11,7 @@
         <button type="button" class="" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
     @endif
-    <div class="">
+    <div class="login">
         <div class="">
             <div class="">
                 <div class="card-header">
@@ -30,6 +30,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Login</button>
                     </form>
+                    <button class="nav-button"><a href="{{ route('user.create') }}">New User</a></button>
                 </div>
             </div>
         </div>

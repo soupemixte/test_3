@@ -1,0 +1,41 @@
+/* Home Section */
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1546px;
+    padding: var(--spacing-large);
+    /* padding-right: var(--spacing-large); */
+}
+
+.collection {
+    margin-bottom: var(--spacing-large);
+  }
+
+.section-title {
+    font-size: 1.25em;
+    margin-bottom: var(--spacing-medium);
+}
+
+.collection-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: var(--spacing-medium);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-title {
+    font-weight: bold;
+}
+
+.info-count {
+    color: var(--color-primary);
+}
