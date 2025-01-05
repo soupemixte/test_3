@@ -1,0 +1,11 @@
+
+.card_cellar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--card-bg);
+    color: var(--components-bg);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}

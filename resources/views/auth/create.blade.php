@@ -10,42 +10,37 @@
         </ul>     
         <button type="button" class="" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
-    @endif -->
-    <div class="login">
-        <div class="">
-            <div class="">
-                <div class="card-header">
-                    <h5 class="card-title">Login</h5>
-                </div>
-                <div class="card-body">
-                    <form  method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
-                            </div>
-                            @if ($errors->has('username'))
-                                <div class="">
-                                    {{$errors->first('username')}}
-                                </div>
-                            @endif
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                            @if ($errors->has('password'))
-                                <div class="">
-                                    {{$errors->first('password')}}
-                                </div>
-                            @endif
+    @endif -->             
+               
+        <main class="flex-center">
+            <section class="structure flex-col-center height90 gap20">
+                <form method="POST" class="form">
+                    @csrf
+                    <div class="form-control">
+                        <label for="username" >Username</label>
+                            <input type="text" id="username" name="email"  value="{{old('email')}}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                    <div>
-                        <button class="nav-button"><a class="nav-link" href="{{ route('user.index') }}">Users</a></button>
-                        <button class="nav-button"><a href="{{ route('user.create') }}">New User</a></button>
+                        @if ($errors->has('username'))
+                            <div class="">
+                                {{$errors->first('username')}}
+                            </div>
+                        @endif
+                    <div class="form-control">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password">
+                        @if ($errors->has('password'))
+                            <div class="">
+                                {{$errors->first('password')}}
+                            </div>
+                        @endif
                     </div>
+                    <button type="submit" class="btn-border">Login</button>
+                </form>
+                
+                <div class="form_footer">
+                    <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
                 </div>
-            </div>
-        </div>
-    </div>
+               
+            </section>
+        </main>
 @endsection

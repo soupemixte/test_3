@@ -1,0 +1,33 @@
+/* Header */
+:root {
+    --header-bg: gray;
+}
+/* .header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--spacing-medium);
+    text-align: center;
+    font-size: 1.5em;
+} */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--header-bg);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    
+}
+
+.header .logo {
+    font-size: 1.5rem;
+}
+
+.welcome-user p{ 
+    color: white;
+}
+.welcome-user span{ 
+    color: var(--accent-color);
+}

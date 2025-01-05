@@ -1,6 +1,6 @@
 :root {
     --gradient-btn-bg: linear-gradient(90deg, #164a99 0%, #80454a 100%);
-    --general-btn-bg: orange;
+    --general-btn-bg: rgb(91, 105, 147);
     --general-btn-color: white;
     --btn-no-border: #5a4e83;
     --btn-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -10,7 +10,6 @@
 /*Enveloppe de bouton*/
 .btn-container {
     display: flex;
-    justify-content: center;
 }
 /*Bouton général*/
 .btn {
@@ -56,6 +55,7 @@
 /*Le bouton avec une icône*/
 .btn-icon {
     background: none;
+    text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
