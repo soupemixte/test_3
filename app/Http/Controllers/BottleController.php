@@ -170,6 +170,6 @@ class BottleController extends Controller
         public function destroy() {
             $delete = Bottle::truncate();
 
-            return view('/');
+            return view('welcome');
         }
 }

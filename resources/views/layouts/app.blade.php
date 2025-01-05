@@ -18,7 +18,6 @@
              @auth
                 <p>Welcome, <span>{{ Auth::user()->name }}</span></p>
                 @if(Auth::user()->isAdmin)
-                <p>test</p>
                 <button><a href="{{ route('bottle.delete') }}">Delete Bottles</a></button>
                 <button><a href="{{ route('bottle.scrape') }}">Scrape Bottles</a></button>
                 @endif
