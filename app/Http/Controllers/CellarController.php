@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cellar;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CellarController extends Controller
@@ -29,18 +30,21 @@ class CellarController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the form data
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'required|string|max:255'
         ]);
-    
-        $task = Task::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'user_id' => 1
+
+        //Create the cellar
+        Cellar::create([
+            'user_id' => Auth::id(),
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
         ]);
-    
-        return redirect()->route('cellar.show', $task->id)->with('success', 'Cellar created successfully.');
+
+        // if worked
+        return redirect()->route('cellar.create')->with('success', 'Cellier créé avec succès!');
     }
 
     /**

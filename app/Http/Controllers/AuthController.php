@@ -41,7 +41,8 @@ class AuthController extends Controller
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-        return redirect()->intended(route('/'))->withSuccess('Signed in');
+        /* return redirect(route('user.index'))->withSuccess('Signed in'); */
+        return redirect(route('bottle.index'))->withSuccess('Signed in');
     }
 
     /**

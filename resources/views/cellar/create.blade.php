@@ -8,7 +8,7 @@
     subtitle="Votre collection est votre vie" 
 /> -->
 
-<main class="create">
+<main>
     <section class="structure flex-col-center height70">   
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf
@@ -22,7 +22,7 @@
                 @endif
             </div>
             <div class="form-control">
-                <label for="description">Nom du Cellier</label>
+                <label for="description">Description du Cellier</label>
                 <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <div class="">

@@ -77,7 +77,7 @@ class BottleController extends Controller
             $detailedData = $this->scrapeBouteilleDetails($saqLink, $client);
     
             // Insert the data into the database
-            Bouteille::create([
+            Bottle::create([
                 'title' => $title,
                 'price' => $price,
                 'saq_link' => $saqLink,

@@ -11,16 +11,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
 // Bottle Route
-Route::get('/bottles', [BottleControllerr::class, 'index'])->name('bottle.index');
+Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
 Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
 Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
 
 // Cellar Routes
 Route::get('/cellars', [CellarController::class, 'index'])->name('cellar.index');
 Route::get('/cellar/{cellar}', [CellarController::class, 'show'])->name('cellar.show');
-Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
-Route::get('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');
+Route::post('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');
 Route::get('/edit/cellar/{cellar}', [CellarController::class, 'edit'])->name('cellar.edit');
 Route::put('/edit/cellar/{cellar}', [CellarController::class, 'update'])->name('cellar.update');
 Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('cellar.delete');

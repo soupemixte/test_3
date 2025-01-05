@@ -25,7 +25,7 @@
                     </article>
                     @endforeach
                     @endif
-                    <a href="{{ route('cellar.create') }} " class="">Ajouter un cellier</a>
+                    <a href="{{ route('cellar.create') }}" class="">Ajouter un cellier</a>
         </section>
 </main>
 
