@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -42,7 +43,13 @@ class AuthController extends Controller
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
         /* return redirect(route('user.index'))->withSuccess('Signed in'); */
-        return redirect(route('bottle.index'))->withSuccess('Signed in');
+        /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
+        //Redirect regarding if the connected user has a cellar
+        if ($user->hasCellar()) {
+            return redirect(route('cellar.index'))->withSuccess('Signed in');
+        } else {
+            return redirect(route('cellar.create'))->withSuccess('Signed in');
+        }
     }
 
     /**
