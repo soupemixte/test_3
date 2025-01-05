@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Cellar Show')
 @section('content')
-    <main class="cellar">
+    <main class="cellars">
         <h1>Cellar</h1>
         <article class="card_cellar">
             <div class="card-body">

@@ -43,12 +43,45 @@
   .header {
     font-size: 1.35em;
     padding: var(--spacing-medium);
-    height: 64px;
+    height: 128px;
   }
 
   .home {
-      padding: var(--spacing-medium);
+    padding: var(--spacing-medium);
+    height: var(--body-small);
   }
+
+  .cellars {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  .bottles {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  .login {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  .register {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  .edit {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  .create {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  
 
   .collection-info {
       flex-direction: row;
@@ -60,9 +93,9 @@
   }
 
   .navigation {
-      flex-direction: row;
-      justify-content: space-around;
-      height: 64px;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 128px;
   }
 
   .nav-button {

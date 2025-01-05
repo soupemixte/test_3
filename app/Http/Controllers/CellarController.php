@@ -71,7 +71,7 @@ class CellarController extends Controller
     public function update(Request $request, Cellar $cellar)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|max:255|unique:cellars',
             'description' => 'required|string',
         ]);
     

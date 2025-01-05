@@ -5,18 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
 
 class AuthController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -46,42 +37,19 @@ class AuthController extends Controller
         /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
         //Redirect regarding if the connected user has a cellar
         if ($user->hasCellar()) {
-            return redirect(route('cellar.index'))->withSuccess('Signed in');
+            $route = 'cellar.index';
         } else {
-            return redirect(route('cellar.create'))->withSuccess('Signed in');
+            $route = 'cellar.create';
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        return redirect(route($route))->withSuccess('Signed in');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
-        Session::flush();
+        //Session::flush();
         Auth::logout();
         return redirect(route('login'));
         
