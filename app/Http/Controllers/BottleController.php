@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bouteille;
+use App\Models\Bottle;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
-class BouteilleController extends Controller
+class BottleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class BouteilleController extends Controller
     public function index()
     {
         // Retrieve all bottles
-        $bottles = Bouteille::all();
-
+        $bottles = Bottle::select()
+            ->orderby('title')
+            ->paginate(10);
         // Pass the bottles to the view
         return view('bottle.index', compact('bottles'));
     }
@@ -23,7 +24,7 @@ class BouteilleController extends Controller
     public function details($id)
     {
         // Retrieve the specific bottle
-        $bottle = Bouteille::findOrFail($id);
+        $bottle = Bottle::findOrFail($id);
         // Pass the bottles to the view
         return view('bottle.details', compact('bottle'));
     }

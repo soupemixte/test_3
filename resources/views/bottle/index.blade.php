@@ -38,7 +38,6 @@
                         </div>
                     </article>
                 @endforeach
-            </div>
         @endif
         </section>
 </main>
