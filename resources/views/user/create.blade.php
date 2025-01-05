@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('title', 'Registration')
 @section('content')
+@if(!$errors->isEmpty())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>     
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>                
+@endif
 <main class="flex-center">
     <section class="structure flex-col-center height90 gap20">
         <form action="{{ route('user.store') }}" method="POST" class="form">
@@ -29,6 +39,15 @@
                 @if ($errors->has('password'))
                     <div class="form_input_error">
                         {{$errors->first('password')}}
+                    </div>
+                @endif
+            </div>
+            <div class="form-control">
+                <label for="password_confirm">Password Confirm</label>
+                <input type="password" id="password_confirmation" name="password_confirmation">
+                @if($errors->has('password_confirm'))
+                    <div class="form_input_error">
+                        {{$errors->first('password_confirm')}}
                     </div>
                 @endif
             </div>
