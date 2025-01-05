@@ -166,4 +166,10 @@ class BottleController extends Controller
                 'promoting_agent' => $promotingAgent,
             ];
         }
+
+        public function destroy() {
+            $delete = Bottle::truncate();
+
+            return view('welcome');
+        }
 }
