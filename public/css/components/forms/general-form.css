@@ -1,10 +1,11 @@
 :root {
     --label-color: #6b7384;
+    --general-form-bg: #f5f5f5;
 }
 /* Style général pour le formulaire */
 .form {
     width: 90%;
-    background-color: #f5f5f5;
+    background-color: var(--general-form-bg);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -26,7 +27,7 @@
 }
 
 /* Style pour les champs input, textarea et select */
-.form-control input[type="text"],
+.form-control input,
 .form-control textarea,
 .form-control select {
     padding: 10px;
@@ -68,6 +69,23 @@
     width: 100%;
 }
 
+
+/*form footer*/
+.form_footer {
+    background-color: var(--general-form-bg);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form_footer {
+    font-weight: bold;
+    color: var(--label-color);
+}
+
+.form_footer a {
+    text-decoration: none;
+    color: #555;
+}
 
 /* Grands écrans (ordinateurs de bureau) */
 

@@ -1,35 +1,10 @@
-/* Root variables for consistent spacing and colors */
-:root {
-    --color-primary: #32a852;
-    --color-secondary: #f4f4f4;
-    --color-gray: #6b7384;
-    --color-text: #333;
-    --color-accent: #ff5733;
-  
-    --font-family: 'Arial', sans-serif;
-    --font-size-base: 24px;
-    --spacing-small: 16px;
-    --spacing-medium: 24px;
-    --spacing-large: 32px;
-    --border-radius: 16px;
+@import url(typograpghy/typography.css);
+@import url(utils/utils.css);
+@import url(colors/colors.css);
+@import url(animation/animation.css);
 
-    --body-small: 1408px;
-  }
 
-/* General Reset */
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    font-family: var(--font);
+    padding: 0;
+    margin: 0;
 }
-
-body {
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--color-secondary);
-    line-height: 1.5;
-  }
-
-

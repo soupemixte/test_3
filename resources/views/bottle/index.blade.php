@@ -8,8 +8,8 @@
     subtitle="C'est ce dont nous sommes fiers" 
 /> -->
 
-<main class="bottles">    
-        <section class="grid">
+<main>    
+        <section class="grid mt-20 mb-10">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>
             @else
