@@ -17,7 +17,6 @@
         <div class="welcome-user">
              @auth
                 <p>Welcome, <span>{{ Auth::user()->name }}</span></p>
-                <a class="nav-link" href="{{ route('logout') }}">Logout</a>
              @endauth
         </div>
         <ul>
