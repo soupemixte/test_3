@@ -14,7 +14,7 @@
     
 
     <main class="flex-center">
-        <section class="structure flex-col-center height50 gap20">
+        <section class="structure flex-col-center height90 gap20">
             <form action="{{ route('user.store') }}" method="POST" class="form">
                 @csrf
                 <div class="form-control">

@@ -27,12 +27,13 @@
     <!-- Header -->
     <header class="header">
         <div class="logo">VINO</div>
-    </header>
-    <div class="test-session">
+        <div class="welcome-user">
              @auth
-                <p>Welcome, {{ Auth::user()->name }}</p>
+                <p>Welcome, <span>{{ Auth::user()->name }}</span></p>
              @endauth
-    </div>
+        </div>
+    </header>
+    
     @if(session('success'))
         <div class="">
             {{session('success')}}
@@ -43,10 +44,10 @@
     <!-- Navigation -->
     <!-- FIXME: if active navigation link is highlighted -->
     <nav class="navigation">
-      <button class="nav-button"><a href="/">Home</a></button>
-      <button class="nav-button"><a href="{{ route('cellar.index') }}">Collection</a></button>
-      <button class="nav-button"><a href="{{ route('bottle.index') }}">List</a></button>
-      <button class="nav-button"><a href="{{ route('login') }}">Login</a></button>
+      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image"></button> Celliers</a>
+      <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image"> Collection</a>
+      <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image"> List</a>
+      <a class="nav-link" href="{{ route('user.show') }}"> <img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">Profil</a>
     </nav>
 </body>
 

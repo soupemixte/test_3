@@ -33,6 +33,7 @@ Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('c
 // User Routes
 // Route::get('/users', [UserController::class, 'index'])->name('user.index');
 Route::get('/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/profile', [UserController::class, 'show'])->name('user.show');
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 // Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
