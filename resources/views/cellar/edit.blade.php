@@ -5,6 +5,8 @@
 <main class="edit">
     <section class="structure flex-col-center height70">   
         <form class="form" method="POST">
+            @csrf
+            @method('put')
             <div class="form-control">
                 <label for="title">Nom du Cellier</label>
                 <input type="text" name="title" value="{{ old('title', $cellar->title) }}" placeholder="Entrez le nom...">
