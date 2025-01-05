@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
     // Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
 });
 
+Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
+
 
 
 

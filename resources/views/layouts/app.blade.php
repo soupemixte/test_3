@@ -16,29 +16,32 @@
         <div class="logo">VINO</div>
         <div class="welcome-user">
              @auth
-                <p>Welcome, <span>{{ Auth::user()->name }}</span></p>
+                <p>@lang('lang.welcome'), <span>{{ Auth::user()->name }}</span></p>
                 @if(Auth::user()->isAdmin)
-                <button><a href="{{ route('bottle.delete') }}">Delete Bottles</a></button>
-                <button><a href="{{ route('bottle.scrape') }}">Scrape Bottles</a></button>
+                <button><a href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a></button>
+                <button><a href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a></button>
                 @endif
              @endauth
         </div>
         <ul>
             @guest
-                <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                <li><a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a></li>
             @else
-                <li><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+                <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
             @endguest
+            <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
+            <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a></li>
         </ul>
+
     </header>
     <!-- Content -->
     @yield('content')
     <!-- Navigation -->
     <nav class="navigation">
-      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image"> Celliers</a>
-      <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image"> Collection</a>
-      <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image"> List</a>
-      <a class="nav-link" href="{{ route('user.show') }}"> <img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">Profil</a>
+      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+      <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
+      <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
+      <a class="nav-link" href="{{ route('user.show') }}"> <img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.profile')</a>
     </nav>
 </body>
 </html>
