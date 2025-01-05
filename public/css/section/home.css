@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 1546px;
     padding: var(--spacing-large);
     /* padding-right: var(--spacing-large); */
 }

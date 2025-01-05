@@ -43,11 +43,17 @@
   .header {
     font-size: 1.35em;
     padding: var(--spacing-medium);
-    height: 64px;
+    height: 128px;
   }
 
   .home {
-      padding: var(--spacing-medium);
+    padding: var(--spacing-medium);
+    height: var(--body-small);
+  }
+
+  .cellars {
+    padding: var(--spacing-medium);
+    height: var(--body-small);
   }
 
   .collection-info {
@@ -60,9 +66,9 @@
   }
 
   .navigation {
-      flex-direction: row;
-      justify-content: space-around;
-      height: 64px;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 128px;
   }
 
   .nav-button {

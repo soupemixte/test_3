@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 // Bottle Route
-Route::get('/bottles', [BottleControllerr::class, 'index'])->name('bottle.index');
+Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
 Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
 Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
 
