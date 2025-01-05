@@ -34,6 +34,14 @@ class User extends Authenticatable
         return Cellar::where('user_id', $this->id)->exists();
      }
 
+     /**
+      * Has many cellars
+      */
+     public function cellars()
+    {
+        return $this->hasMany(Cellar::class);
+    }
+
     
 
     /**

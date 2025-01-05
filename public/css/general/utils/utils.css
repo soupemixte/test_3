@@ -40,6 +40,14 @@
     height: 100dvh;
 }
 
+/*jusitfy*/
+.just-right {
+    justify-content: right;
+}
+.just-left {
+    justify-content: left;
+}
+
 
 
 .flex-col-center {

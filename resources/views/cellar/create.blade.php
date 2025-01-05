@@ -8,8 +8,8 @@
     subtitle="Votre collection est votre vie" 
 /> -->
 
-<main>
-    <section class="structure flex-col-center height70">   
+<main class="flex-center">
+    <section class="structure flex-col-center height80">   
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf
             <div class="form-control">
