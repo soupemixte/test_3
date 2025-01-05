@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
     
-        return redirect(route('user.index'))->withSuccess('User created successfully!');
+       // return redirect(route('user.index'))->withSuccess('User created successfully!');
     }
 
     /**

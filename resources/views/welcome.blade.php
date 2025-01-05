@@ -3,6 +3,7 @@
 @section('content')
 <article class="intro-box flex-col-center gap20 height100">
     <header>
+    {{ session('user') }}
         <h1>Bienvenue sur l'application Vino</h1>
     </header>
     <p>Application de gestion de votre cellier</p>

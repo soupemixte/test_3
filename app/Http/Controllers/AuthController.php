@@ -21,6 +21,8 @@ class AuthController extends Controller
      */
     public function create()
     {
+
+        
         return view('auth.create');
     }
 
@@ -41,7 +43,12 @@ class AuthController extends Controller
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-        return redirect()->intended(route('task.index'))->withSuccess('Signed in');
+
+        echo $user;
+        $request->session()->put('user', $user);
+        return redirect()->intended(route('welcome'))->withSuccess('Signed in');
+      //  die();
+     //   return redirect()->intended(route('task.index'))->withSuccess('Signed in');
     }
 
     /**
@@ -71,8 +78,10 @@ class AuthController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy()
     {
+
+        //string $id
         Session::flush();
         Auth::logout();
         return redirect(route('login'));
