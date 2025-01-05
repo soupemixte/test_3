@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <meta name="author" content="John Doe">
+    <meta name="author" content="Mateo">
+    <meta name="author" content="Dionis">
     <script type="module" src="{{ asset('js/main.js')}}" defer></script>
-    <title>@yield('title')</title>
+    <title>{{ config('app.name') }} - @yield('title')</title>
     <!-- <style>
         nav {
             height: 100px;
@@ -33,14 +34,20 @@
                 <a class="nav-link" href="{{ route('logout') }}">Logout</a>
              @endauth
         </div>
+        <ul>
+            @guest
+                <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+            @else
+                <li><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+            @endguest
+        </ul>
     </header>
-    
-    @if(session('success'))
+    <!-- @if(session('success'))
         <div class="">
             {{session('success')}}
             <a class="nav-link" href="{{ route('logout') }}">Logout</a>
         </div>
-    @endif
+    @endif -->
     @yield('content')
 
     <!-- Navigation -->
