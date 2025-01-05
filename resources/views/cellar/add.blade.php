@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Ajouter la bouteille')
 @section('content')
-
-<!-- <x-header 
-    image="{{ asset('img/header/cave.jpeg') }}" 
-    title="Ajouter la bouteille" 
-    subtitle="Votre collection est votre vie" 
-/> -->
-
 <main class="flex-center">
     <section class="structure flex-col-center height80">   
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">

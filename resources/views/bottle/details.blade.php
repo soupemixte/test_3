@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Détails')
 @section('content')
-
-<!-- <x-header 
-    image="{{ asset('img/header/header.jpg') }}" 
-    title="Découvrez notre collection" 
-    subtitle="C'est ce dont nous sommes fiers" 
-/> -->
-
 <main class="flex-center height80">
     <section class="structure flex-col mt-20 gap20">
         <article class="details-article">

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Create Cellar')
 @section('content')
-
 <main class="edit">
     <section class="structure flex-col-center height70">   
         <form class="form" method="POST">

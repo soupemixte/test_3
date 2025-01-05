@@ -23,15 +23,8 @@
                         <tr>
                             <th scope="row">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
-                            <td>
-                                <ul>
-                                    @forelse($user->tasks as $task)
-                                    <li>{{$task->title}}</li>
-                                    @empty
-                                    <li class="text-danger"> There are no tasks to list</li>
-                                    @endforelse
-                                </ul>
-                            </td>
+                            <!-- list of cellars -->
+                            <!-- list of bottles -->
                             <td>
                                 <a href="{{route('user.edit', $user->id)}}"class="btn btn-sm btn-outline-success">Edit</a>
                             </td>
