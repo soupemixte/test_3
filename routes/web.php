@@ -6,7 +6,6 @@ use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
-// use App\Http\Controllers\SetLocaleController; Locale language
 
 
 Route::get('/', function () {
