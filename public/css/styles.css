@@ -5,11 +5,12 @@
 @import url(./components/cards.css);
 @import url(./components/buttons.css);
 @import url(./components/header.css); 
-@import url(./components/footer.css);  
+@import url(./components/footer.css); 
 @import url(./section/bottles.css);
 @import url(./section/home.css);
 @import url(./section/cellar.css);
 @import url(./section/login.css);
+@import url(./components/form.css); 
 @import url(./section/register.css);
 @import url(./section/grid.css);
 

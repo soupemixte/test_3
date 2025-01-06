@@ -17,7 +17,7 @@
 <main class="login">        
     <section>
         <h2 class="section-title">@lang('lang.login')</h2>
-        <div class="login_form">
+        <div class="form">
         <form method="POST">
             @csrf
             <div class="mb-3">

@@ -24,10 +24,7 @@ return [
     'user' => 'User',
     'user_new' => 'New User',
     'user_list' => 'Users List',
-    'register' => 'Register User Form',
-    'registration' => 'Registered',
-    'register_question' => 'Don\'t have an account ?',
-    'register_subtitle' => 'Create an account',
+    
     'user_card' => 'User card',
     'user_name' => 'Name',
     'username' => 'Username',
@@ -43,8 +40,10 @@ return [
     'login_pass' => 'Password',
     'login_sub' => 'Connect to your account.',
     /*Registration */
-    
-    'register' => 'Register',
+    'register' => 'Register User Form',
+    'registration' => 'Registered',
+    'register_question' => 'Don\'t have an account ?',
+    'register_subtitle' => 'Create an account',
     /* Rights */
     'rights' => 'All Rights Reserved.',
 ]
