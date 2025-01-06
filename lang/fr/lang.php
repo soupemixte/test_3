@@ -16,7 +16,7 @@ return [
     'cellar' => 'Cellier',
     'cellars' => 'Celliers',
     'bottle' => 'Bouteille',
-    'bottles' => 'Bouteille',
+    'bottles' => 'Bouteilles',
     /* Welcome */
     'welcome' => 'Bienvenue',
     /* Users */

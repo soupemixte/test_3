@@ -17,8 +17,11 @@
             <ul>
             @auth
                 @if(Auth::user()->isAdmin)
-                <li><a href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a></li>
-                <li><a href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a></li>
+                <li>@lang('lang.bottles')
+                    <ul>
+                        <li><a href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a></li>
+                        <li><a href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a></li>
+                    </ul></li>
                 @endif
             @endauth
             @guest
@@ -26,13 +29,12 @@
             @else
                 <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
             @endguest
-            <li>
-            @lang('lang.lang')
-            <ul>
-                <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>
-                <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a></li>
+                <li>@lang('lang.lang')
+                    <ul>
+                        <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>
+                        <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a></li>
+                    </ul></li>
             </ul>
-        </ul>
         </nav>
 
         
