@@ -31,20 +31,7 @@
     --box-size-med-large: 128px;
   }
 
-/* General Reset */
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    font-family: var(--font-family);
-}
-
-html, body {
-  margin: 0;
-  height: 100%;
-}
-
-
+/* Body CSS */
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);

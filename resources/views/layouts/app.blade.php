@@ -18,8 +18,8 @@
     @yield('content')
     <!-- Navigation -->
     <footer>
-        <nav>
-            <ul>
+        <nav class="mobile-fixed-footer">
+            <ul class="navigation">
             @auth
                 @if(Auth::user()->isAdmin)
                 <li>@lang('lang.bottles')

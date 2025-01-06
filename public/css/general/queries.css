@@ -1,14 +1,6 @@
 
-body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  color: var(--color-text);
-  background-color: var(--color-secondary);
-  line-height: 1.5;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
+
 
 
 /* Media Queries */
@@ -32,10 +24,7 @@ body {
     font-size: 0.875em;
   }
 
-  /* .navigation {
-    flex-direction: column;
-    align-items: center;
-  }
+  /*
 
   .nav-button {
     margin-bottom: var(--spacing-small);
