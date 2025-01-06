@@ -26,6 +26,7 @@ return [
     'user_list' => 'Users List',
     'register' => 'Register User Form',
     'registration' => 'Registration',
+    'register_subtitle' => 'Create an account',
     'user_card' => 'User card',
     'user_name' => 'Name',
     'username' => 'Username',
@@ -37,8 +38,12 @@ return [
     'lang_fr' => 'French',
     /* Login */
     'login' => 'Login',
+    'login_subtitle' => 'Connect to your account',
     'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Logout',
+    /*Registration */
+    
+    'register' => 'Register',
     /* Rights */
     'rights' => 'All Rights Reserved.',
 ]

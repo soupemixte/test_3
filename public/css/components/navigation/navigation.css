@@ -1,3 +1,4 @@
+@import url(languages.css);
 /* Navigation */
 :root {
     --nav-bg: gray;
@@ -43,3 +44,5 @@
     color: var(--color-primary);
     font-weight: bold;
 }
+
+

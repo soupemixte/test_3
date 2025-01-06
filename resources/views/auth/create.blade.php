@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
+
 @if(!$errors->isEmpty())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
@@ -10,6 +11,7 @@
         </ul>     
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
+
     @endif  
 <main class="login">        
     <section>
@@ -32,5 +34,6 @@
         </div>
         </div>
     </section>
+
 </main>
 @endsection

@@ -25,7 +25,8 @@ return [
     'user_new' => ' ',
     'user_list' => ' ',
     'register' => '  ',
-    'registration' => '',
+    'registration' => 'Enregistré',
+    'register_subtitle' => 'Créer un compte',
     'user_card' => ' ',
     'user_name' => '',
     'username' => '',
@@ -37,6 +38,7 @@ return [
     'lang_fr' => 'Francais',
     /* Login */
     'login' => 'Connexion',
+    'login_subtitle' => 'Connectez-vous à votre compte',
     'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Deconnexion',
     /* Rights */

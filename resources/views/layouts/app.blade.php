@@ -34,6 +34,7 @@
             @else
                 <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
             @endguest
+
                 <li>@lang('lang.lang')
                 <ul class="dropdown hidden">
                     <li><a class="" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>
@@ -42,6 +43,7 @@
             </ul>
         </nav>
     </footer>
+
 
 </body>
 </html>
