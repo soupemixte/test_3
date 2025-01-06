@@ -21,8 +21,10 @@
             <form action="{{ route('cellar.store') }}" method="POST">
                 @csrf
                 <div class="mb-3 col">
-                    <label for="title">@lang('lang.cellar_name')</label>
-                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">
+                    <div class="row">
+                        <label for="title">@lang('lang.cellar_name')</label>
+                        <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">
+                    </div>
                     @if ($errors->has('title'))
                         <div class="alert_msg">
                             <p>
@@ -32,8 +34,10 @@
                     @endif
                 </div>
                 <div class="mb-3 col">
-                    <label for="description">@lang('lang.cellar_desc')</label>
-                    <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
+                    <div class="row">
+                        <label for="description">@lang('lang.cellar_desc')</label>
+                        <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
+                    </div>
                     @if ($errors->has('description'))
                         <div class="alert_msg">
                             <p>

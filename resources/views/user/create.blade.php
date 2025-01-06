@@ -20,38 +20,46 @@
        
         <form action="{{ route('user.store') }}" method="POST">
             @csrf
-            <div class="mb-3">
-                <label for="name">@lang('lang.user_name')</label>
-                <input type="text" id="name" name="name" value="{{old('name')}}">
+            <div class="mb-3 col">
+                <div class="row">
+                    <label for="name">@lang('lang.user_name')</label>
+                    <input type="text" id="name" name="name" value="{{old('name')}}">
+                </div>
                 @if ($errors->has('name'))
-                    <div class="form_input_error">
+                    <div class="alert_msg">
                         {{$errors->first('name')}}
                     </div>
                 @endif
             </div>
-            <div class="mb-3">
-                <label for="email">@lang('lang.username')</label>
-                <input type="text" id="username" name="email"  value="{{old('email')}}">
+            <div class="mb-3 col">
+                <div class="row">
+                    <label for="email">@lang('lang.username')</label>
+                    <input type="text" id="username" name="email"  value="{{old('email')}}">
+                </div>
                 @if ($errors->has('email'))
-                    <div class="form_input_error">
+                    <div class="alert_msg">
                         {{$errors->first('email')}}
                     </div>
                 @endif
             </div>
-            <div class="mb-3">
-                <label for="password">@lang('lang.password')</label>
-                <input type="password" id="password" name="password">
+            <div class="mb-3 col">
+                <div class="row">
+                    <label for="password">@lang('lang.password')</label>
+                    <input type="password" id="password" name="password">
+                </div>
                 @if ($errors->has('password'))
-                    <div class="form_input_error">
+                    <div class="alert_msg">
                         {{$errors->first('password')}}
                     </div>
                 @endif
             </div>
             <div class="mb-3 col">
-                <label for="password_confirm">@lang('lang.password_confirm')</label>
-                <input type="password" id="password_confirmation" name="password_confirmation">
+                <div class="row">
+                    <label for="password_confirm">@lang('lang.password_confirm')</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation">
+                </div>
                 @if($errors->has('password_confirm'))
-                    <div class="form_input_error">
+                    <div class="alert_msg">
                         {{$errors->first('password_confirm')}}
                     </div>
                 @endif

@@ -2,6 +2,20 @@ form {
     background-color: var(--color-white);
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-med);
+}
+
+.form > form {
+    min-width: var(--box-size-x-large);
+    padding: var(--spacing-med);
+    border: var(--border-weight-small) solid var(--color-black);
+    border-radius: var(--border-radius-small);
+}
+
 .alert_msg {
     background-color: var(--color-alert);
     color: var(--color-white);
@@ -11,17 +25,13 @@ form {
     border-radius: var(--border-radius-x-small);
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-med);
-}
+
 
 .mb-3 {
-
-
+    display: flex;
+    justify-content: space-between;
     gap: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
 
 }
 
@@ -30,7 +40,12 @@ form {
     flex-direction: column;
     justify-content: space-between;
     gap: var(--spacing-small);
-    margin-bottom: var(--spacing-med);
+    /* margin-bottom: var(--spacing-med); */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
 }
 
 .mb-3 > label {
@@ -46,12 +61,7 @@ form {
 
 }
 
-.form > form {
-    min-width: var(--box-size-x-large);
-    padding: var(--spacing-med);
-    border: var(--border-weight-small) solid var(--color-black);
-    border-radius: var(--border-radius-small);
-}
+
 
 .new_member {
     text-decoration: underline;

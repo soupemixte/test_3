@@ -2,7 +2,7 @@
 @section('title', 'Login')
 @section('content')
 
-@if(!$errors->isEmpty())
+<!-- @if(!$errors->isEmpty())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
             @foreach($errors->all() as $error)
@@ -12,7 +12,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
 
-@endif  
+@endif   -->
 
 <main class="login">        
     <section>
@@ -20,13 +20,31 @@
         <div class="form">
         <form method="POST">
             @csrf
-            <div class="mb-3">
-                <label for="username" class="form-label">@lang('lang.login_user')</label>
+            <div class="mb-3 col">
+                <div class="row">
+                    <label for="username" class="form-label">@lang('lang.login_user')</label>
                     <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
                 </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">@lang('lang.login_pass')</label>
-                <input type="password" class="form-control" id="password" name="password">
+                @if ($errors->has('email'))
+                    <div class="alert_msg">
+                        <p>
+                            {{$errors->first('email')}}
+                        </p>
+                    </div>
+                @endif
+            </div>
+            <div class="mb-3 col">
+                <div class="row">
+                    <label for="password" class="form-label">@lang('lang.login_pass')</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                @if ($errors->has('password'))
+                    <div class="alert_msg">
+                        <p>
+                            {{$errors->first('password')}}
+                        </p>
+                    </div>
+                @endif
             </div>
             <div class="mb-3">
                 <p>@lang('lang.login_sub')</p>
