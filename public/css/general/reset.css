@@ -14,3 +14,8 @@ ul, li {
    text-indent: 0;
    list-style-type: none;
 }
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}

@@ -1,5 +1,7 @@
 
-
+.hidden {
+  display: none;
+}
 
 
 
@@ -20,9 +22,6 @@
     align-items: flex-start;
   }
 
-  .btn {
-    font-size: 0.875em;
-  }
 
   /*
 

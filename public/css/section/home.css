@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    min-height: fit-content;
 }
 
 .collection {
@@ -11,29 +11,70 @@
   }
 
 .section-title {
-    font-size: 1.25em;
-    margin-bottom: var(--spacing-medium);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-title);
+    margin-bottom: var(--spacing-large);
+    text-align: center;
 }
 
 .collection-info {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: var(--spacing-medium);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+    gap: var(--spacing-med-large);
 }
 
-.info-box {
+/* .collection-info > div {
+    background: var(--color-gray);
+    padding: var(--spacing-med);
+    border-radius: var(--border-radius);
+    min-height: var(--box-size-med-large);
+    min-width: var(--box-size-mega);
+} */
+
+.cellars, .stuff {
+    font-size: var(--font-size-button);
+}
+
+.cellars {
+   width: 100%;
+   display: flex;
+   gap: var(--spacing-med);
+}
+
+.stuff {
+    background: var(--color-gray);
+    padding: var(--spacing-med);
+    border-radius: var(--border-radius);
+    min-height: var(--box-size-med-large);
+    min-width: var(--box-size-mega);
+    border: var(--border-weight-med) solid var(--color-black);
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+}
+
+.my_cellar {
+    background: var(--color-gray);
+    padding: var(--spacing-med);
+    border-radius: var(--border-radius);
+    min-height: var(--box-size-med-large);
+    min-width: var(--box-size-mega);
+    border: var(--border-weight-med) solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.add_bottles {
+
 }
 
 .info-title {
-    font-weight: bold;
+    font-weight: var(--font-weight-base);
 }
 
 .info-count {
-    color: var(--color-primary);
+    font-weight: var(--font-weight-light);
 }

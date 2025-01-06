@@ -4,11 +4,17 @@
     padding-top: var(--spacing-med);
     min-height: var(--box-size-med-large);
     border-top: var(--border-weight-med) solid var(--color-black);
-  
-    & .navigation {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-  }
+    /* font-size: var(--font-size-base); */
+    
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navigation > li {
+  font-size: var(--font-size-base);
+}
