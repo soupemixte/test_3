@@ -16,7 +16,7 @@ return [
     'cellar' => 'Cellier',
     'cellars' => 'Celliers',
     'bottle' => 'Bouteille',
-    'bottles' => 'Bouteille',
+    'bottles' => 'Bouteilles',
     /* Welcome */
     'welcome' => 'Bienvenue',
     /* Users */
@@ -33,9 +33,9 @@ return [
     'password' => '',
     'password_confirm' => 'Please confirm your Password',
     /* Language */
-    'language' => 'Langue',
-    'language_en' => 'Anglais',
-    'language_fr' => 'Francais',
+    'lang' => 'Langue',
+    'lang_en' => 'Anglais',
+    'lang_fr' => 'Francais',
     /* Login */
     'login' => 'Connexion',
     'login_subtitle' => 'Connectez-vous à votre compte',

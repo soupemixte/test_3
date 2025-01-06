@@ -33,9 +33,9 @@ return [
     'password' => 'Password',
     'password_confirm' => 'Please confirm your Password',
     /* Language */
-    'language' => 'Language',
-    'language_en' => 'English',
-    'language_fr' => 'French',
+    'lang' => 'Language',
+    'lang_en' => 'English',
+    'lang_fr' => 'French',
     /* Login */
     'login' => 'Login',
     'login_subtitle' => 'Connect to your account',

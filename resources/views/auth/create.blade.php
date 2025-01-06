@@ -11,36 +11,29 @@
         </ul>     
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
-@endif          
 
-<!--composant pour donner le titre et le sous-titre à la page-->
-<x-header 
-         title="{{ __('lang.login') }}"
-        subtitle="{{ __('lang.login_subtitle') }}"
-/>
-
-<main class="flex-center"> 
-    <div class="structure flex-col-center height60 gap20">
-      
-            <div class="card">
-                <div class="card-body">
-                    <form  method="POST" class="form">
-                        @csrf
-                        <div class="form-control">
-                            <label for="username" >Username</label>
-                                <input type="text" id="username" name="email"  value="{{old('email')}}">
-                            </div>
-                        <div class="form-control">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
-                    </form>
-                    <footer class="form_footer">
-                        <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
-                    </footer>
+    @endif  
+<main class="login">        
+    <section>
+        <h2 class="section-title">Authentification</h2>
+        <div class="login_form">
+        <form method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
                 </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
             </div>
-    </div>
+            <button type="submit" class="login_btn">Login</button>
+            </form>
+        <div>
+            <p>Pas encore membre ? <a href="{{ route('user.create') }}" class="new_member">Créer un compte</a></p>
+        </div>
+        </div>
+    </section>
+
 </main>
 @endsection
