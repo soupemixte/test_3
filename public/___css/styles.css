@@ -1,0 +1,18 @@
+@import url(./general/reset.css);
+@import url(./general/general.css);
+/* IMPORTS */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
+@import url(./components/cards.css);
+@import url(./components/buttons.css);
+@import url(./components/header.css); 
+@import url(./components/footer.css);  
+@import url(./section/bottles.css);
+@import url(./section/home.css);
+@import url(./section/login.css);
+@import url(./section/register.css);
+@import url(./section/grid.css);
+
+@import url(./general/queries.css);
+
+
+
