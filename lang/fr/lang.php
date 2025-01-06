@@ -32,9 +32,9 @@ return [
     'password' => '',
     'password_confirm' => 'Please confirm your Password',
     /* Language */
-    'language' => 'Langue',
-    'language_en' => 'Anglais',
-    'language_fr' => 'Francais',
+    'lang' => 'Langue',
+    'lang_en' => 'Anglais',
+    'lang_fr' => 'Francais',
     /* Login */
     'login' => 'Connexion',
     'login_failed_message' => 'Please log in to continue.',
