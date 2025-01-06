@@ -34,7 +34,7 @@
             @else
                 <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
             @endguest
-
+                <li><a href="{{ route('cellar.index') }}" class="nav-link">@lang('lang.cellars')</a></li>
                 <li>@lang('lang.lang')
                 <ul class="dropdown">
                     <li><a class="" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>

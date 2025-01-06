@@ -12,6 +12,7 @@
     --color-alert: #FF0000;
   
     --font-family: 'Arial', sans-serif;
+    --font-size-small: 12px;
     --font-size-base: 36px;
     --font-size-button: 48px;
     --font-size-title: 54px;
@@ -21,6 +22,7 @@
     --font-weight-title: bolder;
     --font-weight-light: lighter;
 
+    --spacing-x-small: 4px;
     --spacing-small: 8px;
     --spacing-med: 16px;
     --spacing-med-large: 36px;

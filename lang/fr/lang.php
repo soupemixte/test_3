@@ -13,8 +13,12 @@ return [
     'close' => 'Fermer',
     'view' => 'Voir',
     'save' => 'Sauvegarder',
+    /* Cellars */
     'cellar' => 'Cellier',
     'cellars' => 'Celliers',
+    'cellar_name' => 'Nom du Cellier',
+    'cellar_desc' => 'Description du Cellier',
+    'cellar_create' => 'Créer votre Cellier',
     'bottle' => 'Bouteille',
     'bottles' => 'Bouteilles',
     /* Welcome */

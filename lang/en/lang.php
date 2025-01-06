@@ -13,8 +13,12 @@ return [
     'close' => 'Close',
     'view' => 'View',
     'save' => 'Save',
+    /* Cellars */
     'cellar' => 'Cellar',
     'cellars' => 'Cellars',
+    'cellar_name' => 'Cellar name',
+    'cellar_desc' => 'Cellar Description',
+    'cellar_create' => 'Create your Cellar',
     'bottle' => 'Bottle',
     'bottles' => 'Bottles',
     /* Welcome */

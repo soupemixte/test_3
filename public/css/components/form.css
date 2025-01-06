@@ -1,3 +1,16 @@
+form {
+    background-color: var(--color-white);
+}
+
+.alert_msg {
+    background-color: var(--color-alert);
+    color: var(--color-white);
+    font-size: var(--font-size-small);
+    padding: var(--spacing-x-small);
+    /* border: var(--border-weight-small) solid var(--color-black); */
+    border-radius: var(--border-radius-x-small);
+}
+
 .form {
     display: flex;
     flex-direction: column;
@@ -6,10 +19,10 @@
 }
 
 .mb-3 {
-    display: flex;
-    justify-content: space-between;
+
+
     gap: var(--spacing-small);
-    margin-bottom: var(--spacing-med);
+
 }
 
 .col {
@@ -26,6 +39,11 @@
 
 .mb-3 > input {
     border-radius: var(--border-radius-x-small);
+}
+
+.mb3 > textarea {
+    border-radius: var(--border-radius-x-small);
+
 }
 
 .form > form {
