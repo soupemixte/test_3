@@ -24,8 +24,9 @@ return [
     'user' => '',
     'user_new' => ' ',
     'user_list' => ' ',
-    'register' => '  ',
+    'register' => 'Créer votre compte',
     'registration' => 'Enregistré',
+    'register_question' => 'Pas encore membre ?',
     'register_subtitle' => 'Créer un compte',
     'user_card' => ' ',
     'user_name' => '',
@@ -38,7 +39,10 @@ return [
     'lang_fr' => 'Francais',
     /* Login */
     'login' => 'Connexion',
-    'login_subtitle' => 'Connectez-vous à votre compte',
+    'login_user' => 'Nom d\'usager',
+    'login_pass' => 'Mot de passe',
+    'login_sub' => 'Connectez-vous à votre compte.',
+    '',
     'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Deconnexion',
     /* Rights */

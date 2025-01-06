@@ -1,7 +1,20 @@
 @extends('layouts.app')
 @section('title', 'Create Cellar')
 @section('content')
-<main class="flex-center">
+
+@if(!$errors->isEmpty())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>     
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>                
+
+@endif  
+
+<main class="cellar">
     <section class="structure flex-col-center height80">   
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf

@@ -36,7 +36,7 @@
             @endguest
 
                 <li>@lang('lang.lang')
-                <ul class="dropdown hidden">
+                <ul class="dropdown">
                     <li><a class="" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>
                     <li><a class="" href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a></li>
                 </ul></li>
