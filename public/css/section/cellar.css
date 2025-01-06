@@ -1,6 +1,10 @@
 .cellar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     min-height: fit-content;
+}
+
+.cellar_btn {
+    min-height: var(--box-size-small);
+    width: 100%;
+    border: var(--border-weight-small) solid var(--color-primary);
+    border-radius: var(--border-radius-small);
 }

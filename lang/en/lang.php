@@ -42,6 +42,7 @@ return [
     'login_sub' => 'Connect to your account.',
     /*Registration */
     'register' => 'Register User Form',
+    'register_cellar' => 'Register your Cellar',
     'registration' => 'Registered',
     'register_question' => 'Don\'t have an account ?',
     'register_subtitle' => 'Create an account',

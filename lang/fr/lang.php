@@ -41,6 +41,7 @@ return [
     'login_sub' => 'Connectez-vous à votre compte.',
     /*Registration */
     'register' => 'Créer votre compte',
+    'register_cellar' => 'Créer votre Cellier',
     'registration' => 'Enregistré',
     'register_question' => 'Pas encore membre ?',
     'register_subtitle' => 'Créer un compte',

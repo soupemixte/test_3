@@ -15,29 +15,32 @@
 @endif  
 
 <main class="cellar">
-    <section class="structure flex-col-center height80">   
-        <form class="form" action="{{ route('cellar.store') }}" method="POST">
-            @csrf
-            <div class="form-control">
-                <label for="title">Nom du Cellier</label>
-                <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">
-                @if ($errors->has('title'))
-                    <div class="">
-                        {{$errors->first('title')}}
-                    </div>
-                @endif
-            </div>
-            <div class="form-control">
-                <label for="description">Description du Cellier</label>
-                <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
-                @if ($errors->has('description'))
-                    <div class="">
-                        {{$errors->first('description')}}
-                    </div>
-                @endif
-            </div>
-            <button type="submit" class="btn-border">Créer le Cellier</button>
-        </form>
+    <section>
+        <h2 class="section-title">@lang('lang.register_cellar')</h2>
+        <div class="form">
+            <form action="{{ route('cellar.store') }}" method="POST">
+                @csrf
+                <div class="mb-3 col">
+                    <label for="title">Nom du Cellier</label>
+                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">
+                    @if ($errors->has('title'))
+                        <div class="">
+                            {{$errors->first('title')}}
+                        </div>
+                    @endif
+                </div>
+                <div class="mb-3 col">
+                    <label for="description">Description du Cellier</label>
+                    <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
+                    @if ($errors->has('description'))
+                        <div class="">
+                            {{$errors->first('description')}}
+                        </div>
+                    @endif
+                </div>
+                <button type="submit" class="cellar_btn">Créer le Cellier</button>
+            </form>
+        </div>   
     </section>
 </main>
 
