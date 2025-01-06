@@ -37,6 +37,7 @@
 
 .new_member {
     text-decoration: underline;
+    color: var(--color-blue);
 }
 
 .register_btn {

@@ -36,6 +36,7 @@ return [
     'lang_fr' => 'French',
     /* Login */
     'login' => 'Login',
+    'logout' => 'Logout',
     'login_user' => 'Username',
     'login_pass' => 'Password',
     'login_sub' => 'Connect to your account.',
