@@ -29,8 +29,17 @@
             @else
                 <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
             @endguest
-            <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
-            <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a></li>
+            <!-- <ul class="nav_dropdown">
+                <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
+                <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a></li>
+            </ul> -->
+            <div class="dropdown">
+                <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
+                <div class="dropdown-box">
+                    <a href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a>
+                    <a href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a>
+                </div>
+            </div>
         </ul>
 
     </header>
