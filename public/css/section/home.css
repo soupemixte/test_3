@@ -3,8 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: var(--spacing-large);
-    /* padding-right: var(--spacing-large); */
+
 }
 
 .collection {

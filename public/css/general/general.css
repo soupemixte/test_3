@@ -1,17 +1,31 @@
 /* Root variables for consistent spacing and colors */
 :root {
-    --color-primary: #32a852;
+    --color-primary: #52CE65;
     --color-secondary: #f4f4f4;
-    --color-gray: #6b7384;
-    --color-text: #333;
+    --color-gray: #B2B3B4;
+    --color-gray-light: #DDDDDD;
+    --color-black: #000000;
+    --color-text: #000000;
     --color-accent: #ff5733;
+    --color-alert: #FF0000;
   
     --font-family: 'Arial', sans-serif;
     --font-size-base: 16px;
+    --font-size-button: 26px;
+    --font-size-title: 36px;
+    --font-weight-base: bold;
+    --font-weight-button: normal;
+    --font-weight-title: bolder;
+    --font-weight-light: lighter;
+
     --spacing-small: 8px;
     --spacing-medium: 16px;
     --spacing-large: 24px;
-    --border-radius: 8px;
+
+
+    --border-radius: 16px;
+    --border-weight-small: 1px;
+    --border-weight-medium: 2px;
   }
 
 /* General Reset */
@@ -19,17 +33,8 @@
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    font-family: var(--font);
+    font-family: var(--font-family);
 }
 
-body {
-    /* margin: 0; */
-    /* height: 1600px; */
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-    background-color: var(--color-secondary);
-    line-height: 1.5;
-  }
 
 
