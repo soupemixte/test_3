@@ -3,42 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <meta name="author" content="John Doe">
+    <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
+    <meta name="author" content="Equipe #1">
     <script type="module" src="{{ asset('js/main.js')}}" defer></script>
-    <title>@yield('title')</title>
-    <!-- <style>
-        nav {
-            height: 100px;
-            display: block;
-            position: absolute;
-        }
-    </style> -->
+    <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body>
-    <!-- <header>
-        <nav>
-            <ul>
-                <li><a href="{{ route('user.create') }}"></a></li>
+    <!-- Header -->
+    <header>
+        <div class="logo"><h1>VINO</h1></div>
+    </header>
+    <!-- Content -->
+    @yield('content')
+    <!-- Navigation -->
+    <footer>
+        <nav class="mobile-fixed-footer">
+            <ul class="navigation">
+            @auth
+                @if(Auth::user()->isAdmin)
+                <li>@lang('lang.bottles')
+                <ul class="dropdown">
+                    <li><a href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a></li>
+                    <li><a href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a></li>
+                </ul></li>
+                @endif
+            @endauth
+            @guest
+                <li><a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a></li>
+            @else
+                <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
+            @endguest
+
+                <li>@lang('lang.lang')
+                <ul class="dropdown hidden">
+                    <li><a class="" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>
+                    <li><a class="" href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a></li>
+                </ul></li>
             </ul>
         </nav>
-    </header> -->
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">VINO</div>
-    </header>
-    @yield('content')
+    </footer>
 
-    <!-- Navigation -->
-    <!-- FIXME: if active navigation link is highlighted -->
-    <nav class="navigation">
-      <button class="nav-button"><a href="/">Home</a></button>
-      <button class="nav-button">Collection</button>
-      <button class="nav-button"><a href="{{ route('bottle.index') }}">List</a></button>
-      <button class="nav-button"><a href="{{ route('login') }}">Login</a></button>
-    </nav>
+
 </body>
-
-
 </html>

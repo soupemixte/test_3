@@ -9,14 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -43,6 +35,15 @@ class AuthController extends Controller
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
+        /* return redirect(route('user.index'))->withSuccess('Signed in'); */
+        /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
+        //Redirect regarding if the connected user has a cellar
+        if ($user->hasCellar()) {
+            $route = 'cellar.index';
+        } else {
+            $route = 'cellar.create';
+        }
+        return redirect(route($route))->withSuccess('Signed in');
 
         echo $user;
         $request->session()->put('user', $user);
@@ -80,9 +81,7 @@ class AuthController extends Controller
      */
     public function destroy()
     {
-
-        //string $id
-        Session::flush();
+        //Session::flush();
         Auth::logout();
         return redirect(route('login'));
         

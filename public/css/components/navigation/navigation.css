@@ -1,0 +1,48 @@
+@import url(languages.css);
+/* Navigation */
+:root {
+    --nav-bg: gray;
+    --nav-color: white;
+}
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    /* padding: var(--spacing-medium);
+    Add the var padding
+    */
+    padding: 20px;
+    background-color: var(--nav-bg);
+    border-top: 1px solid #ccc;
+}
+
+/* .nav-button {
+    background: none;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    color: var(--color-text);
+} */
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*the icon*/
+.nav-link img {
+    width: 60px;
+}
+
+
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-color);
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+

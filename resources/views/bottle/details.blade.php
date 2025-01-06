@@ -1,15 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Détails')
 @section('content')
-
-<!-- <x-header 
-    image="{{ asset('img/header/header.jpg') }}" 
-    title="Découvrez notre collection" 
-    subtitle="C'est ce dont nous sommes fiers" 
-/> -->
-
-<main class="flex-center">
-    <section class="structure flex-col gap20">
+<main class="flex-center height80">
+    <section class="structure flex-col mt-20 gap20">
         <article class="details-article">
             <picture class="details-image_container">
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
@@ -52,6 +45,7 @@
                 <input type="text" value="1">
                 <button id="">+</button> -->    
             </div>
+            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">Ajouter au cellier</a>
 <!-- <a href="" class="btn btn-border">Ajouter au cellier</a> -->
         </article>
 

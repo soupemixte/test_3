@@ -1,9 +1,0 @@
-/* Header */
-.header {
-    height: 64px;
-    background-color: var(--color-primary);
-    color: white;
-    padding: var(--spacing-medium);
-    text-align: center;
-    font-size: 1.5em;
-}

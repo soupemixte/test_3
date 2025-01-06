@@ -23,6 +23,27 @@ class User extends Authenticatable
         'password',
     ];
 
+
+    /**
+     * Check if the connected user has any cellars
+     * 
+     * @return bool
+     */
+
+     public function hasCellar() {
+        return Cellar::where('user_id', $this->id)->exists();
+     }
+
+     /**
+      * Has many cellars
+      */
+     public function cellars()
+    {
+        return $this->hasMany(Cellar::class);
+    }
+
+    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,4 +63,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
 }
