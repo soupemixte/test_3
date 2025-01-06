@@ -19,13 +19,16 @@
     --font-weight-light: lighter;
 
     --spacing-small: 8px;
-    --spacing-medium: 16px;
-    --spacing-large: 24px;
+    --spacing-med: 16px;
+    --specing-med-large: 36px;
+    --spacing-large: 48px;
 
 
     --border-radius: 16px;
     --border-weight-small: 1px;
-    --border-weight-medium: 2px;
+    --border-weight-med: 2px;
+
+    --box-size-med-large: 128px;
   }
 
 /* General Reset */
@@ -36,5 +39,19 @@
     font-family: var(--font-family);
 }
 
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 

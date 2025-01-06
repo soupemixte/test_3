@@ -5,6 +5,9 @@ body {
   color: var(--color-text);
   background-color: var(--color-secondary);
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
