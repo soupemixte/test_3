@@ -19,6 +19,7 @@ return [
     'cellar_name' => 'Cellar name',
     'cellar_desc' => 'Cellar Description',
     'cellar_create' => 'Create your Cellar',
+    'add_cellar' => 'Add to Cellar',
     'bottle' => 'Bottle',
     'bottles' => 'Bottles',
     /* Welcome */

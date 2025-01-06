@@ -8,3 +8,8 @@
     border: var(--border-weight-small) solid var(--color-primary);
     border-radius: var(--border-radius-small);
 }
+
+.card_cellar {
+    border: var(--border-weight-small) solid var(--color-primary);
+    border-radius: var(--border-radius-small);
+}

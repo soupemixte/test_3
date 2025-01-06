@@ -19,6 +19,7 @@ return [
     'cellar_name' => 'Nom du Cellier',
     'cellar_desc' => 'Description du Cellier',
     'cellar_create' => 'Créer votre Cellier',
+    'add_cellar' => 'Ajouter au Cellier',
     'bottle' => 'Bouteille',
     'bottles' => 'Bouteilles',
     /* Welcome */
