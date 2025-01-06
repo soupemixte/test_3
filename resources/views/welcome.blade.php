@@ -26,7 +26,7 @@
 
   </main>
 </article>
-    <main>
+    <!-- <main>
         <section class="collection">
             <h3>Collection</h3>
             <div class="flex_collection">
@@ -39,6 +39,6 @@
                 </div>
             </div>
         </section>
-    </main>
+    </main> -->
 
 @endsection
