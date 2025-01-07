@@ -12,34 +12,45 @@
 <body>
     <!-- Header -->
     <header>
+        <nav class="top-nav">
+            
+                
+        </nav>
+        
         <div class="logo"><h1>VINO</h1></div>
     </header>
     <!-- Content -->
     @yield('content')
     <!-- Navigation -->
     <footer>
-        <nav class="mobile-fixed-footer">
+        <nav class="bot-nav">
             <ul class="navigation">
+            @guest
+                <a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a>
+            @else
+                <a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a>
+            @endguest
             @auth
                 @if(Auth::user()->isAdmin)
-                <li>@lang('lang.bottles')
-                <ul class="dropdown">
-                    <li><a href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a></li>
-                    <li><a href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a></li>
-                </ul></li>
+                <div class="drop-container">
+                    <button class="drop-button">@lang('lang.bottles')</button>
+                        <div class="drop-content">
+                            <a class="nav-link" href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a>
+                            <a class="nav-link" href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a>
+                        </div>
+                </div>
                 @endif
             @endauth
-            @guest
-                <li><a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a></li>
-            @else
-                <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
-            @endguest
-
-                <li>@lang('lang.lang')
-                <ul class="dropdown hidden">
-                    <li><a class="" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a></li>
-                    <li><a class="" href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a></li>
-                </ul></li>
+            <div class="drop-container">
+                <button class="drop-button">@lang('lang.lang')</button>
+                <div class="drop-content">
+                    <a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
+                    <a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
+                </div>
+            </div>
+            
+                <li><a class="nav-link" href="{{ route('cellar.index') }}">@lang('lang.cellars')</a></li>
+               
             </ul>
         </nav>
     </footer>
