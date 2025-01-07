@@ -1,0 +1,29 @@
+/*filters container*/
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*category type of wines*/
+.filters_category {
+    display: flex;
+    gap: 20px;
+}
+
+.category_box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: var( --general-title);
+    cursor: pointer;
+}
+
+.category_box img {
+    max-width: 80px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
