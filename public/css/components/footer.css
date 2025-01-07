@@ -1,10 +1,9 @@
 /* Navigation */
-.mobile-fixed-footer {
+.bot-nav {
     background-color: var(--color-gray);
     padding-top: var(--spacing-med);
     min-height: var(--box-size-med-large);
     border-top: var(--border-weight-med) solid var(--color-black);
-    /* font-size: var(--font-size-base); */
     
 }
 

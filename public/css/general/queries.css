@@ -3,8 +3,6 @@
   display: none;
 }
 
-
-
 /* Media Queries */
 
 /* Extra-Small Screens (max-width: 480px) */
@@ -13,65 +11,22 @@
     font-size: 1.25em;
   }
 
-  .home {
-
-  }
-
   .collection-info {
     flex-direction: column;
     align-items: flex-start;
   }
 
-
-  /*
-
-  .nav-button {
-    margin-bottom: var(--spacing-small);
-  } */
 }
   
 /* Small Screens (max-width: 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
   body {
-
-  }
-
-  main {
+    max-height: 1664px;
   }
 
   .header {
     font-size: 1.35em;
   }
-
-  .home {
-
-  }
-
-  .cellars {
-
-  }
-
-  .bottles {
-
-  }
-
-  .login {
-
-  }
-
-  .register {
-
-  }
-
-  .edit {
-  
-  }
-
-  .create {
- 
-  }
-
-  
 
   .collection-info {
       flex-direction: row;
@@ -82,15 +37,6 @@
       font-size: 1em;
   }
 
-  .navigation {
-    flex-direction: row;
-    justify-content: space-around;
-
-  }
-
-  .nav-button {
-      margin-bottom: 0;
-  }
 
   /* FIXME: */
   .grid {

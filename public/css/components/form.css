@@ -21,7 +21,6 @@ form {
     color: var(--color-white);
     font-size: var(--font-size-small);
     padding: var(--spacing-x-small);
-    /* border: var(--border-weight-small) solid var(--color-black); */
     border-radius: var(--border-radius-x-small);
 }
 
@@ -40,7 +39,6 @@ form {
     flex-direction: column;
     justify-content: space-between;
     gap: var(--spacing-small);
-    /* margin-bottom: var(--spacing-med); */
 }
 
 .row {
@@ -60,8 +58,6 @@ form {
     border-radius: var(--border-radius-x-small);
 
 }
-
-
 
 .new_member {
     text-decoration: underline;

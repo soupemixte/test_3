@@ -8,7 +8,9 @@ return [
     'edit' => 'Modification',
     'update' => 'Mise à jour',
     'delete' => 'Supprimmer',
-    'delete_bottle' => 'Suprrimer Bouteilles',
+    'bottle' => 'Bouteille',
+    'bottles' => 'Bouteilles',
+    'delete_bottle' => 'Suprimer Bouteilles',
     'scrape_bottle' => 'Ajout Bouteilles',
     'close' => 'Fermer',
     'view' => 'Voir',
@@ -20,8 +22,7 @@ return [
     'cellar_desc' => 'Description du Cellier',
     'cellar_create' => 'Créer votre Cellier',
     'add_cellar' => 'Ajouter au Cellier',
-    'bottle' => 'Bouteille',
-    'bottles' => 'Bouteilles',
+ 
     /* Welcome */
     'welcome' => 'Bienvenue',
     /* Users */

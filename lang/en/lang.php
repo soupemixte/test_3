@@ -8,6 +8,8 @@ return [
     'edit' => 'Edit',
     'update' => 'Update',
     'delete' => 'Delete',
+    'bottle' => 'Bottle',
+    'bottles' => 'Bottles',
     'delete_bottle' => 'Delete Bottles',
     'scrape_bottle' => 'Scrape Bottles',
     'close' => 'Close',
@@ -20,8 +22,7 @@ return [
     'cellar_desc' => 'Cellar Description',
     'cellar_create' => 'Create your Cellar',
     'add_cellar' => 'Add to Cellar',
-    'bottle' => 'Bottle',
-    'bottles' => 'Bottles',
+
     /* Welcome */
     'welcome' => 'Welcome',
     /* Users */
