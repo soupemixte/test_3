@@ -35,19 +35,29 @@ class AuthController extends Controller
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
+
+        $request->session()->put('user', $user);
+        $request->session()->put('user_id', $user->id);
+        $request->session()->put('username', $user->name);
+
+        //$request->session()->put('user', $user);
         /* return redirect(route('user.index'))->withSuccess('Signed in'); */
         /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
         //Redirect regarding if the connected user has a cellar
-        if ($user->hasCellar()) {
-            $route = 'cellar.index';
-        } else {
-            $route = 'cellar.create';
-        }
+         if ($user->hasCellar()) {
+             $route = 'cellar.index';
+            
+         } else {
+             $route = 'cellar.create';
+         }
         return redirect(route($route))->withSuccess('Signed in');
 
-        echo $user;
-        $request->session()->put('user', $user);
-        return redirect()->intended(route('welcome'))->withSuccess('Signed in');
+        //echo $user->id , $user->name;
+        // $request->session()->put('user', $user);
+        // $request->session()->put('user_id', $user->id);
+        // $request->session()->put('username', $user->name);
+       // die();
+      //  return redirect()->intended(route('welcome'))->withSuccess('Signed in');
       //  die();
      //   return redirect()->intended(route('task.index'))->withSuccess('Signed in');
     }

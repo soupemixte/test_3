@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cellar;
+use App\Models\User;
 use App\Models\Bottle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class CellarController extends Controller
     public function index()
     {
         $cellars = Cellar::all();
-        return view('cellar.index', ['cellars' => $cellars]);
+        $users = User::all();
+        return view('cellar.index', ['cellars' => $cellars,'users' => $users]);
     }
 
     /**
@@ -45,7 +47,8 @@ class CellarController extends Controller
         ]);
 
         // if worked
-        return redirect()->route('cellar.create')->with('success', 'Cellier créé avec succès!');
+        // return redirect()->route('cellar.create')->with('success', 'Cellier créé avec succès!');
+        return redirect()->route('cellar.index')->with('success', 'Cellier créé avec succès!');
     }
 
     /**

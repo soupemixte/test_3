@@ -12,7 +12,7 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="logo"><h1>VINO</h1></div>
+        <div class="logo"><h1><a href="{{ route('login') }}">VINO</a></h1></div>
     </header>
     <!-- Content -->
     @yield('content')
