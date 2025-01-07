@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cellar;
 use App\Models\Bottle;
+use App\Models\CellarBottle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -51,11 +52,23 @@ class CellarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cellar $cellar)
+    public function show(Cellar $cellar) 
     {
-        // return $cellar;
-        return view('cellar.show', ['cellar' => $cellar]);
+        // Retrieve bottles associated with this cellar
+        $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
+
+        // Debug the result
+        if ($bottles->isEmpty()) {
+            return "No bottles found in this cellar.";
+        }
+
+        // Pass the cellar and its bottles to the view
+        return view('cellar.show', [
+            'cellar' => $cellar,
+            'bottles' => $bottles,
+        ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -105,13 +118,16 @@ class CellarController extends Controller
     public function storeBottle(Request $request)
     {
         $request->validate([
-            'bottle_name' => 'required|string',
-            'cellar_id' => 'required',
+           'cellar_id' => 'required',
+           'bottle_id' => 'required',
+
         ]);
 
         // Attach the bottle to the selected cellar
-        $cellar = Cellar::findOrFail($request->cellar_id);
-        $cellar->bottles()->attach($request->bottle_id);
+        CellarBottle::create([
+            'cellar_id' => $request->cellar_id,
+            'bottle_id' => $request->bottle_id,
+        ]);
 
         return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
     }

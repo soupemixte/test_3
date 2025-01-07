@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/cellar/{cellar}', [CellarController::class, 'edit'])->name('cellar.edit');
     Route::put('/edit/cellar/{cellar}', [CellarController::class, 'update'])->name('cellar.update');
     Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('cellar.delete');
-    Route::get('/cellar/add/{id}', [CellarController::class, 'add'])->name('cellar.add');
+    Route::get('/cellar/add/{id}', [CellarController::class, 'add'])->name('cellar.add');    
     Route::post('/cellar/store-bottle', [CellarController::class, 'storeBottle'])->name('cellar.storeBottle');
     // User Routes
     Route::get('/users', [UserController::class, 'index'])->name('user.index');

@@ -2,7 +2,7 @@
 @section('title', 'Login')
 @section('content')
 
-<!-- @if(!$errors->isEmpty())
+@if(!$errors->isEmpty())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
             @foreach($errors->all() as $error)
@@ -11,51 +11,42 @@
         </ul>     
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
+@endif          
 
-@endif   -->
-
-<main class="login">        
-    <section>
-        <h2 class="section-title">@lang('lang.login')</h2>
-        <div class="form">
-        <form method="POST">
+<!---composant pour le titre et la description de la page-->
+<x-header 
+    title="{{ __('lang.registration') }}"
+    subtitle="{{ __('lang.register_subtitle') }}"
+/>
+<main class="flex-center">
+    <section class="structure flex-col-center height60 gap20">
+        <form method="POST" class="form">
             @csrf
-            <div class="mb-3 col">
-                <div class="row">
-                    <label for="username" class="form-label">@lang('lang.login_user')</label>
-                    <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
+            <div class="form-control">
+                <label for="username" >Username</label>
+                    <input type="text" id="username" name="email"  value="{{old('email')}}">
                 </div>
-                @if ($errors->has('email'))
-                    <div class="alert_msg">
-                        <p>
-                            {{$errors->first('email')}}
-                        </p>
+                @if ($errors->has('username'))
+                    <div class="">
+                        {{$errors->first('username')}}
                     </div>
                 @endif
-            </div>
-            <div class="mb-3 col">
-                <div class="row">
-                    <label for="password" class="form-label">@lang('lang.login_pass')</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
-                    <div class="alert_msg">
-                        <p>
-                            {{$errors->first('password')}}
-                        </p>
+                    <div class="">
+                        {{$errors->first('password')}}
                     </div>
                 @endif
             </div>
-            <div class="mb-3">
-                <p>@lang('lang.login_sub')</p>
-            </div>
-            <button type="submit" class="login_btn">@lang('lang.login')</button>
-            </form>
-        <div>
-            <p>Pas encore membre ? <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
+            <button type="submit" class="btn-border">Login</button>
+        </form>
+        
+        <div class="form_footer">
+            <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
         </div>
-        </div>
+        
     </section>
-
 </main>
 @endsection

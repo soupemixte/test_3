@@ -1,50 +1,35 @@
 @extends('layouts.app')
 @section('title', 'Ajouter la bouteille')
 @section('content')
-<main class="add">
-    <section>  
-        <h2 class="section-title">@lang('lang.add')</h2>
-        <div class="form">
 
-        </div> 
-    <form action="{{ route('cellar.storeBottle') }}" method="POST">
+<x-header 
+    title="{{ __('lang.add_bottle') }}"
+    subtitle="{{ __('lang.add_bottle_subtitle') }}"
+/>
+<main class="flex-center">
+    <section class="structure flex-col-center height80">   
+    <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
-        <div class="mb-3 col">
-            <div class="row">
-                <label for="bottle_name">Nom de la Bouteille</label>
-                <input type="text" name="bottle_name" value="{{ $bottle->title }}" readonly>
-            </div>
-            @if ($errors->has('bottle_name'))
-                <div class="alert_msg">
-                    {{ $errors->first('bottle_name') }}
-                </div>
-            @endif
+        <div class="form-control">
+            <label for="bottle_name">Nom de la Bouteille</label>
+            <input type="text" name="bottle_name" value="{{ $bottle->title }}" readonly>
         </div>
 
-        <div class="mb-3 col">
-            <div class="row">
-                <label for="cellar_id">Choisir le Cellier</label>
-                <select name="cellar_id" id="cellar_id" required>
-                    <option value="">Choisir le Nom</option>
-                    
-                    @if (Auth::user()->cellars && Auth::user()->cellars->count())
-                        @foreach (Auth::user()->cellars as $cellar)
-                            <option value="{{ $cellar->id }}">{{ $cellar->name }}</option>
-                        @endforeach
-                    @else
-                        <option value="" disabled>Aucun cellier disponible</option>
-                    @endif
-                </select>
-            </div>
-            @if ($errors->has('cellar_id'))
-                <div class="alert_msg">
-                    {{ $errors->first('cellar_id') }}
-                </div>
-            @endif
+        <div class="form-control">
+            <label for="cellar_id">Choisir le Cellier</label>
+            <select name="cellar_id" id="cellar_id" required>
+                <option value="">Choisir le Nom</option>
+                @foreach (Auth::user()->cellars as $cellar)
+                    <option value="{{ $cellar->id }}">{{ $cellar->title }}</option>
+                @endforeach
+            </select>
         </div>
+
+        <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
 
         <button type="submit" class="btn-border">Ajouter la bouteille</button>
     </form>
+
 
     </section>
 </main>
