@@ -9,11 +9,6 @@
     color: var(--color-text);
     font-family: var(--font-family);
     font-size: var(--font-size-base);
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-
-    /*annimation*/
-    /* animation: fadeIn 1s ease-in-out forwards; */
-    /* opacity: 0; */
 }
 
 /* le corps de la carte*/

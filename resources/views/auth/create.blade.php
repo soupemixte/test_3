@@ -11,29 +11,42 @@
         </ul>     
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
+@endif          
 
-    @endif  
-<main class="login">        
-    <section>
-        <h2 class="section-title">Authentification</h2>
-        <div class="login_form">
-        <form method="POST">
+<!---composant pour le titre et la description de la page-->
+<x-header 
+    title="{{ __('lang.registration') }}"
+    subtitle="{{ __('lang.register_subtitle') }}"
+/>
+<main class="flex-center">
+    <section class="structure flex-col-center height60 gap20">
+        <form method="POST" class="form">
             @csrf
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
+            <div class="form-control">
+                <label for="username" >Username</label>
+                    <input type="text" id="username" name="email"  value="{{old('email')}}">
                 </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password">
+                @if ($errors->has('username'))
+                    <div class="">
+                        {{$errors->first('username')}}
+                    </div>
+                @endif
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                @if ($errors->has('password'))
+                    <div class="">
+                        {{$errors->first('password')}}
+                    </div>
+                @endif
             </div>
-            <button type="submit" class="login_btn">Login</button>
-            </form>
-        <div>
-            <p>Pas encore membre ? <a href="{{ route('user.create') }}" class="new_member">Créer un compte</a></p>
+            <button type="submit" class="btn-border">Login</button>
+        </form>
+        
+        <div class="form_footer">
+            <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
         </div>
-        </div>
+        
     </section>
-
 </main>
 @endsection

@@ -25,14 +25,6 @@
     gap: var(--spacing-med-large);
 }
 
-/* .collection-info > div {
-    background: var(--color-gray);
-    padding: var(--spacing-med);
-    border-radius: var(--border-radius);
-    min-height: var(--box-size-med-large);
-    min-width: var(--box-size-mega);
-} */
-
 .cellars, .stuff {
     font-size: var(--font-size-button);
 }
@@ -67,9 +59,6 @@
     justify-content: space-around;
 }
 
-.add_bottles {
-
-}
 
 .info-title {
     font-weight: var(--font-weight-base);

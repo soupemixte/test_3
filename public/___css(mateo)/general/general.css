@@ -1,15 +1,18 @@
 /* Root variables for consistent spacing and colors */
 :root {
     --color-primary: #52CE65;
-    --color-secondary: #f4f4f4;
+    --color-secondary: #CEDBE5;
     --color-gray: #B2B3B4;
     --color-gray-light: #DDDDDD;
     --color-black: #000000;
+    --color-blue: #1C0EEC;
+    --color-white: #f4f4f4;
     --color-text: #000000;
     --color-accent: #ff5733;
     --color-alert: #FF0000;
   
     --font-family: 'Arial', sans-serif;
+    --font-size-small: 12px;
     --font-size-base: 36px;
     --font-size-button: 48px;
     --font-size-title: 54px;
@@ -19,6 +22,7 @@
     --font-weight-title: bolder;
     --font-weight-light: lighter;
 
+    --spacing-x-small: 4px;
     --spacing-small: 8px;
     --spacing-med: 16px;
     --spacing-med-large: 36px;

@@ -11,7 +11,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
 @endif
-
 <!--composant pour donner le titre et le sous-titre à la page-->
 <x-header 
         title="{{ __('lang.registration') }}"
@@ -61,7 +60,7 @@
         </form>
 
         <div class="form_footer">
-            <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
+            <p>Déjà membre ? <a href="{{ route('login') }}">Se connecter</a></p>
         </div>
     </section>
 </main>

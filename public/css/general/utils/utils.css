@@ -1,5 +1,10 @@
 .structure {
     width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -37,7 +42,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100dvh;
+    min-height: 100dvh;
 }
 
 /*jusitfy*/
@@ -46,6 +51,11 @@
 }
 .just-left {
     justify-content: left;
+}
+
+
+.just-between {
+    justify-content: space-between;
 }
 
 
@@ -102,26 +112,26 @@
 }
 
 .height30{
-    height: 30dvh;
+    min-height: 30dvh;
 }
 .height40{
-    height: 40dvh;
+    min-height: 40dvh;
 }
 .height50{
-    height: 50dvh;
+    min-height: 50dvh;
 }
 .height60{
-    height: 60dvh;
+    min-height: 60dvh;
 }
 .height70{
-    height: 70dvh;
+    min-height: 70dvh;
 }
 .height80{
-    height: 80dvh;
+    min-height: 80dvh;
 }
 .height90{
-    height: 90dvh;
+    min-height: 90dvh;
 }
 .height100{
-    height: 100dvh;
+    min-height: 100dvh;
 }

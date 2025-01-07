@@ -19,12 +19,19 @@ class Cellar extends Model
         return $this->belongsTo(User::class);
     }
 
+    /* public function bottles()
+    {
+        return $this->belongsToMany(Bottle::class, 'cellar_bottle')
+            ->using(CellarBottle::class)
+            ->withTimestamps();
+    } */
+
     public function bottles()
     {
         return $this->belongsToMany(Bottle::class, 'cellar_bottle')
-            ->withPivot('quantity')
             ->withTimestamps();
     }
+
 
 
 }

@@ -8,15 +8,21 @@ return [
     'edit' => 'Edit',
     'update' => 'Update',
     'delete' => 'Delete',
+    'bottle' => 'Bottle',
+    'bottles' => 'Bottles',
     'delete_bottle' => 'Delete Bottles',
     'scrape_bottle' => 'Scrape Bottles',
     'close' => 'Close',
     'view' => 'View',
     'save' => 'Save',
+    /* Cellars */
     'cellar' => 'Cellar',
     'cellars' => 'Cellars',
-    'bottle' => 'Bottle',
-    'bottles' => 'Bottles',
+    'cellar_name' => 'Cellar name',
+    'cellar_desc' => 'Cellar Description',
+    'cellar_create' => 'Create your Cellar',
+    'add_cellar' => 'Add to Cellar',
+
     /* Welcome */
     'welcome' => 'Welcome',
     /* Users */
@@ -24,9 +30,7 @@ return [
     'user' => 'User',
     'user_new' => 'New User',
     'user_list' => 'Users List',
-    'register' => 'Register User Form',
-    'registration' => 'Registration',
-    'register_subtitle' => 'Create an account',
+    
     'user_card' => 'User card',
     'user_name' => 'Name',
     'username' => 'Username',
@@ -38,12 +42,16 @@ return [
     'lang_fr' => 'French',
     /* Login */
     'login' => 'Login',
-    'login_subtitle' => 'Connect to your account',
-    'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Logout',
+    'login_user' => 'Username',
+    'login_pass' => 'Password',
+    'login_sub' => 'Connect to your account.',
     /*Registration */
-    
-    'register' => 'Register',
+    'register' => 'Register User Form',
+    'register_cellar' => 'Register your Cellar',
+    'registration' => 'Registered',
+    'register_question' => 'Don\'t have an account ?',
+    'register_subtitle' => 'Create an account',
     /* Rights */
     'rights' => 'All Rights Reserved.',
 ]
