@@ -15,5 +15,11 @@
 }
 
 .navigation > li {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-med);
 }
+
+/* .nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */

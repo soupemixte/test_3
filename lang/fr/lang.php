@@ -25,6 +25,7 @@ return [
  
     /* Welcome */
     'welcome' => 'Bienvenue',
+    'welcome_message' => 'Veuillez vous connecter',
     /* Users */
     'users' => '',
     'user' => '',
@@ -48,6 +49,7 @@ return [
     /*Registration */
     'register' => 'Créer votre compte',
     'register_cellar' => 'Créer votre Cellier',
+    'register_user' => 'S\'inscrire',
     'registration' => 'Enregistré',
     'register_question' => 'Pas encore membre ?',
     'register_subtitle' => 'Créer un compte',

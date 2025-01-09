@@ -1,13 +1,45 @@
 /* Home Section */
 .home {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: inherit;
+}
+
+.welcome {
+    min-height: 100px;
+    display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    border: var(--border-weight-small) solid var(--color-black);
+    padding-left: var(--spacing-small);
+    padding-right: var(--spacing-small);
+    border-radius: var(--border-radius);
+}
+
+.welcome-buttons {
+    border-top: var(--border-weight-small) solid var(--color-black);
+    padding-top: var(--spacing-x-small);
+    display: flex;
     justify-content: space-between;
-    min-height: fit-content;
+}
+
+.welcome-buttons > button {
+    /* padding: var(--spacing-small) var(--spacing-medium); */
+    background-color: var(--color-gray);
+    /* color: white; */
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-small);
+    height: 38px;
+    min-width: 72px;
+    text-align: center;
 }
 
 .collection {
     margin-bottom: var(--spacing-large);
+    width: inherit;
   }
 
 .section-title {

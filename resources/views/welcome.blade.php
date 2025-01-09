@@ -3,15 +3,18 @@
 @section('content')
  <!-- Home Page -->
  <main class="home">
-    <section class="collection">
-      <h2 class="section-title">Collection</h2>
-      <div class="collection-info">
-        <div class="cellars">
+    <section class="welcome">
 
         <!-- @lang('lang.cellars') -->
-        <p>Please log in to continue</p>
-        <a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a>
-      </div>
+        <p>@lang('lang.welcome_message')</p>
+        <div class="welcome-buttons">
+          <button>
+            <a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a>
+          </button>
+          <button>
+            <a class="nav-link" href="{{ route('user.create') }}">@lang('lang.register_user')</a>
+          </button>
+        </div>
     </section>
 
   </main>

@@ -25,6 +25,7 @@ return [
 
     /* Welcome */
     'welcome' => 'Welcome',
+    'welcome_message' => 'Please log in to continue',
     /* Users */
     'users' => 'Users',
     'user' => 'User',
@@ -49,6 +50,7 @@ return [
     /*Registration */
     'register' => 'Register User Form',
     'register_cellar' => 'Register your Cellar',
+    'register_user' => 'Sign Up',
     'registration' => 'Registered',
     'register_question' => 'Don\'t have an account ?',
     'register_subtitle' => 'Create an account',
