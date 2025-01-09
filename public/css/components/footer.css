@@ -15,11 +15,20 @@
 }
 
 .navigation > li {
-  font-size: var(--font-size-med);
-}
-
-/* .nav-link {
   display: flex;
   flex-direction: column;
+  font-size: var(--font-size-med);
   align-items: center;
-} */
+}
+
+.button-nav {
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  font-size: var(--font-size-med);
+  font-weight: var(--font-weight-button);
+  height: var(--box-size-med);
+  min-width: 72px;
+  text-align: center;
+  background-color: var(--color-gray);
+  border: var(--border-weight-med) solid var(--color-black);
+}

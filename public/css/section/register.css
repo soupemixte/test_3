@@ -1,3 +1,30 @@
 .register {
-    min-height: fit-content;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: inherit;
+}
+
+.registration {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-base);
+}
+
+.mb-3 > p {
+    font-size: var(--font-size-base);
+    color: var(--color-gray);
+}
+
+.mb-3 > input {
+    height: var(--box-size-med-small);
+    background-color: var(--color-gray-light);
+    border: var(--border-weight-small) solid var(--color-gray);
+    border-radius: var(--border-radius-small);
+    padding-left: var(--spacing-med);
 }

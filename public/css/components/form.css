@@ -11,6 +11,7 @@ form {
 
 .form > form {
     min-width: var(--box-size-x-large);
+    width: var(--box-size-mega);
     padding: var(--spacing-med);
     border: var(--border-weight-small) solid var(--color-black);
     border-radius: var(--border-radius-small);
@@ -30,7 +31,9 @@ form {
     display: flex;
     justify-content: space-between;
     gap: var(--spacing-small);
-    margin-bottom: var(--spacing-small);
+    padding-bottom: var(--spacing-med);
+    padding-top: var(--spacing-small);
+    border-bottom: var(--border-weight-small) solid var(--color-black);
 
 }
 
@@ -59,14 +62,24 @@ form {
 
 }
 
+.new {
+    font-size: var(--font-size-med);
+}
+
 .new_member {
+    padding-left: var(--spacing-x-small);
     text-decoration: underline;
     color: var(--color-blue);
 }
 
 .register_btn {
-    min-height: var(--box-size-small);
+    margin-top: var(--spacing-small);
+    min-height: var(--box-size-med-small);
+    font-size: var(--font-size-med);
+    /* font-weight: var(--font-weight-button); */
+    /* color: var(--color-primary); */
+    background-color: var(--color-primary);
     width: 100%;
-    border: var(--border-weight-small) solid var(--color-primary);
+    border: var(--border-weight-small) solid var(--color-gray);
     border-radius: var(--border-radius-small);
 }

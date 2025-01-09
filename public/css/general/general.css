@@ -38,6 +38,7 @@
     --border-weight-med: 5px;
 
     --box-size-small: 28px;
+    --box-size-med-small: 42px;
     --box-size-med: 74px;
     --box-size-med-large: 128px;
     --box-size-large: 256px;
@@ -51,6 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: var(--spacing-large)
 }
 
 main {

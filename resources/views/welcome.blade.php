@@ -4,14 +4,14 @@
  <!-- Home Page -->
  <main class="home">
     <section class="welcome">
-
+        <div class="welcome-title"><p>@lang('lang.welcome_message')</p></div>
         <!-- @lang('lang.cellars') -->
-        <p>@lang('lang.welcome_message')</p>
+        
         <div class="welcome-buttons">
-          <button>
+          <button class="button-login">
             <a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a>
           </button>
-          <button>
+          <button class="button-register">
             <a class="nav-link" href="{{ route('user.create') }}">@lang('lang.register_user')</a>
           </button>
         </div>

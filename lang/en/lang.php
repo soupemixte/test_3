@@ -31,9 +31,11 @@ return [
     'user' => 'User',
     'user_new' => 'New User',
     'user_list' => 'Users List',
-    
+    'email' => 'Email',
+    'email_msg' => 'Your Email Address',
     'user_card' => 'User card',
     'user_name' => 'Name',
+    'name_msg' => 'Your Member Name',
     'username' => 'Username',
     'password' => 'Password',
     'password_confirm' => 'Please confirm your Password',

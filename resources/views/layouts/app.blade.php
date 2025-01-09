@@ -22,13 +22,16 @@
         <nav class="bot-nav">
             <ul class="navigation">
                 <li>
-                    <a href="/" class="nav-link">@lang('lang.home')</a>
+                    <a href="/" class="nav-link"><button class="button-nav nav-home"></button></a>
+                    <p>@lang('lang.home')</p>
                 </li>
                 <li>
-                    <a class="nav-link" href="{{ route('cellar.index') }}">@lang('lang.cellars')</a>
+                    <a href="{{ route('cellar.index') }}" class="nav-link"><button class="button-nav nav-home"></button></a>
+                    <p>@lang('lang.cellars')</p>
                 </li>
                 <li>
-                    <a href="{{ route('bottle.index') }}" class="nav-link">@lang('lang.bottles')</a>
+                    <a href="{{ route('bottle.index') }}" class="nav-link"><button class="button-nav nav-home"></button></a>
+                    <p>@lang('lang.bottles')</p>
                 </li>
                 <li class="dropdown">@lang('lang.profile')
                 <div class="dropdown-box">
