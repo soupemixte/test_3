@@ -1,0 +1,87 @@
+
+.hidden {
+  display: none;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-box {
+  display: none;
+  position: absolute;
+  background-color: #d5d5d5;
+  width: 150px;
+  bottom: 100%;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-box a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+  
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-box {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+/* Media Queries */
+
+/* Extra-Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .header {
+    font-size: 1.25em;
+  }
+
+  .collection-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+  
+/* Small Screens (max-width: 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    max-height: 1664px;
+  }
+
+  .header {
+    font-size: 1.35em;
+  }
+
+  .collection-info {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .btn {
+      font-size: 1em;
+  }
+
+
+  /* FIXME: */
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+}
+  

@@ -6,11 +6,11 @@
     <section class="collection">
       <h2 class="section-title">Collection</h2>
       <div class="collection-info">
-        <div class="cellars">
-
-        <!-- @lang('lang.cellars') -->
-        <p>Please log in to continue</p>
-        <a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a>
+        <div class="info-box">
+          <span class="info-title">In My Cellar</span>
+          <span class="info-count">0 Bottles</span>
+        </div>
+        <button class="btn btn-add">Add Bottles</button>
       </div>
     </section>
 

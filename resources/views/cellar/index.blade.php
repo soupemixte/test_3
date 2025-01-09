@@ -1,9 +1,11 @@
 @extends('layouts.app')
 @section('title', 'Cellars')
 @section('content')
-<main class="flex-center"> 
-    <section class="structure flex-col mb-20 mt-20 height80 gap20">
-        <div class="btn-container just-right"><a href="{{ route('cellar.create') }}" class="btn btn-icon">Ajouter un cellier <i class="fa-solid fa-plus"></i></a></div> 
+<!-- this should be the home page -->
+<main class="cellars"> 
+    <section class="collection">
+        <h2 class="section-title">Collection</h2>
+        <!-- <div class=""><a href="{{ route('cellar.create') }}" class="">@lang('lang.add_cellar')</a></div>  -->
         @if ($cellars->isEmpty())
             <p>Aucun cellier disponibles.</p>
         @else

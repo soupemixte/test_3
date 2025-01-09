@@ -7,7 +7,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
 
-
+/* Welcome */
+Route::get('/', function () {
+    return view('welcome');
+});
 // User Routes
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
@@ -17,10 +20,7 @@ Route::post('/login', [AuthController::class, 'store'])->name('login.store');
 Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    /* Welcome */
-    Route::get('/', function () {
-        return view('welcome');
-    });
+
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
     Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
