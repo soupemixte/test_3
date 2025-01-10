@@ -7,6 +7,8 @@ form {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-med);
+    border-top: var(--border-weight-med) solid var(--color-black);
+    padding-top: var(--spacing-med);
 }
 
 .form > form {
@@ -26,42 +28,6 @@ form {
 }
 
 
-
-.mb-3 {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--spacing-small);
-    padding-bottom: var(--spacing-med);
-    padding-top: var(--spacing-small);
-    border-bottom: var(--border-weight-small) solid var(--color-black);
-
-}
-
-.col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--spacing-small);
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.mb-3 > label {
-    font-weight: var(--font-weight-light);
-}
-
-.mb-3 > input {
-    border-radius: var(--border-radius-x-small);
-}
-
-.mb3 > textarea {
-    border-radius: var(--border-radius-x-small);
-
-}
-
 .new {
     font-size: var(--font-size-med);
 }
@@ -72,14 +38,3 @@ form {
     color: var(--color-blue);
 }
 
-.register_btn {
-    margin-top: var(--spacing-small);
-    min-height: var(--box-size-med-small);
-    font-size: var(--font-size-med);
-    /* font-weight: var(--font-weight-button); */
-    /* color: var(--color-primary); */
-    background-color: var(--color-primary);
-    width: 100%;
-    border: var(--border-weight-small) solid var(--color-gray);
-    border-radius: var(--border-radius-small);
-}

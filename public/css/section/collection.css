@@ -1,0 +1,57 @@
+
+
+.collection {
+    margin-bottom: var(--spacing-large);
+    width: inherit;
+  }
+
+.collection-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-med-large);
+}
+
+.cellars, .stuff {
+    font-size: var(--font-size-button);
+}
+
+.cellars {
+   width: 100%;
+   display: flex;
+   gap: var(--spacing-med);
+}
+
+.stuff {
+    background: var(--color-gray);
+    padding: var(--spacing-med);
+    border-radius: var(--border-radius);
+    min-height: var(--box-size-med-large);
+    min-width: var(--box-size-mega);
+    border: var(--border-weight-med) solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.my_cellar {
+    background: var(--color-gray);
+    padding: var(--spacing-med);
+    border-radius: var(--border-radius);
+    min-height: var(--box-size-med-large);
+    min-width: var(--box-size-mega);
+    border: var(--border-weight-med) solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.info-title {
+    font-weight: var(--font-weight-base);
+}
+
+.info-count {
+    font-weight: var(--font-weight-light);
+}

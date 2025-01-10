@@ -1,26 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Registration')
 @section('content')
-<!-- @if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>                
-@endif -->
 
 <main class="register">
     <section class="registration">
         <h2 class="section-title">@lang('lang.register')</h2>
         <div class="form">
-
-       
         <form action="{{ route('user.store') }}" method="POST">
             @csrf
-            <div class="col mb-3">
+            <div class="mb-3 col">
                     <label for="email">@lang('lang.email')</label>
                     <!-- <p id="form-email">@lang('lang.email')</p> -->
                     <input type="text" id="email" name="email" value="{{old('email')}}" placeholder="@lang('lang.email_msg')">
@@ -32,7 +20,7 @@
             </div>
 
 
-            <div class="col mb-3">
+            <div class="mb-3 col">
                     <label for="password">@lang('lang.password')</label>
                     <!-- <p id="form-password">@lang('lang.password')</p> -->
                     <input type="password" id="password" name="password">
@@ -42,7 +30,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col mb-3">
+            <div class="mb-3 col">
                     <label for="password_confirm">@lang('lang.password_confirm')</label>
                     <!-- <p id="form-password_confirm">@lang('lang.password_confirm')</p> -->
                     <input type="password" id="password_confirm" name="password_confirm">
@@ -52,7 +40,7 @@
                     </div>
                 @endif
             </div>
-            <div class="col mb-3">
+            <div class="mb-3 col">
                     <label for="name">@lang('lang.user_name')</label>
                     <!-- <p id="form-name">@lang('lang.user_name')</p> -->
                     <input type="text" id="name" name="name" value="{{old('name')}}" placeholder="@lang('lang.name_msg')">

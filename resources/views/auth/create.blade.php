@@ -2,29 +2,15 @@
 @section('title', 'Login')
 @section('content')
 
-<!-- @if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>                
-
-@endif   -->
-
 <main class="login">        
-    <section>
+    <section class="new-login">
         <h2 class="section-title">@lang('lang.login')</h2>
         <div class="form">
         <form method="POST">
             @csrf
             <div class="mb-3 col">
-                <div class="row">
-                    <label for="username" class="form-label">@lang('lang.login_user')</label>
-                    <input type="text" class="form-control" id="username" name="email"  value="{{old('email')}}">
-                </div>
+                <label for="username">@lang('lang.login_user')</label>
+                <input type="text" id="username" name="email"  value="{{old('email')}}">
                 @if ($errors->has('email'))
                     <div class="alert_msg">
                         <p>
@@ -34,10 +20,8 @@
                 @endif
             </div>
             <div class="mb-3 col">
-                <div class="row">
-                    <label for="password" class="form-label">@lang('lang.login_pass')</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
+                <label for="password" class="form-label">@lang('lang.login_pass')</label>
+                <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
                     <div class="alert_msg">
                         <p>
@@ -46,12 +30,12 @@
                     </div>
                 @endif
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col">
                 <p>@lang('lang.login_sub')</p>
+                <button type="submit" class="login_btn">@lang('lang.login')</button>
             </div>
-            <button type="submit" class="login_btn">@lang('lang.login')</button>
             </form>
-        <div>
+        <div class="new">
             <p>Pas encore membre ? <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
         </div>
         </div>

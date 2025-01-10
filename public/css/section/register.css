@@ -11,20 +11,13 @@
     flex-direction: column;
 }
 
-label {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-base);
-}
 
-.mb-3 > p {
-    font-size: var(--font-size-base);
-    color: var(--color-gray);
-}
-
-.mb-3 > input {
-    height: var(--box-size-med-small);
-    background-color: var(--color-gray-light);
-    border: var(--border-weight-small) solid var(--color-gray);
+.register_btn {
+    margin-top: var(--spacing-small);
+    min-height: var(--box-size-med);
+    font-size: var(--font-size-button);
+    background-color: var(--color-primary);
+    width: 100%;
+    border: var(--border-weight-small) solid var(--color-primary);
     border-radius: var(--border-radius-small);
-    padding-left: var(--spacing-med);
 }

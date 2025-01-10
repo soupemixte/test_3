@@ -4,7 +4,7 @@
  <!-- Home Page -->
  <main class="home">
     <section class="welcome">
-        <div class="welcome-title"><p>@lang('lang.welcome_message')</p></div>
+        <div class="section-title"><p>@lang('lang.welcome_message')</p></div>
         <!-- @lang('lang.cellars') -->
         
         <div class="welcome-buttons">

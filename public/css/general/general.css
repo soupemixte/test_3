@@ -38,7 +38,7 @@
     --border-weight-med: 5px;
 
     --box-size-small: 28px;
-    --box-size-med-small: 42px;
+    --box-size-med-small: 48px;
     --box-size-med: 74px;
     --box-size-med-large: 128px;
     --box-size-large: 256px;
@@ -60,5 +60,49 @@ main {
   padding-right: var(--spacing-med-large);
 }
 
+.mb-3 {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-small);
+  padding-bottom: var(--spacing-med);
+  padding-top: var(--spacing-small);
+  border-bottom: var(--border-weight-small) solid var(--color-black);
 
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-small);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mb-3 > label {
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-base);
+}
+
+.mb3 > textarea {
+  border-radius: var(--border-radius-x-small);
+
+}
+
+.mb-3 > p {
+  font-size: var(--font-size-base);
+  color: var(--color-gray);
+}
+
+.mb-3 > input {
+  height: var(--box-size-med-small);
+  background-color: var(--color-gray-light);
+  border: var(--border-weight-small) solid var(--color-gray);
+  border-radius: var(--border-radius-small);
+  padding-left: var(--spacing-med);
+  font-size: var(--font-size-med);
+}
 
