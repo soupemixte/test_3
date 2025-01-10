@@ -13,7 +13,7 @@
                     <!-- <p id="form-email">@lang('lang.email')</p> -->
                     <input type="text" id="email" name="email" value="{{old('email')}}" placeholder="@lang('lang.email_msg')">
                 @if ($errors->has('email'))
-                    <div class="alert_msg">
+                    <div class="alert_ms">
                         {{$errors->first('email')}}
                     </div>
                 @endif

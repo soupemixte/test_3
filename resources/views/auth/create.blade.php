@@ -10,7 +10,7 @@
             @csrf
             <div class="mb-3 col">
                 <label for="username">@lang('lang.login_user')</label>
-                <input type="text" id="username" name="email"  value="{{old('email')}}">
+                <input type="text" id="username" name="email"  value="{{old('email')}}" placeholder="@lang('lang.email_msg')">
                 @if ($errors->has('email'))
                     <div class="alert_msg">
                         <p>
@@ -30,10 +30,8 @@
                     </div>
                 @endif
             </div>
-            <div class="mb-3 col">
-                <p>@lang('lang.login_sub')</p>
-                <button type="submit" class="login_btn">@lang('lang.login')</button>
-            </div>
+            <!-- <p>@lang('lang.login_sub')</p> -->
+            <button type="submit" class="login_btn">@lang('lang.login')</button>
             </form>
         <div class="new">
             <p>Pas encore membre ? <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>

@@ -7,6 +7,7 @@
 }
 
 .login_btn {
+    margin-top: var(--spacing-small);
     min-height: var(--box-size-med);
     width: 100%;
     border: var(--border-weight-med) solid var(--color-primary);

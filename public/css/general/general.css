@@ -40,7 +40,7 @@
     --box-size-small: 28px;
     --box-size-med-small: 48px;
     --box-size-med: 74px;
-    --box-size-med-large: 128px;
+    --box-size-med-large: 184px;
     --box-size-large: 256px;
     --box-size-x-large: 292px;
     --box-size-mega: 512px;
@@ -85,6 +85,7 @@ main {
 .mb-3 > label {
   font-weight: var(--font-weight-light);
   font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-med);
 }
 
 .mb3 > textarea {

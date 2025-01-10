@@ -1,5 +1,18 @@
-.cellar {
-    min-height: fit-content;
+.cellars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: inherit;
+}
+
+.stuff {
+    flex: 3;
+    border-top: var(--border-weight-med) solid var(--color-black);
+    padding-top: var(--spacing-med);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-small);
 }
 
 .cellar_btn {
@@ -10,6 +23,117 @@
 }
 
 .card_cellar {
-    border: var(--border-weight-small) solid var(--color-primary);
+    padding: var(--spacing-small);
+    border: var(--border-weight-med) solid var(--color-accent);
     border-radius: var(--border-radius-small);
+    background-color: var(--color-gray-light);
+}
+
+
+
+.card_cellar > .card-body {
+    display: flex;
+    /* flex-direction: column; */
+    /* gap: 10px; */
+    font-size: var(--font-size-base);
+    height: var(--box-size-med-large);
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.card_cellar > .card-links {
+    display: flex;
+    gap: 10px;
+}
+
+.card-links > a {
+    font-size: var(--font-size-med);
+    padding-left: var(--spacing-x-small);
+}
+
+.new-card_cellar {
+    padding: var(--spacing-small);
+    border: var(--border-weight-med) solid var(--color-black);
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-gray);
+}
+
+
+
+.new-card_cellar > .card-body {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px;
+    height: var(--box-size-med-large);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-card_cellar > .card-links {
+    display: flex;
+    gap: 10px;
+}
+
+.new-card-links > a {
+    font-size: var(--font-size-med);
+    padding-left: var(--spacing-x-small);
+}
+
+/* .cellars {
+   width: 100%;
+   display: flex;
+   gap: var(--spacing-med);
+} */
+
+.cellar-boxes {
+    /* flex: 3; */
+    /* border-top: var(--border-weight-med) solid var(--color-black); */
+    padding-bottom: var(--spacing-med);
+    padding-top: var(--spacing-med);
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: var(--spacing-small);
+    border-bottom: var(--border-weight-small) solid var(--color-black);
+}
+
+.cellar-buttons {
+    flex: 3;
+    /* border-top: var(--border-weight-med) solid var(--color-black); */
+    padding-top: var(--spacing-med);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-small);
+}
+
+.cellar-buttons > button {
+    flex: 1;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-button);
+    height: var(--box-size-med);
+    min-width: 72px;
+    text-align: center;
+}
+
+.button-cellar-add {
+    background-color: var(--color-gray);
+    border: var(--border-weight-med) solid var(--color-black);
+}
+
+.button-cellar-drink {
+    background-color: var(--color-gray-light);
+    border: var(--border-weight-med) solid var(--color-accent);
+    color: var(--color-black);
+}
+
+.new-cellar-box {
+    /* width: 105px; */
+}
+
+.new-cellar {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-size-light)
 }

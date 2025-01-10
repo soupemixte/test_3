@@ -12,11 +12,7 @@
 }
 
 /* le corps de la carte*/
-.card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+
 
 /* Image de la bouteille */
 .card_bottle picture img {
