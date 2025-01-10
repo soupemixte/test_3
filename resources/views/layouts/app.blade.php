@@ -34,7 +34,7 @@
                     <p>@lang('lang.bottles')</p>
                 </li>
                 <li class="dropdown">@lang('lang.profile')
-                <div class="dropdown-box">
+                    <div class="dropdown-box">
                     @auth
                     @if(Auth::user()->isAdmin)
                         <a class="nav-link" href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a>
@@ -48,6 +48,7 @@
                     @else
                         <a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a>
                     @endguest
+                    <!-- <button class="button-nav nav-profile"></button> -->
                 </div>
                 </li>
             </ul>
