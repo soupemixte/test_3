@@ -25,7 +25,7 @@ return [
     'drink_cellar' => 'Consume',
     /* Welcome */
     'welcome' => 'Welcome',
-    'welcome_message' => 'Please log in to continue',
+    'welcome_message' => 'Welcome to our App',
     /* Users */
     'users' => 'Users',
     'user' => 'User',

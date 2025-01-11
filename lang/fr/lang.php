@@ -21,11 +21,11 @@ return [
     'cellar_name' => 'Nom du Cellier',
     'cellar_desc' => 'Description du Cellier',
     'cellar_create' => 'Créer votre Cellier',
-    'add_cellar' => 'Ajouter Bouteille(s)',
+    'add_cellar' => 'Ajouter',
     'drink_cellar' => 'Consommer',
     /* Welcome */
     'welcome' => 'Bienvenue',
-    'welcome_message' => 'Veuillez vous connecter',
+    'welcome_message' => 'Bien Bien Bien',
     /* Users */
     'users' => '',
     'user' => '',

@@ -3,7 +3,12 @@
 @section('content')
     <main class="cellars">
         <section class="collection">
-        <h2 class="section-title">{{ $cellar->title }}</h2>
+        <div class="section-title">
+            <h2>{{ $cellar->title }}</h2>
+        </div>
+        <div class="stuff">
+
+        
         <article class="card_cellar">
             <div class="cellar-top">
                 <div class="card-title">
@@ -48,6 +53,7 @@
         @endif
         </section>
         </article>
+        </div>
         </section>
     </main>
 @endsection

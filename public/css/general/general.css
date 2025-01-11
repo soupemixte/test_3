@@ -107,3 +107,10 @@ main {
   font-size: var(--font-size-med);
 }
 
+.section-title {
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+  margin-bottom: var(--spacing-large);
+  text-align: center;
+}
+
