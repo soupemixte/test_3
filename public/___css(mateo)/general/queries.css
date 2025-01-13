@@ -1,0 +1,47 @@
+
+.hidden {
+  display: none;
+}
+
+/* Media Queries */
+
+/* Extra-Small Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .header {
+    font-size: 1.25em;
+  }
+
+  .collection-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+  
+/* Small Screens (max-width: 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    max-height: 1664px;
+  }
+
+  .header {
+    font-size: 1.35em;
+  }
+
+  .collection-info {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .btn {
+      font-size: 1em;
+  }
+
+
+  /* FIXME: */
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+}
+  

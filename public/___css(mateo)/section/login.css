@@ -1,0 +1,11 @@
+.login {
+    min-height: fit-content;
+}
+
+.login_btn {
+    min-height: var(--box-size-small);
+    width: 100%;
+    border: var(--border-weight-small) solid var(--color-primary);
+    border-radius: var(--border-radius-small);
+}
+

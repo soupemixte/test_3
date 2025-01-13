@@ -1,0 +1,10 @@
+:root {
+    --general-title: #5d5d5d;
+    --accent-color: #e7a18e;
+    --components-bg: white;
+}
+
+/*Arrière-plan*/
+body {
+    background-color: #dfdfdf;
+}
