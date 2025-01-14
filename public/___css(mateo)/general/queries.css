@@ -1,6 +1,8 @@
+
 .hidden {
   display: none;
 }
+
 /* Media Queries */
 
 /* Extra-Small Screens (max-width: 480px) */
@@ -18,7 +20,9 @@
   
 /* Small Screens (max-width: 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
-
+  body {
+    max-height: 1664px;
+  }
 
   .header {
     font-size: 1.35em;
