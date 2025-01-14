@@ -1,0 +1,39 @@
+
+
+.collection {
+    min-height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+.collection-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-med-large);
+}
+
+
+.my_cellar {
+    background: var(--color-gray);
+    padding: var(--spacing-med);
+    border-radius: var(--border-radius);
+    min-height: var(--box-size-med-large);
+    min-width: var(--box-size-mega);
+    border: var(--border-weight-med) solid var(--color-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.info-title {
+    font-weight: var(--font-weight-base);
+}
+
+.info-count {
+    font-weight: var(--font-weight-light);
+}
+

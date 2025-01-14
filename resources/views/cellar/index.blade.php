@@ -1,25 +1,55 @@
 @extends('layouts.app')
 @section('title', 'Cellars')
 @section('content')
-<main class="flex-center"> 
-    <section class="structure flex-col mb-20 mt-20 height80 gap20">
-        <div class="btn-container just-right"><a href="{{ route('cellar.create') }}" class="btn btn-icon">Ajouter un cellier <i class="fa-solid fa-plus"></i></a></div> 
-        @if ($cellars->isEmpty())
-            <p>Aucun cellier disponibles.</p>
-        @else
-        @foreach ($cellars as $cellar)
-            <article class="card_cellar">
-                <div class="card-body"> 
-                    <h2 class="card-title">
-                        {{ $cellar->title }}
-                    </h2>
-                    <p class="card_description">{{ $cellar->description }}</p>
-                </div>                
-                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">View</a>
-            </article>
+<!-- this should be the home page -->
+<main class="cellars"> 
+    <section class="collection">
+        <div class="section-title">
+            <h2>@lang('lang.collection')</h2>
+        </div>
+        <div class="stuff">
+            @if ($cellars->isEmpty())
+            <div class="">
+                <p>Aucun cellier disponibles.</p>
+            </div>
+            @else
+            <div class="cellar-boxes">
+            @foreach ($cellars as $cellar)
+                <a href="{{ route('cellar.show', $cellar->id) }}" class="current-cellar">
+                    <article class="card_cellar">
+                        <div class="card-body"> 
+                            <h2 class="card-title">
+                                {{ $cellar->title }}
+                            </h2>
+                            <!-- <p class="card_description">{{ $cellar->description }}</p>
+                            <div class="card-bottles">
+
+                            </div> -->
+                        </div> 
+                    </article>
+                </a>
             @endforeach
-        @endif
-                
+                <a href="{{ route('cellar.create') }}" class="new-cellar-box">
+                    <article class="new-card_cellar">
+                        <div class="card-body"> 
+                            <h2 class="new-cellar">
+                            @lang('lang.cellar_create')
+                            </h2>
+                        </div> 
+                    </article>
+                </a>
+
+            </div>
+            @endif
+            <div class="cellar-buttons">
+            <button class="button-cellar-add">
+                <a class="nav-link" href="#">@lang('lang.add_cellar')</a>
+            </button>
+            <button class="button-cellar-drink">
+                <a class="nav-link" href="#">@lang('lang.drink_cellar')</a>
+            </button>
+            </div>
+        </div>
     </section>
 </main>
 

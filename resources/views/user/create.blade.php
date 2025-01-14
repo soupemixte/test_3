@@ -1,66 +1,61 @@
 @extends('layouts.app')
 @section('title', 'Registration')
 @section('content')
-@if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>                
-@endif
-<!--composant pour donner le titre et le sous-titre à la page-->
-<x-header 
-        title="{{ __('lang.registration') }}"
-        subtitle="{{ __('lang.register_subtitle') }}"
-/>
-<main class="flex-center">
-    <section class="structure flex-col-center height60 gap20">
-        <form action="{{ route('user.store') }}" method="POST" class="form">
+
+<main class="register">
+    <section class="registration">
+        <h2 class="section-title">@lang('lang.register')</h2>
+        <div class="form">
+        <form action="{{ route('user.store') }}" method="POST">
             @csrf
-            <div class="form-control">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="{{old('name')}}">
-                @if ($errors->has('name'))
-                    <div class="form_input_error">
-                        {{$errors->first('name')}}
-                    </div>
-                @endif
-            </div>
-            <div class="form-control">
-                <label for="email">Username</label>
-                <input type="text" id="username" name="email"  value="{{old('email')}}">
+            <div class="mb-3 col">
+                    <label for="email">@lang('lang.email')</label>
+                    <!-- <p id="form-email">@lang('lang.email')</p> -->
+                    <input type="text" id="email" name="email" value="{{old('email')}}" placeholder="@lang('lang.email_msg')">
                 @if ($errors->has('email'))
-                    <div class="form_input_error">
+                    <div class="alert_ms">
                         {{$errors->first('email')}}
                     </div>
                 @endif
             </div>
-            <div class="form-control">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
+
+
+            <div class="mb-3 col">
+                    <label for="password">@lang('lang.password')</label>
+                    <!-- <p id="form-password">@lang('lang.password')</p> -->
+                    <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
-                    <div class="form_input_error">
+                    <div class="alert_msg">
                         {{$errors->first('password')}}
                     </div>
                 @endif
             </div>
-            <div class="form-control">
-                <label for="password_confirm">Password Confirm</label>
-                <input type="password" id="password_confirmation" name="password_confirmation">
-                @if($errors->has('password_confirm'))
-                    <div class="form_input_error">
+            <div class="mb-3 col">
+                    <label for="password_confirm">@lang('lang.password_confirm')</label>
+                    <!-- <p id="form-password_confirm">@lang('lang.password_confirm')</p> -->
+                    <input type="password" id="password_confirm" name="password_confirm">
+                @if ($errors->has('password_confirm'))
+                    <div class="alert_msg">
                         {{$errors->first('password_confirm')}}
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">Save</button>
+            <div class="mb-3 col">
+                    <label for="name">@lang('lang.user_name')</label>
+                    <!-- <p id="form-name">@lang('lang.user_name')</p> -->
+                    <input type="text" id="name" name="name" value="{{old('name')}}" placeholder="@lang('lang.name_msg')">
+                @if ($errors->has('name'))
+                    <div class="alert_msg">
+                        {{$errors->first('name')}}
+                    </div>
+                @endif
+            </div>
+            
+            <button type="submit" class="register_btn">@lang('lang.save')</button>
         </form>
-
-        <div class="form_footer">
-            <p>Déjà membre ? <a href="{{ route('login') }}">Se connecter</a></p>
+        <div class="new">
+            <p>@lang('lang.register_question')<a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
+        </div>
         </div>
     </section>
 </main>
