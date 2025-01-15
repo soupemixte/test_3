@@ -8,12 +8,19 @@
                 <input type="text" class="input-search" placeholder="Type to Search...">
             </div> -->
             <header class="filter-wrapper">
-                <div class="search-container">
-                    <input type="text" name="search" placeholder="Search..." class="search-input">
-                    <a href="#" class="search-btn">
+                <form action="{{ route('bottle.index') }}" method="GET" class="search-container">
+                    <input 
+                        type="text" 
+                        name="search" 
+                        placeholder="Search..." 
+                        class="search-input"
+                        value="{{ old('search', $query ?? '')}}"
+                    >
+                    <button type="submit" class="search-btn">
                         <i class="fas fa-search"></i>
-                    </a>
-                </div>
+                    </button>
+                   
+                </form>
             </header>
             <section class="grid">
                 @if ($bottles->isEmpty())
