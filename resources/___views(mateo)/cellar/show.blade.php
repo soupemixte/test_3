@@ -12,8 +12,8 @@
                     <p>{{ $cellar->description }}</p>
                 </div>
                 <div>
-                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="">Edit</a>
-                    <a href="{{ route('cellar.delete', $cellar->id) }}" class="">Delete</a>
+                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="hidden">@lang('lang.edit')</a>
+                    <a href="{{ route('cellar.delete', $cellar->id) }}" class="hidden">@lang('lang.delete')</a>
                 </div>
             </div>
         </article>

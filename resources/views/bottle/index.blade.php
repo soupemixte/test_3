@@ -3,7 +3,7 @@
 @section('content')
 <main class="flex-center">    
     <div class="structure">
-        <header class="filters">
+        <!-- <header class="filters">
             <div class="filters_category">
                 <div class="category_box">
                     <img src="{{asset('img/icons/rose-wine.png') }}" alt="rose wine">
@@ -22,7 +22,7 @@
                     <span>Tous</span>
                 </div>
             </div>
-        </header>
+        </header> -->
         <section class="grid">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>

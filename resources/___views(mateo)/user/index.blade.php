@@ -6,16 +6,16 @@
 
             <div class="">
                 <div class="card-header">
-                    <h5 class="card-title">Users</h5>
+                    <h5 class="card-title">@lang('lang.users')</h5>
                 </div>
                 <div class="card-body">
                     <table class="table">
                     <thead>
                         <tr>
                         <th scope="col">#</th>
-                        <th scope="col">User</th>
-                        <th scope="col">Cellars</th>
-                        <th scope="col">Edit</th>
+                        <th scope="col">@lang('lang.user')</th>
+                        <th scope="col">@lang('lang.cellars')</th>
+                        <th scope="col">@lang('lang.edit')</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,7 +26,7 @@
                             <!-- list of cellars -->
                             <!-- list of bottles -->
                             <td>
-                                <a href="{{route('user.edit', $user->id)}}"class="btn btn-sm btn-outline-success">Edit</a>
+                                <a href="{{route('user.edit', $user->id)}}"class="btn btn-sm btn-outline-success">@lang('lang.edit')</a>
                             </td>
                         </tr>
                         @endforeach

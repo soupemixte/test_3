@@ -24,10 +24,10 @@
             @csrf
             <div class="form-control">
                 <label for="username" >@lang('lang.email')</label>
-                    <input type="text" id="username" name="email"  value="{{old('email')}}">
+                    <input type="text" id="username" name="email" value="{{old('email')}}">
                 </div>
                 @if ($errors->has('username'))
-                    <div class="">
+                    <div class="alert_msg">
                         {{$errors->first('username')}}
                     </div>
                 @endif
@@ -35,7 +35,7 @@
                 <label for="password">@lang('lang.password')</label>
                 <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
-                    <div class="">
+                    <div class="alert_msg">
                         {{$errors->first('password')}}
                     </div>
                 @endif
