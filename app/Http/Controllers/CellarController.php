@@ -120,13 +120,14 @@ class CellarController extends Controller
         $request->validate([
            'cellar_id' => 'required',
            'bottle_id' => 'required',
-
+            'quantity' => 'required',
         ]);
 
         // Attach the bottle to the selected cellar
         CellarBottle::create([
             'cellar_id' => $request->cellar_id,
             'bottle_id' => $request->bottle_id,
+            'bottle_id' => $request->quantity,
         ]);
 
         return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
