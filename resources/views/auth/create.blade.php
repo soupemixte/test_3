@@ -24,7 +24,7 @@
             @csrf
             <div class="form-control">
                 <label for="username" >@lang('lang.email')</label>
-                    <input type="text" id="username" name="email"  value="{{old('email')}}">
+                    <input type="text" id="username" name="email" value="{{old('email')}}">
                 </div>
                 @if ($errors->has('username'))
                     <div class="alert_msg">
