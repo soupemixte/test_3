@@ -22,10 +22,8 @@ Route::post('/login', [AuthController::class, 'store'])->name('login.store');
 Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', [CellarController::class, 'index'])->name('cellar.index');
     /* Welcome */
-    Route::get('/', function () {
-        return view('welcome');
-    });
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
     Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');

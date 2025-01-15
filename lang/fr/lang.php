@@ -8,13 +8,16 @@ return [
     'edit' => 'Modification',
     'update' => 'Mise à jour',
     'delete' => 'Supprimmer',
-    'bottle' => 'Bouteille',
-    'bottles' => 'Bouteilles',
-    'delete_bottle' => 'Suprimer Bouteilles',
-    'scrape_bottle' => 'Ajout Bouteilles',
     'close' => 'Fermer',
     'view' => 'Voir',
     'save' => 'Sauvegarder',
+    /* Bottles */
+    'bottle' => 'Bouteille',
+    'bottle_name' => 'Nom de la Bouteille',
+    'bottles' => 'Bouteilles',
+    'delete_bottle' => 'Suprimer Bouteilles',
+    'scrape_bottle' => 'Ajout Bouteilles',
+    'add_bottle' => 'Ajouter la bouteille',
     /* Cellars */
     'cellar' => 'Cellier',
     'cellars' => 'Celliers',
@@ -22,17 +25,20 @@ return [
     'cellar_desc' => 'Description du Cellier',
     'cellar_create' => 'Créer votre Cellier',
     'add_cellar' => 'Ajouter au Cellier',
- 
+    'no_cellar' => 'Aucun cellier disponible',
+    'cellar_choose' => 'Choisir le Cellier',
+    'choose_name' => 'Choisir le Nom',
     /* Welcome */
     'welcome' => 'Bienvenue',
     /* Users */
-    'users' => '',
-    'user' => '',
-    'user_new' => ' ',
-    'user_list' => ' ',
-    'user_card' => ' ',
+    'users' => 'Usagers',
+    'user' => 'Usager',
+    'user_new' => 'Nouvel Usager',
+    'user_list' => 'Liste D\'Usagers',
+    'user_card' => 'Carte D\Usager',
     'user_name' => 'Nom',
     'username' => 'Nom d\'usager',
+    'email' => 'Courriel',
     'password' => 'Mot de passe',
     'password_confirm' => 'Confirmez votre mot de passe',
     /* Language */
@@ -45,7 +51,7 @@ return [
     'login_user' => 'Nom d\'usager',
     'login_pass' => 'Mot de passe',
     'login_sub' => 'Connectez-vous à votre compte.',
-    /*Registration */
+    /* Registration */
     'register' => 'Créer votre compte',
     'register_cellar' => 'Créer votre Cellier',
     'registration' => 'Enregistré',
@@ -53,6 +59,9 @@ return [
     'register_subtitle' => 'Créer un compte',
     'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Deconnexion',
+    /* Details */
+    'price' => 'Prix :',
+    'info' => 'Infos détaillées',
     /* Rights */
     'rights' => 'Tous les droits sont reserves.',
 ]

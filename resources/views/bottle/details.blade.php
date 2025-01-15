@@ -9,6 +9,7 @@
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
             <span class="details-price">Prix: {{$bottle->price}}</span>
+           
 
 
             <form action="" method="POST">

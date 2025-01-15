@@ -4,11 +4,13 @@
             
             
 <x-header 
+<!---Composants pour le titre et la description de la page--->                
+<!-- <x-header 
     title="{{ $cellar->title }}"
-    subtitle="{{ $cellar->description }}"
-/>
+    subtitle="{!! $cellar->description !!}"
+/> -->
 
-<main class="flex-center">    
+<main class="flex-center">   
     <section class="structure">
         
         <div class="btn-container just-between">
@@ -18,6 +20,14 @@
 
         <header class="filters">
     
+        <h2>{{ $cellar->title }}</h2> 
+        <!--Actions de cellier -> supprimer, mettre à jour--->
+        <!-- <div class="btn-container just-between">
+            <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">@lang('lang.edit') <i class="fas fa-edit"></i></a>
+            <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">@lang('lang.delete') <i class="fa-solid fa-trash"></i></a>
+        </div> -->
+        <!---Filtres--->
+        <!-- <header class="filters">
             <form class="filters_category" action="" method="GET">
                 <label class="category_box">
                     <input type="radio" name="category" value="rose" hidden>
@@ -44,7 +54,7 @@
                 </label>
             </form>
 
-        </header>
+        </header> -->
         <section class="grid mt-20 mb-10">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>

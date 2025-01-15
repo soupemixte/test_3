@@ -10,7 +10,7 @@
                 @method('put')
                 <div class="mb-3 col">
                     <div class="row">
-                        <label for="title">Nom du Cellier</label>
+                        <label for="title">@lang('lang.cellar_name')</label>
                         <input type="text" name="title" value="{{ old('title', $cellar->title) }}" placeholder="Entrez le nom...">
                     </div>
                     @if ($errors->has('title'))
@@ -21,7 +21,7 @@
                 </div>
                 <div class="mb-3 col">
                     <div class="row">
-                        <label for="description">Nom du Cellier</label>
+                        <label for="description">@lang('cellar_desc')</label>
                         <textarea name="description" placeholder="Description de ce cellier....">{{ old('description', $cellar->description) }}</textarea>
                     </div>
                     @if ($errors->has('description'))
@@ -30,7 +30,7 @@
                         </div>
                     @endif
                 </div>
-                <button type="submit" class="btn-border">Update</button>
+                <button type="submit" class="btn-border">@lang('lang.update')</button>
             </form>
         </div> 
     </section>

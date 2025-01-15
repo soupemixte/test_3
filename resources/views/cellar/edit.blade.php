@@ -10,7 +10,7 @@
                 <label for="title">Nom du Cellier</label>
                 <input type="text" name="title" value="{{ old('title', $cellar->title) }}" placeholder="Entrez le nom...">
                 @if ($errors->has('title'))
-                    <div class="">
+                    <div class="alert_msg">
                         {{$errors->first('title')}}
                     </div>
                 @endif
@@ -19,7 +19,7 @@
                 <label for="description">Nom du Cellier</label>
                 <textarea name="description" placeholder="Description de ce cellier....">{{ old('description', $cellar->description) }}</textarea>
                 @if ($errors->has('description'))
-                    <div class="">
+                    <div class="alert_msg">
                         {{$errors->first('description')}}
                     </div>
                 @endif
