@@ -89,8 +89,8 @@ class CellarController extends Controller
         ]);
     
         $task->update([
-            'title' => $request->title,
-            'description' => $request->description,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
         ]);
     
         return redirect()->route('cellar.show', $cellar->id)->with('success', 'Cellar updated successfully.');
@@ -125,9 +125,9 @@ class CellarController extends Controller
 
         // Attach the bottle to the selected cellar
         CellarBottle::create([
-            'cellar_id' => $request->cellar_id,
-            'bottle_id' => $request->bottle_id,
-            'quantity' => $request->quantity,
+            'cellar_id' => $request->input('cellar_id'),
+            'bottle_id' => $request->input('bottle_id'),
+            'quantity' => $request->input('quantity'),
         ]);
 
         return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
