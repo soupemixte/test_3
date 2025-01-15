@@ -35,7 +35,7 @@
                 @endforeach
             </select>
             @if ($errors->has('cellar_id'))
-                <div class="">
+                <div class="alert_msg">
                     {{$errors->first('cellar_id')}}
                 </div>
             @endif
