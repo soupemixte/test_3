@@ -5,15 +5,15 @@
 <!---Composants pour le titre et la description de la page--->                
 <x-header 
     title="{{ $cellar->title }}"
-    subtitle="{{ $cellar->description }}"
+    subtitle="{!! $cellar->description !!}"
 />
 
 <main class="flex-center">    
     <section class="structure">
         <!--Actions de cellier -> supprimer, mettre à jour--->
         <div class="btn-container just-between">
-            <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">Edit <i class="fas fa-edit"></i></a>
-            <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">Delete <i class="fa-solid fa-trash"></i></a>
+            <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">@lang('lang.edit') <i class="fas fa-edit"></i></a>
+            <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">@lang('lang.delete') <i class="fa-solid fa-trash"></i></a>
         </div>
         <!---Filtres--->
         <header class="filters">

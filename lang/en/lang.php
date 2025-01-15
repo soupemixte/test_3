@@ -34,6 +34,7 @@ return [
     'user_card' => 'User card',
     'user_name' => 'Name',
     'username' => 'Username',
+    'email' => 'Email',
     'password' => 'Password',
     'password_confirm' => 'Please confirm your Password',
     /* Language */

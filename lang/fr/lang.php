@@ -33,6 +33,7 @@ return [
     'user_card' => ' ',
     'user_name' => 'Nom',
     'username' => 'Nom d\'usager',
+    'email' => 'Courriel',
     'password' => 'Mot de passe',
     'password_confirm' => 'Confirmez votre mot de passe',
     /* Language */

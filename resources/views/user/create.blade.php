@@ -21,7 +21,7 @@
         <form action="{{ route('user.store') }}" method="POST" class="form">
             @csrf
             <div class="form-control">
-                <label for="name">Name</label>
+                <label for="name">@lang('lang.user_name')</label>
                 <input type="text" id="name" name="name" value="{{old('name')}}">
                 @if ($errors->has('name'))
                     <div class="form_input_error">
@@ -30,7 +30,7 @@
                 @endif
             </div>
             <div class="form-control">
-                <label for="email">Username</label>
+                <label for="email">@lang('lang.email')</label>
                 <input type="text" id="username" name="email"  value="{{old('email')}}">
                 @if ($errors->has('email'))
                     <div class="form_input_error">
@@ -39,7 +39,7 @@
                 @endif
             </div>
             <div class="form-control">
-                <label for="password">Password</label>
+                <label for="password">@lang('lang.password')</label>
                 <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
                     <div class="form_input_error">
@@ -48,7 +48,7 @@
                 @endif
             </div>
             <div class="form-control">
-                <label for="password_confirm">Password Confirm</label>
+                <label for="password_confirm">@lang('lang.password_confirm')</label>
                 <input type="password" id="password_confirmation" name="password_confirmation">
                 @if($errors->has('password_confirm'))
                     <div class="form_input_error">

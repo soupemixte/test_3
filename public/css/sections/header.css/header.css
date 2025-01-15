@@ -1,5 +1,7 @@
 /* Styles généraux pour l'en-tête de la page */
 .page-header {
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 40px;
     display: flex;
     justify-content: center;
