@@ -19,7 +19,7 @@
         </div>
         <div class="form-control">
             <label for="quantity">Quantité</label>
-            <input type="number" name="quantity" id="" min="0" value="{{old('quantity')}}">
+            <input type="number" name="quantity" id="" min="0" value="{{old('quantity', $bottle->quantity)}}">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
