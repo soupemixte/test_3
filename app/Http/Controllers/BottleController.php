@@ -11,14 +11,24 @@ class BottleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Retrieve all bottles
-        $bottles = Bottle::select()
-            ->orderby('title')
-            ->paginate(10);
-        // Pass the bottles to the view
-        return view('bottle.index', compact('bottles'));
+        // Check if a search query is provided
+        $query = $request->input('search');
+
+        if ($query) {
+            // Filter bottles by title using the search query
+            $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
+                ->orderby('title')
+                ->paginate(10);
+        } else {
+            // If no search query, retrieve all bottles
+            $bottles = Bottle::orderby('title')
+                ->paginate(10);
+        }
+
+        // Pass the bottles and the query (to keep input value) to the view
+        return view('bottle.index', compact('bottles', 'query'));
     }
 
     public function details($id)

@@ -1,3 +1,11 @@
+@import url(search/search.css);
+/*filters wrapper*/
+.filter-wrapper {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
 /*filters container*/
 .filters {
     display: flex;
