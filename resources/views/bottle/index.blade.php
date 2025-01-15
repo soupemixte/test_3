@@ -55,6 +55,7 @@
         @endif
         </section>
     </div>
+    {{ $bottles }}
 </main>
 
 @endsection

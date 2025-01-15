@@ -13,7 +13,7 @@
     </div>                
 @endif          
 
-<!---composant pour le titre et la description de la page-->
+
 <x-header 
     title="{{ __('lang.registration') }}"
     subtitle="{{ __('lang.register_subtitle') }}"

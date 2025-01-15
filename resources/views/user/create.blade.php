@@ -11,7 +11,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
 @endif
-<!--composant pour donner le titre et le sous-titre à la page-->
+
 <x-header 
         title="{{ __('lang.registration') }}"
         subtitle="{{ __('lang.register_subtitle') }}"

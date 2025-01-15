@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <meta name="author" content="Mateo">
+    <!-- <meta name="author" content="Mateo"> -->
     <meta name="author" content="Dionis">
     <script type="module" src="{{ asset('js/main.js')}}" defer></script>
     <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <!-- <header class="header">
         <div class="logo">VINO</div>
         <div class="welcome-user">
              @auth
                 <p>@lang('lang.welcome'), <span>{{ Auth::user()->name }}</span></p>
-    <header>
-        <div class="logo"><h1><a href="{{ route('login') }}">VINO</a></h1></div>
-    </header>
+            @endauth -->
+    <!-- <header>
+        <div class="logo"><h1><a href="{{ route('login') }}">VINO</a></h1></div> -->
+    <!-- </header> -->
     <!-- Content -->
-    @yield('content')
+    <!-- @yield('content') -->
     <!-- Navigation -->
     <footer>
         <nav class="mobile-fixed-footer">
@@ -52,7 +53,7 @@
             </div>
         </ul>
 
-    </header>
+</footer>
     <!-- Content -->
     @yield('content')
     <!-- Navigation -->

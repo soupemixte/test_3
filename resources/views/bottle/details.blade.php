@@ -11,9 +11,7 @@
             <span class="details-price">Prix: {{$bottle->price}}</span>
 
 
-            <!-- -------- ajout de form ---------- -->
-
-            <form action="{{ route('cellierbottle.store'), }}" method="POST">
+            <form action="" method="POST">
             @csrf
             <label for="quantity">
                 Quantite
@@ -35,18 +33,14 @@
                 <label for="bu">
                 <input hidden  type="number" name="bu" value="0" >
                 </label>
-                <input type="submit" value="Ajouter au cellier">
+                <input hidden type="submit" value="Ajouter au cellier">
             </form>
 
 
 
-            <div class="quantity-input">
-                <!-- <button id="">-</button>
-                <input type="text" value="1">
-                <button id="">+</button> -->    
-            </div>
+           
             <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">Ajouter au cellier</a>
-<!-- <a href="" class="btn btn-border">Ajouter au cellier</a> -->
+
         </article>
 
         <div class="line"></div>
@@ -57,5 +51,4 @@
         </article>
     </section>
 </main>
-
 @endsection
