@@ -23,8 +23,24 @@
                    
                 </form>
             </header>
+             <!-- Afficher la quantité trouvée par défaut -->
+             @if (empty($query))
+                <div class="results">
+                    <h2>Tous les résultats:</h2>
+                    <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
+                </div>
+            @endif
+            <!--Afficher la quantité trouvée après la requête -->
+            @if (!empty($query))
+                <div class="results">
+                    <h2>Recherche de : "{{ $query }}"</h2>
+                    <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
+                    <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
+                </div>
+            @endif
             <section class="grid">
                 @if ($bottles->isEmpty())
+                     <!-- Afficher la quantité trouvée après une requête erronée -->
                     <div class="results">
                         @if (!empty($query))
                             <h2>Recherche de : "{{ $query }}"</h2>
@@ -38,13 +54,7 @@
 
                     </div>
                 @else
-                @if (!empty($query))
-                    <div class="results">
-                        <h2>Recherche de : "{{ $query }}"</h2>
-                        <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
-                        <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
-                    </div>
-                @endif
+               
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
