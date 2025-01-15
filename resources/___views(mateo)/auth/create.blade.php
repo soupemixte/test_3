@@ -52,7 +52,7 @@
             <button type="submit" class="login_btn">@lang('lang.login')</button>
             </form>
         <div>
-            <p>Pas encore membre ? <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
+            <p>@lang('lang.register_question')<a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
         </div>
         </div>
     </section>

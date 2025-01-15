@@ -8,7 +8,9 @@ return [
     'edit' => 'Modification',
     'update' => 'Mise à jour',
     'delete' => 'Supprimmer',
+    /* Bottles */
     'bottle' => 'Bouteille',
+    'bottle_name' => 'Nom de la Bouteille',
     'bottles' => 'Bouteilles',
     'delete_bottle' => 'Suprimer Bouteilles',
     'scrape_bottle' => 'Ajout Bouteilles',
@@ -22,7 +24,8 @@ return [
     'cellar_desc' => 'Description du Cellier',
     'cellar_create' => 'Créer votre Cellier',
     'add_cellar' => 'Ajouter au Cellier',
- 
+    'cellar_choose' => 'Choisir le Cellier',
+    'choose_name' => 'Choisir le Nom',
     /* Welcome */
     'welcome' => 'Bienvenue',
     /* Users */
@@ -46,7 +49,7 @@ return [
     'login_user' => 'Nom d\'usager',
     'login_pass' => 'Mot de passe',
     'login_sub' => 'Connectez-vous à votre compte.',
-    /*Registration */
+    /* Registration */
     'register' => 'Créer votre compte',
     'register_cellar' => 'Créer votre Cellier',
     'registration' => 'Enregistré',
@@ -54,6 +57,9 @@ return [
     'register_subtitle' => 'Créer un compte',
     'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Deconnexion',
+    /* Details */
+    'price' => 'Prix :',
+    'info' => 'Infos détaillées',
     /* Rights */
     'rights' => 'Tous les droits sont reserves.',
 ]
