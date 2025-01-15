@@ -21,11 +21,10 @@ return [
     'cellar_name' => 'Nom du Cellier',
     'cellar_desc' => 'Description du Cellier',
     'cellar_create' => 'Créer votre Cellier',
-    'add_cellar' => 'Ajouter',
-    'drink_cellar' => 'Consommer',
+    'add_cellar' => 'Ajouter au Cellier',
+ 
     /* Welcome */
     'welcome' => 'Bienvenue',
-    'welcome_message' => 'Bien Bien Bien',
     /* Users */
     'users' => '',
     'user' => '',
@@ -34,6 +33,7 @@ return [
     'user_card' => ' ',
     'user_name' => 'Nom',
     'username' => 'Nom d\'usager',
+    'email' => 'Courriel',
     'password' => 'Mot de passe',
     'password_confirm' => 'Confirmez votre mot de passe',
     /* Language */
@@ -46,17 +46,14 @@ return [
     'login_user' => 'Nom d\'usager',
     'login_pass' => 'Mot de passe',
     'login_sub' => 'Connectez-vous à votre compte.',
-    /* Registration */
+    /*Registration */
     'register' => 'Créer votre compte',
     'register_cellar' => 'Créer votre Cellier',
-    'register_user' => 'S\'inscrire',
     'registration' => 'Enregistré',
     'register_question' => 'Pas encore membre ?',
     'register_subtitle' => 'Créer un compte',
     'login_failed_message' => 'Please log in to continue.',
     'logout' => 'Deconnexion',
-    /* Collection */
-    'collection' => 'Collection',
     /* Rights */
     'rights' => 'Tous les droits sont reserves.',
 ]

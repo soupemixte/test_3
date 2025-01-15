@@ -1,110 +1,16 @@
-/* Root variables for consistent spacing and colors */
-:root {
-    --color-primary: #52CE65;
-    --color-secondary: #CEDBE5;
-    --color-gray: #B2B3B4;
-    --color-gray-light: #DDDDDD;
-    --color-black: #000000;
-    --color-blue: #1C0EEC;
-    --color-white: #f4f4f4;
-    --color-text: #000000;
-    --color-accent: #ff5733;
-    --color-alert: #FF0000;
-  
-    --font-family: 'Arial', sans-serif;
-    --font-size-small: 12px;
-    --font-size-med: 28px;
-    --font-size-base: 36px;
-    --font-size-button: 48px;
-    --font-size-title: 54px;
-    --font-size-logo: 74px;
-    --font-weight-base: bold;
-    --font-weight-button: normal;
-    --font-weight-title: bolder;
-    --font-weight-light: lighter;
-
-    --spacing-x-small: 4px;
-    --spacing-small: 8px;
-    --spacing-med: 16px;
-    --spacing-med-large: 36px;
-    --spacing-large: 74px;
-    --spacing-x-large: 128px;
+@import url(typograpghy/typography.css);
+@import url(utils/utils.css);
+@import url(colors/colors.css);
+@import url(animation/animation.css);
 
 
-    --border-radius-x-small: 2px;
-    --border-radius-small: 8px;
-    --border-radius: 16px;
-    --border-weight-small: 2px;
-    --border-weight-med: 5px;
-
-    --box-size-small: 28px;
-    --box-size-med-small: 48px;
-    --box-size-med: 74px;
-    --box-size-med-large: 184px;
-    --box-size-large: 256px;
-    --box-size-x-large: 292px;
-    --box-size-mega: 512px;
-  }
-
-/* Body CSS */
-body {
-  background-color: var(--color-secondary);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--spacing-large)
+* {
+    padding: 0;
+    margin: 0;
 }
 
-main {
-  padding-left: var(--spacing-med-large);
-  padding-right: var(--spacing-med-large);
-}
-
-.mb-3 {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--spacing-small);
-  padding-bottom: var(--spacing-med);
-  padding-top: var(--spacing-small);
-  border-bottom: var(--border-weight-small) solid var(--color-black);
-
-}
-
-.col {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--spacing-small);
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.mb-3 > label {
-  font-weight: var(--font-weight-light);
-  font-size: var(--font-size-base);
-  margin-bottom: var(--spacing-med);
-}
-
-.mb3 > textarea {
-  border-radius: var(--border-radius-x-small);
-
-}
-
-.mb-3 > p {
-  font-size: var(--font-size-base);
-  color: var(--color-gray);
-}
-
-.mb-3 > input {
-  height: var(--box-size-med-small);
-  background-color: var(--color-gray-light);
-  border: var(--border-weight-small) solid var(--color-gray);
-  border-radius: var(--border-radius-small);
-  padding-left: var(--spacing-med);
-  font-size: var(--font-size-med);
+li {
+    list-style: none;
 }
 
 .section-title {

@@ -1,6 +1,9 @@
 /* Header */
 header {
     background-color: var(--color-gray);
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
     padding-top: var(--spacing-large);
     min-height: var(--box-size-large);
     border-bottom: var(--border-weight-med) solid var(--color-black);
