@@ -21,7 +21,7 @@
             <label for="quantity">Quantité</label>
             <input type="number" name="quantity" id="" min="0">
             @if ($errors->has('quantity'))
-                <div class="">
+                <div class="alert_msg">
                     {{$errors->first('quantity')}}
                 </div>
             @endif
