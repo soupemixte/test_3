@@ -9,9 +9,7 @@
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
             <span class="details-price">Prix: {{$bottle->price}}</span>
-            <div class="quantity-input">
-                <input type="number" name="quantity" id="" min="0" value="{{old('quantity')}}">
-            </div>
+           
             <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">Ajouter au cellier</a>
         </article>
 

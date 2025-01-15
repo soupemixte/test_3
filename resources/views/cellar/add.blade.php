@@ -14,7 +14,10 @@
             <label for="bottle_name">Nom de la Bouteille</label>
             <input type="text" name="bottle_name" value="{{ $bottle->title }}" readonly>
         </div>
-
+        <div class="form-control">
+            <label for="quantity">Quantité</label>
+            <input type="number" name="quantity" id="" min="0">
+        </div>
         <div class="form-control">
             <label for="cellar_id">Choisir le Cellier</label>
             <select name="cellar_id" id="cellar_id" required>
