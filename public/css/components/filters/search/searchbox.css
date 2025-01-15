@@ -43,9 +43,16 @@
     align-items: center;
 }
 
+.search-container .search-btn .fa,
 .search-container .search-btn .fas{
-    color: #5cbdbb;
     font-size: 18px;
+}
+
+.search-container .search-btn .fas {
+    color: orange;
+}
+.search-container .search-btn .fa {
+    color: rgb(137, 64, 64);
 }
 
 @keyframes hoverShake {
