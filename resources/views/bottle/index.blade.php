@@ -19,26 +19,32 @@
                     >
                     <button type="submit" class="search-btn" id="search-btn">
                         <i class="fas fa-search" id="search-icon"></i>
-                        <!-- <i class="fa fa-window-close"></i> -->
                     </button>
                    
                 </form>
             </header>
             <section class="grid">
                 @if ($bottles->isEmpty())
-                    <div class="no_results">
+                    <div class="results">
                         @if (!empty($query))
                             <h2>Recherche de : "{{ $query }}"</h2>
                         @endif
-                        <span>0 résultats trouvés</span>
+                        <p><span>0</span> résultats trouvés</p>
                         <ul>Désolé, aucun résultat trouvé.
                             <li>Essayez une autre recherche</li>
                             <li>Ou retourner à la page de la liste des bouteilles</li>
                         </ul>
-                        <a href="{{ route('bottle.index') }}" class="btn">@lang('lang.bottles')</a>
+                        <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
 
                     </div>
                 @else
+                @if (!empty($query))
+                    <div class="results">
+                        <h2>Recherche de : "{{ $query }}"</h2>
+                        <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
+                        <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
+                    </div>
+                @endif
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
