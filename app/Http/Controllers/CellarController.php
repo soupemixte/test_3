@@ -102,7 +102,7 @@ class CellarController extends Controller
     public function add($id)
     {
         // Retrieve the bottle by its ID
-        $bottle = Bottle::findOrFail($id);
+        $bottle = CellarBottle::findOrFail($id);
 
         // Check if the user has any cellars
         if (Auth::user()->hasCellar()) {
@@ -123,11 +123,17 @@ class CellarController extends Controller
             'quantity' => 'required|min:0',
         ]);
 
+        $bottle = CellarBottle::findOrFail($request->input('bottle_id'));
+
+        // return $bottle->quantity;
+        // $db_quantity = $bottle->quantity;
+        $input_quantity = $request->input('quantity');
+        // $quantity = $input_quantity + $db_quantity;
         // Attach the bottle to the selected cellar
-        CellarBottle::create([
-            'cellar_id' => $request->input('cellar_id'),
-            'bottle_id' => $request->input('bottle_id'),
-            'quantity' => $request->input('quantity'),
+        CellarBottle::update([
+            // 'cellar_id' => $request->input('cellar_id'),
+            // 'bottle_id' => $request->input('bottle_id'),
+            'quantity' => $input_quantity,
         ]);
 
         return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
