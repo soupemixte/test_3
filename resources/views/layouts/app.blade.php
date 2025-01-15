@@ -36,8 +36,8 @@
             <div class="dropdown">
                 <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
                 <div class="dropdown-box">
-                    <a href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a>
-                    <a href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a>
+                    <a href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
+                    <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
                 </div>
             </div>
         </ul>
