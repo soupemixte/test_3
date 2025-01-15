@@ -32,7 +32,7 @@
                             <option value="{{ $cellar->id }}">{{ $cellar->name }}</option>
                         @endforeach
                     @else
-                        <option value="" disabled>Aucun cellier disponible</option>
+                        <option value="" disabled>@lang('lang.no_cellar')</option>
                     @endif
                 </select>
             </div>
@@ -43,7 +43,7 @@
             @endif
         </div>
 
-        <button type="submit" class="btn-border">Ajouter la bouteille</button>
+        <button type="submit" class="btn-border">@lang('lang.add_bottle')</button>
     </form>
 
     </section>
