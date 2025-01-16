@@ -40,12 +40,38 @@
                         <div class="price">
                             {{ $bottle->price }}
                         </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
+                       
+                        <button type="button" class="btn-border" data-bs-toggle="modal" data-bs-target="#deleteModal">Supprimer</button>
+
                     </div>
                 </article>
             @endforeach
         @endif
         </section>
     </section>
+
+
+
+                
+<div class="modal fade container" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="position:absolute ; width:100vw; top:22rem" >
+    <div class="modal-dialog">
+    <div class="modal-content text-light" style="background-color: rgba(0, 0, 0, 0.538);border: 1px solid white;">
+        <div class="modal-header container">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+        @lang('Are you sure !?')
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">@lang('No')</button>
+        <form method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-sm btn-danger">@lang('Yes')</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
 </main>    
 @endsection

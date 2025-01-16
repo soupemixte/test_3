@@ -181,9 +181,10 @@ class BottleController extends Controller
             ];
         }
 
-        public function destroy() {
-            $delete = Bottle::truncate();
+        public function destroy(Bottle $bottle) {
+           // $delete = Bottle::truncate();
 
+           $bottle->delete();
             return view('welcome');
         }
 }
