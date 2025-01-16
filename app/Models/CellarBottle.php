@@ -16,4 +16,8 @@ class CellarBottle extends Model
         'bottle_id',
         'quantity',
     ];
+
+    public function hasBottleInUserCellar() {
+        return Cellar::where('bottle_id', $this->id)->exists();
+    }
 }

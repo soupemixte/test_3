@@ -36,6 +36,7 @@
                 </div>
             @endif
             <section class="grid">
+                
                 @if ($bottles->isEmpty())
 
                     <div class="results">
@@ -77,6 +78,7 @@
                         </div>
                     </article>
                 @endforeach
+            
             @endif
          
             </section>

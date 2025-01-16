@@ -16,9 +16,13 @@ class CellarController extends Controller
      */
     public function index()
     {
-        $cellars = Cellar::all();
-        $users = User::all();
-        return view('cellar.index', ['cellars' => $cellars,'users' => $users]);
+        if (Auth::user()->hasCellar()) {
+            // FIXME: SQL Query
+            $cellars = Cellar::all();
+            // Redirect to cellar index with cellars
+            return view('cellar.index', ['cellars' => $cellars]);
+         
+        }
     }
 
     /**
@@ -64,17 +68,22 @@ class CellarController extends Controller
         die();
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
-
+        
         // Debug the result
         if ($bottles->isEmpty()) {
             return "No bottles found in this cellar.";
         }
 
+        if (Auth::user()->hasCellar()) {
+            // Redirect to the form to choose a cellar and add the bottle
+            // return view('cellar.add', compact('bottle'));
+                return view('cellar.show', [
+                    'cellar' => $cellar,
+                    'bottles' => $bottles,
+                ]);
+        }
         // Pass the cellar and its bottles to the view
-        return view('cellar.show', [
-            'cellar' => $cellar,
-            'bottles' => $bottles,
-        ]);
+        
     }
 
 
@@ -113,14 +122,7 @@ class CellarController extends Controller
         // echo $id;
         // die();
         // Retrieve the bottle by its ID
-        $bottle = CellarBottle::findOrFail($id);
-
-        if($bottle){
-
-            echo "already exist in the cellar";
-
-        }
-        
+        $bottle = Bottle::findOrFail($id);
 
         // Check if the user has any cellars
         if (Auth::user()->hasCellar()) {
@@ -152,19 +154,28 @@ class CellarController extends Controller
             'quantity' => 'required|min:0',
         ]);
 
-        // FIXME:
-        $bottle = CellarBottle::findOrFail($request->input('bottle_id'));
+        if(CellarBottle::hasBottleInUserCellar()) {
+            // FIXME:
+            // SQL QUERY
+            CellarBottle::update([
+                // 'cellar_id' => $request->input('cellar_id'),
+                // 'bottle_id' => $request->input('bottle_id'),
+                'quantity' => $input_quantity,
+            ]);
+        }
+        else {
+            // $bottle = Bottle::findOrFail($request->input('bottle_id'));
+            // Attach the bottle to the selected cellar
+            CellarBottle::create([
+                'cellar_id' => $request->input('cellar_id'),
+                'bottle_id' => $request->input('bottle_id'),
+                'quantity' => $request->input('quantity'),
+            ]);
 
-        // return $bottle->quantity;
-        // $db_quantity = $bottle->quantity;
-        $input_quantity = $request->input('quantity');
-        // $quantity = $input_quantity + $db_quantity;
+        }
+        
         // Attach the bottle to the selected cellar
-        CellarBottle::update([
-            // 'cellar_id' => $request->input('cellar_id'),
-            // 'bottle_id' => $request->input('bottle_id'),
-            'quantity' => $input_quantity,
-        ]);
+        
 
         return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
     }
