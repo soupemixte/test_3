@@ -5,7 +5,7 @@
         <div class="structure">
           
             <header class="filter-wrapper">
-                <form action="{{ route('bottle.index') }}" method="GET" class="search-container" id="search-form">
+                <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                     <input 
                         type="text" 
                         name="search" 
@@ -82,18 +82,41 @@
             @endif
          
             </section>
-            <!-- <div class="pagination-wrapper">
-                <ul class="pagination">
-                    <li><a href="?page=1">1</a></li>
-                    <li><a href="?page=2">2</a></li>
-                    <li class="active"><span>3</span></li>
-                    <li><a href="?page=4">4</a></li>
-                    <li><a href="?page=5">5</a></li>
-                </ul>
-            </div> -->
 
             <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
             <!-- {{ $bottles }}   -->
         </div>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
+
+   // Empêcher la soumission du formulaire si l'entrée est vide
+    searchForm.addEventListener('submit', function (e) {
+        if (searchInput.value.trim() === '') {
+            // Arrêter la soumission du formulaire
+            e.preventDefault(); 
+        }
+    });
+
+    // Autoriser l'extension de la saisie en cliquant sur le bouton de recherche
+    searchBtn.addEventListener('click', function (e) {
+        if (searchInput.value.trim() === '') {
+            // Empêcher la soumission du formulaire uniquement si l'entrée est vide
+            e.preventDefault(); 
+             // Focaliser l'entrée pour déclencher l'expansion
+            searchInput.focus();
+        }
+    });
+});
+
+
+</script>
+
+<!---Change the icon of the search box--->
+
 
 @endsection
