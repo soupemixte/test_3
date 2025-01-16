@@ -13,6 +13,8 @@ class BottleController extends Controller
      */
     public function index(Request $request)
     {
+
+      
         // Check if a search query is provided
         $query = $request->input('search');
 
