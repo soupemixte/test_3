@@ -123,6 +123,7 @@ class CellarController extends Controller
             'quantity' => 'required|min:0',
         ]);
 
+        // FIXME:
         $bottle = CellarBottle::findOrFail($request->input('bottle_id'));
 
         // return $bottle->quantity;
