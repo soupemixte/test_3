@@ -39,22 +39,7 @@
                 </div>
             @endif
             <section class="grid">
-                @if ($bottles->isEmpty())
-                     <!-- Afficher la quantité trouvée après une requête erronée -->
-                    <div class="results">
-                        @if (!empty($query))
-                            <h2>Recherche de : "{{ $query }}"</h2>
-                        @endif
-                        <p><span>0</span> résultats trouvés</p>
-                        <ul>Désolé, aucun résultat trouvé.
-                            <li>Essayez une autre recherche</li>
-                            <li>Ou retourner à la page de la liste des bouteilles</li>
-                        </ul>
-                        <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
-
-                    </div>
-                @else
-               
+                
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
@@ -80,7 +65,7 @@
                         </div>
                     </article>
                 @endforeach
-            @endif
+            
             </section>
             <!-- <div class="pagination-wrapper">
                 <ul class="pagination">
