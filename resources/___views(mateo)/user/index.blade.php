@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Users')
 @section('content')
-    <h1 class="">Users</h1>
+    <h1 class="">@lang('lang.users')</h1>
     <div class="users">
-
             <div class="">
                 <div class="card-header">
                     <h5 class="card-title">@lang('lang.users')</h5>
