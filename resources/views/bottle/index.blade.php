@@ -80,6 +80,17 @@
             @endif
          
             </section>
+            <!-- <div class="pagination-wrapper">
+                <ul class="pagination">
+                    <li><a href="?page=1">1</a></li>
+                    <li><a href="?page=2">2</a></li>
+                    <li class="active"><span>3</span></li>
+                    <li><a href="?page=4">4</a></li>
+                    <li><a href="?page=5">5</a></li>
+                </ul>
+            </div> -->
+
+            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
             <!-- {{ $bottles }}   -->
         </div>
 

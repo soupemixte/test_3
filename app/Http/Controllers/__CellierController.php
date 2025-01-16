@@ -66,3 +66,4 @@ class CellierController extends Controller
         //
     }
 }
+
