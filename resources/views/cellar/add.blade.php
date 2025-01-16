@@ -49,9 +49,6 @@
 
         <button type="submit" class="btn-border">Ajouter la bouteille</button>
     </form>
-
-
     </section>
 </main>
-
 @endsection

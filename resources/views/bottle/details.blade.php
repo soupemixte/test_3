@@ -21,7 +21,9 @@
                 <label for="Cellier_idCellier">
                 @foreach( $celliers as $cellier)
                 @if($cellier->idCellier == 1)
-                <input hidden type="number" name="Cellier_idCellier" value="{{ $cellier->idCellier }}" >
+                <input  type="number" name="Cellier_idCellier" value="{{ $cellier->idCellier }}" >
+                @else
+                <input  type="number" name="Cellier_idCellier" value="{{ $cellier->idCellier }}" >
                 @endif
                 @endforeach
                 </label>

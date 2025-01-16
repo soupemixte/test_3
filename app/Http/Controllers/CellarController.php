@@ -65,7 +65,7 @@ class CellarController extends Controller
         
 
         $request->session()->put('id_cellier', $cellar->id);
-        die();
+      //  die();
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
         
