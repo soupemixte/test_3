@@ -2,13 +2,6 @@
 @section('title', 'Cellar Show')
 @section('content')
             
-            
-<x-header 
-<!---Composants pour le titre et la description de la page--->                
-<!-- <x-header 
-    title="{{ $cellar->title }}"
-    subtitle="{!! $cellar->description !!}"
-/> -->
 
 <main class="flex-center">   
     <section class="structure">
@@ -21,40 +14,7 @@
         <header class="filters">
     
         <h2>{{ $cellar->title }}</h2> 
-        <!--Actions de cellier -> supprimer, mettre à jour--->
-        <!-- <div class="btn-container just-between">
-            <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">@lang('lang.edit') <i class="fas fa-edit"></i></a>
-            <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">@lang('lang.delete') <i class="fa-solid fa-trash"></i></a>
-        </div> -->
-        <!---Filtres--->
-        <!-- <header class="filters">
-            <form class="filters_category" action="" method="GET">
-                <label class="category_box">
-                    <input type="radio" name="category" value="rose" hidden>
-                    <img src="{{asset('img/icons/rose-wine.png')}}" alt="rose wine">
-                    <span>Rosé</span>
-                </label>
-
-                <label class="category_box">
-                    <input type="radio" name="category" value="rouge" hidden>
-                    <img src="{{asset('img/icons/red-wine.png')}}" alt="red wine">
-                    <span>Rouge</span>
-                </label>
-
-                <label class="category_box">
-                    <input type="radio" name="category" value="blanc" hidden>
-                    <img src="{{asset('img/icons/white-wine.png')}}" alt="white wine">
-                    <span>Blanc</span>
-                </label>
-
-                <label class="category_box">
-                    <input type="radio" name="category" value="tous" hidden>
-                    <img src="{{asset('img/icons/all-wines.png')}}" alt="all wines">
-                    <span>Tous</span>
-                </label>
-            </form>
-
-        </header> -->
+      
         <section class="grid mt-20 mb-10">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>
@@ -87,7 +47,5 @@
         @endif
         </section>
     </section>
-</main>
-
-    
+</main>    
 @endsection

@@ -3,26 +3,7 @@
 @section('content')
 <main class="flex-center">    
     <div class="structure">
-        <!-- <header class="filters">
-            <div class="filters_category">
-                <div class="category_box">
-                    <img src="{{asset('img/icons/rose-wine.png') }}" alt="rose wine">
-                    <span>Rosé</span>
-                </div>
-                <div class="category_box">
-                    <img src="{{asset('img/icons/red-wine.png') }}" alt="red wine">
-                    <span>Rouge</span>
-                </div>
-                <div class="category_box">
-                    <img src="{{asset('img/icons/white-wine.png') }}" alt="red wine">
-                    <span>Blanc</span>
-                </div>
-                <div class="category_box">
-                    <img src="{{asset('img/icons/all-wines.png') }}" alt="all wines">
-                    <span>Tous</span>
-                </div>
-            </div>
-        </header> -->
+       
         <section class="grid">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>
@@ -55,7 +36,7 @@
         @endif
         </section>
     </div>
-    {{ $bottles }}
+    <!-- {{ $bottles }} -->
 </main>
 
 @endsection
