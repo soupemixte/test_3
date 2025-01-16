@@ -55,8 +55,13 @@ class CellarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cellar $cellar) 
+    public function show(Cellar $cellar,Request $request) 
     {
+      //  echo $cellar->id;
+        
+
+        $request->session()->put('id_cellier', $cellar->id);
+        die();
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
 
@@ -102,16 +107,37 @@ class CellarController extends Controller
     /**
      * Function to add the bottle to the cellar
      */
-    public function add($id)
+    public function add(Request $request , $id)
     {
+
+        // echo $id;
+        // die();
         // Retrieve the bottle by its ID
         $bottle = CellarBottle::findOrFail($id);
 
+        if($bottle){
+
+            echo "already exist in the cellar";
+
+        }
+        
+
         // Check if the user has any cellars
         if (Auth::user()->hasCellar()) {
+
+            // nouveau bouteille
+            $nouveau_bottle = CellarBottle::create([
+                'cellar_id' => $request->cellar_id,
+                'bottle_id' => $request->bottle_id,
+                'quantity' => $request->quantity,
+            ]);
+
+
             // Redirect to the form to choose a cellar and add the bottle
             return view('cellar.add', compact('bottle'));
-        }
+        };
+
+    
 
         // If the user has no cellars, redirect to create a new cellar
         return redirect()->route('cellar.create')->with('warning', 'Please create a cellar first.');

@@ -12,6 +12,7 @@
         </div>
 
         <header class="filters">
+        {{ session('id_cellier') }}
     
         <h2>{{ $cellar->title }}</h2> 
       
@@ -53,7 +54,7 @@
 
 
                 
-<div class="modal fade container" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="position:absolute ; width:100vw; top:22rem" >
+<div class="modal fade container" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="position:absolute ; width:10""0vw; top:22rem" >
     <div class="modal-dialog">
     <div class="modal-content text-light" style="background-color: rgba(0, 0, 0, 0.538);border: 1px solid white;">
         <div class="modal-header container">

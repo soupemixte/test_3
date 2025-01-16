@@ -6,7 +6,10 @@
     title="{{ __('lang.add_bottle') }}"
     subtitle="{{ __('lang.add_bottle_subtitle') }}"
 />
+
+
 <main class="flex-center">
+
     <section class="structure flex-col-center height80">   
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
@@ -17,6 +20,7 @@
         <div class="form-title">
             <h2>{{ $bottle->title }}</h2>
         </div>
+        
         <div class="form-control">
             <label for="quantity">Quantité</label>
             <input type="number" name="quantity" id="" min="0" value="{{old('quantity', $bottle->quantity)}}">
