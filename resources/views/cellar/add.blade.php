@@ -2,10 +2,10 @@
 @section('title', 'Ajouter la bouteille')
 @section('content')
 
-<x-header 
+<!-- <x-header 
     title="{{ __('lang.add_bottle') }}"
     subtitle="{{ __('lang.add_bottle_subtitle') }}"
-/>
+/> -->
 @if(!$errors->isEmpty())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
@@ -28,7 +28,7 @@
             <h2>{{ $bottle->title }}</h2>
         </div>
         <div class="form-control">
-            <label for="quantity">Quantité</label>
+            <label for="quantity">@lang('lang.quantity')</label>
             <input type="number" name="quantity" id="" value="{{old('quantity', $quantity)}}">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
@@ -37,9 +37,9 @@
             @endif
         </div>
         <div class="form-control">
-            <label for="cellar_id">Choisir le Cellier</label>
+            <label for="cellar_id">@lang('lang.cellar_choose')</label>
             <select name="cellar_id" id="cellar_id">
-                <option value="">Choisir le Nom</option>
+                <option value="">@lang('lang.choose_name')</option>
                 @foreach (Auth::user()->cellars as $cellar)
                     <option value="{{ $cellar->id }}">{{ $cellar->title }}</option>
                 @endforeach
@@ -53,7 +53,7 @@
 
         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
 
-        <button type="submit" class="btn-border">Ajouter la bouteille</button>
+        <button type="submit" class="btn-border">@lang('lang.add_bottle')</button>
     </form>
 
 

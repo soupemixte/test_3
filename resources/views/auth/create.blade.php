@@ -14,10 +14,10 @@
 @endif          
 
 <!---composant pour le titre et la description de la page-->
-<x-header 
+<!-- <x-header 
     title="{{ __('lang.registration') }}"
     subtitle="{{ __('lang.register_subtitle') }}"
-/>
+/> -->
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form method="POST" class="form">
@@ -40,11 +40,11 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">Login</button>
+            <button type="submit" class="btn-border">@lang('lang.login')</button>
         </form>
         
         <div class="form_footer">
-            <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
+            <p>@lang('lang.register_question')<a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
         </div>
         
     </section>
