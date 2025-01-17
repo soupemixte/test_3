@@ -44,19 +44,20 @@
                        
                         
                             <div class="card-list flex flex-col gap5">
-                                <p>{{ $bottle->region }}</p>
-                                <p>{{ $bottle->degree_alcool }}</p>
-                                <p>{{ $bottle->sugar_content }}</p>
-                                <p>{{ $bottle->promoting_agent }}</p>
-                                <p>{{ $bottle->producer }}</p>
-                                <p>{{ $bottle->grape_variety }}</p>
-                                                        @foreach ($cellar_bottles as $cellar_bottle)
-                                @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
-                                    <div class="quantity">
-                                        {{ $cellar_bottle->quantity }}
-                                    </div>
-                                    @endif
-                                @endforeach
+                            <p>@lang('lang.region') : {{ $bottle->region }}</p>
+                            <p>@lang('lang.degree_alcohol') : {{ $bottle->degree_alcohol }}</p>
+                            <p>@lang('lang.sugar_content') : {{ $bottle->sugar_content }}</p>
+                            <p>@lang('lang.promoting_agent') {{ $bottle->promoting_agent }}</p>
+                        
+                        <p>@lang('lang.producer') : {{ $bottle->producer }}</p>
+                        <p>@lang('lang.grape_variety') : {{ $bottle->grape_variety }}</p>
+                        @foreach ($cellar_bottles as $cellar_bottle)
+                        @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                            <div class="quantity">
+                                @lang('lang.quantity') : {{ $cellar_bottle->quantity }}
+                            </div>
+                        @endif
+                        @endforeach
                             </div>
                         <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </div>
