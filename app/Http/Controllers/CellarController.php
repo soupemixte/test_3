@@ -16,8 +16,10 @@ class CellarController extends Controller
     public function index()
     {
         if (Auth::user()->hasCellar()) {
-            // FIXME: SQL Query
-            $cellars = Cellar::all();
+            $cellars = Cellar::select()
+                ->where('user_id', '=', Auth::id())
+                ->get();
+            
             // Redirect to cellar index with cellars
             return view('cellar.index', ['cellars' => $cellars]);
          
@@ -111,7 +113,6 @@ class CellarController extends Controller
      */
     public function add($id)
     {
-        // return $id;
         // Retrieve the bottle by its ID
         $bottle = Bottle::findOrFail($id);
 
@@ -128,23 +129,39 @@ class CellarController extends Controller
     
     public function storeBottle(Request $request)
     {
+        $bottle = Bottle::findOrFail($request->input('bottle_id'));
+
         $request->validate([
            'cellar_id' => 'required',
            'bottle_id' => 'required',
             'quantity' => 'required|min:0',
         ]);
 
-        if(CellarBottle::hasBottleInUserCellar()) {
+        $cellar_bottle = CellarBottle::select()
+            ->where('cellar_id', '=', $request->input('cellar_id'))
+            ->where('bottle_id', '=', $request->input('bottle_id'))
+            ->get();
+        
+        if($cellar_bottle) {
             // FIXME:
-            // SQL QUERY
-            CellarBottle::update([
-                // 'cellar_id' => $request->input('cellar_id'),
-                // 'bottle_id' => $request->input('bottle_id'),
-                'quantity' => $input_quantity,
-            ]);
+            $bd_quantity = $cellar_bottle->first()->quantity;
+            $set_quantity = $bd_quantity + $request->input('quantity');
+
+            if($set_quantity < 0) {
+                return "Not enough bottles in cellar.";
+            }
+            
+            CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
+                        ->where('bottle_id', '=', $request->input('bottle_id'))
+                        ->update([
+                            'quantity' => $set_quantity,
+                        ]);
         }
         else {
-            // $bottle = Bottle::findOrFail($request->input('bottle_id'));
+
+            if($request->input('quantity') < 0) {
+                return "Cannot add negative number";
+            }
             // Attach the bottle to the selected cellar
             CellarBottle::create([
                 'cellar_id' => $request->input('cellar_id'),
@@ -154,9 +171,6 @@ class CellarController extends Controller
 
         }
         
-        // Attach the bottle to the selected cellar
-        
-
         return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
     }
 
