@@ -74,7 +74,7 @@
                             <div class="price">
                                 {{ $bottle->price }}
                             </div>
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
+                             <a href="{{ route('cellar.return', ['id' => $bottle->id ]) }}" class="btn-border">Ajouter au cellier</a>
                         </div>
                     </article>
                 @endforeach

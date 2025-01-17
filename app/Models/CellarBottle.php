@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Cellar;
+
 
 class CellarBottle extends Model
 {
@@ -18,6 +20,7 @@ class CellarBottle extends Model
     ];
 
     public function hasBottleInUserCellar() {
-        return Cellar::where('bottle_id', $this->id)->exists();
+      
+         return CellarBottle::where('bottle_id', $this->id)->exists();
     }
 }

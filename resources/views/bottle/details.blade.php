@@ -9,33 +9,27 @@
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
             <span class="details-price">Prix: {{$bottle->price}}</span>
-           
-
-
+        
             <form action="" method="POST">
             @csrf
             <label for="quantity">
                 Quantite
                 <input type="number" name="quantity" >
                 </label>
-                <label for="Cellier_idCellier">
+                <label for="cellar_id">
+                    Choix Cellier :
+                </label>
+                <select name="cellar_id" id="">
                 @foreach( $celliers as $cellier)
-                @if($cellier->idCellier == 1)
-                <input  type="number" name="Cellier_idCellier" value="{{ $cellier->idCellier }}" >
-                @else
-                <input  type="number" name="Cellier_idCellier" value="{{ $cellier->idCellier }}" >
+                @if($cellier->user_id == session('user_id'))
+                    <option value="{{ $cellier->id }}">{{ $cellier->title }}</option>
                 @endif
                 @endforeach
+                </select>
+                <label for="bottle_id">
+                <input  hidden type="number" name="bottle_id" value="{{ $bottle->id }}" >
                 </label>
-                <label for="Bottle_id">
-                <input hidden type="number" name="Bottle_id" value="{{ $bottle->id }}" >
-                </label>
-                <label for="a_commander">
-                <input hidden type="number" name="a_commander" value="0" >
-                </label>
-                <label for="bu">
-                <input hidden  type="number" name="bu" value="0" >
-                </label>
+            
                 <input hidden type="submit" value="Ajouter au cellier">
             </form>
 

@@ -25,6 +25,16 @@ class CellarController extends Controller
         }
     }
 
+    public function switch($id)
+    {
+        $bottle = Bottle::findOrFail($id);
+        $cellars = Cellar::all();
+            // Redirect to cellar index with cellars
+            return view('Cellar.add',['bottle'=>$bottle , 'cellars' => $cellars]);
+         
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -127,13 +137,17 @@ class CellarController extends Controller
         // Check if the user has any cellars
         if (Auth::user()->hasCellar()) {
 
+
+            echo $request;
+            die();
             // nouveau bouteille
-            $nouveau_bottle = CellarBottle::create([
+            CellarBottle::create([
                 'cellar_id' => $request->cellar_id,
                 'bottle_id' => $request->bottle_id,
-                'quantity' => $request->quantity,
+                'quantity' => $request->quantity
             ]);
 
+        
 
             // Redirect to the form to choose a cellar and add the bottle
             return view('cellar.add', compact('bottle'));
@@ -154,22 +168,24 @@ class CellarController extends Controller
             'quantity' => 'required|min:0',
         ]);
 
-        if(CellarBottle::hasBottleInUserCellar()) {
+     
+
+        if($cellars->hasBottleInUserCellar()) {
             // FIXME:
             // SQL QUERY
             CellarBottle::update([
                 // 'cellar_id' => $request->input('cellar_id'),
                 // 'bottle_id' => $request->input('bottle_id'),
-                'quantity' => $input_quantity,
+               'quantity' => $request->input('quantity')
             ]);
         }
         else {
             // $bottle = Bottle::findOrFail($request->input('bottle_id'));
             // Attach the bottle to the selected cellar
             CellarBottle::create([
-                'cellar_id' => $request->input('cellar_id'),
+               'cellar_id' => $request->input('cellar_id'),
                 'bottle_id' => $request->input('bottle_id'),
-                'quantity' => $request->input('quantity'),
+                 'quantity' => $request->input('quantity'),
             ]);
 
         }

@@ -13,10 +13,7 @@
     <section class="structure flex-col-center height80">   
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
-        <!-- <div class="form-control">
-            <label for="bottle_name">Nom de la Bouteille</label>
-            <input type="text" name="bottle_name" value="{{ $bottle->title }}" readonly>
-        </div> -->
+      
         <div class="form-title">
             <h2>{{ $bottle->title }}</h2>
         </div>
