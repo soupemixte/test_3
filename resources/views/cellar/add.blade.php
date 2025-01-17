@@ -16,6 +16,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
 @endif
+
 <main class="flex-center">
     <section class="structure flex-col-center height80">   
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">

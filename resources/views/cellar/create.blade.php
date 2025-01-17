@@ -6,7 +6,7 @@
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf
             <div class="form-control">
-                <label for="title">@lang('lang.cellar_name)</label>
+                <label for="title">@lang('lang.cellar_name')</label>
                 <input type="text" name="title" value="{{ old('title') }}" placeholder="Entrez le nom...">
                 @if ($errors->has('title'))
                     <div class="alert_msg">
@@ -15,7 +15,7 @@
                 @endif
             </div>
             <div class="form-control">
-                <label for="description">@lang('lang.cellar_desc)</label>
+                <label for="description">@lang('lang.cellar_desc')</label>
                 <textarea name="description" placeholder="Description de ce cellier....">{{ old('description') }}</textarea>
                 @if ($errors->has('description'))
                     <div class="alert_msg">
@@ -23,7 +23,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">@lang('lang.cellar_create)</button>
+            <button type="submit" class="btn-border">@lang('lang.cellar_create')</button>
         </form>
     </section>
 </main>
