@@ -66,6 +66,12 @@ return [
     'result_title' => 'Tous les résultats :',
     'result_subtitle' => ' résultats trouvés',
     'quantity' => 'Quantité',
+    'region' => 'Region',
+    'degree_alcohol' => 'Degrée Alcohol', 
+    'sugar_content' => 'Taux de Sucre' ,
+    'promoting_agent' => 'Agent de promotion',
+    'producer' => 'Producteur',
+    'grape_variety' => 'Sépage',
     /* Rights */
     'rights' => 'Tous les droits sont reserves.',
 ]
