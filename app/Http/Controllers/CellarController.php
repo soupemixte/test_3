@@ -67,9 +67,9 @@ class CellarController extends Controller
             ->where('cellar_id', '=', $cellar->first()->id)
             ->get();
         // Debug the result
-        if ($bottles->isEmpty()) {
+        /* if ($bottles->isEmpty()) {
             return "No bottles found in this cellar.";
-        }
+        } */
 
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
