@@ -17,9 +17,18 @@
     inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
 }
 
-.search-container form:hover > .search-input,
-.search-container:hover > .search-input{
-    width: 200px;
+/* L'input s'élargit au focus ou au survol du conteneur de recherche. */
+.search-container form:focus-within > .search-input,
+.search-container:hover > .search-input,
+.search-btn:focus + .search-input {
+    width: 250px;
+    transition: width 0.3s ease;
+}
+
+/* L'input reste élargi si la classe "expanded" est appliquée. */
+.search-container.expanded > .search-input {
+    width: 250px; 
+    transition: none; 
 }
 
 .search-container .search-input{
@@ -43,34 +52,33 @@
     align-items: center;
 }
 
+.search-container:hover{
+    padding: 10px 20px;
+}
+
+/*icônes de bouton*/
 .search-container .search-btn .fa,
 .search-container .search-btn .fas{
     font-size: 18px;
 }
-
 .search-container .search-btn .fas {
-    color: orange;
+    color: var(--accent-color);
 }
 .search-container .search-btn .fa {
     color: rgb(137, 64, 64);
 }
 
-@keyframes hoverShake {
-  0% {transform: skew(0deg,0deg);}
-  25% {transform: skew(5deg, 5deg);}
-  75% {transform: skew(-5deg, -5deg);}
-  100% {transform: skew(0deg,0deg);}
-}
 
-
-.search-container:hover{
-  animation: hoverShake 0.15s linear 3;
-  padding: 10px 20px;
-}
-
+/*Écran plus grand*/
 @media (min-width: 500px) {
-    .search-container form:hover > .search-input,
-    .search-container:hover > .search-input {
-        width: 400px;
+    .search-container form:focus-within > .search-input,
+    .search-container:hover > .search-input,
+    .search-btn:focus + .search-input {
+    width: 400px;
+    transition: width 0.3s ease;
+    }
+    .search-container.expanded > .search-input {
+        width: 400px; 
+        transition: none;
     }
 }
