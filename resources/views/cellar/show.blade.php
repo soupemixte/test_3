@@ -70,7 +70,14 @@
                         <div class="price">
                             {{ $bottle->price }}
                         </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view)</a>
+                        @foreach ($cellar_bottles as $cellar_bottle)
+                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                            <div class="quantity">
+                                {{ $cellar_bottle->quantity }}
+                            </div>
+                            @endif
+                        @endforeach
+                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </div>
                 </article>
             @endforeach

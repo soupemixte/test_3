@@ -63,7 +63,9 @@ class CellarController extends Controller
     {
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
-        
+        $cellar_bottles = CellarBottle::select()
+            ->where('cellar_id', '=', $cellar->first()->id)
+            ->get();
         // Debug the result
         if ($bottles->isEmpty()) {
             return "No bottles found in this cellar.";
@@ -74,6 +76,7 @@ class CellarController extends Controller
                 return view('cellar.show', [
                     'cellar' => $cellar,
                     'bottles' => $bottles,
+                    'cellar_bottles' => $cellar_bottles,
                 ]);
         }
         
