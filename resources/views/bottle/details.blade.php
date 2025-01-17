@@ -17,7 +17,19 @@
 
         <article class="info-details">
             <h3>@lang('lang.info')</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam ipsam quia quam hic reiciendis sed ipsum voluptatem officiis voluptas, perspiciatis tenetur inventore? Excepturi, quidem consequatur sint aspernatur deleniti aliquid laborum odit amet pariatur earum non quibusdam veritatis nisi officia.</p>
+            <div>
+                            <p>{{ $bottle->region }}</p>
+                            <p>{{ $bottle->degree_alcool }}</p>
+                            <p>{{ $bottle->sugar_content }}</p>
+                        </div>
+                        <div>
+                            <p>{{ $bottle->promoting_agent }}</p>
+                            <p>{{ $bottle->producer }}</p>
+                            <p>{{ $bottle->grape_variety }}</p>
+                        </div>
+                        <div class="price">
+                            {{ $bottle->price }}
+                        </div>
         </article>
     </section>
 </main>
