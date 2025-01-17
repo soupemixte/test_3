@@ -67,10 +67,24 @@
                             <div class="line"></div>
                             <p>{{ $bottle->country }}</p>
                         </div>
-                        <div class="price">
-                            {{ $bottle->price }}
+                        <div>
+                            <p>{{ $bottle->region }}</p>
+                            <p>{{ $bottle->degree_alcool }}</p>
+                            <p>{{ $bottle->sugar_content }}</p>
                         </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
+                        <div>
+                            <p>{{ $bottle->promoting_agent }}</p>
+                            <p>{{ $bottle->producer }}</p>
+                            <p>{{ $bottle->grape_variety }}</p>
+                        </div>
+                        @foreach ($cellar_bottles as $cellar_bottle)
+                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                            <div class="quantity">
+                                {{ $cellar_bottle->quantity }}
+                            </div>
+                            @endif
+                        @endforeach
+                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </div>
                 </article>
             @endforeach

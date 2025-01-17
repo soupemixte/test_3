@@ -22,16 +22,16 @@
              <!-- Afficher la quantité trouvée par défaut -->
              @if (empty($query))
                 <div class="results">
-                    <h2>Tous les résultats:</h2>
-                    <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
+                    <h2>@lang('lang.result_title')</h2>
+                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
             @endif
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query))
                 <div class="results">
                     <h2>Recherche de : "{{ $query }}"</h2>
-                    <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
-                    <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
+                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                    <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif
             <section class="grid">
@@ -57,7 +57,7 @@
                             <div class="price">
                                 {{ $bottle->price }}
                             </div>
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                         </div>
                     </article>
                 @endforeach
