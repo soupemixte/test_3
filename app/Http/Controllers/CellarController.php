@@ -53,7 +53,7 @@ class CellarController extends Controller
         ]);
 
         // if worked
-        return redirect()->route('cellar.create')->with('success', 'Cellier créé avec succès!');
+        return redirect()->route('cellar.index')->with('success', 'Cellier créé avec succès!');
     }
 
     /**
@@ -70,16 +70,12 @@ class CellarController extends Controller
         }
 
         if (Auth::user()->hasCellar()) {
-            // return $cellar->id;
-            // Redirect to the form to choose a cellar and add the bottle
-            // return view('cellar.add', compact('bottle'));
-            
+            // Return to cellar show view with all the bottles
                 return view('cellar.show', [
                     'cellar' => $cellar,
                     'bottles' => $bottles,
                 ]);
         }
-        // Pass the cellar and its bottles to the view
         
     }
 
@@ -120,15 +116,12 @@ class CellarController extends Controller
 
         // Check if the user has any cellars
         if (Auth::user()->hasCellar()) {
-            // return Auth::user()->id;
             $cellar = Cellar::where('user_id', Auth::user()->id);
             $cellar_id = $cellar->first()->id;
-            // return $cellar_id;
             $cellar_bottle = CellarBottle::select()
             ->where('cellar_id', '=', $cellar_id)
             ->where('bottle_id', '=', $id)
             ->exists();
-            // return $cellar_bottle;
             if($cellar_bottle) 
             { 
                 $cellar_bottle = CellarBottle::select()
@@ -138,11 +131,9 @@ class CellarController extends Controller
                 $bd_quantity = $cellar_bottle->first()->quantity; 
             }
             else { $bd_quantity = 0; }
-            // return $bd_quantity;
-            // Redirect to the form to choose a cellar and add the bottle
+            // Redirect to the form to choose a cellar and add the bottle with quantity
             return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity]);
         }
-
         // If the user has no cellars, redirect to create a new cellar
         return redirect()->route('cellar.create')->with('warning', 'Please create a cellar first.');
     }
@@ -166,10 +157,9 @@ class CellarController extends Controller
         
         if($cellar_bottle) {
             $cellar_bottle = CellarBottle::select()
-            ->where('cellar_id', '=', $request->input('cellar_id'))
-            ->where('bottle_id', '=', $request->input('bottle_id'))
-            ->get();
-            // FIXME:
+                ->where('cellar_id', '=', $request->input('cellar_id'))
+                ->where('bottle_id', '=', $request->input('bottle_id'))
+                ->get();
             $bd_quantity = $cellar_bottle->first()->quantity;
             $set_quantity = $bd_quantity + $request->input('quantity');
 
@@ -179,10 +169,10 @@ class CellarController extends Controller
             }
             
             CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
-                        ->where('bottle_id', '=', $request->input('bottle_id'))
-                        ->update([
-                            'quantity' => $set_quantity,
-                        ]);
+                ->where('bottle_id', '=', $request->input('bottle_id'))
+                ->update([
+                    'quantity' => $set_quantity,
+                ]);
         }
         else {
 

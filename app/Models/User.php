@@ -34,9 +34,9 @@ class User extends Authenticatable
         return Cellar::where('user_id', $this->id)->exists();
      }
 
-     public function hasBottleInUserCellar() {
-        return Cellar::where('bottle_id', $this->id)->exists();
-    }
+    //  public function hasBottleInUserCellar() {
+    //     return Cellar::where('bottle_id', $this->id)->exists();
+    // }
      /**
       * Has many cellars
       */
