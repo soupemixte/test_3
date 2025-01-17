@@ -51,5 +51,20 @@
         @endguest
       <!-- <a class="nav-link" href="{{ route('user.show') }}"> @lang('lang.profile')</a> -->
     </nav>
+
+    <!-----Script général réutilisable pour masquer la modale------>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const closeButtons = document.querySelectorAll(".btn-close");
+
+        closeButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const alert = this.parentElement;
+                alert.classList.add("hide");
+            });
+        });
+    });
+
+    </script>
 </body>
 </html>
