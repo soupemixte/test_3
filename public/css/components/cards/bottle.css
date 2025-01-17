@@ -48,6 +48,10 @@
     font-size: 1em;
 }
 
+.card-list {
+    color: white;
+}
+
 /* Ligne de séparation */
 .card-category .line {
     height: 1px;

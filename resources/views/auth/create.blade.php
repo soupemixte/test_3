@@ -3,13 +3,13 @@
 @section('content')
 
 @if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert error" role="alert">
         <ul>
             @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
             @endforeach
         </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close">X</button>
     </div>                
 @endif          
 
@@ -26,9 +26,9 @@
                 <label for="username" >@lang('lang.email')</label>
                     <input type="text" id="username" name="email" value="{{old('email')}}">
                 </div>
-                @if ($errors->has('username'))
+                @if ($errors->has('email'))
                     <div class="alert_msg">
-                        {{$errors->first('username')}}
+                        {{$errors->first('email')}}
                     </div>
                 @endif
             <div class="form-control">
@@ -44,7 +44,7 @@
         </form>
         
         <div class="form_footer">
-            <p>@lang('lang.register_question')<a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
+            <p>@lang('lang.register_question') <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
         </div>
         
     </section>
