@@ -84,7 +84,7 @@
             </section>
 
             <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
-            <!-- {{ $bottles }}   -->
+          
         </div>
 </main>
 
@@ -115,8 +115,5 @@
 
 
 </script>
-
-<!---Change the icon of the search box--->
-
 
 @endsection

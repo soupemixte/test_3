@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BottleController;
+use App\Http\Controllers\CellarBottleController;
 use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
@@ -29,7 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
     Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
-    Route::delete('/bottle/{bottle}', [BottleController::class, 'destroy'])->name('bottle.delete');
+    Route::get('/cellarbottle', [CellarBottleController::class, 'index'])->name('cellarbottle.index');
+    Route::get('/cellarbottle/{cellarbottle}', [CellarBottleController::class, 'del'])->name('cellarbottle.delete');
     // Cellar Routes
     Route::get('/cellars', [CellarController::class, 'index'])->name('cellar.index');
     Route::get('/cellar/{cellar}', [CellarController::class, 'show'])->name('cellar.show');

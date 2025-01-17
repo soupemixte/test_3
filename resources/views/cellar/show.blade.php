@@ -10,9 +10,7 @@
             <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">Edit <i class="fas fa-edit"></i></a>
             <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">Delete <i class="fa-solid fa-trash"></i></a>
         </div>
-
         <header class="filters">
-        {{ session('id_cellier') }}
     
         <h2>{{ $cellar->title }}</h2> 
       
@@ -42,7 +40,7 @@
                             {{ $bottle->price }}
                         </div>
                        
-                        <button type="button" class="btn-border" data-bs-toggle="modal" data-bs-target="#deleteModal">Supprimer</button>
+                        <a class="btn btn-md  btn-danger" href="{{ route('cellarbottle.delete', $bottle->id) }}" role="button">Enlever</a>
 
                     </div>
                 </article>
@@ -50,28 +48,7 @@
         @endif
         </section>
     </section>
-
-
-
-                
-<div class="modal fade container" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true" style="position:absolute ; width:10""0vw; top:22rem" >
-    <div class="modal-dialog">
-    <div class="modal-content text-light" style="background-color: rgba(0, 0, 0, 0.538);border: 1px solid white;">
-        <div class="modal-header container">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body ">
-        @lang('Are you sure !?')
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal">@lang('No')</button>
-        <form method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-danger">@lang('Yes')</button>
-        </form>
-        </div>
-    </div>
+     
     </div>
 </div>
 </main>    

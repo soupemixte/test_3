@@ -31,7 +31,7 @@ class CellarController extends Controller
     {
         $bottle = Bottle::findOrFail($id);
         $cellars = Cellar::all();
-            // Redirect to cellar index with cellars
+            // Redirect to cellar add page
             return view('Cellar.add',['bottle'=>$bottle , 'cellars' => $cellars]);
          
         
@@ -130,8 +130,6 @@ class CellarController extends Controller
     public function add(Request $request , $id)
     {
 
-        // echo $id;
-        // die();
         // Retrieve the bottle by its ID
         $bottle = Bottle::findOrFail($id);
 
@@ -224,4 +222,5 @@ class CellarController extends Controller
 
         return redirect()->route('cellar.index')->with('success', 'Cellar deleted successfully.');
     }
+
 }

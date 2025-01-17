@@ -30,7 +30,7 @@
         
         <div class="form-control">
             <label for="quantity">Quantité</label>
-            <input type="number" name="quantity" id="" value="{{old('quantity', $quantity)}}">
+            <input type="number" name="quantity" id="" value="">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}

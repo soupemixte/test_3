@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cellar;
+use App\Models\CellarBottle;
 use App\Models\Bottle;
 use Goutte\Client;
 use Illuminate\Http\Request;
