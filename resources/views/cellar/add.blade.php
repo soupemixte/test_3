@@ -6,6 +6,16 @@
     title="{{ __('lang.add_bottle') }}"
     subtitle="{{ __('lang.add_bottle_subtitle') }}"
 />
+@if(!$errors->isEmpty())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>     
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>                
+@endif
 
 
 <main class="flex-center">
@@ -20,7 +30,7 @@
         
         <div class="form-control">
             <label for="quantity">Quantité</label>
-            <input type="number" name="quantity" id="" min="0" value="{{old('quantity', $bottle->quantity)}}">
+            <input type="number" name="quantity" id="" value="{{old('quantity', $quantity)}}">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
