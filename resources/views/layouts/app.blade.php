@@ -23,8 +23,8 @@
              @endauth
         </div>
         <div class="scraping-controls">
-            <a href="{{ route('scraping.start') }}" class="btn btn-success">Start Scraping</a>
-            <a href="{{ route('scraping.stop') }}" class="btn btn-danger">Stop Scraping</a>
+            <button id="start-scraping" class="btn btn-success">Start Scraping</button>
+            <button id="stop-scraping" class="btn btn-danger">Stop Scraping</button>
         </div>
         <ul>
             <!-- <ul class="nav_dropdown">
@@ -41,6 +41,15 @@
         </ul>
 
     </header>
+
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button type="button" class="btn-close" id="closeModal">&times;</button>
+            <p id="successMessage"></p>
+        </div>
+    </div>
     <!-- Content -->
     @yield('content')
     <!-- Navigation -->
@@ -70,5 +79,31 @@
     });
 
     </script>
+
+<script>
+    document.getElementById('start-scraping').addEventListener('click', () => {
+        fetch('{{ route("scraping.start") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+        })
+        .then(response => response.json())
+        .then(data => alert(data.success))
+        .catch(error => console.error(error));
+    });
+
+    document.getElementById('stop-scraping').addEventListener('click', () => {
+        fetch('{{ route("scraping.stop") }}', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+        })
+        .then(response => response.json())
+        .then(data => alert(data.success))
+        .catch(error => console.error(error));
+    });
+</script>
 </body>
 </html>

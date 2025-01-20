@@ -25,8 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
     Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
     //Start and stop the scrapping
-    Route::get('/scraping/start', [BottleController::class, 'startScraping'])->name('scraping.start');
-    Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
+    Route::post('/scraping/start', [BottleController::class, 'startScraping'])->name('scraping.start');
+    Route::post('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
+
     //Delete the bottle
     Route::get('/delete', [BottleController::class, 'destroy'])->name('bottle.delete');
     // Cellar Routes
