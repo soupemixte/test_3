@@ -129,6 +129,10 @@
             .then(data => {
                 if (data.success) {
                     statusText.textContent = data.message;
+                    // Refresh the page after a short delay
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000); // 1 second delay before refreshing
                 } else {
                     statusText.textContent = 'Failed to stop scraping.';
                 }
