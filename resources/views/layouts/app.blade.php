@@ -22,6 +22,10 @@
                 @endif
              @endauth
         </div>
+        <div class="scraping-controls">
+            <a href="{{ route('scraping.start') }}" class="btn btn-success">Start Scraping</a>
+            <a href="{{ route('scraping.stop') }}" class="btn btn-danger">Stop Scraping</a>
+        </div>
         <ul>
             <!-- <ul class="nav_dropdown">
                 <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>

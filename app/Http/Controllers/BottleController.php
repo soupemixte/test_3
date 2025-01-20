@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bottle;
 use Goutte\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class BottleController extends Controller
 {
@@ -13,32 +14,59 @@ class BottleController extends Controller
      */
     public function index(Request $request)
     {
-
-      
+        
+        
         // Check if a search query is provided
         $query = $request->input('search');
-
+        
         if ($query) {
             // Filter bottles by title using the search query
             $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
-                ->orderby('title')
-                ->paginate(15);
+            ->orderby('title')
+            ->paginate(15);
         } else {
             // If no search query, retrieve all bottles
             $bottles = Bottle::orderby('title')
-                ->paginate(15);
+            ->paginate(15);
         }
-
+        
         // Pass the bottles and the query (to keep input value) to the view
         return view('bottle.index', compact('bottles', 'query'));
     }
-
+    
     public function details($id)
     {
         // Retrieve the specific bottle
         $bottle = Bottle::findOrFail($id);
         // Pass the bottles to the view
         return view('bottle.details', compact('bottle'));
+    }
+    
+     /**
+     * Start the scrapping process.
+     */
+    public function startScraping()
+    {
+        // Set a session flag to indicate that scraping is running
+        Session::put('scraping_running', true);
+
+        // Run the scrapping process
+        $this->scrape();
+
+        // Redirect with a success message
+        return redirect()->route('bottle.index')->with('success', 'Scraping process started successfully!');
+    }
+
+    /**
+     * Stop the scrapping process.
+     */
+    public function stopScraping()
+    {
+        // Remove the session flag to stop scraping
+        Session::forget('scraping_running');
+
+        // Redirect with a success message
+        return redirect()->route('bottle.index')->with('success', 'Scraping process stopped successfully!');
     }
 
     /**
@@ -51,8 +79,19 @@ class BottleController extends Controller
         $client = new Client();
         $nextUrl = "https://www.saq.com/fr/produits/vin";
 
-        while ($nextUrl) {
+        /* while ($nextUrl) {
             echo "Dionis' custom scraping hook for URL: $nextUrl\n";
+            $nextUrl = $this->scrapeSAQWines($nextUrl, $client);
+        } */
+
+        while ($nextUrl) {
+            //Check if scraping has been stopped
+            if (!Session::get('scraping_running')) {
+                echo "Scraping stopped.\n";
+                return;
+            }
+
+            echo "Scraping URL: $nextUrl\n";
             $nextUrl = $this->scrapeSAQWines($nextUrl, $client);
         }
 
@@ -178,6 +217,8 @@ class BottleController extends Controller
                 'promoting_agent' => $promotingAgent,
             ];
         }
+
+
 
         public function destroy() {
             $delete = Bottle::truncate();
