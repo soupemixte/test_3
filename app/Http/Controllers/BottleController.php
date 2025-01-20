@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Jobs\StartScrapingJob;
 use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\Cache;
 
 class BottleController extends Controller
 {
@@ -44,29 +45,12 @@ class BottleController extends Controller
         return view('bottle.details', compact('bottle'));
     }
     
-     /**
-     * Start the scrapping process.
-     */
-    public function startScraping()
-    {
-        // Dispatch the job to the queue
-        StartScrapingJob::dispatch(); 
-
-        // Start the queue worker process
-        
-        return redirect()->route('bottle.index')->with('success', 'Scraping started successfully!');
-    }
-
-    public function stopScraping()
-    {
-        // Add logic to manage the scraping state if necessary
-        return redirect()->route('bottle.index')->with('success', 'Scraping stopped successfully!');
-    }
+    
 
     /**
      * Lance le scraping des bouteilles depuis le site de la SAQ en parcourant plusieurs pages.
      */
-   /*  public function scrape()
+    public function scrape()
     {
         set_time_limit(0);
 
@@ -74,23 +58,17 @@ class BottleController extends Controller
         $nextUrl = "https://www.saq.com/fr/produits/vin";
 
         while ($nextUrl) {
-            //Check if scraping has been stopped
-            if (!Session::get('scraping_running')) {
-                echo "Scraping stopped.\n";
-                return;
-            }
-
             echo "Scraping URL: $nextUrl\n";
             $nextUrl = $this->scrapeSAQWines($nextUrl, $client);
         }
 
-        return "Dionis' Scraping completed!";
-    } */
+        return response()->json(['success' => true, 'message' => 'Scraping completed successfully!']);
+    }
 
     /**
      * Scrape les titres des bouteilles sur une page et gère la pagination.
      */
-   /*  private function scrapeSAQWines($url, $client)
+    private function scrapeSAQWines($url, $client)
     {
         $crawler = $client->request('GET', $url);
     
@@ -147,14 +125,14 @@ class BottleController extends Controller
             return null;
         }
     }
- */
+
     /**
      * Extract data by "data-th" attribute from the crawler.
      * @param string $field The label to search for (e.g., 'Pays', 'Région').
      * @return string The extracted text or 'N/A' if not found.
      */
 
-     /* private function extractData($crawler, $field) {
+     private function extractData($crawler, $field) {
         //selector to find data-th attribute
         $selector = 'ul.list-attributs li strong[data-th="' . $field . '"]';
 
@@ -166,13 +144,13 @@ class BottleController extends Controller
          } else {
             return 'N/A';
          }
-     } */
+     }
 
 
     /**
      * Scrape detailed information for a specific wine bottle from its SAQ page.
      */
-    /* private function scrapeBouteilleDetails($url, $client) {
+    private function scrapeBouteilleDetails($url, $client) {
             $crawler = $client->request('GET', $url);
 
             // Extract details using the helper function
@@ -205,7 +183,7 @@ class BottleController extends Controller
                 'producer' => $producer,
                 'promoting_agent' => $promotingAgent,
             ];
-        } */
+        }
 
 
 

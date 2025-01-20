@@ -23,8 +23,9 @@
              @endauth
         </div>
         <div class="scraping-controls">
-            <a href="{{ route('scraping.start') }}" class="btn btn-success">Start Scraping</a>
-            <a href="{{ route('scraping.stop') }}" class="btn btn-danger">Stop Scraping</a>
+            <button id="start-scraping" class="btn btn-success">Start Scraping</button>
+            <button id="stop-scraping" class="btn btn-danger" disabled>Stop Scraping</button>
+            <p id="scraping-status" style="margin-top: 10px;"></p>
         </div>
         <ul>
             <!-- <ul class="nav_dropdown">
@@ -42,6 +43,18 @@
         </ul>
 
     </header>
+
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 
 
     <!-- Success Modal -->
@@ -81,45 +94,39 @@
 
     </script>
 
-<script>
-    document.getElementById('start-scraping').addEventListener('click', () => {
-        fetch("{{ route('scraping.start') }}", {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Content-Type': 'application/json',
-            },
-        })
+
+    <script>
+        document.getElementById('start-scraping').addEventListener('click', function () {
+        const startButton = document.getElementById('start-scraping');
+        const stopButton = document.getElementById('stop-scraping');
+        const statusText = document.getElementById('scraping-status');
+
+        statusText.textContent = 'Scraping in progress...';
+        startButton.disabled = true;
+        stopButton.disabled = false;
+
+        fetch('/scrape-bouteilles')
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert(data.message || 'Scraping started successfully!');
+                    statusText.textContent = data.message;
                 } else {
-                    alert(data.message || 'Error starting scraping.');
+                    statusText.textContent = 'Scraping failed.';
                 }
             })
-            .catch(error => console.error('Error:', error));
+            .catch(err => {
+                console.error('Error during scraping:', err);
+                statusText.textContent = 'An error occurred. Please try again.';
+            })
+            .finally(() => {
+                startButton.disabled = false;
+                stopButton.disabled = true;
+            });
     });
 
-    document.getElementById('stop-scraping').addEventListener('click', () => {
-        fetch("{{ route('scraping.stop') }}", {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Content-Type': 'application/json',
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert(data.message || 'Scraping stopped successfully!');
-                } else {
-                    alert(data.message || 'Error stopping scraping.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-    });
-</script>
+    </script>
+
+
 
 </body>
 </html>

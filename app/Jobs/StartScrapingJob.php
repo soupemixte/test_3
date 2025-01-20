@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Cache;
 
 class StartScrapingJob implements ShouldQueue
 {
@@ -35,8 +36,16 @@ class StartScrapingJob implements ShouldQueue
         $nextUrl = "https://www.saq.com/fr/produits/vin";
 
         while ($nextUrl) {
+            // Check if scraping was stopped
+            if (!Cache::get('scraping_in_progress')) {
+                return;
+            }
+    
             $nextUrl = $this->scrapeSAQWines($nextUrl, $client);
         }
+    
+        // Clear the scraping flag after completion
+        Cache::forget('scraping_in_progress');
     }
 
     private function scrapeSAQWines($url, $client)
@@ -154,10 +163,8 @@ class StartScrapingJob implements ShouldQueue
 
         public function failed(\Throwable $exception)
         {
-            \Log::error('Scraping failed', [
-                'message' => $exception->getMessage(),
-                'trace' => $exception->getTraceAsString(),
-            ]);
+            // Ensure the scraping flag is cleared even if the job fails
+            Cache::forget('scraping_in_progress');
         }
 
 }
