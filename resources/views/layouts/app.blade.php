@@ -26,6 +26,8 @@
             <button id="start-scraping" class="btn btn-success">Start Scraping</button>
             <button id="stop-scraping" class="btn btn-danger">Stop Scraping</button>
             <p id="scraping-status" style="margin-top: 10px;"></p>
+            <span class="loader_start hide"></span>
+            <span class="loader_stop hide"></span>
         </div>
         <ul>
             <!-- <ul class="nav_dropdown">
@@ -98,6 +100,12 @@
     <script>
         document.getElementById('start-scraping').addEventListener('click', function () {
         const statusText = document.getElementById('scraping-status');
+        const loaderStart = document.querySelector('.loader_start');
+        const loaderStop = document.querySelector('.loader_stop');
+
+        // Show the starting loader and hide the stopping loader
+        loaderStart.classList.remove('hide');
+        loaderStop.classList.add('hide');
 
         statusText.textContent = 'Scraping in progress...';
         
@@ -115,6 +123,10 @@
             .catch(err => {
                 console.error('Error during scraping:', err);
                 statusText.textContent = 'An error occurred. Please try again.';
+            })
+            .finally(() => {
+                // Hide the loader once scraping starts successfully
+                loaderStart.classList.add('hide');
             });
     });
 
@@ -140,6 +152,10 @@
             .catch(err => {
                 console.error('Error during stop:', err);
                 statusText.textContent = 'An error occurred while stopping scraping.';
+            })
+            .finally(() => {
+                // Hide the loader once scraping stops successfully
+                loaderStop.classList.add('hide');
             });
     });
 
