@@ -22,17 +22,7 @@
                 @endif
              @endauth
         </div>
-        @auth
-            @if(Auth::user()->isAdmin)
-                <div class="scraping-controls">
-                    <button id="start-scraping" class="btn btn-success">Start Scraping</button>
-                    <button id="stop-scraping" class="btn btn-danger">Stop Scraping</button>
-                    <p id="scraping-status" style="margin-top: 10px;"></p>
-                    <span class="loader_start hide"></span>
-                    <span class="loader_stop hide"></span>
-                </div>
-            @endif
-        @endauth
+        
         <ul>
             <!-- <ul class="nav_dropdown">
                 <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
