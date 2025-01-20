@@ -48,6 +48,10 @@
     font-size: 1em;
 }
 
+.card-list {
+    color: white;
+}
+
 /* Ligne de séparation */
 .card-category .line {
     height: 1px;
@@ -97,4 +101,8 @@
 .card_bottle:nth-child(8) {
     animation: fadeIn 2.2s ease-in-out forwards; 
     opacity: 0;
+}
+
+.price {
+    font-weight: bold;
 }

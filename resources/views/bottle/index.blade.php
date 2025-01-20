@@ -23,16 +23,16 @@
 
              @if (empty($query))
                 <div class="results">
-                    <h2>Tous les résultats:</h2>
-                    <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
+                    <h2>@lang('lang.result_title')</h2>
+                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
             @endif
 
             @if (!empty($query))
                 <div class="results">
                     <h2>Recherche de : "{{ $query }}"</h2>
-                    <p><span>{{ $bottles->total() }}</span> résultats trouvés</p>
-                    <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
+                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                    <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif
             <section class="grid">
@@ -71,9 +71,13 @@
                                 <div class="line"></div>
                                 <p>{{ $bottle->country }}</p>
                             </div>
-                            <div class="price">
-                                {{ $bottle->price }}
+                            <div>
+                            <div class="card-category">
+                           
+                <p>@lang('lang.degree_alcohol')<br>{{ $bottle->degree_alcohol }}</p>
+                <p>@lang('lang.sugar_content')<br>{{ $bottle->sugar_content }}</p>
                             </div>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                              <a href="{{ route('cellar.return', ['id' => $bottle->id ]) }}" class="btn-border">Ajouter au cellier</a>
                         </div>
                     </article>

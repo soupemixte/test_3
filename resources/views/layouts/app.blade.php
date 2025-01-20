@@ -38,11 +38,6 @@
              @endauth
         </div>
         <ul>
-            @guest
-                <li><a class="nav-link" href="{{ route('login') }}">@lang('lang.login')</a></li>
-            @else
-                <li><a class="nav-link" href="{{ route('logout') }}">@lang('lang.logout')</a></li>
-            @endguest
             <!-- <ul class="nav_dropdown">
                 <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
                 <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a></li>
@@ -60,10 +55,30 @@
     @yield('content')
     <!-- Navigation -->
     <nav class="navigation">
-      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+      <!-- <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a> -->
       <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
       <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
-      <a class="nav-link" href="{{ route('user.show') }}"> <img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.profile')</a>
+      @guest
+        <a class="nav-link" href="{{ route('login') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')</a>
+        @else
+        <a class="nav-link" href="{{ route('logout') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')</a>
+        @endguest
+      <!-- <a class="nav-link" href="{{ route('user.show') }}"> @lang('lang.profile')</a> -->
     </nav>
+
+    <!-----Script général réutilisable pour masquer la modale------>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const closeButtons = document.querySelectorAll(".btn-close");
+
+        closeButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const alert = this.parentElement;
+                alert.classList.add("hide");
+            });
+        });
+    });
+
+    </script>
 </body>
 </html>

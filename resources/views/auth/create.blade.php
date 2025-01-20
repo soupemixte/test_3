@@ -3,21 +3,23 @@
 @section('content')
 
 @if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert error" role="alert">
         <ul>
             @foreach($errors->all() as $error)
             <li>{{ $error }}</li>
             @endforeach
         </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close">X</button>
     </div>                
 @endif          
 
+<!---composant pour le titre et la description de la page-->
+<!-- <x-header 
 
 <x-header 
     title="{{ __('lang.registration') }}"
     subtitle="{{ __('lang.register_subtitle') }}"
-/>
+/> -->
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form method="POST" class="form">
@@ -26,9 +28,9 @@
                 <label for="username" >@lang('lang.email')</label>
                     <input type="text" id="username" name="email" value="{{old('email')}}">
                 </div>
-                @if ($errors->has('username'))
+                @if ($errors->has('email'))
                     <div class="alert_msg">
-                        {{$errors->first('username')}}
+                        {{$errors->first('email')}}
                     </div>
                 @endif
             <div class="form-control">
@@ -40,11 +42,11 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">Login</button>
+            <button type="submit" class="btn-border">@lang('lang.login')</button>
         </form>
         
         <div class="form_footer">
-            <p>Pas encore membre ? <a href="{{ route('user.create') }}">Créer un compte</a></p>
+            <p>@lang('lang.register_question') <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
         </div>
         
     </section>

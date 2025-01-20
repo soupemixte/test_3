@@ -11,11 +11,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>                
 @endif
+<!--composant pour donner le titre et le sous-titre à la page-->
+<!-- <x-header 
 
 <x-header 
         title="{{ __('lang.registration') }}"
         subtitle="{{ __('lang.register_subtitle') }}"
-/>
+/> -->
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form action="{{ route('user.store') }}" method="POST" class="form">
@@ -56,11 +58,11 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">Save</button>
+            <button type="submit" class="btn-border">@lang('lang.save')</button>
         </form>
 
         <div class="form_footer">
-            <p>Déjà membre ? <a href="{{ route('login') }}">Se connecter</a></p>
+            <p>@lang('lang.login_member')<a href="{{ route('login') }}">@lang('lang.login')</a></p>
         </div>
     </section>
 </main>

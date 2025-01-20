@@ -8,6 +8,9 @@
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
+            <span class="details-price">@lang('lang.price') {{$bottle->price}}</span>
+           
+            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">@lang('lang.add_cellar')</a>
             <span class="details-price">Prix: {{$bottle->price}}</span>
         
             <form action="" method="POST">
@@ -43,8 +46,23 @@
         <div class="line"></div>
 
         <article class="info-details">
-            <h3>Infos détaillées</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam ipsam quia quam hic reiciendis sed ipsum voluptatem officiis voluptas, perspiciatis tenetur inventore? Excepturi, quidem consequatur sint aspernatur deleniti aliquid laborum odit amet pariatur earum non quibusdam veritatis nisi officia.</p>
+            <h3>@lang('lang.info')</h3>
+            <div>
+                <p>@lang('lang.region')<br>{{ $bottle->region }}</p>
+                <p>@lang('lang.degree_alcohol')<br>{{ $bottle->degree_alcohol }}</p>
+                <p>@lang('lang.sugar_content')<br>{{ $bottle->sugar_content }}</p>
+            </div>
+            <div class="line"></div>
+            <div class="card-list flex flex-col gap5">
+                <p>@lang('lang.promoting_agent') {{ $bottle->promoting_agent }}</p>
+              
+                <p>@lang('lang.producer') {{ $bottle->producer }}</p>
+                <p>@lang('lang.grape_variety') {{ $bottle->grape_variety }}</p>
+            </div>
+            <div class="line"></div>
+            <div class="price">
+                <p >@lang('lang.price'){{ $bottle->price }}</p>
+            </div>
         </article>
     </section>
 </main>
