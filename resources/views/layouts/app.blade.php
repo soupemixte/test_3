@@ -24,7 +24,7 @@
         </div>
         <div class="scraping-controls">
             <button id="start-scraping" class="btn btn-success">Start Scraping</button>
-            <button id="stop-scraping" class="btn btn-danger" disabled>Stop Scraping</button>
+            <button id="stop-scraping" class="btn btn-danger">Stop Scraping</button>
             <p id="scraping-status" style="margin-top: 10px;"></p>
         </div>
         <ul>
@@ -97,13 +97,11 @@
 
     <script>
         document.getElementById('start-scraping').addEventListener('click', function () {
-        const startButton = document.getElementById('start-scraping');
-        const stopButton = document.getElementById('stop-scraping');
         const statusText = document.getElementById('scraping-status');
 
         statusText.textContent = 'Scraping in progress...';
-        startButton.disabled = true;
-        stopButton.disabled = false;
+        
+        
 
         fetch('/scrape-bouteilles')
             .then(response => response.json())
@@ -117,10 +115,27 @@
             .catch(err => {
                 console.error('Error during scraping:', err);
                 statusText.textContent = 'An error occurred. Please try again.';
+            });
+    });
+
+
+    document.getElementById('stop-scraping').addEventListener('click', function () {
+        const statusText = document.getElementById('scraping-status');
+
+        statusText.textContent = 'Stopping scraping...';
+
+        fetch('/scraping/stop')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    statusText.textContent = data.message;
+                } else {
+                    statusText.textContent = 'Failed to stop scraping.';
+                }
             })
-            .finally(() => {
-                startButton.disabled = false;
-                stopButton.disabled = true;
+            .catch(err => {
+                console.error('Error during stop:', err);
+                statusText.textContent = 'An error occurred while stopping scraping.';
             });
     });
 

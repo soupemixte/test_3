@@ -54,15 +54,32 @@ class BottleController extends Controller
     {
         set_time_limit(0);
 
+        // Set the "scraping" flag to true
+        Cache::put('scraping', true, 60);
+
         $client = new Client();
         $nextUrl = "https://www.saq.com/fr/produits/vin";
+    
 
-        while ($nextUrl) {
-            echo "Scraping URL: $nextUrl\n";
+        while ($nextUrl && Cache::get('scraping')) {
             $nextUrl = $this->scrapeSAQWines($nextUrl, $client);
         }
 
+        // Reset the "scraping" flag
+        Cache::forget('scraping');
+
+        if (!Cache::get('scraping')) {
+            return response()->json(['success' => true, 'message' => 'Scraping stopped by user.']);
+        }
+
         return response()->json(['success' => true, 'message' => 'Scraping completed successfully!']);
+    }
+
+    public function stopScraping() {
+        //Set the scraping flag to false
+        Cache::put('scraping', false);
+
+        return response()->json(['success' => true, 'message' => 'Scraping stopped successfully!']);
     }
 
     /**
