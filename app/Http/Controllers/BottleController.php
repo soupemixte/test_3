@@ -7,6 +7,7 @@ use Goutte\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Jobs\StartScrapingJob;
+use Symfony\Component\Process\Process;
 
 class BottleController extends Controller
 {
@@ -48,21 +49,18 @@ class BottleController extends Controller
      */
     public function startScraping()
     {
-        StartScrapingJob::dispatch();
+        // Dispatch the job to the queue
+        StartScrapingJob::dispatch(); 
 
-        // Redirect with a success message
-        /* return redirect()->route('bottle.index')->with('success', 'Scraping process started successfully!'); */
-        return response()->json(['success' => 'Scraping process started succesfully!']);
+        // Start the queue worker process
+        
+        return redirect()->route('bottle.index')->with('success', 'Scraping started successfully!');
     }
 
-    /**
-     * Stop the scrapping process.
-     */
     public function stopScraping()
     {
-        // Redirect with a success message
-        /* return redirect()->route('bottle.index')->with('success', 'Scraping process stopped successfully!'); */
-        return response()->json(['success' => 'Scraping process stopped succesfully!']);
+        // Add logic to manage the scraping state if necessary
+        return redirect()->route('bottle.index')->with('success', 'Scraping stopped successfully!');
     }
 
     /**

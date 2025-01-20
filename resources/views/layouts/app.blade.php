@@ -23,8 +23,8 @@
              @endauth
         </div>
         <div class="scraping-controls">
-            <button id="start-scraping" class="btn btn-success">Start Scraping</button>
-            <button id="stop-scraping" class="btn btn-danger">Stop Scraping</button>
+            <a href="{{ route('scraping.start') }}" class="btn btn-success">Start Scraping</a>
+            <a href="{{ route('scraping.stop') }}" class="btn btn-danger">Stop Scraping</a>
         </div>
         <ul>
             <!-- <ul class="nav_dropdown">
@@ -38,6 +38,7 @@
                     <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
                 </div>
             </div>
+            
         </ul>
 
     </header>
@@ -82,28 +83,43 @@
 
 <script>
     document.getElementById('start-scraping').addEventListener('click', () => {
-        fetch('{{ route("scraping.start") }}', {
+        fetch("{{ route('scraping.start') }}", {
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json',
             },
         })
-        .then(response => response.json())
-        .then(data => alert(data.success))
-        .catch(error => console.error(error));
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message || 'Scraping started successfully!');
+                } else {
+                    alert(data.message || 'Error starting scraping.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
     });
 
     document.getElementById('stop-scraping').addEventListener('click', () => {
-        fetch('{{ route("scraping.stop") }}', {
+        fetch("{{ route('scraping.stop') }}", {
             method: 'POST',
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json',
             },
         })
-        .then(response => response.json())
-        .then(data => alert(data.success))
-        .catch(error => console.error(error));
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message || 'Scraping stopped successfully!');
+                } else {
+                    alert(data.message || 'Error stopping scraping.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
     });
 </script>
+
 </body>
 </html>
