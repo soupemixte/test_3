@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Create Cellar')
+@section('title', 'Edit Cellar')
 @section('content')
 <main class="edit">
     <section class="structure flex-col-center height70">   

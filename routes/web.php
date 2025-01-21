@@ -45,7 +45,9 @@ Route::middleware('auth')->group(function () {
     // User Routes
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
     Route::get('/profile/{user}', [UserController::class, 'show'])->name('user.show');
-    // Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
+    Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/edit/user/{user}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/destroy/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');

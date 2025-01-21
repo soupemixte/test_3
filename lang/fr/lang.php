@@ -11,6 +11,7 @@ return [
     'close' => 'Fermer',
     'view' => 'Voir',
     'save' => 'Sauvegarder',
+    'created' => 'Date de création',
     /* Bottles */
     'bottle' => 'Bouteille',
     'bottle_name' => 'Nom de la Bouteille',

@@ -11,6 +11,7 @@ return [
     'close' => 'Close',
     'view' => 'View',
     'save' => 'Save',
+    'created' => 'Created at',
     /* Bottles */
     'bottle' => 'Bottle',
     'bottle_name' => 'Bottle Name',
