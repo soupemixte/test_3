@@ -19,12 +19,19 @@
 }
 
 .header .logo {
-    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
+.header .logo img {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
+}s
 .welcome-user p{ 
     color: white;
 }
 .welcome-user span{ 
     color: var(--accent-color);
 }
+

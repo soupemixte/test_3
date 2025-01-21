@@ -12,7 +12,10 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="logo">VINO</div>
+    <div class="logo">
+    <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
+</div>
+</div>
         <div class="welcome-user hidden">
              @auth
                 <!-- <p>@lang('lang.welcome'), <span>{{ Auth::user()->name }}</span></p> -->
