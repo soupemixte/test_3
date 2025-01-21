@@ -24,6 +24,9 @@ class CellarController extends Controller
             return view('cellar.index', ['cellars' => $cellars]);
          
         }
+         // If the user has no cellars, redirect to create a new cellar
+         return redirect()->route('cellar.create')->withWarning('Veuillez bien créer un cellier.');
+
     }
 
     /**
