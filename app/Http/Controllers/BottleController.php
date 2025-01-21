@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bottle;
 use App\Http\Requests\BottleDetailsRequest;
+use App\Http\Requests\AddBottleRequest;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
@@ -37,6 +38,23 @@ class BottleController extends Controller
         } catch (\Exception $e) {
             return redirect()->route('bottle.index')
                 ->with('error', 'La bouteille demandée n\'a pas été trouvée.');
+        }
+    }
+
+    /**
+     * Handle the add to cellar button click
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function addToCellar($id)
+    {
+        try {
+            $bottle = Bottle::findOrFail($id);
+            session(['selected_bottle' => $bottle]);
+            return redirect()->route('cellar.add', ['id' => $id]);
+        } catch (\Exception $e) {
+            return back()->with('error', 'La bouteille ne peut pas être ajoutée au cellier.');
         }
     }
 
