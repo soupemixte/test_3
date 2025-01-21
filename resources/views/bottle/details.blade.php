@@ -9,17 +9,42 @@
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
             <span class="details-price">Prix: {{$bottle->price}}</span>
-           
-            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">Ajouter au cellier</a>
+            
+            <form action="{{ route('bottle.addToCellar', ['id' => $bottle->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-border">@lang('lang.add_cellar')</button>
+            </form>
         </article>
 
         <div class="line"></div>
 
         <article class="info-details">
             <h3>Infos détaillées</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem nam ipsam quia quam hic reiciendis sed ipsum voluptatem officiis voluptas, perspiciatis tenetur inventore? Excepturi, quidem consequatur sint aspernatur deleniti aliquid laborum odit amet pariatur earum non quibusdam veritatis nisi officia.</p>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Pays :</span>
+                    <span class="info-value">{{ $bottle->country }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Région :</span>
+                    <span class="info-value">{{ $bottle->region }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Couleur :</span>
+                    <span class="info-value">{{ $bottle->color }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Format :</span>
+                    <span class="info-value">{{ $bottle->size }}</span>
+                </div>
+            </div>
         </article>
     </section>
+    
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 </main>
-
 @endsection

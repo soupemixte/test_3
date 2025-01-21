@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     // Bottle Route
     Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
+    Route::post('/bottle/{id}/add-to-cellar', [BottleController::class, 'addToCellar'])->name('bottle.addToCellar');
     Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
     Route::get('/delete', [BottleController::class, 'destroy'])->name('bottle.delete');
     // Cellar Routes
@@ -37,12 +38,6 @@ Route::middleware('auth')->group(function () {
     // User Routes
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
     Route::get('/profile', [UserController::class, 'show'])->name('user.show');
-    // Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
 });
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
-
-
-
-
-
