@@ -1,9 +1,0 @@
-.intro-box h1{
-    color: var(--general-title);
-    font-size: var(--title-size);
-}
-
-.intro-box p {
-    color: white;
-    font-size: 20px;
-}

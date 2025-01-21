@@ -7,3 +7,10 @@
 :root{ 
     --title-size: 30px
 }
+
+
+.page-title {
+    color: var(--general-title);
+    font-size: 30px;
+    text-align: center;
+}

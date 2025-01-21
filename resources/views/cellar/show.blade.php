@@ -8,47 +8,21 @@
     subtitle="{!! $cellar->description !!}"
 /> -->
 
-<main class="flex-center">   
+<main class="flex-center flex-center height80">   
     <section class="structure">
-        <h2>{{ $cellar->title }}</h2> 
-        <!--Actions de cellier -> supprimer, mettre à jour--->
-        <!-- <div class="btn-container just-between">
-            <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">@lang('lang.edit') <i class="fas fa-edit"></i></a>
-            <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">@lang('lang.delete') <i class="fa-solid fa-trash"></i></a>
-        </div> -->
-        <!---Filtres--->
-        <!-- <header class="filters">
-            <form class="filters_category" action="" method="GET">
-                <label class="category_box">
-                    <input type="radio" name="category" value="rose" hidden>
-                    <img src="{{asset('img/icons/rose-wine.png')}}" alt="rose wine">
-                    <span>Rosé</span>
-                </label>
-
-                <label class="category_box">
-                    <input type="radio" name="category" value="rouge" hidden>
-                    <img src="{{asset('img/icons/red-wine.png')}}" alt="red wine">
-                    <span>Rouge</span>
-                </label>
-
-                <label class="category_box">
-                    <input type="radio" name="category" value="blanc" hidden>
-                    <img src="{{asset('img/icons/white-wine.png')}}" alt="white wine">
-                    <span>Blanc</span>
-                </label>
-
-                <label class="category_box">
-                    <input type="radio" name="category" value="tous" hidden>
-                    <img src="{{asset('img/icons/all-wines.png')}}" alt="all wines">
-                    <span>Tous</span>
-                </label>
-            </form>
-
-        </header> -->
+        <h1 class="page-title">{{ $cellar->title }}</h1> 
+        <div class="results">
+            <h2>@lang('lang.result_title')</h2>
+            <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+            <p><span>Ajouter Les Bouteilles:</span></p>
+            <a href="{{ route('bottle.index') }}" class="btn-border">Ajouter</a>
+        </div>
         <section class="grid mt-20 mb-10">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>
             @else
+           
+            
             @foreach ($bottles as $bottle)
                 <article class="card_bottle">
                     <picture>
@@ -67,10 +41,25 @@
                             <div class="line"></div>
                             <p>{{ $bottle->country }}</p>
                         </div>
-                        <div class="price">
-                            {{ $bottle->price }}
-                        </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">Ajouter au cellier</a>
+                       
+                        
+                            <div class="card-list flex flex-col gap5">
+                            <p>@lang('lang.region') : {{ $bottle->region }}</p>
+                            <p>@lang('lang.degree_alcohol') : {{ $bottle->degree_alcohol }}</p>
+                            <p>@lang('lang.sugar_content') : {{ $bottle->sugar_content }}</p>
+                            <p>@lang('lang.promoting_agent') {{ $bottle->promoting_agent }}</p>
+                        
+                        <p>@lang('lang.producer') : {{ $bottle->producer }}</p>
+                        <p>@lang('lang.grape_variety') : {{ $bottle->grape_variety }}</p>
+                        @foreach ($cellar_bottles as $cellar_bottle)
+                        @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                            <div class="quantity">
+                                @lang('lang.quantity') : {{ $cellar_bottle->quantity }}
+                            </div>
+                        @endif
+                        @endforeach
+                            </div>
+                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </div>
                 </article>
             @endforeach

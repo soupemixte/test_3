@@ -1,9 +1,11 @@
 :root {
     --general-title: #5d5d5d;
-    --accent-color: #e7a18e;
+    --accent-color: #f9b825;
     --dark-accent: #6b7384;
     --components-bg: white;
+    --header-bg: #6b7384;
     --color-alert: #FF0000;
+    --error-color: #c58989;;
     --color-white: #f4f4f4;
     --font-size-small: 12px;
     --spacing-x-small: 4px;

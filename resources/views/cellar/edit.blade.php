@@ -7,7 +7,7 @@
             @csrf
             @method('put')
             <div class="form-control">
-                <label for="title">Nom du Cellier</label>
+                <label for="title">@lang('lang.cellar_choose)</label>
                 <input type="text" name="title" value="{{ old('title', $cellar->title) }}" placeholder="Entrez le nom...">
                 @if ($errors->has('title'))
                     <div class="alert_msg">
@@ -16,7 +16,7 @@
                 @endif
             </div>
             <div class="form-control">
-                <label for="description">Nom du Cellier</label>
+                <label for="description">@lang('lang.cellar_desc)</label>
                 <textarea name="description" placeholder="Description de ce cellier....">{{ old('description', $cellar->description) }}</textarea>
                 @if ($errors->has('description'))
                     <div class="alert_msg">
@@ -24,7 +24,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">Update</button>
+            <button type="submit" class="btn-border">@lang('lang.update)</button>
         </form>
     </section>
 </main>

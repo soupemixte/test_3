@@ -8,12 +8,6 @@
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
-            <span class="details-price">Prix: {{$bottle->price}}</span>
-            
-            <form action="{{ route('bottle.addToCellar', ['id' => $bottle->id]) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-border">@lang('lang.add_cellar')</button>
-            </form>
         </article>
 
         <div class="line"></div>
