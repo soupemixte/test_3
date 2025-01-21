@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cellar/store-bottle', [CellarController::class, 'storeBottle'])->name('cellar.storeBottle');
     // User Routes
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
-    Route::get('/profile', [UserController::class, 'show'])->name('user.show');
+    Route::get('/profile/{user}', [UserController::class, 'show'])->name('user.show');
     // Route::get('/edit/user/{user}', [UserController::class, 'edit'])->name('user.edit');
 });
 
