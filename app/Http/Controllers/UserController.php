@@ -68,9 +68,6 @@ class UserController extends Controller
     {
         if (Auth::user()->hasCellar()) {
             $cellars = Cellar::where('user_id', Auth::user()->id);
-            // $cellar_id = $cellars->first()->id;
-
-            // return $user;
             return view('user.show', ['user' => $user], compact('cellars'));
         }
         return view('user.show');

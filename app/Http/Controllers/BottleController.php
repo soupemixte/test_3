@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bottle;
-use App\Http\Requests\BottleDetailsRequest;
-use App\Http\Requests\AddBottleRequest;
 use Goutte\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -17,17 +15,34 @@ class BottleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-
-    {
-        try {
-            $bottle = Bottle::findOrFail($id);
-            session(['selected_bottle' => $bottle]);
-            return redirect()->route('cellar.add', ['id' => $id]);
-        } catch (\Exception $e) {
-            return back()->with('error', 'La bouteille ne peut pas être ajoutée au cellier.');
+        
+        
+        // Check if a search query is provided
+        $query = $request->input('search');
+        
+        if ($query) {
+            // Filter bottles by title using the search query
+            $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
+            ->orderby('title')
+            ->paginate(15);
+        } else {
+            // If no search query, retrieve all bottles
+            $bottles = Bottle::orderby('title')
+            ->paginate(15);
         }
+        
+        // Pass the bottles and the query (to keep input value) to the view
+        return view('bottle.index', compact('bottles', 'query'));
+    }
+    
+    public function details($id)
+    {
+        // Retrieve the specific bottle
+        $bottle = Bottle::findOrFail($id);
+        // Pass the bottles to the view
+        return view('bottle.details', compact('bottle'));
     }
     
     
@@ -133,7 +148,8 @@ class BottleController extends Controller
      * @param string $field The label to search for (e.g., 'Pays', 'Région').
      * @return string The extracted text or 'N/A' if not found.
      */
-    private function extractData($crawler, $field) {
+
+     private function extractData($crawler, $field) {
         //selector to find data-th attribute
         $selector = 'ul.list-attributs li strong[data-th="' . $field . '"]';
 
@@ -145,17 +161,52 @@ class BottleController extends Controller
          } else {
             return 'N/A';
          }
-    }
+     }
+
 
     /**
      * Scrape detailed information for a specific wine bottle from its SAQ page.
      */
+    private function scrapeBouteilleDetails($url, $client) {
+            $crawler = $client->request('GET', $url);
 
-    /**
-     * Remove all bottles from the database.
-     */
-    public function destroy() {
-        $delete = Bottle::truncate();
-        return view('welcome');
-    }
+            // Extract details using the helper function
+            $saqCode = $this->extractData($crawler, 'Code SAQ');
+            $country = $this->extractData($crawler, 'Pays');
+            $region = $this->extractData($crawler, 'Région');
+            $designationOfOrigin = $this->extractData($crawler, "Appellation d'origine");
+            $classification = $this->extractData($crawler, 'Classification');
+            $grapeVariety = $this->extractData($crawler, 'Cépage');
+            $degreeAlcohol = $this->extractData($crawler, "Degré d'alcool");
+            $sugarContent = $this->extractData($crawler, 'Taux de sucre');
+            $color = $this->extractData($crawler, 'Couleur');
+            $particularity = $this->extractData($crawler, 'Particularité');
+            $size = $this->extractData($crawler, 'Format');
+            $producer = $this->extractData($crawler, 'Producteur');
+            $promotingAgent = $this->extractData($crawler, 'Agent promotionnel');
+
+            return [
+                'saq_code' => $saqCode,
+                'country' => $country,
+                'region' => $region,
+                'designation_of_origin' => $designationOfOrigin,
+                'classification' => $classification,
+                'grape_variety' => $grapeVariety,
+                'degree_alcohol' => $degreeAlcohol,
+                'sugar_content' => $sugarContent,
+                'color' => $color,
+                'particularity' => $particularity,
+                'size' => $size,
+                'producer' => $producer,
+                'promoting_agent' => $promotingAgent,
+            ];
+        }
+
+
+
+        public function destroy() {
+            $delete = Bottle::truncate();
+
+            return view('welcome');
+        }
 }
