@@ -82,7 +82,7 @@ class CellarBottleController extends Controller
             ->where('cellar_id', '=', session('id_cellier'))
             ->delete();
 
-            return redirect()->route('cellar.index')->with('succes');
+            return redirect()->route('cellar.index')->withSuccess('Bouteille enlevée avec succes!!!');
     }
 }
 }
