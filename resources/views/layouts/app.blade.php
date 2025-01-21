@@ -47,9 +47,10 @@
       @guest
         <a class="nav-link" href="{{ route('login') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')</a>
         @else
+        <a class="nav-link" href="{{ route('user.show', Auth::user()->id) }}"> @lang('lang.profile')</a>
         <a class="nav-link" href="{{ route('logout') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')</a>
         @endguest
-      <!-- <a class="nav-link" href="{{ route('user.show') }}"> @lang('lang.profile')</a> -->
+     
     </nav>
 
     <!-----Script général réutilisable pour masquer la modale------>

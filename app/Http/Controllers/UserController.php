@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Cellar;
+use App\Models\Bottle;
+use App\Models\CellarBottle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class UserController extends Controller
@@ -60,8 +64,15 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(User $user)
     {
+        if (Auth::user()->hasCellar()) {
+            $cellars = Cellar::where('user_id', Auth::user()->id);
+            // $cellar_id = $cellars->first()->id;
+
+            // return $user;
+            return view('user.show', ['user' => $user], compact('cellars'));
+        }
         return view('user.show');
     }
 
@@ -70,7 +81,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.edit', ['user'=>$user]);
     }
 
     /**
@@ -78,7 +89,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|unique:users',
+        ]); 
+
+        $user->update([
+            'name' => $request->name,
+            'username' => $request->username,
+        ]);
+
+        return redirect()->route('user.show', $user->id)->withSuccess('User # '.$user->id.' : '.$user->name.' updated successfully.');
     }
 
     /**
