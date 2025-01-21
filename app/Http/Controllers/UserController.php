@@ -58,7 +58,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
     
-        return redirect(route('user.index'))->withSuccess('User created successfully!');
+        return redirect(route('login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
     }
 
     /**
@@ -96,7 +96,7 @@ class UserController extends Controller
             'username' => $request->username,
         ]);
 
-        return redirect()->route('user.show', $user->id)->withSuccess('User # '.$user->id.' : '.$user->name.' updated successfully.');
+        return redirect()->route('user.show', $user->id)->withSuccess('Usager # '.$user->id.' : '.$user->name.' mis à jour avec succès.');
     }
 
     /**

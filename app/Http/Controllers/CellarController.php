@@ -53,7 +53,7 @@ class CellarController extends Controller
         ]);
 
         // if worked
-        return redirect()->route('cellar.index')->withSuccess('Cellier créer avec succes !');
+        return redirect()->route('cellar.index')->withSuccess('Cellier créé avec succès !');
     }
 
     /**
@@ -106,7 +106,7 @@ class CellarController extends Controller
             'description' => $request->input('description'),
         ]);
     
-        return redirect()->route('cellar.show', $cellar->id)->withSuccess('Cellier mit à jour.');
+        return redirect()->route('cellar.show', $cellar->id)->withSuccess('Cellier mis à jour.');
     }
 
     /**
@@ -138,7 +138,7 @@ class CellarController extends Controller
             return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity]);
         }
         // If the user has no cellars, redirect to create a new cellar
-        return redirect()->route('cellar.create')->withWarning('Veuillez créer un cellier.');
+        return redirect()->route('cellar.create')->withWarning('Veuillez bien créer un cellier.');
     }
 
     
@@ -168,11 +168,11 @@ class CellarController extends Controller
 
             if($request->input('quantity') < 1) {
                 // return "Not enough bottles in cellar."
-                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withWarning( 'Pas assez de Bouteilles dans le Cellier.');
+                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withWarning('Pas assez de bouteilles dans le cellier.');
             }
             if($request->input('quantity') === $bd_quantity) {
                 // return "Not enough bottles in cellar."
-                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withError( 'Veuillez modifier la quantité.');
+                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withError('Veuillez modifier la quantité.');
             }
             CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
                 ->where('bottle_id', '=', $request->input('bottle_id'))
@@ -184,7 +184,7 @@ class CellarController extends Controller
 
             if($request->input('quantity') < 0) {
                 // return "Cannot add negative number";
-                return view('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->withWarning( 'Erreur de gestion de cellier');
+                return view('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->withWarning('Erreur de gestion du cellier.');
             }
             // Attach the bottle to the selected cellar
             CellarBottle::create([
@@ -195,7 +195,7 @@ class CellarController extends Controller
 
         }
         
-        return redirect()->route('cellar.index')->withSuccess( 'Bottle added to your cellar successfully!');
+        return redirect()->route('cellar.index')->withSuccess('Bouteille ajoutée à votre cellier avec succès !');
     }
 
 

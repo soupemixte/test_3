@@ -2,11 +2,6 @@
 @section('title', 'View all Bottles')
 @section('content')
 
-@if (session('success'))
-    <div class="alert success">
-        {{ session('success') }}
-    </div>
-@endif
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">

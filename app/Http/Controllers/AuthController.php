@@ -28,20 +28,18 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if(!Auth::validate($credentials)):
             return redirect(route('login'))
-                        ->withErrors(trans('auth.failed'))
+                        ->withErrors('Combinaison e-mail / mot de passe incorrecte.')
                         ->withInput();
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-        /* return redirect(route('user.index'))->withSuccess('Signed in'); */
-        /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
-        //Redirect regarding if the connected user has a cellar
+         //Redirect regarding if the connected user has a cellar
         if ($user->hasCellar()) {
             $route = 'cellar.index';
         } else {
             $route = 'cellar.create';
         }
-        return redirect(route($route))->withSuccess('Signed in');
+        return redirect(route($route))->withSuccess('Connecté.');
     }
 
     /**
@@ -51,7 +49,7 @@ class AuthController extends Controller
     {
         //Session::flush();
         Auth::logout();
-        return redirect(route('login'));
+        return redirect(route('login'))->withSuccess('Déconnecté.');
         
     }
 }
