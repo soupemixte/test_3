@@ -22,6 +22,7 @@
                 @endif
              @endauth
         </div>
+        
         <ul>
             <!-- <ul class="nav_dropdown">
                 <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
@@ -34,9 +35,33 @@
                     <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
                 </div>
             </div>
+            
         </ul>
 
     </header>
+
+    @if(session('success'))
+    <div class="alert success">
+        <p>{{ session('success') }}</p>
+        <button type="button" class="btn-close">X</button>
+    </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert error">
+            <p>{{ session('error') }}</p>
+            <button type="button" class="btn-close">X</button>
+        </div>
+    @endif
+
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button type="button" class="btn-close" id="closeModal">&times;</button>
+            <p id="successMessage"></p>
+        </div>
+    </div>
     <!-- Content -->
     @yield('content')
     <!-- Navigation -->
@@ -66,5 +91,73 @@
     });
 
     </script>
+
+
+    <script>
+        document.getElementById('start-scraping').addEventListener('click', function () {
+        const statusText = document.getElementById('scraping-status');
+        const loaderStart = document.querySelector('.loader_start');
+        const loaderStop = document.querySelector('.loader_stop');
+
+        // Show the starting loader and hide the stopping loader
+        loaderStart.classList.remove('hide');
+        loaderStop.classList.add('hide');
+
+        statusText.textContent = 'Scraping in progress...';
+        
+        
+
+        fetch('/scrape-bouteilles')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    statusText.textContent = data.message;
+                } else {
+                    statusText.textContent = 'Scraping failed.';
+                }
+            })
+            .catch(err => {
+                console.error('Error during scraping:', err);
+                statusText.textContent = 'An error occurred. Please try again.';
+            })
+            .finally(() => {
+                // Hide the loader once scraping starts successfully
+                loaderStart.classList.add('hide');
+            });
+    });
+
+
+    document.getElementById('stop-scraping').addEventListener('click', function () {
+        const statusText = document.getElementById('scraping-status');
+
+        statusText.textContent = 'Stopping scraping...';
+
+        fetch('/scraping/stop')
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    statusText.textContent = data.message;
+                    // Refresh the page after a short delay
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000); // 1 second delay before refreshing
+                } else {
+                    statusText.textContent = 'Failed to stop scraping.';
+                }
+            })
+            .catch(err => {
+                console.error('Error during stop:', err);
+                statusText.textContent = 'An error occurred while stopping scraping.';
+            })
+            .finally(() => {
+                // Hide the loader once scraping stops successfully
+                loaderStop.classList.add('hide');
+            });
+    });
+
+    </script>
+
+
+
 </body>
 </html>

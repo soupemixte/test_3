@@ -1,117 +1,76 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Jobs;
 
-use App\Models\Bottle;
 use Goutte\Client;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use App\Jobs\StartScrapingJob;
-use Symfony\Component\Process\Process;
+use App\Models\Bottle;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
 
-class BottleController extends Controller
+class StartScrapingJob implements ShouldQueue
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index(Request $request)
-    {
-        
-        
-        // Check if a search query is provided
-        $query = $request->input('search');
-        
-        if ($query) {
-            // Filter bottles by title using the search query
-            $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
-            ->orderby('title')
-            ->paginate(15);
-        } else {
-            // If no search query, retrieve all bottles
-            $bottles = Bottle::orderby('title')
-            ->paginate(15);
-        }
-        
-        // Pass the bottles and the query (to keep input value) to the view
-        return view('bottle.index', compact('bottles', 'query'));
-    }
-    
-    public function details($id)
-    {
-        // Retrieve the specific bottle
-        $bottle = Bottle::findOrFail($id);
-        // Pass the bottles to the view
-        return view('bottle.details', compact('bottle'));
-    }
-    
-    
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public $timeout = 600;
 
     /**
-     * Lance le scraping des bouteilles depuis le site de la SAQ en parcourant plusieurs pages.
+     * Create a new job instance.
      */
-    public function scrape()
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the job.
+     */
+    public function handle(): void
     {
         set_time_limit(0);
-
-        // Set the "scraping" flag to true
-        Cache::put('scraping', true, 60);
-
+        
         $client = new Client();
         $nextUrl = "https://www.saq.com/fr/produits/vin";
-    
 
-        while ($nextUrl && Cache::get('scraping')) {
+        while ($nextUrl) {
+            // Check if scraping was stopped
+            if (!Cache::get('scraping_in_progress')) {
+                return;
+            }
+    
             $nextUrl = $this->scrapeSAQWines($nextUrl, $client);
         }
-
-        // Reset the "scraping" flag
-        Cache::forget('scraping');
-
-        if (!Cache::get('scraping')) {
-            return response()->json(['success' => true, 'message' => 'Scraping stopped by user.']);
-        }
-
-        return response()->json(['success' => true, 'message' => 'Scraping completed successfully!']);
+    
+        // Clear the scraping flag after completion
+        Cache::forget('scraping_in_progress');
     }
 
-    public function stopScraping() {
-        //Set the scraping flag to false
-        Cache::put('scraping', false);
-
-        return response()->json(['success' => true, 'message' => 'Scraping stopped successfully!']);
-    }
-
-    /**
-     * Scrape les titres des bouteilles sur une page et gère la pagination.
-     */
     private function scrapeSAQWines($url, $client)
     {
         $crawler = $client->request('GET', $url);
     
         $crawler->filter('li.product-item')->each(function ($node) use ($client) {
-            // Extract the title
-            $titleNode = $node->filter('a.product-item-link');
-            $title = $titleNode->count() ? trim($titleNode->text()) : 'N/A';
-    
-            // Extract the price
-            $priceNode = $node->filter('.price-box .price');
-            $price = $priceNode->count() ? trim($priceNode->text()) : 'N/A';
-    
-            // Extract the SAQ link (href attribute)
-            $linkNode = $node->filter('a.product-item-photo');
-            $saqLink = $linkNode->count() ? $linkNode->attr('href') : 'N/A';
+            $title = $node->filter('a.product-item-link')->count()
+                ? trim($node->filter('a.product-item-link')->text())
+                : 'N/A';
 
-            // Extract the image source URL
-            $imageNode = $node->filter('.product-image-photo');
-            $imageSrc = $imageNode->count() ? $imageNode->attr('src') : 'N/A';
-    
-            echo "Scraping Details for: $title | $saqLink\n";
-    
-            // Visit the detailed page to extract the SAQ code
+            $price = $node->filter('.price-box .price')->count()
+                ? trim($node->filter('.price-box .price')->text())
+                : 'N/A';
+
+            $saqLink = $node->filter('a.product-item-photo')->count()
+                ? $node->filter('a.product-item-photo')->attr('href')
+                : 'N/A';
+
+            $imageSrc = $node->filter('.product-image-photo')->count()
+                ? $node->filter('.product-image-photo')->attr('src')
+                : 'N/A';
+
             $detailedData = $this->scrapeBouteilleDetails($saqLink, $client);
-    
-            // Insert the data into the database
+
             Bottle::create([
                 'title' => $title,
                 'price' => $price,
@@ -133,8 +92,7 @@ class BottleController extends Controller
                 'promoting_agent' => $detailedData['promoting_agent'] ?? 'N/A',
             ]);
         });
-    
-        // Handle pagination
+
         try {
             $nextPage = $crawler->filter('a.action.next')->attr('href');
             return $nextPage ?: null;
@@ -203,10 +161,10 @@ class BottleController extends Controller
         }
 
 
-
-        public function destroy() {
-            $delete = Bottle::truncate();
-
-            return view('welcome');
+        public function failed(\Throwable $exception)
+        {
+            // Ensure the scraping flag is cleared even if the job fails
+            Cache::forget('scraping_in_progress');
         }
+
 }
