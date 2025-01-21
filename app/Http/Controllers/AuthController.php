@@ -33,7 +33,7 @@ class AuthController extends Controller
         endif;
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user);
-         //Redirect regarding if the connected user has a cellar
+        //Redirect regarding if the connected user has a cellar
         if ($user->hasCellar()) {
             $route = 'cellar.index';
         } else {

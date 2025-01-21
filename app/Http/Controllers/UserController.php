@@ -26,6 +26,7 @@ class UserController extends Controller
         return view('user.index', ['users' => $users]);
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -33,6 +34,7 @@ class UserController extends Controller
     {
         return view('user.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -57,9 +59,10 @@ class UserController extends Controller
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
-    
+        //
         return redirect(route('login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
     }
+
 
     /**
      * Display the specified resource.
@@ -73,6 +76,7 @@ class UserController extends Controller
         return view('user.show');
     }
 
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -80,6 +84,7 @@ class UserController extends Controller
     {
         return view('user.edit', ['user'=>$user]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -99,6 +104,7 @@ class UserController extends Controller
         return redirect()->route('user.show', $user->id)->withSuccess('Usager # '.$user->id.' : '.$user->name.' mis à jour avec succès.');
     }
 
+    
     /**
      * Remove the specified resource from storage.
      */
