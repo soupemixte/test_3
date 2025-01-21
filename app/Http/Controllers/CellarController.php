@@ -53,7 +53,7 @@ class CellarController extends Controller
         ]);
 
         // if worked
-        return redirect()->route('cellar.index')->with('success', 'Cellier créé avec succès!');
+        return redirect()->route('cellar.index')->withSuccess('Cellier créer avec succes !');
     }
 
     /**
@@ -63,10 +63,12 @@ class CellarController extends Controller
     {
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
-        
+        $cellar_bottles = CellarBottle::select()
+            ->where('cellar_id', '=', $cellar->first()->id)
+            ->get();
         // Debug the result
         if ($bottles->isEmpty()) {
-            return "No bottles found in this cellar.";
+            return redirect()->route('bottle.index');
         }
 
         if (Auth::user()->hasCellar()) {
@@ -74,6 +76,7 @@ class CellarController extends Controller
                 return view('cellar.show', [
                     'cellar' => $cellar,
                     'bottles' => $bottles,
+                    'cellar_bottles' => $cellar_bottles,
                 ]);
         }
         
@@ -103,7 +106,7 @@ class CellarController extends Controller
             'description' => $request->input('description'),
         ]);
     
-        return redirect()->route('cellar.show', $cellar->id)->with('success', 'Cellar updated successfully.');
+        return redirect()->route('cellar.show', $cellar->id)->withSuccess('Cellier mit à jour.');
     }
 
     /**
@@ -135,7 +138,7 @@ class CellarController extends Controller
             return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity]);
         }
         // If the user has no cellars, redirect to create a new cellar
-        return redirect()->route('cellar.create')->with('warning', 'Please create a cellar first.');
+        return redirect()->route('cellar.create')->withWarning('Veuillez créer un cellier.');
     }
 
     
@@ -161,24 +164,27 @@ class CellarController extends Controller
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->get();
             $bd_quantity = $cellar_bottle->first()->quantity;
-            $set_quantity = $bd_quantity + $request->input('quantity');
+            // $set_quantity = $bd_quantity + $request->input('quantity');
 
-            if($set_quantity < 0) {
+            if($request->input('quantity') < 1) {
                 // return "Not enough bottles in cellar."
-                return view('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->with('warning', 'Pas assez de Bouteilles dans le Cellier');
+                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withWarning( 'Pas assez de Bouteilles dans le Cellier.');
             }
-            
+            if($request->input('quantity') === $bd_quantity) {
+                // return "Not enough bottles in cellar."
+                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withError( 'Veuillez modifier la quantité.');
+            }
             CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->update([
-                    'quantity' => $set_quantity,
+                    'quantity' => $request->input('quantity'),
                 ]);
         }
         else {
 
             if($request->input('quantity') < 0) {
                 // return "Cannot add negative number";
-                return view('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->with('warning', 'Erreur de gestion de cellier');
+                return view('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->withWarning( 'Erreur de gestion de cellier');
             }
             // Attach the bottle to the selected cellar
             CellarBottle::create([
@@ -189,7 +195,7 @@ class CellarController extends Controller
 
         }
         
-        return redirect()->route('cellar.index')->with('success', 'Bottle added to your cellar successfully!');
+        return redirect()->route('cellar.index')->withSuccess( 'Bottle added to your cellar successfully!');
     }
 
 
@@ -201,6 +207,6 @@ class CellarController extends Controller
     {
         $cellar->delete();
 
-        return redirect()->route('cellar.index')->with('success', 'Cellar deleted successfully.');
+        return redirect()->route('cellar.index')->withSuccess('Cellar deleted successfully.');
     }
 }
