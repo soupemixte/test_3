@@ -32,15 +32,11 @@ class Bottle extends Model
         'aromas',
     ];
 
-
     public function cellars()
     {
         return $this->belongsToMany(Cellar::class, 'cellar_bottle')
             ->using(CellarBottle::class)
+            ->withPivot('quantity')
             ->withTimestamps();
     }
-
 }
-
-
-

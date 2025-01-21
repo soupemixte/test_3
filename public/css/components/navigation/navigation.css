@@ -1,43 +1,52 @@
 @import url(languages.css);
-/* Navigation */
+
 :root {
     --nav-bg: gray;
     --nav-color: white;
 }
+
+body {
+    margin: 0;
+    padding-bottom: 100px;
+    min-height: 100vh;
+    position: relative;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .navigation {
     display: flex;
     justify-content: space-around;
-    /* padding: var(--spacing-medium);
-    Add the var padding
-    */
+    align-items: center;
     padding: 20px;
     background-color: var(--header-bg);
     border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
 }
-
-/* .nav-button {
-    background: none;
-    border: none;
-    font-size: 1em;
-    cursor: pointer;
-    color: var(--color-text);
-} */
 
 .nav-link {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-/*the icon*/
-.nav-link img {
-    width: 60px;
-}
-
-
-.nav-link {
     text-decoration: none;
     color: var(--nav-color);
+    transition: color 0.3s ease;
+}
+
+.nav-link img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 5px;
 }
 
 .nav-link.active {
@@ -45,4 +54,24 @@
     font-weight: bold;
 }
 
+@media (hover: hover) {
+    .nav-link:hover {
+        color: var(--color-primary);
+    }
+}
 
+@media screen and (max-width: 768px) {
+    .nav-link img {
+        width: 40px;
+    }
+    
+    .navigation {
+        padding: 10px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .navigation {
+        padding: 5px;
+    }
+}
