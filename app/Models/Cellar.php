@@ -29,9 +29,7 @@ class Cellar extends Model
     public function bottles()
     {
         return $this->belongsToMany(Bottle::class, 'cellar_bottle')
+            ->withPivot('quantity')
             ->withTimestamps();
     }
-
-
-
 }
