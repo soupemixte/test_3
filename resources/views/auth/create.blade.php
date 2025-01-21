@@ -13,13 +13,7 @@
     </div>                
 @endif          
 
-<!---composant pour le titre et la description de la page-->
-<!-- <x-header 
 
-<x-header 
-    title="{{ __('lang.registration') }}"
-    subtitle="{{ __('lang.register_subtitle') }}"
-/> -->
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form method="POST" class="form">

@@ -8,40 +8,7 @@
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
-            <span class="details-price">@lang('lang.price') {{$bottle->price}}</span>
-           
-            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">@lang('lang.add_cellar')</a>
-            <span class="details-price">Prix: {{$bottle->price}}</span>
-        
-            <form action="" method="POST">
-            @csrf
-            <label for="quantity">
-                Quantite
-                <input type="number" name="quantity" >
-                </label>
-                <label for="cellar_id">
-                    Choix Cellier :
-                </label>
-                <select name="cellar_id" id="">
-                @foreach( $celliers as $cellier)
-                @if($cellier->user_id == session('user_id'))
-                    <option value="{{ $cellier->id }}">{{ $cellier->title }}</option>
-                @endif
-                @endforeach
-                </select>
-                <label for="bottle_id">
-                <input  hidden type="number" name="bottle_id" value="{{ $bottle->id }}" >
-                </label>
-            
-                <input hidden type="submit" value="Ajouter au cellier">
-            </form>
-
-
-
-           
-            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">Ajouter au cellier</a>
-
-        </article>
+          
 
         <div class="line"></div>
 

@@ -2,10 +2,7 @@
 @section('title', 'Ajouter la bouteille')
 @section('content')
 
-<!-- <x-header 
-    title="{{ __('lang.add_bottle') }}"
-    subtitle="{{ __('lang.add_bottle_subtitle') }}"
-/> -->
+
 @if(!$errors->isEmpty())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
@@ -30,8 +27,6 @@
         </div>
         
         <div class="form-control">
-            <label for="quantity">@lang('lang.quantity')</label>
-            <input type="number" name="quantity" id="" value="{{old('quantity', $quantity)}}">
             <label for="quantity">Quantité</label>
             <input type="number" name="quantity" id="" value="">
             @if ($errors->has('quantity'))
