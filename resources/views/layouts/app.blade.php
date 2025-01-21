@@ -26,6 +26,13 @@
     <!-- Content -->
     <!-- @yield('content') -->
     <!-- Navigation -->
+         
+    @if(session('success'))    
+    <div class="success alert alert-warning alert-dismissible fade show ms-2 me-2" role="alert">
+  <strong> {{session('success')}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    @endif  
     <footer>
         <nav class="mobile-fixed-footer">
             <ul class="navigation">
@@ -70,6 +77,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
         const closeButtons = document.querySelectorAll(".btn-close");
+       
 
         closeButtons.forEach(button => {
             button.addEventListener("click", function () {
