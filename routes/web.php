@@ -6,15 +6,27 @@ use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
+use App\Http\Controllers\AdminController;
 
 
 // User Routes
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 // Auth Routes
-Route::get('/login', [AuthController::class, 'create'])->name('login');
-Route::post('/login', [AuthController::class, 'store'])->name('login.store');
-Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
+Route::get('/login', [AuthController::class, 'showUserLoginForm'])->name('user.login');
+Route::post('/login', [AuthController::class, 'userLogin'])->name('user.login.submit');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Admin Authentication Routes
+Route::get('/admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login.submit');
+
+//Authentification de l'administrateur avec fonctionnalités autorisées pour l'administrateur
+Route::prefix('admin')->group(function () {
+    Route::middleware('auth:admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [CellarController::class, 'index'])->name('cellar.index');
@@ -50,5 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/edit/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/destroy/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });
+
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
