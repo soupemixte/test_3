@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('title', 'View all Bottles')
 @section('content')
+
+@if (session('success'))
+    <div class="alert success">
+        {{ session('success') }}
+    </div>
+@endif
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">
@@ -8,7 +14,7 @@
                     <input 
                         type="text" 
                         name="search" 
-                        placeholder="Search..." 
+                        placeholder="Recherche..." 
                         class="search-input"
                         value="{{ old('search', $query ?? '')}}"
                         id="search-input"
@@ -56,12 +62,11 @@
                             </div>
                             <div>
                             <div class="card-category">
-                           
-                <p>@lang('lang.degree_alcohol')<br>{{ $bottle->degree_alcohol }}</p>
-                <p>@lang('lang.sugar_content')<br>{{ $bottle->sugar_content }}</p>
+                                <p>@lang('lang.degree_alcohol')<br>{{ $bottle->degree_alcohol }}</p>
+                                <p>@lang('lang.sugar_content')<br>{{ $bottle->sugar_content }}</p>
                             </div>
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                         </div>
+                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </article>
                 @endforeach
             

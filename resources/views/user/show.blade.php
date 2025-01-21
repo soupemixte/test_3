@@ -2,20 +2,18 @@
 @section('title', 'User Profile')
 @section('content')
 
-<main class="flex-center height80">
-    <section class="structure">
-        <h2>{{ $user->name }}</h2>
-        <div class="info">
-            <p>{{ $user->email }}</p>
+<h1>Here we will implement the user Profile</h1>
+<!--Scrape buttons--->
+<!--TODO: UX/UI--->
+@auth
+    @if(Auth::user()->isAdmin)
+        <div class="scraping-controls">
+            <button id="start-scraping" class="btn btn-success">Start Scraping</button>
+            <button id="stop-scraping" class="btn btn-danger">Stop Scraping</button>
+            <p id="scraping-status" style="margin-top: 10px;"></p>
+            <span class="loader_start hide"></span>
+            <span class="loader_stop hide"></span>
         </div>
-        <section class="grid mt-20 mb-10">
-            @foreach ($cellars as $cellar)
-            <article class="card_cellar">
-                <h4>{{ $cellar->title }}</h4>
-            </article>
-            @endforeach
-        </section>
-    </section>
-</main>
-
+    @endif
+@endauth
 @endsection

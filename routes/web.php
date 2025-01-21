@@ -24,6 +24,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
     Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
+    Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
+
+    //Start and stop the scrapping
+    /* Route::get('/scraping/start', [BottleController::class, 'startScraping'])->name('scraping.start');
+    Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop'); */
+
+
+    //Delete the bottle
     Route::get('/delete', [BottleController::class, 'destroy'])->name('bottle.delete');
     // Cellar Routes
     Route::get('/cellars', [CellarController::class, 'index'])->name('cellar.index');

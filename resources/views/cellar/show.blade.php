@@ -10,7 +10,7 @@
 
 <main class="flex-center flex-center height80">   
     <section class="structure">
-        <h2>{{ $cellar->title }}</h2> 
+        <h1 class="page-title">{{ $cellar->title }}</h1> 
         <div class="results">
             <h2>@lang('lang.result_title')</h2>
             <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>

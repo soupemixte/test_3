@@ -1,18 +1,17 @@
 /* Classe principale pour afficher les résultats de recherche */
 .results {
-    background-color: #f9f9f9;
+    background-color: var(--dark-accent);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    margin: 20px 0;
     font-family: Arial, sans-serif;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Style pour le titre des résultats */
 .results h2 {
     font-size: 1.5em;
-    color: #555;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -34,5 +33,5 @@
 /* Style pour chaque élément de la liste */
 .results ul li {
     margin-bottom: 8px;
-    color: #555;
+    color: #ffffff;
 }

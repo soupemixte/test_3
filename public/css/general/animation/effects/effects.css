@@ -18,3 +18,75 @@
   75% {transform: skew(-5deg, -5deg);}
   100% {transform: skew(0deg,0deg);}
 }
+
+
+
+/*
+* https://cssloaders.github.io/
+*/
+
+.loader_start {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotationstart 1s linear infinite;
+}
+.loader_start::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  background: #FF3D00;
+  width: 4px;
+  height: 24px;
+  transform: translateX(-50%);
+}
+    
+@keyframes rotationstart {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+
+
+
+.loader_stop {
+  width: 48px;
+  height: 48px;
+  border: 4px solid;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: transparent #FFF #FFF transparent;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotationStop 1s ease-in-out infinite;
+}
+.loader_stop::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 12px solid;
+  border-color: transparent #FF3D00 #FF3D00 transparent;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+@keyframes rotationStop {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
