@@ -23,8 +23,8 @@ Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.
 
 //Authentification de l'administrateur avec fonctionnalités autorisées pour l'administrateur
 Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::middleware('auth:admin')->group(function () {
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     });
 });
 

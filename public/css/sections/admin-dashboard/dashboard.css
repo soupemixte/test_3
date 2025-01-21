@@ -1,0 +1,17 @@
+.scraping-controls .btn-container {
+    justify-content: space-evenly;
+}
+
+.scraping-controls {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.scraping-process {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
