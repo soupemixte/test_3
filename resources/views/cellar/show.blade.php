@@ -26,6 +26,7 @@
             @else
            
             
+          
             @foreach ($bottles as $bottle)
                 <article class="card_bottle">
                     <picture>
@@ -54,6 +55,13 @@
                         
                         <p>@lang('lang.producer') : {{ $bottle->producer }}</p>
                         <p>@lang('lang.grape_variety') : {{ $bottle->grape_variety }}</p>
+                            </div>
+                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+                        <div class="price">
+                            {{ $bottle->price }}
+                        </div>
+          
+                        
                         @foreach ($cellar_bottles as $cellar_bottle)
                         @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
                             <div class="quantity">
@@ -61,14 +69,19 @@
                             </div>
                         @endif
                         @endforeach
-                            </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
-                        <div class="price">
-                            {{ $bottle->price }}
-                        </div>
-                       
-                        <a class="btn btn-md  btn-danger" href="{{ route('cellarbottle.delete', $bottle->id) }}" role="button">Enlever</a>
+                        
 
+                        <div class="btn btn-md btn-danger enlever" href="" role="button">Enlever</div>
+
+
+                        <div class="confirm invisible">
+
+                            <h1>Etes-vous certain !?</h1>
+                            <a class="btn btn-md" href="{{ route('cellarbottle.delete', $bottle->id) }}"><p>Oui</p></a>
+                            <div class="btn btn-md negative"><p>Non</p></div>
+                            
+                            
+                        </div>
                     </div>
                 </article>
             @endforeach
@@ -78,5 +91,24 @@
      
     </div>
 </div>
+<script>
+    const bloc_message = document.querySelector(".confirm");
+    const button = document.querySelector(".enlever");
+    const negative = document.querySelector(".negative");
+
+    button.addEventListener("click",function(){
+
+        bloc_message.classList.remove("invisible");
+    });
+
+    negative.addEventListener("click",function(){
+
+    bloc_message.classList.add("invisible");
+    });
+
+    console.log(bloc_message);
+</script>
 </main>    
 @endsection
+
+
