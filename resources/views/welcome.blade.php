@@ -3,16 +3,16 @@
 @section('content')
  <!-- Home Page -->
  <main class="home">
-    <section class="collection">
-      <h2 class="section-title">Collection</h2>
-      <div class="collection-info">
-        <div class="info-box">
-          <span class="info-title">In My Cellar</span>
-          <span class="info-count">0 Bottles</span>
+        @else
+        <section class="collection">
+        <div class="btn-container">
+          <a href="{{ route('cellar.create') }}" class="btn btn-icon">Ajouter un cellier<i class="fa-solid fa-plus"></i></a>
+          <!-- <a href="{{ route('cellar.index') }}" class="btn btn-icon">@lang('lang.cellars')<i class="fa-solid"></i></a> -->
         </div>
-        <button class="btn btn-add">Add Bottles</button>
-      </div>
-    </section>
-
+        <div class="btn-container">
+          <a href="{{ route('logout') }}" class="btn btn-icon">@lang('lang.logout')<i class="fa-solid"></i></a>
+        </div> 
+        </section>
+    </div>
   </main>
 @endsection

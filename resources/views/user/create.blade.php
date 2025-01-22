@@ -1,21 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Registration')
 @section('content')
-@if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>                
-@endif
-<!--composant pour donner le titre et le sous-titre à la page-->
-<!-- <x-header 
-        title="{{ __('lang.registration') }}"
-        subtitle="{{ __('lang.register_subtitle') }}"
-/> -->
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form action="{{ route('user.store') }}" method="POST" class="form">

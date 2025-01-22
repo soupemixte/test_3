@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Cellar Show')
 @section('content')
-            
-<!---Composants pour le titre et la description de la page--->                
-<!-- <x-header 
-    title="{{ $cellar->title }}"
-    subtitle="{!! $cellar->description !!}"
-/> -->
-
 <main class="flex-center flex-center height80">   
     <section class="structure">
         <h1 class="page-title">{{ $cellar->title }}</h1> 

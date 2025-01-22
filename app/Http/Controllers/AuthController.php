@@ -33,13 +33,14 @@ class AuthController extends Controller
             'password' => 'required|min:6|max:20',
         ]);
 
+
         if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
             $user = Auth::user();
             $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
-            return redirect()->route($redirect)->withSuccess('Logged in successfully!');
+            return redirect()->route($redirect)->withSuccess('Connecté.');
         }
 
-        return redirect()->route('user.login')->withErrors('Invalid user credentials.');
+        return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte');
     }
 
     /**
@@ -47,6 +48,7 @@ class AuthController extends Controller
      */
     public function showAdminLoginForm()
     {
+
         return view('auth.admin-login'); // View for admin login
     }
 
