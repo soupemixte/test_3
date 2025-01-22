@@ -45,7 +45,7 @@
         </form>
 
         <div class="form_footer">
-            <p>@lang('lang.login_member')<a href="{{ route('login') }}">@lang('lang.login')</a></p>
+            <p>@lang('lang.login_member')<a href="{{ route('auth.connection') }}">@lang('lang.login')</a></p>
         </div>
     </section>
 </main>

@@ -2,6 +2,7 @@
 @section('title', 'View all Bottles')
 @section('content')
 
+
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">

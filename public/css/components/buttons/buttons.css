@@ -61,14 +61,24 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    color: var(--btn-no-border);
+    color: var(--accent-color);
     font-size: 20px;
-    border: 4px solid var(--btn-no-border);
+    border: 4px solid var(--accent-color);
     transition: all 1s;
 }
 /*survol - Le bouton avec une icône*/
 .btn-icon:hover {
-    color: orange;
-    border: 4px solid orange;
+    background: var(--accent-color);
+    color: white;
 }
 
+/* liens */
+.link {
+    color: var(--accent-color);
+    font-weight: bold;
+    transition: all 1s;
+}
+
+.link:hover {
+    color: rgb(237, 143, 11);
+}

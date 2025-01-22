@@ -60,7 +60,7 @@
 *Style pour cacher le modal
 */
 .hide {
-    display: none;
+    display: none !important;
 }
 
 /* Animation de glissement vers le bas */
