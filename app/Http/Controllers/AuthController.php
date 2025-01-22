@@ -9,49 +9,75 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
-     * Show the form for creating a new resource.
+     * Sélection du rôle d'authentification (utilisateur, administrateur)
      */
-    public function create()
+    public function chooseConnection()
     {
-        return view('auth.create');
+        return view('auth.connection');
+    }
+    /**
+     * Show the user login form.
+     */
+    public function showUserLoginForm()
+    {
+        return view('auth.user-login'); // View for user login
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Handle user login.
      */
-    public function store(Request $request)
+    public function userLogin(Request $request)
     {
         $request->validate([
             'email' => 'required|email|exists:users',
-            'password' => 'required|min:6|max:20'
+            'password' => 'required|min:6|max:20',
         ]);
-        $credentials = $request->only('email', 'password');
-        if(!Auth::validate($credentials)):
-            return redirect(route('login'))
-                        ->withErrors(trans('auth.failed'))
-                        ->withInput();
-        endif;
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        Auth::login($user);
-        /* return redirect(route('user.index'))->withSuccess('Signed in'); */
-        /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
-        //Redirect regarding if the connected user has a cellar
-        if ($user->hasCellar()) {
-            $route = 'cellar.index';
-        } else {
-            $route = 'cellar.create';
+
+        if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+            $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
+            return redirect()->route($redirect)->withSuccess('Logged in successfully!');
         }
-        return redirect(route($route))->withSuccess('Signed in');
+
+        return redirect()->route('user.login')->withErrors('Invalid user credentials.');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Show the admin login form.
      */
-    public function destroy()
+    public function showAdminLoginForm()
     {
-        //Session::flush();
-        Auth::logout();
-        return redirect(route('login'));
-        
+        return view('auth.admin-login'); // View for admin login
+    }
+
+    /**
+     * Handle admin login.
+     */
+    public function adminLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:admins',
+            'password' => 'required|min:6|max:20',
+        ]);
+
+        if (Auth::guard('admin')->attempt($request->only('email', 'password'))) {
+            return redirect()->route('admin.dashboard')->withSuccess('Admin logged in successfully!');
+        }
+
+        return redirect()->route('admin.login')->withErrors('Invalid admin credentials.');
+    }
+
+    /**
+     * Handle logout for both users and admins.
+     */
+    public function logout()
+    {
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+        } elseif (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        }
+
+        return redirect()->route('user.login')->withSuccess('Logged out successfully.');
     }
 }

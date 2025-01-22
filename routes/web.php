@@ -6,26 +6,39 @@ use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
+use App\Http\Controllers\AdminController;
 
 
 // User Routes
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 // Auth Routes
-Route::get('/login', [AuthController::class, 'create'])->name('login');
-Route::post('/login', [AuthController::class, 'store'])->name('login.store');
-Route::get('/logout', [AuthController::class, 'destroy'])->name('logout');
+Route::get('/connection', [AuthController::class, 'chooseConnection'])->name('auth.connection');
+Route::get('/login', [AuthController::class, 'showUserLoginForm'])->name('user.login');
+Route::post('/login', [AuthController::class, 'userLogin'])->name('user.login.submit');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Admin Authentication Routes
+Route::get('/admin/login', [AuthController::class, 'showAdminLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthController::class, 'adminLogin'])->name('admin.login.submit');
+
+//Authentification de l'administrateur avec fonctionnalités autorisées pour l'administrateur
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::middleware('auth:admin')->group(function () {
+    });
+});
+
+Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
+Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
+Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
 Route::middleware('auth')->group(function () {
     Route::get('/', [CellarController::class, 'index'])->name('cellar.index');
     /* Welcome */
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
-    Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
     Route::post('/bottle/{id}/add-to-cellar', [BottleController::class, 'addToCellar'])->name('bottle.addToCellar');
-    Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
-    Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
 
     //Start and stop the scrapping
     /* Route::get('/scraping/start', [BottleController::class, 'startScraping'])->name('scraping.start');
@@ -50,5 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/edit/user/{user}', [UserController::class, 'update'])->name('user.update');
     Route::delete('/destroy/user/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 });
+
 
 Route::get('/lang/{locale}', [SetLocaleController::class, 'index'])->name('lang');
