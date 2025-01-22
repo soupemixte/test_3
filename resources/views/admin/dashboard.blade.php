@@ -20,14 +20,6 @@
                 <p id="scraping-status" style="margin-top: 10px;"></p>
             </div>
         </div>
-           
-        
-        <div class="results">
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button type="submit" class="btn-border">Logout</button>
-            </form>
-        </div>
     </section>
 </main>
 
@@ -37,15 +29,16 @@
         fetch('{{ route('bottle.total_bottles') }}')
             .then(response => response.json())
             .then(data => {
+                // Update the total bottles count in the UI
                 document.getElementById('total-bottles').textContent = data.totalBottles;
             })
             .catch(error => console.error('Error fetching total bottles:', error));
     }
 
-    // Update the total bottles count every 10 seconds
+    // Call the function every 10 seconds
     setInterval(updateTotalBottles, 10000);
 
-    // Fetch once when the page loads
+    // Call it once on page load to initialize
     updateTotalBottles();
 </script>
 
@@ -62,7 +55,7 @@
         loaderStart.classList.remove('hide');
         loaderStop.classList.add('hide');
 
-        statusText.textContent = 'Scraping in progress...';
+        statusText.textContent = 'Scraping en cours...';
         
         
 
@@ -72,12 +65,12 @@
                 if (data.success) {
                     statusText.textContent = data.message;
                 } else {
-                    statusText.textContent = 'Scraping failed.';
+                    statusText.textContent = 'Scraping échoué.';
                 }
             })
             .catch(err => {
                 console.error('Error during scraping:', err);
-                statusText.textContent = 'An error occurred. Please try again.';
+                statusText.textContent = "Une erreur s'est produite. Veuillez réessayer.";
             })
             .finally(() => {
                 // Hide the loader once scraping starts successfully
@@ -89,7 +82,7 @@
     document.getElementById('stop-scraping').addEventListener('click', function () {
         const statusText = document.getElementById('scraping-status');
 
-        statusText.textContent = 'Stopping scraping...';
+        statusText.textContent = 'Arrêter le scraping...';
 
         fetch('/scraping/stop')
             .then(response => response.json())
@@ -101,12 +94,12 @@
                         window.location.reload();
                     }, 1000); // 1 second delay before refreshing
                 } else {
-                    statusText.textContent = 'Failed to stop scraping.';
+                    statusText.textContent = "Impossible d'arrêter.";
                 }
             })
             .catch(err => {
                 console.error('Error during stop:', err);
-                statusText.textContent = 'An error occurred while stopping scraping.';
+                statusText.textContent = "Une erreur s'est produite lors de l'arrêt du scraping.";
             })
             .finally(() => {
                 // Hide the loader once scraping stops successfully
