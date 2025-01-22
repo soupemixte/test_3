@@ -166,15 +166,15 @@ class CellarController extends Controller
                 ->where('cellar_id', '=', $request->input('cellar_id'))
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->get();
-            $bd_quantity = $cellar_bottle->first()->quantity;
+            // $bd_quantity = $cellar_bottle->first()->quantity;
             if($request->input('quantity') < 1) {
                 // return "Not enough bottles in cellar."
                 return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withWarning('Pas assez de bouteilles dans le cellier.');
             }
-            if($request->input('quantity') === $bd_quantity) {
-                // return "Not enough bottles in cellar."
-                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withError('Veuillez modifier la quantité.');
-            }
+            // if($request->input('quantity') === $bd_quantity) {
+            //     // return "Not enough bottles in cellar."
+            //     return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withError('Veuillez modifier la quantité.');
+            // }
             CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->update([
@@ -182,7 +182,7 @@ class CellarController extends Controller
                 ]);
         }
         else {
-            if($request->input('quantity') < 0) {
+            if($request->input('quantity') < 1) {
                 // return "Cannot add negative number";
                 return view('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->withWarning('Erreur de gestion du cellier.');
             }
@@ -194,8 +194,51 @@ class CellarController extends Controller
             ]);
 
         }
-        //
-        return redirect()->route('cellar.index')->withSuccess('Bouteille ajoutée à votre cellier avec succès !');
+        // Vous avez ajoutez
+       
+        return redirect()->route('cellar.index')->withSuccess('Vous avez ajouté '.$request->input('quantity').' bouteilles à votre cellier avec succès.');
+    }
+
+    public function removeBottle(Request $request)
+    {
+        $bottle = Bottle::findOrFail($request->input('bottle_id'));
+        $request->validate([
+           'cellar_id' => 'required',
+           'bottle_id' => 'required',
+            'quantity' => 'required|min:0',
+        ]);
+
+        $cellar_bottle = CellarBottle::select()
+        ->where('bottle_id', '=', $request->input('bottle_id'))
+        ->where('cellar_id', '=', $request->input('cellar_id'))
+        ->get();
+        $bd_quantity = $cellar_bottle->first()->quantity;
+        $result = $bd_quantity - $request->input('quantity');
+        if($result < 0) {
+            // return "Not enough bottles in cellar."
+            return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withWarning('Pas assez de bouteilles dans le cellier.');
+        }
+        // if($result === 0) {
+        //     $cellar_bottle = CellarBottle::select()
+        //     ->where('bottle_id', '=', $request->input('bottle_id'))
+        //     ->where('cellar_id', '=', $request->input('cellar_id'))
+        //     ->delete();
+        //     // return "No bottles left in cellar."
+        //     return redirect()->route('cellar.index')->withSuccess('Il ne vous reste plus de bouteilles '.$bottle->first()->name.' dans votre cellier.');
+        // }
+    
+    
+        if($cellar_bottle) {
+            $cellar_bottle = CellarBottle::select()
+                ->where('bottle_id', '=', $request->input('bottle_id'))
+                ->where('cellar_id', '=', $request->input('cellar_id'))
+                ->update([
+                    'quantity' => $request->input('quantity'),
+                ]);
+
+                return redirect()->route('cellar.index')->withSuccess('Vous avez retiré '.$request->input('quantity').'  bouteilles de votre cellier avec succès.');
+    
+        }
     }
 
 
