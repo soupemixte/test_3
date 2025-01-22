@@ -3,6 +3,7 @@ return [
     /* */
     'home' => 'Accueil',
     'profile' => 'Profil',
+    'dashboard' => 'Tableau de bord',
     // 'forgot' => 'Forgot password',
     // 'reset' => 'Reset password',
     'edit' => 'Modification',
