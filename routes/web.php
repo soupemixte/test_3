@@ -13,6 +13,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
 // Auth Routes
+Route::get('/connection', [AuthController::class, 'chooseConnection'])->name('auth.connection');
 Route::get('/login', [AuthController::class, 'showUserLoginForm'])->name('user.login');
 Route::post('/login', [AuthController::class, 'userLogin'])->name('user.login.submit');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -28,16 +29,16 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
+Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
+Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
 Route::middleware('auth')->group(function () {
     Route::get('/', [CellarController::class, 'index'])->name('cellar.index');
     /* Welcome */
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
-    Route::get('/bottles', [BottleController::class, 'index'])->name('bottle.index');
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
     Route::post('/bottle/{id}/add-to-cellar', [BottleController::class, 'addToCellar'])->name('bottle.addToCellar');
-    Route::get('/scrape-bouteilles', [BottleController::class, 'scrape'])->name('bottle.scrape');
-    Route::get('/scraping/stop', [BottleController::class, 'stopScraping'])->name('scraping.stop');
 
     //Start and stop the scrapping
     /* Route::get('/scraping/start', [BottleController::class, 'startScraping'])->name('scraping.start');

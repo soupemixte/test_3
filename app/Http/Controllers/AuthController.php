@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
+     * Sélection du rôle d'authentification (utilisateur, administrateur)
+     */
+    public function chooseConnection()
+    {
+        return view('auth.connection');
+    }
+    /**
      * Show the user login form.
      */
     public function showUserLoginForm()

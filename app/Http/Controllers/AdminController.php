@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Bottle;
 
 class AdminController extends Controller
 {
@@ -32,7 +33,10 @@ class AdminController extends Controller
 
     //Tableau de bord d'administration
     public function dashboard() {
-        return view('admin.dashboard');
+        // le nombre total de bouteilles dans la BD
+        $totalBottles = Bottle::count();
+
+        return view('admin.dashboard', ['totalBottles' => $totalBottles]);
     }
 
     //Déconnexion de l'administrateur
