@@ -18,7 +18,7 @@
 </div>
         <div class="welcome-user">
             @guest
-            <button><a href="{{ route('login') }}">@lang('lang.login')</a></button>
+            <button><a href="{{ route('auth.connection') }}">@lang('lang.login')</a></button>
             @else
             <button><a href="{{ route('logout') }}">@lang('lang.logout')</a></button>
             @endguest
@@ -92,69 +92,7 @@
     </script>
 
 
-    <script>
-        document.getElementById('start-scraping').addEventListener('click', function () {
-        const statusText = document.getElementById('scraping-status');
-        const loaderStart = document.querySelector('.loader_start');
-        const loaderStop = document.querySelector('.loader_stop');
-
-        // Show the starting loader and hide the stopping loader
-        loaderStart.classList.remove('hide');
-        loaderStop.classList.add('hide');
-
-        statusText.textContent = 'Scraping in progress...';
-        
-        
-
-        fetch('/scrape-bouteilles')
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    statusText.textContent = data.message;
-                } else {
-                    statusText.textContent = 'Scraping failed.';
-                }
-            })
-            .catch(err => {
-                console.error('Error during scraping:', err);
-                statusText.textContent = 'An error occurred. Please try again.';
-            })
-            .finally(() => {
-                // Hide the loader once scraping starts successfully
-                loaderStart.classList.add('hide');
-            });
-    });
-
-
-    document.getElementById('stop-scraping').addEventListener('click', function () {
-        const statusText = document.getElementById('scraping-status');
-
-        statusText.textContent = 'Stopping scraping...';
-
-        fetch('/scraping/stop')
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    statusText.textContent = data.message;
-                    // Refresh the page after a short delay
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000); // 1 second delay before refreshing
-                } else {
-                    statusText.textContent = 'Failed to stop scraping.';
-                }
-            })
-            .catch(err => {
-                console.error('Error during stop:', err);
-                statusText.textContent = 'An error occurred while stopping scraping.';
-            })
-            .finally(() => {
-                // Hide the loader once scraping stops successfully
-                loaderStop.classList.add('hide');
-            });
-    });
-
-    </script>
+    
 
 
 
