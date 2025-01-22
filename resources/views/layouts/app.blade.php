@@ -63,17 +63,40 @@
     @yield('content')
     <!-- Navigation -->
     <nav class="navigation">
-      <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
-      <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
-      <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
-      @guest
-        <a class="nav-link" href="{{ route('auth.connection') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')</a>
-        @else
-        <a class="nav-link" href="{{ route('logout') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.profile')</a>
-      @endguest
-        
-      
-     
+        <!-- Visible for regular users only -->
+        @auth('web')
+            <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
+            <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
+        @endauth
+        @auth('admin')
+            <a class="nav-link" href="{{ route('admin.dashboard') }}"> 
+                <img src="{{asset('img/navigation/dashboard.png') }}" alt="nav-image">@lang('lang.dashboard')
+            </a>
+        @endauth
+        @php
+    $isAdmin = Auth::guard('admin')->check(); // Check if admin is logged in
+    $isUser = Auth::guard('web')->check();    // Check if user is logged in
+@endphp
+
+@if(!$isAdmin && !$isUser)
+  <!-- Guest: Not logged in -->
+  <a class="nav-link" href="{{ route('auth.connection') }}">
+    <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
+  </a>
+@else
+  @if($isAdmin)
+    <!-- Admin logged in -->
+    <a class="nav-link" href="{{ route('logout') }}">
+      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout') (Admin)
+    </a>
+  @elseif($isUser)
+    <!-- User logged in -->
+    <a class="nav-link" href="{{ route('logout') }}">
+      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')
+    </a>
+  @endif
+@endif
     </nav>
 
     <!-----Script général réutilisable pour masquer la modale------>
