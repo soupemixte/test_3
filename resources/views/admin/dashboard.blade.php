@@ -20,14 +20,15 @@
                 <p id="scraping-status" style="margin-top: 10px;"></p>
             </div>
         </div>
-           
-        
-        <div class="results">
+        <div>
+            <a class="btn-border" href="{{ route('auth.connection') }}">@lang('lang.logout')</a>
+        </div>  
+        <!-- <div class="results">
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="btn-border">Logout</button>
             </form>
-        </div>
+        </div> -->
     </section>
 </main>
 

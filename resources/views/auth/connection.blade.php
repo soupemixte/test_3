@@ -17,7 +17,7 @@
                 <p>Administrateur</p>
             </div>
         </a>
-        <form  method="POST">
+        <!-- <form  method="POST">
             @csrf
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -72,7 +72,7 @@
             
             
             <button type="submit" class="btn btn-primary">@lang('lang.save')</button>
-        </form>
+        </form> -->
     </div>
 </main>
 

@@ -11,7 +11,7 @@
         </div>
         <div class="form-control">
             <label for="quantity">@lang('lang.quantity')</label>
-            <input type="number" name="quantity" id="" value="{{old('quantity', $quantity)}}">
+            <input type="number" name="quantity" id="" value="{{ old('quantity') }}">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
@@ -21,9 +21,11 @@
         <div class="form-control">
             <label for="cellar_id">@lang('lang.cellar_choose')</label>
             <select name="cellar_id" id="cellar_id">
-                <option value="">@lang('lang.choose_name')</option>
+                <option value="{{ $first_cellar->id }}">{{ $first_cellar->title }}</option>
                 @foreach (Auth::user()->cellars as $cellar)
+                @if($cellar->id != $first_cellar->id)
                     <option value="{{ $cellar->id }}">{{ $cellar->title }}</option>
+                @endif
                 @endforeach
             </select>
             @if ($errors->has('cellar_id'))

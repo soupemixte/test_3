@@ -8,6 +8,7 @@
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
+            <div class="btn-container just-right"><a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-icon">@lang('lang.add_cellar') <i class="fa-solid fa-plus"></i></a></div> 
         </article>
 
         <div class="line"></div>
