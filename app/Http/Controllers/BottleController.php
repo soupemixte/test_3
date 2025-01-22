@@ -190,6 +190,17 @@ class BottleController extends Controller
         ];
     }
 
+    /**
+     * Comptage des bouteilles en temps réel
+     */
+    public function getTotalBottles()
+    {
+        $totalBottles = Bottle::count();
+        // Return the total bottle count as JSON
+        return response()->json(['totalBottles' => Bottle::count()]);
+    }
+
+
 
     public function destroy() {
         $delete = Bottle::truncate();

@@ -3,6 +3,7 @@ return [
     /* */
     'home' => 'Home',
     'profile' => 'Profile',
+    'dashboard' => 'Dashboard',
     // 'forgot' => 'Forgot password',
     // 'reset' => 'Reset password',
     'edit' => 'Edit',

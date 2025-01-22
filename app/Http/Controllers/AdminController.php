@@ -36,7 +36,7 @@ class AdminController extends Controller
         // le nombre total de bouteilles dans la BD
         $totalBottles = Bottle::count();
 
-        return view('admin.dashboard', ['totalBottles' => $totalBottles]);
+        return view('admin.dashboard', compact('totalBottles'));
     }
 
     //Déconnexion de l'administrateur
