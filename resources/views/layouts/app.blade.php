@@ -18,7 +18,7 @@
 </div>
         <div class="welcome-user">
             @guest
-            <button><a href="{{ route('login') }}">@lang('lang.login')</a></button>
+            <button><a href="{{ route('auth.connection') }}">@lang('lang.login')</a></button>
             @else
             <button><a href="{{ route('logout') }}">@lang('lang.logout')</a></button>
             @endguest

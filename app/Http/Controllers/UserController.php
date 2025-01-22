@@ -60,7 +60,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
         //
-        return redirect(route('login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
+        return redirect(route('user.login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
     }
 
 
