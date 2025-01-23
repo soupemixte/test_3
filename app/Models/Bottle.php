@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bottle extends Model
 {
-    protected $table = 'bottles';
+    protected $table = 'bottle';
 
     protected $fillable = [
+
         'title',
         'price',
         'image_src',
         'saq_link',
-        'saq_code',
         'country',
         'region',
         'degree_alcohol',
@@ -30,6 +30,8 @@ class Bottle extends Model
         'grape_variety',
         'vintage_tasted',
         'aromas',
+        'created_at'
+        
     ];
 
     public function cellars()

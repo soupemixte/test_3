@@ -2,16 +2,20 @@
 @section('title', 'Ajouter la bouteille')
 @section('content')
 
+
 <main class="flex-center">
+
     <section class="structure flex-col-center height80">   
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
         <div class="form-title">
             <h2>{{ $bottle->title }}</h2>
         </div>
+        
         <div class="form-control">
             <label for="quantity">@lang('lang.quantity')</label>
             <input type="number" name="quantity" id="" value="{{ old('quantity') }}">
+
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
@@ -39,9 +43,6 @@
 
         <button type="submit" class="btn-border">@lang('lang.add_bottle')</button>
     </form>
-
-
     </section>
 </main>
-
 @endsection

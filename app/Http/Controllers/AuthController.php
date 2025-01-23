@@ -13,6 +13,7 @@ class AuthController extends Controller
      */
     public function chooseConnection()
     {
+
         return view('auth.connection');
     }
     /**
@@ -21,6 +22,7 @@ class AuthController extends Controller
     public function showUserLoginForm()
     {
         return view('auth.user-login'); // View for user login
+
     }
 
     /**
@@ -32,7 +34,6 @@ class AuthController extends Controller
             'email' => 'required|email|exists:users',
             'password' => 'required|min:6|max:20',
         ]);
-
 
         if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
             $user = Auth::user();

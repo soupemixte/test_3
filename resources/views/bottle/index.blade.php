@@ -2,9 +2,9 @@
 @section('title', 'View all Bottles')
 @section('content')
 
-
 <main class="flex-center height80">    
         <div class="structure">
+          
             <header class="filter-wrapper">
                 <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                     <input 
@@ -21,14 +21,14 @@
                    
                 </form>
             </header>
-             <!-- Afficher la quantité trouvée par défaut -->
+
              @if (empty($query))
                 <div class="results">
                     <h2>@lang('lang.result_title')</h2>
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
             @endif
-            <!--Afficher la quantité trouvée après la requête -->
+
             @if (!empty($query))
                 <div class="results">
                     <h2>Recherche de : "{{ $query }}"</h2>
@@ -38,6 +38,22 @@
             @endif
             <section class="grid">
                 
+                @if ($bottles->isEmpty())
+
+                    <div class="results">
+                        @if (!empty($query))
+                            <h2>Recherche de : "{{ $query }}"</h2>
+                        @endif
+                        <p><span>0</span> résultats trouvés</p>
+                        <ul>Désolé, aucun résultat trouvé.
+                            <li>Essayez une autre recherche</li>
+                            <li>Ou retourner à la page de la liste des bouteilles</li>
+                        </ul>
+                        <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
+
+                    </div>
+                @else
+               
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
@@ -66,9 +82,12 @@
                     </article>
                 @endforeach
             
+            @endif
+         
             </section>
 
             <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
+          
         </div>
 </main>
 
@@ -99,8 +118,5 @@
 
 
 </script>
-
-<!---Change the icon of the search box--->
-
 
 @endsection
