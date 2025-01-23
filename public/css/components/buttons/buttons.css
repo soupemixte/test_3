@@ -23,16 +23,16 @@
     font-weight: bold;
     text-decoration: none;
     /* transition: 1s; */
-    box-shadow: var(--btn-shadow);
+    /* box-shadow: var(--btn-shadow); */
 }
 
 /*Le bouton sans bordure*/
 .btn-border {
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid var(--color-accent);
-    background: none;
-    color: var(--color-accent);
+    border: 2px solid var(--red-wine);
+    background: var(--light-accent);
+    color: var(--color-black);
     font-size: 1em;
     font-weight: bold;
     text-decoration: none;

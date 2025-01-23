@@ -3,16 +3,18 @@
 }
 /* Conteneur de la carte */
 .card_bottle {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
     gap: 10px;
     background-color: var(--dark-accent);
     border-radius: 15px;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     text-align: center;
     color: var(--color-black);
     font-family: 'Georgia', serif;
-    box-shadow: 0 4px 8px var(--color-black);
+    /* box-shadow: 0 4px 8px var(--color-black); */
 
     /*annimation*/
     /* animation: fadeIn 1s ease-in-out forwards; */
@@ -21,13 +23,21 @@
 
 /* le corps de la carte*/
 .card-body {
+    margin-right: 20px;
+    flex: 3;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+.card_bottle picture {
+    display: flex;
+}
+
 /* Image de la bouteille */
 .card_bottle picture img {
+    margin-left: 20px;
+    flex: 1;
     max-width: 100px;
     height: auto;
 }

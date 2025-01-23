@@ -4,7 +4,7 @@
 
 
 <main class="flex-center height80">    
-        <div class="structure">
+        <section class="structure">
             <header class="filter-wrapper">
                 <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                     <input 
@@ -23,7 +23,7 @@
             </header>
              <!-- Afficher la quantité trouvée par défaut -->
              @if (empty($query))
-                <div class="results">
+                <div class="results hidden">
                     <h2>@lang('lang.result_title')</h2>
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
@@ -36,8 +36,8 @@
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif
-            <section class="grid">
-                
+            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
+            <section class="flex-col-center height60 gap20">
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
@@ -68,8 +68,8 @@
             
             </section>
 
-            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
-        </div>
+            
+        </section>
 </main>
 
 <script>
