@@ -8,6 +8,8 @@
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
+
+            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-border">@lang('lang.add_cellar')</a>
         </article>
 
         <div class="line"></div>
