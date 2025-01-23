@@ -6,10 +6,10 @@
 /* Style général pour le formulaire */
 .form {
     width: 90%;
-    background-color: var(--general-form-bg);
+    background-color: var(--color-white);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--color-black);
 }
 
 /* Style pour le contrôle de formulaire */
@@ -22,7 +22,7 @@
 /* Style pour les étiquettes (labels) */
 .form-control label {
     font-weight: bold;
-    color: var(--label-color);
+    color: var(--dark-accent);
     font-size: 20px;
     margin-bottom: 5px;
 }
@@ -32,20 +32,20 @@
 .form-control textarea,
 .form-control select {
     padding: 10px;
-    border: 2px solid #ccc;
+    border: 2px solid var(--dark--accent);
     border-radius: var(--input-radius);
     font-size: 1em;
-    color: #555;
-    background-color: #fff;
+    color: var(--color-black);
+    background-color: var(--color-white);
     outline: none;
-    transition: border-color 0.3s ease;
+    /* transition: border-color 0.3s ease; */
 }
 
 /* Effet de focus pour les champs input, textarea et select */
 .form-control input[type="text"]:focus,
 .form-control textarea:focus,
 .form-control select:focus {
-    border-color: var(--accent-color);
+    border-color: var(--color-accent);
 }
 
 /* Style spécifique pour le textarea */
@@ -57,7 +57,7 @@
 /* Style pour le menu déroulant (select) */
 .form-control select {
     appearance: none; /* Supprime le style par défaut du select */
-    background-color: #fff;
+    background-color: var(--color-white);
     background-image: url('data:image/svg+xml;utf8,<svg fill="%238a5b25" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 10px center;
@@ -73,24 +73,25 @@
 
 /*form footer*/
 .form_footer {
-    background-color: var(--general-form-bg);
-    padding: 20px;
+    background-color: var(--dark-accent);
+    padding: 10px;
     border-radius: 10px;
+    width: 490px;
 }
 
 .form_footer {
     font-weight: bold;
-    color: var(--label-color);
+    color: var(--dark-accent);
 }
 
 .form_footer a {
     text-decoration: none;
-    color: #555;
+    color: var(--color-blue);
 }
 
 .alert_msg {
     margin-top: 5px;
-    background-color: var(--error-color);
+    background-color: var(--color-alert);
     /* padding: 10px; */
     color: var(--color-white);
     font-weight: bold;

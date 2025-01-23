@@ -3,8 +3,7 @@
 @section('content')
 
 <main class="flex-center height80">    
-        <div class="structure">
-          
+        <section class="structure">
             <header class="filter-wrapper">
                 <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                     <input 
@@ -23,7 +22,7 @@
             </header>
 
              @if (empty($query))
-                <div class="results">
+                <div class="results hidden">
                     <h2>@lang('lang.result_title')</h2>
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
@@ -36,24 +35,8 @@
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif
-            <section class="grid">
-                
-                @if ($bottles->isEmpty())
-
-                    <div class="results">
-                        @if (!empty($query))
-                            <h2>Recherche de : "{{ $query }}"</h2>
-                        @endif
-                        <p><span>0</span> résultats trouvés</p>
-                        <ul>Désolé, aucun résultat trouvé.
-                            <li>Essayez une autre recherche</li>
-                            <li>Ou retourner à la page de la liste des bouteilles</li>
-                        </ul>
-                        <a href="{{ route('bottle.index') }}" class="btn-border">Tous les résultats</a>
-
-                    </div>
-                @else
-               
+            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
+            <section class="flex-col-center height60 gap20">
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
                         <picture>
@@ -71,24 +54,20 @@
                                 <p>{{ $bottle->size }}</p>
                                 <div class="line"></div>
                                 <p>{{ $bottle->country }}</p>
+                                <div class="line"></div>
+                                <p>{{ $bottle->price }}</p>
                             </div>
-                            <div>
-                            <div class="card-category">
-                                <p>@lang('lang.degree_alcohol')<br>{{ $bottle->degree_alcohol }}</p>
-                                <p>@lang('lang.sugar_content')<br>{{ $bottle->sugar_content }}</p>
+                            <div class="btn-container">
+                                <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+                                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go">@lang('lang.add_cellar')</a>
                             </div>
-                        </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </article>
                 @endforeach
-            
-            @endif
          
             </section>
 
-            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
-          
-        </div>
+            
+        </section>
 </main>
 
 <script>

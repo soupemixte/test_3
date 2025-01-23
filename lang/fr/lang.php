@@ -32,7 +32,9 @@ return [
     'choose_name' => 'Choisir le Nom',
     /* Welcome */
     'welcome' => 'Bienvenue',
+    'select_welcome' => 'Sélectionnez votre rôle pour vous connecter.',
     /* Users */
+    'admin' => 'Administrateur',
     'users' => 'Usagers',
     'user' => 'Usager',
     'user_new' => 'Nouvel Usager',

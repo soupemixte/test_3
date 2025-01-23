@@ -13,8 +13,6 @@
 </article> -->
  <!-- Home Page -->
  <main class="home">
-
-        @else
         <section class="collection">
         <div class="btn-container">
           <a href="{{ route('cellar.create') }}" class="btn btn-icon">Ajouter un cellier<i class="fa-solid fa-plus"></i></a>

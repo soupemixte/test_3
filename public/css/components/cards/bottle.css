@@ -3,31 +3,42 @@
 }
 /* Conteneur de la carte */
 .card_bottle {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
     gap: 10px;
-    background-color: #6b7384;
+    background-color: var(--dark-accent);
     border-radius: 15px;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     text-align: center;
-    color: #333;
+    color: var(--color-black);
     font-family: 'Georgia', serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px var(--color-black); */
 
     /*annimation*/
-    animation: fadeIn 1s ease-in-out forwards;
-    opacity: 0;
+    /* animation: fadeIn 1s ease-in-out forwards; */
+    /* opacity: 0; */
 }
 
 /* le corps de la carte*/
 .card-body {
+    margin-right: 20px;
+    flex: 3;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 10px;
+}
+
+.card_bottle picture {
+    display: flex;
 }
 
 /* Image de la bouteille */
 .card_bottle picture img {
+    margin-left: 20px;
+    flex: 1;
     max-width: 100px;
     height: auto;
 }
@@ -35,7 +46,7 @@
 /* Titre de la carte */
 .card_bottle .card-title h2 {
     font-size: 1.2em;
-    color: #fff;
+    color: var(--color-white);
 }
 
 /* Section des détails de la carte */
@@ -44,12 +55,12 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    color: #fff;
+    color: var(--color-white);
     font-size: 1em;
 }
 
 .card-list {
-    color: white;
+    color: var(--color-white);
 }
 
 /* Ligne de séparation */
@@ -57,7 +68,7 @@
     height: 1px;
     rotate: 90deg;
     width: 20px;
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 /* Style du prix */
@@ -70,7 +81,7 @@
 
 /*animations*/
 
-.card_bottle:nth-child(1) {
+/* .card_bottle:nth-child(1) {
     animation: fadeIn 1s ease-in-out forwards; 
     opacity: 0;
 }
@@ -101,7 +112,7 @@
 .card_bottle:nth-child(8) {
     animation: fadeIn 2.2s ease-in-out forwards; 
     opacity: 0;
-}
+} */
 
 .price {
     font-weight: bold;
