@@ -1,18 +1,19 @@
 @extends('layouts.app')
 @section('title', 'Cellar Show')
 @section('content')
+
             
 
 <main class="flex-center flex-center height80">   
     <section class="structure">
-        
-        <div class="btn-container just-between">
+        <h1 class="page-title">{{ $cellar->title }}</h1>
+        /*
+         <div class="btn-container just-between">
             <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn btn-icon">Edit <i class="fas fa-edit"></i></a>
             <a href="{{ route('cellar.delete', $cellar->id) }}" class="btn btn-icon">Delete <i class="fa-solid fa-trash"></i></a>
         </div>
-        <header class="filters">
-    
-        <h2>{{ $cellar->title }}</h2> 
+        */
+
         <div class="results">
             <h2>@lang('lang.result_title')</h2>
             <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>

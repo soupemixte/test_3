@@ -3,6 +3,7 @@ return [
     /* */
     'home' => 'Home',
     'profile' => 'Profile',
+    'dashboard' => 'Dashboard',
     // 'forgot' => 'Forgot password',
     // 'reset' => 'Reset password',
     'edit' => 'Edit',
@@ -11,6 +12,7 @@ return [
     'close' => 'Close',
     'view' => 'View',
     'save' => 'Save',
+    'created' => 'Created at',
     /* Bottles */
     'bottle' => 'Bottle',
     'bottle_name' => 'Bottle Name',

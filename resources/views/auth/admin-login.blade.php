@@ -1,10 +1,21 @@
 @extends('layouts.app')
-@section('title', 'Login')
+@section('title', 'Login Admin')
 @section('content')
+
+@if(!$errors->isEmpty())
+    <div class="alert error" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>     
+        <button type="button" class="btn-close">X</button>
+    </div>                
+@endif          
 
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
-        <form method="POST" class="form">
+        <form method="POST" class="form" action="{{ route('admin.login.submit') }}">
             @csrf
             <div class="form-control">
                 <label for="username" >@lang('lang.email')</label>

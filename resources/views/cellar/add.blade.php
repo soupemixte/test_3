@@ -3,32 +3,19 @@
 @section('content')
 
 
-@if(!$errors->isEmpty())
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>     
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>                
-@endif
-
-
-
 <main class="flex-center">
 
     <section class="structure flex-col-center height80">   
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
-      
         <div class="form-title">
             <h2>{{ $bottle->title }}</h2>
         </div>
         
         <div class="form-control">
-            <label for="quantity">Quantité</label>
-            <input type="number" name="quantity" id="" value="">
+            <label for="quantity">@lang('lang.quantity')</label>
+            <input type="number" name="quantity" id="" value="{{ old('quantity') }}">
+
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
@@ -38,9 +25,11 @@
         <div class="form-control">
             <label for="cellar_id">@lang('lang.cellar_choose')</label>
             <select name="cellar_id" id="cellar_id">
-                <option value="">@lang('lang.choose_name')</option>
+                <option value="{{ $first_cellar->id }}">{{ $first_cellar->title }}</option>
                 @foreach (Auth::user()->cellars as $cellar)
+                @if($cellar->id != $first_cellar->id)
                     <option value="{{ $cellar->id }}">{{ $cellar->title }}</option>
+                @endif
                 @endforeach
             </select>
             @if ($errors->has('cellar_id'))

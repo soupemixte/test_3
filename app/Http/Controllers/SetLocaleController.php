@@ -12,5 +12,5 @@ class SetLocaleController extends Controller
         }
         session()->put('locale', $locale);
         return back();
-     }
+    }
 }

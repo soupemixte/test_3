@@ -1,7 +1,4 @@
-/* Header */
-:root {
-    --header-bg: gray;
-}
+
 /* .header {
     background-color: var(--color-primary);
     color: white;
@@ -22,16 +19,15 @@
 }
 
 .header .logo {
-    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
-.logo:hover {
-    cursor: pointer;
-}
 
-.logo a{
-    text-decoration: none;
-    color: black;
+.header .logo img {
+    height: 60px;
+    width: auto;
+    max-width: 100%;
 }
 
 .welcome-user p{ 
@@ -40,3 +36,4 @@
 .welcome-user span{ 
     color: var(--accent-color);
 }
+

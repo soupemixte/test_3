@@ -9,91 +9,114 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     /**
-     * Show the form for creating a new resource.
+     * Sélection du rôle d'authentification (utilisateur, administrateur)
      */
-    public function create()
+    public function chooseConnection()
     {
 
-        
-        return view('auth.create');
+        return view('auth.connection');
+    }
+    /**
+     * Show the user login form.
+     */
+    public function showUserLoginForm()
+    {
+        return view('auth.user-login'); // View for user login
+
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Handle user login.
      */
-    public function store(Request $request)
+    public function userLogin(Request $request)
     {
         $request->validate([
             'email' => 'required|email|exists:users',
-            'password' => 'required|min:6|max:20'
+            'password' => 'required|min:6|max:20',
         ]);
-        $credentials = $request->only('email', 'password');
-        if(!Auth::validate($credentials)):
-            return redirect(route('login'))
-                        ->withErrors(trans('auth.failed'))
-                        ->withInput();
-        endif;
-        $user = Auth::getProvider()->retrieveByCredentials($credentials);
-        Auth::login($user);
 
-        $request->session()->put('user', $user);
-        $request->session()->put('user_id', $user->id);
-        $request->session()->put('username', $user->name);
+        if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
+            $user = Auth::user();
+            $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
+            return redirect()->route($redirect)->withSuccess('Connecté.');
+        }
 
-        //$request->session()->put('user', $user);
-        /* return redirect(route('user.index'))->withSuccess('Signed in'); */
-        /* return redirect(route('cellar.create'))->withSuccess('Signed in'); */
-        //Redirect regarding if the connected user has a cellar
-         if ($user->hasCellar()) {
-             $route = 'cellar.index';
-            
-         } else {
-             $route = 'cellar.create';
-         }
-        return redirect(route($route))->withSuccess('Signed in');
-
-        //echo $user->id , $user->name;
-        // $request->session()->put('user', $user);
-        // $request->session()->put('user_id', $user->id);
-        // $request->session()->put('username', $user->name);
-       // die();
-      //  return redirect()->intended(route('welcome'))->withSuccess('Signed in');
-      //  die();
-     //   return redirect()->intended(route('task.index'))->withSuccess('Signed in');
+        return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
 
     /**
-     * Display the specified resource.
+     * Show the admin login form.
      */
-    public function show(string $id)
+    public function showAdminLoginForm()
     {
-        //
+
+        return view('auth.admin-login'); // View for admin login
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Handle admin login.
      */
-    public function edit(string $id)
+    public function adminLogin(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required|email|exists:admins',
+            'password' => 'required|min:6|max:20',
+        ]);
+
+        if (Auth::guard('admin')->attempt($request->only('email', 'password'))) {
+            return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
+        }
+
+        return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
 
     /**
-     * Update the specified resource in storage.
+     * Handle login for user and admin
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'email_admin' => 'email|exists:admins',
+    //         'password_admin' => 'min:6|max:20',
+    //         'email_user' => 'required|email|exists:users',
+    //         'password_user' => 'required|min:6|max:20',
+    //     ]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy()
-    {
-        //Session::flush();
-        Auth::logout();
-        return redirect(route('login'));
+    //     $email = [
+    //         '_user' => $request->email_user,
+    //     ];
+    //     if($request->email_admin != null) { $email = $email + ['_admin' => $request->email_admin];};
+    //     $password = [
+    //         '_user' => $request->password_user,
+    //     ];
+    //     if($request->password_admin != null) { $password = $password + ['_admin' => $request->password_admin];};
         
+    //     if (Auth::guard('web')->attempt($request->only('email_user', 'password_user'))) {
+    //         $user = Auth::user();
+    //         $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
+    //         return redirect()->route($redirect)->withSuccess('Connecté.');
+    //     }
+    //     if (Auth::guard('admin')->attempt($request->only('email_admin', 'password_admin'))) {
+    //         return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
+    //     }
+
+    //     return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+
+    //     return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+    //     return back()->withSuccess('Category created successfully!');
+    // }
+
+    /**
+     * Handle logout for both users and admins.
+     */
+    public function logout()
+    {
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+        } elseif (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        }
+
+        return redirect()->route('user.login')->withSuccess('Déconnexion réussie.');
     }
 }

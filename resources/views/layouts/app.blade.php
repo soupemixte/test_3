@@ -14,63 +14,92 @@
 </head>
 <body>
     <!-- Header -->
-    <!-- <header class="header">
-        <div class="logo">VINO</div>
-        <div class="welcome-user hidden">
-             @auth
-                <p>@lang('lang.welcome'), <span>{{ Auth::user()->name }}</span></p>
-            @endauth -->
-    <!-- <header>
-        <div class="logo"><h1><a href="{{ route('login') }}">VINO</a></h1></div> -->
-    <!-- </header> -->
-    <!-- Content -->
-    <!-- @yield('content') -->
-    <!-- Navigation -->
-         
-    @if(session('success'))    
-    <div class="success alert alert-warning alert-dismissible fade show ms-2 me-2" role="alert">
-  <strong> {{session('success')}}</strong>
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+    <header class="header">
+    <div class="logo">
+    <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
 </div>
-    @endif  
-    <footer>
-        <nav class="mobile-fixed-footer">
-            <ul class="navigation">
-            @auth
-                <!-- <p>@lang('lang.welcome'), <span>{{ Auth::user()->name }}</span></p> -->
-                @if(Auth::user()->isAdmin)
-                <button><a href="{{ route('bottle.delete') }}">@lang('lang.delete_bottle')</a></button>
-                <button><a href="{{ route('bottle.scrape') }}">@lang('lang.scrape_bottle')</a></button>
-                @endif
-             @endauth
+</div>
+        <div class="welcome-user">
+            @guest
+            <button><a href="{{ route('auth.connection') }}">@lang('lang.login')</a></button>
+            @else
+            <button><a href="{{ route('logout') }}">@lang('lang.logout')</a></button>
+            @endguest
         </div>
+        
         <ul>
-            <!-- <ul class="nav_dropdown">
-                <li><a class="nav-link" href="{{ route('lang', 'en') }}">@lang('lang.language_en')</a></li>
-                <li><a class="nav-link" href="{{ route('lang', 'fr') }}">@lang('lang.language_fr')</a></li>
-            </ul> -->
             <div class="hidden dropdown">
                 <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
                 <div class="dropdown-box">
                     <a href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
                     <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
                 </div>
-            </div>
+            </div>  
         </ul>
-</footer>
+
+    </header>
+
+    @if(session('success'))
+    <div class="alert success">
+        <p>{{ session('success') }}</p>
+        <button type="button" class="btn-close">X</button>
+    </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert error">
+            <p>{{ session('error') }}</p>
+            <button type="button" class="btn-close">X</button>
+        </div>
+    @endif
+
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button type="button" class="btn-close" id="closeModal">&times;</button>
+            <p id="successMessage"></p>
+        </div>
+    </div>
     <!-- Content -->
     @yield('content')
     <!-- Navigation -->
     <nav class="navigation">
-      <!-- <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a> -->
-      <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
-      <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
-      @guest
-        <a class="nav-link" href="{{ route('login') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')</a>
-        @else
-        <a class="nav-link" href="{{ route('logout') }}"><img src="{{asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')</a>
-        @endguest
-      <!-- <a class="nav-link" href="{{ route('user.show') }}"> @lang('lang.profile')</a> -->
+        <!-- Visible for regular users only -->
+        @auth('web')
+            <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
+            <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
+        @endauth
+        @auth('admin')
+            <a class="nav-link" href="{{ route('admin.dashboard') }}"> 
+                <img src="{{asset('img/navigation/dashboard.png') }}" alt="nav-image">@lang('lang.dashboard')
+            </a>
+        @endauth
+        @php
+    $isAdmin = Auth::guard('admin')->check(); // Check if admin is logged in
+    $isUser = Auth::guard('web')->check();    // Check if user is logged in
+@endphp
+
+@if(!$isAdmin && !$isUser)
+  <!-- Guest: Not logged in -->
+  <a class="nav-link" href="{{ route('auth.connection') }}">
+    <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
+  </a>
+@else
+  @if($isAdmin)
+    <!-- Admin logged in -->
+    <a class="nav-link" href="{{ route('logout') }}">
+      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout') (Admin)
+    </a>
+  @elseif($isUser)
+    <!-- User logged in -->
+    <a class="nav-link" href="{{ route('logout') }}">
+      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')
+    </a>
+  @endif
+@endif
     </nav>
 
     <!-----Script général réutilisable pour masquer la modale------>
@@ -88,5 +117,11 @@
     });
 
     </script>
+
+
+    
+
+
+
 </body>
 </html>

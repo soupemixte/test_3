@@ -3,6 +3,7 @@ return [
     /* */
     'home' => 'Accueil',
     'profile' => 'Profil',
+    'dashboard' => 'Tableau de bord',
     // 'forgot' => 'Forgot password',
     // 'reset' => 'Reset password',
     'edit' => 'Modification',
@@ -11,6 +12,7 @@ return [
     'close' => 'Fermer',
     'view' => 'Voir',
     'save' => 'Sauvegarder',
+    'created' => 'Date de création',
     /* Bottles */
     'bottle' => 'Bouteille',
     'bottle_name' => 'Nom de la Bouteille',
