@@ -12,8 +12,8 @@
     </div>
 </article> -->
  <!-- Home Page -->
- <main class="home">
-        <section class="collection">
+ <main class="flex-center height80">
+        <section class="structure">
         <div class="btn-container">
           <a href="{{ route('cellar.create') }}" class="btn btn-icon">Ajouter un cellier<i class="fa-solid fa-plus"></i></a>
           <!-- <a href="{{ route('cellar.index') }}" class="btn btn-icon">@lang('lang.cellars')<i class="fa-solid"></i></a> -->
