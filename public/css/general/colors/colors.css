@@ -1,4 +1,5 @@
 :root {
+    --general-bg: #dfdfdf;
     --general-title: #5d5d5d;
     --color-accent: #F07947;
     --dark-accent: #6b7384;
@@ -8,15 +9,17 @@
     --color-blue: #0009FF;
     --color-error: #FF0000;;
     --color-white: #f4f4f4;
+    --color-black: #000000;
     --color-success: #52CE65;
     --font-size-small: 12px;
     --spacing-x-small: 4px;
     --border-radius-x-small: 2px;
+    --input-radius: 8px;
 }
 
 /*Arrière-plan*/
 body {
-    background-color: #dfdfdf;
+    background-color: var(--general-bg);
 }
 
 .bg-success {

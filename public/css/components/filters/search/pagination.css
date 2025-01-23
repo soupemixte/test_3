@@ -17,9 +17,9 @@
     padding: 10px 15px;
     border-radius: 10px;
     text-decoration: none;
-    background-color: white;
-    color: var(--dark-accent);
-    transition: background-color 0.3s ease;
+    background-color: var(--color-white);
+    color: var(--dark-black);
+    /* transition: background-color 0.3s ease; */
 }
 
 
@@ -30,11 +30,11 @@
 
 .pagination span:hover,
 .pagination a:hover {
-    background-color: var( --accent-color);
+    background-color: var( --color-accent);
 }
 
 .pagination .active span {
     background-color: var(--dark-accent);
-    color: #fff;
+    color: var(--color-white);
     border-color: var(--dark-accent);
 }

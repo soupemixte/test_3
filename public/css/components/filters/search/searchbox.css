@@ -2,43 +2,44 @@
 * Merci pour: https://codepen.io/yuhomyan/pen/XWdYJdv
 */
 .search-container{
-    background: #fff;
-    height: 30px;
-    border-radius: 30px;
+    background: var(--color-white);
+    height: 34px;
+    width: 100%;
+    border-radius: 26px;
     padding: 10px 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 0.8s;
-    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+    /* transition: 0.8s; */
+    /* box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2); */
 }
 
 /* L'input s'élargit au focus ou au survol du conteneur de recherche. */
-.search-container form:focus-within > .search-input,
+/* .search-container form:focus-within > .search-input,
 .search-container:hover > .search-input,
 .search-btn:focus + .search-input {
     width: 250px;
     transition: width 0.3s ease;
-}
+} */
 
 /* L'input reste élargi si la classe "expanded" est appliquée. */
-.search-container.expanded > .search-input {
+/* .search-container.expanded > .search-input {
     width: 250px; 
     transition: none; 
-}
+} */
 
 .search-container .search-input{
     background: transparent;
     border: none;
     outline:none;
-    width: 0px;
+    width: 90%;
     font-weight: 500;
     font-size: 16px;
-    transition: 0.8s;
+    /* transition: 0.8s; */
 
 }
 
@@ -52,9 +53,9 @@
     align-items: center;
 }
 
-.search-container:hover{
+/* .search-container:hover{
     padding: 10px 20px;
-}
+} */
 
 /*icônes de bouton*/
 .search-container .search-btn .fa,
@@ -62,15 +63,15 @@
     font-size: 18px;
 }
 .search-container .search-btn .fas {
-    color: var(--accent-color);
+    color: var(--color-accent);
 }
 .search-container .search-btn .fa {
-    color: rgb(137, 64, 64);
+    color: var(--color-accent);
 }
 
 
 /*Écran plus grand*/
-@media (min-width: 500px) {
+/* @media (min-width: 500px) {
     .search-container form:focus-within > .search-input,
     .search-container:hover > .search-input,
     .search-btn:focus + .search-input {
@@ -81,4 +82,4 @@
         width: 400px; 
         transition: none;
     }
-}
+} */
