@@ -55,14 +55,13 @@
                                 <p>{{ $bottle->size }}</p>
                                 <div class="line"></div>
                                 <p>{{ $bottle->country }}</p>
+                                <div class="line"></div>
+                                <p>{{ $bottle->price }}</p>
                             </div>
-                            <div>
-                            <div class="card-category">
-                                <p>@lang('lang.degree_alcohol')<br>{{ $bottle->degree_alcohol }}</p>
-                                <p>@lang('lang.sugar_content')<br>{{ $bottle->sugar_content }}</p>
+                            <div class="btn-container">
+                                <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+                                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go">@lang('lang.add_cellar')</a>
                             </div>
-                        </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                     </article>
                 @endforeach
             

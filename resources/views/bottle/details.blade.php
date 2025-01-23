@@ -32,6 +32,14 @@
                     <span class="info-label">Format :</span>
                     <span class="info-value">{{ $bottle->size }}</span>
                 </div>
+                <div class="info-item">
+                    <span class="info-label">{{ $bottle->degree_alcohol }} :</span>
+                    <span class="info-value">{{ $bottle->degree_alcohol }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">@lang('lang.sugar_content') :</span>
+                    <span class="info-value">{{ $bottle->sugar_content }}</span>
+                </div>
             </div>
         </article>
     </section>
