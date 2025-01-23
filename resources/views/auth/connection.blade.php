@@ -2,21 +2,23 @@
 @section('title', 'Choisissez le rôle à connecter')
 @section('content')
 
-<main class="flex-center height80">
-    <div class="structure flex-col-center gap20">
-        <h1 class="page-title">Sélectionnez votre rôle pour vous connecter.</h1>
-        <a href="{{ route('user.login') }}">
-            <div class="link-card">
-                <img src="{{asset('img/icons/user.png') }}">
-                <p>Utilisateur</p>
-            </div>
-        </a>
-        <a href="{{ route('admin.login') }}">
-            <div class="link-card">
-                <img src="{{asset('img/icons/admin.png') }}">
-                <p>Administrateur</p>
-            </div>
-        </a>
+<main class="flex-center">
+    <div class="structure flex-col-center gap20 height80">
+        <h1 class="page-title">@lang('lang.select_welcome')</h1>
+        <div class="flex gap20">
+            <a href="{{ route('user.login') }}">
+                <div class="link-card">
+                    <img src="{{asset('img/icons/user.png') }}">
+                    <p>@lang('lang.user')</p>
+                </div>
+            </a>
+            <a href="{{ route('admin.login') }}">
+                <div class="link-card">
+                    <img src="{{asset('img/icons/admin.png') }}">
+                    <p>@lang('lang.admin')</p>
+                </div>
+            </a>
+        </div>
         <!-- <form  method="POST">
             @csrf
             <ul class="nav nav-tabs" id="myTab" role="tablist">

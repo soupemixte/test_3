@@ -74,8 +74,9 @@
 /*form footer*/
 .form_footer {
     background-color: var(--general-form-bg);
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
+    width: 490px;
 }
 
 .form_footer {
@@ -85,7 +86,7 @@
 
 .form_footer a {
     text-decoration: none;
-    color: #555;
+    color: var(--color-blue);
 }
 
 .alert_msg {
