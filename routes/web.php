@@ -11,10 +11,6 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\CellierBottleController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
 // User Routes
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
 Route::post('/registration', [UserController::class, 'store'])->name('user.store');
