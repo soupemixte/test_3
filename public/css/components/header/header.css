@@ -22,11 +22,13 @@
     justify-content: center;
 }
 
+
 .header .logo img {
     height: 60px;
     width: auto;
     max-width: 100%;
-}s
+}
+
 .welcome-user p{ 
     color: white;
 }

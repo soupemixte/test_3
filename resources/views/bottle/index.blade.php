@@ -2,7 +2,6 @@
 @section('title', 'View all Bottles')
 @section('content')
 
-
 <main class="flex-center height80">    
         <section class="structure">
             <header class="filter-wrapper">
@@ -21,14 +20,14 @@
                    
                 </form>
             </header>
-             <!-- Afficher la quantité trouvée par défaut -->
+
              @if (empty($query))
                 <div class="results hidden">
                     <h2>@lang('lang.result_title')</h2>
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
             @endif
-            <!--Afficher la quantité trouvée après la requête -->
+
             @if (!empty($query))
                 <div class="results">
                     <h2>Recherche de : "{{ $query }}"</h2>
@@ -65,6 +64,8 @@
                     </article>
                 @endforeach
             
+            @endif
+         
             </section>
 
             
@@ -98,8 +99,5 @@
 
 
 </script>
-
-<!---Change the icon of the search box--->
-
 
 @endsection

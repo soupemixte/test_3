@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cellar;
+use App\Models\User;
 use App\Models\Bottle;
 use App\Models\CellarBottle;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,18 @@ class CellarController extends Controller
 
     }
 
+
+  /*
+    public function switch($id)
+    {
+        $bottle = Bottle::findOrFail($id);
+        $cellars = Cellar::all();
+            // Redirect to cellar add page
+            return view('Cellar.add',['bottle'=>$bottle , 'cellars' => $cellars]);
+         
+        
+    }
+    */
 
     /**
      * Show the form for creating a new resource.
@@ -63,8 +76,13 @@ class CellarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cellar $cellar) 
+    public function show(Cellar $cellar,Request $request) 
     {
+      //  echo $cellar->id;
+        
+
+        $request->session()->put('id_cellier', $cellar->id);
+      //  die();
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
         $cellar_bottles = CellarBottle::select()
@@ -117,8 +135,9 @@ class CellarController extends Controller
     /**
      * Function to add the bottle to the cellar
      */
-    public function add($id)
+    public function add(Request $request , $id)
     {
+
         // Retrieve the bottle by its ID
         $bottle = Bottle::findOrFail($id);
         // Check if the user has any cellars
@@ -193,9 +212,9 @@ class CellarController extends Controller
             }
             // Attach the bottle to the selected cellar
             CellarBottle::create([
-                'cellar_id' => $request->input('cellar_id'),
+               'cellar_id' => $request->input('cellar_id'),
                 'bottle_id' => $request->input('bottle_id'),
-                'quantity' => $request->input('quantity'),
+                 'quantity' => $request->input('quantity'),
             ]);
 
         }
@@ -255,4 +274,5 @@ class CellarController extends Controller
         //
         return redirect()->route('cellar.index')->withSuccess('Cellar deleted successfully.');
     }
+
 }
