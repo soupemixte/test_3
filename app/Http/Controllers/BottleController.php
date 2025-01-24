@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cellar;
+use App\Models\CellarBottle;
 use App\Models\Bottle;
 use Goutte\Client;
 use Illuminate\Http\Request;
@@ -24,11 +26,11 @@ class BottleController extends Controller
             // Filter bottles by title using the search query
             $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
             ->orderby('title')
-            ->paginate(15);
+            ->paginate(5);
         } else {
             // If no search query, retrieve all bottles
             $bottles = Bottle::orderby('title')
-            ->paginate(15);
+            ->paginate(5);
         }
         // Pass the bottles and the query (to keep input value) to the view
         return view('bottle.index', compact('bottles', 'query'));
@@ -39,8 +41,11 @@ class BottleController extends Controller
     {
         // Retrieve the specific bottle
         $bottle = Bottle::findOrFail($id);
+        $celliers = Cellar::all();
         // Pass the bottles to the view
-        return view('bottle.details', compact('bottle'));
+        // return view('bottle.details', compact('bottle'));
+                return view('bottle.details', ['bottle'=>$bottle,'celliers'=>$celliers]);
+    
     }
     
 
@@ -208,3 +213,4 @@ class BottleController extends Controller
         return view('welcome');
     }
 }
+

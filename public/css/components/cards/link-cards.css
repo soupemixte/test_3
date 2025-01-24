@@ -6,5 +6,5 @@
     gap: 10px;
     flex-direction: column;
     width: 200px;
-    color: #6d6d6d;
+    color: var(--color-black);
 }

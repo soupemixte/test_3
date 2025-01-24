@@ -1,26 +1,33 @@
 :root {
+    --general-bg: #dfdfdf;
     --general-title: #5d5d5d;
-    --accent-color: #f9b825;
+    --color-accent: #f07947;
     --dark-accent: #6b7384;
+    --light-accent: #c8cbcc;
+    --dark-red-wine: #310101;
+    --red-wine: #400101;
     --components-bg: white;
     --header-bg: #6b7384;
-    --color-alert: #FF0000;
-    --error-color: #c58989;;
+    --color-alert: #ff0000;
+    --color-blue: #0009ff;
+    --color-error: #ff0000;
     --color-white: #f4f4f4;
-    --success-color: rgb(85, 165, 85);
+    --color-black: #000000;
+    --color-success: #52ce65;
     --font-size-small: 12px;
     --spacing-x-small: 4px;
     --border-radius-x-small: 2px;
+    --input-radius: 8px;
 }
 
 /*Arrière-plan*/
 body {
-    background-color: #dfdfdf;
+    background-color: var(--general-bg);
 }
 
 .bg-success {
-    background-color: var(--success-color) !important;
+    background-color: var(--color-success) !important;
 }
 .bg-danger {
-    background-color: var(--error-color) !important;
+    background-color: var(--color-error) !important;
 }

@@ -5,35 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <meta name="author" content="Equipe #1">
     <script type="module" src="{{ asset('js/main.js')}}" defer></script>
     <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body>
     <!-- Header -->
+
     <header class="header">
     <div class="logo">
-    <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
-</div>
-</div>
-        <div class="welcome-user">
-            @guest
-            <button><a href="{{ route('auth.connection') }}">@lang('lang.login')</a></button>
-            @else
-            <button><a href="{{ route('logout') }}">@lang('lang.logout')</a></button>
-            @endguest
-
-        </div>
-        
-        <ul>
-            <div class="hidden dropdown">
-                <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
-                <div class="dropdown-box">
-                    <a href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
-                    <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
-                </div>
-            </div>  
-        </ul>
+        <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
+    </div>
+    <ul class="hidden">
+        <div class="dropdown">
+            <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
+            <div class="dropdown-box">
+                <a href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
+                <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
+            </div>
+        </div>  
+    </ul>
 
     </header>
 
@@ -65,7 +58,7 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <!-- <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a> -->
             <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
         @endauth
@@ -81,7 +74,7 @@
 
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
-  <a class="nav-link" href="{{ route('auth.connection') }}">
+  <a class="nav-link" href="{{ route('user.login') }}">
     <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
   </a>
 @else
@@ -103,6 +96,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
         const closeButtons = document.querySelectorAll(".btn-close");
+       
 
         closeButtons.forEach(button => {
             button.addEventListener("click", function () {

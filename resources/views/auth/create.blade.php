@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
+
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form method="POST" class="form">

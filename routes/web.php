@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BottleController;
+use App\Http\Controllers\CellarBottleController;
 use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SetLocaleController;
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\CellierBottleController;
 
 // User Routes
 Route::get('/registration', [UserController::class, 'create'])->name('user.create');
@@ -47,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
+
     Route::post('/bottle/{id}/add-to-cellar', [BottleController::class, 'addToCellar'])->name('bottle.addToCellar');
 
     //Start and stop the scrapping
@@ -65,6 +68,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('cellar.delete');
     Route::get('/cellar/add/{id}', [CellarController::class, 'add'])->name('cellar.add');    
     Route::post('/cellar/store-bottle', [CellarController::class, 'storeBottle'])->name('cellar.storeBottle');
+    // Route::get('/cellar/ajout/{id}', [CellarController::class, 'switch'])->name('cellar.return');
+    Route::post('/cellar/remove-bottle', [CellarController::class, 'removeBottle'])->name('cellar.removeBottle');
     // User Routes
     Route::get('/users', [UserController::class, 'index'])->name('user.index');
     Route::get('/profile/{user}', [UserController::class, 'show'])->name('user.show');

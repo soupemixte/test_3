@@ -13,6 +13,7 @@ class AuthController extends Controller
      */
     public function chooseConnection()
     {
+
         return view('auth.connection');
     }
     /**
@@ -21,6 +22,7 @@ class AuthController extends Controller
     public function showUserLoginForm()
     {
         return view('auth.user-login'); // View for user login
+
     }
 
     /**
@@ -33,14 +35,13 @@ class AuthController extends Controller
             'password' => 'required|min:6|max:20',
         ]);
 
-
         if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
             $user = Auth::user();
             $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
             return redirect()->route($redirect)->withSuccess('Connecté.');
         }
 
-        return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte');
+        return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
 
     /**
@@ -63,11 +64,47 @@ class AuthController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt($request->only('email', 'password'))) {
-            return redirect()->route('admin.dashboard')->withSuccess('Admin logged in successfully!');
+            return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
         }
 
-        return redirect()->route('admin.login')->withErrors('Invalid admin credentials.');
+        return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
+
+    /**
+     * Handle login for user and admin
+     */
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'email_admin' => 'email|exists:admins',
+    //         'password_admin' => 'min:6|max:20',
+    //         'email_user' => 'required|email|exists:users',
+    //         'password_user' => 'required|min:6|max:20',
+    //     ]);
+
+    //     $email = [
+    //         '_user' => $request->email_user,
+    //     ];
+    //     if($request->email_admin != null) { $email = $email + ['_admin' => $request->email_admin];};
+    //     $password = [
+    //         '_user' => $request->password_user,
+    //     ];
+    //     if($request->password_admin != null) { $password = $password + ['_admin' => $request->password_admin];};
+        
+    //     if (Auth::guard('web')->attempt($request->only('email_user', 'password_user'))) {
+    //         $user = Auth::user();
+    //         $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
+    //         return redirect()->route($redirect)->withSuccess('Connecté.');
+    //     }
+    //     if (Auth::guard('admin')->attempt($request->only('email_admin', 'password_admin'))) {
+    //         return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
+    //     }
+
+    //     return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+
+    //     return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+    //     return back()->withSuccess('Category created successfully!');
+    // }
 
     /**
      * Handle logout for both users and admins.
@@ -80,6 +117,6 @@ class AuthController extends Controller
             Auth::guard('web')->logout();
         }
 
-        return redirect()->route('user.login')->withSuccess('Logged out successfully.');
+        return redirect()->route('user.login')->withSuccess('Déconnexion réussie.');
     }
 }

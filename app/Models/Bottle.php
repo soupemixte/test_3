@@ -14,7 +14,6 @@ class Bottle extends Model
         'price',
         'image_src',
         'saq_link',
-        'saq_code',
         'country',
         'region',
         'degree_alcohol',
@@ -30,6 +29,8 @@ class Bottle extends Model
         'grape_variety',
         'vintage_tasted',
         'aromas',
+        'created_at'
+        
     ];
 
     public function cellars()
