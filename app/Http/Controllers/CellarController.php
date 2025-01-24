@@ -143,22 +143,35 @@ class CellarController extends Controller
         // Check if the user has any cellars
         if (Auth::user()->hasCellar()) {
             $first_cellar = Cellar::where('user_id', Auth::user()->id)->first();
-            // $cellar_id = $first_cellar->id;
-            // $cellar_bottle = CellarBottle::select()
-            // ->where('cellar_id', '=', $cellar_id)
-            // ->where('bottle_id', '=', $id)
-            // ->exists();
-            // if($cellar_bottle) 
-            // { 
-            //     $cellar_bottle = CellarBottle::select()
-            //         ->where('cellar_id', '=', $cellar_id)
-            //         ->where('bottle_id', '=', $id)
-            //         ->get();
-            //     $bd_quantity = $cellar_bottle->first()->quantity; 
-            // }
-            // else { $bd_quantity = 0; }
             // Redirect to the form to choose a cellar and add the bottle with quantity
             return view('cellar.add', compact('bottle'), ['first_cellar' => $first_cellar]);
+        }
+        // If the user has no cellars, redirect to create a new cellar
+        return redirect()->route('cellar.create')->withWarning('Veuillez bien créer un cellier.');
+    }
+
+    /**
+     * Function to add the bottle to the cellar
+     */
+    public function remove($id, $cellar_id)
+    {
+        // Retrieve the bottle by its ID
+        $bottle = Bottle::findOrFail($id);
+        // Check if the user has any cellars
+        if (Auth::user()->hasCellar()) {
+            $cellar_bottle = CellarBottle::select()
+            ->where('cellar_id', '=', $cellar_id)
+            ->where('bottle_id', '=', $id)
+            ->exists();
+            if($cellar_bottle) {
+                $cellar_bottle = CellarBottle::select()
+                ->where('cellar_id', '=', $cellar_id)
+                ->where('bottle_id', '=', $id)
+                ->get();
+                
+                $bd_quantity = $cellar_bottle->first()->quantity;
+            }
+            return view('cellar.remove', compact('bottle'), ['cellar' => $cellar_bottle->first()]);
         }
         // If the user has no cellars, redirect to create a new cellar
         return redirect()->route('cellar.create')->withWarning('Veuillez bien créer un cellier.');
@@ -170,7 +183,6 @@ class CellarController extends Controller
      */
     public function storeBottle(Request $request)
     {
-        // return $request;
         $bottle = Bottle::findOrFail($request->input('bottle_id'));
         $first_cellar = Cellar::where('user_id', Auth::user()->id)->first();
         $request->validate([
@@ -182,7 +194,6 @@ class CellarController extends Controller
             ->where('cellar_id', '=', $request->input('cellar_id'))
             ->where('bottle_id', '=', $request->input('bottle_id'))
             ->exists();
-        // return $cellar_bottle->first();
         if($cellar_bottle) {
             $cellar_bottle = CellarBottle::select()
                 ->where('cellar_id', '=', $request->input('cellar_id'))
@@ -191,14 +202,9 @@ class CellarController extends Controller
             $bd_quantity = $cellar_bottle->first()->quantity;
             
             if($request->input('quantity') < 1) {
-                // return $cellar_bottle;
                 // return "Not enough bottles in cellar.";
                 return view('cellar.add', compact('bottle'), ['first_cellar' => $first_cellar])->withWarning('Pas assez de bouteilles dans le cellier.');
             }
-            // if($request->input('quantity') === $bd_quantity) {
-            //     // return "Not enough bottles in cellar."
-            //     return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withError('Veuillez modifier la quantité.');
-            // }
             CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->update([
@@ -226,10 +232,11 @@ class CellarController extends Controller
     public function removeBottle(Request $request)
     {
         $bottle = Bottle::findOrFail($request->input('bottle_id'));
+
         $request->validate([
-           'cellar_id' => 'required',
-           'bottle_id' => 'required',
-            'quantity' => 'required|min:0',
+            'cellar_id' => 'required',
+            'bottle_id' => 'required',
+            'quantity' => 'required',
         ]);
 
         $cellar_bottle = CellarBottle::select()
@@ -241,9 +248,9 @@ class CellarController extends Controller
             $result = $bd_quantity - $request->input('quantity');
             if($result < 0) {
                 // return "Not enough bottles in cellar."
-                return view('cellar.add', compact('bottle'), ['quantity' => $bd_quantity])->withWarning('Pas assez de bouteilles dans le cellier.');
+                return view('cellar.remove', compact('bottle'), ['cellar' => $cellar_bottle->first()])->withWarning('Pas assez de bouteilles dans le cellier.');
             }
-            if($result === 0) {
+            else if($result === 0) {
                 $cellar_bottle = CellarBottle::select()
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->where('cellar_id', '=', $request->input('cellar_id'))
@@ -251,16 +258,16 @@ class CellarController extends Controller
                 // return "No bottles left in cellar."
                 return redirect()->route('cellar.index')->withSuccess('Il ne vous reste plus de bouteilles '.$bottle->first()->name.' dans votre cellier.');
             }
-        
-            $cellar_bottle = CellarBottle::select()
-                ->where('bottle_id', '=', $request->input('bottle_id'))
-                ->where('cellar_id', '=', $request->input('cellar_id'))
-                ->update([
-                    'quantity' => $request->input('quantity'),
-                ]);
+            else {
+                $cellar_bottle = CellarBottle::select()
+                    ->where('bottle_id', '=', $request->input('bottle_id'))
+                    ->where('cellar_id', '=', $request->input('cellar_id'))
+                    ->update([
+                        'quantity' => $result,
+                    ]);
 
-                return redirect()->route('cellar.index')->withSuccess('Vous avez retiré '.$request->input('quantity').' bouteilles de votre cellier avec succès.');
-    
+                    return redirect()->route('cellar.index')->withSuccess('Vous avez retiré '.$request->input('quantity').' bouteilles de votre cellier avec succès.');
+            }
         }
     }
 
