@@ -9,12 +9,13 @@
 
 .header {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     background-color: var(--header-bg);
     color: white;
+    padding: 30px;
     text-align: center;
-    justify-content: space-evenly;
-    padding: 20px;
+    
 }
 
 .header .logo {
@@ -22,13 +23,11 @@
     justify-content: center;
 }
 
-
 .header .logo img {
     height: 60px;
     width: auto;
     max-width: 100%;
-}
-
+}s
 .welcome-user p{ 
     color: white;
 }

@@ -5,8 +5,7 @@
     padding: 20px;
     background-color: var(--components-bg);
     border-radius: 10px;
-    border: 2px solid var(--red-wine);
-    /* box-shadow: 0 4px 6px var(--color-black); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .details-image_container {
@@ -30,7 +29,7 @@
 .details-price {
     font-size: 20px;
     font-weight: bold;
-    color: var(--color-accent);
+    color: var(--accent-color);
     margin-bottom: 15px;
 }
 
@@ -42,8 +41,8 @@
 }
 
 .quantity-input button {
-    background-color: var(--dark-accent);
-    color: var(--color-white);
+    background-color: #4a4a4a;
+    color: #ffffff;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
@@ -51,7 +50,7 @@
 }
 
 .quantity-input button:hover {
-    background-color: var(--color-black);
+    background-color: #6b6b6b;
 }
 
 .quantity-input input {
@@ -63,9 +62,9 @@
 }
 
 .line {
-    height: 2px;
+    height: 1px;
     width: 100%;
-    background-color: var(--red-wine);
+    background-color: #ccc;
     margin: 20px 0;
 }
 
@@ -73,8 +72,7 @@
     padding: 20px;
     background-color: var(--components-bg);
     border-radius: 10px;
-    border: 2px solid var(--red-wine);
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .info-details h3 {
@@ -88,10 +86,4 @@
     font-size: 14px;
     color: #6b6b6b;
     line-height: 1.5;
-}
-
-.info-item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
 }

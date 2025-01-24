@@ -18,15 +18,11 @@
 }
 
 
-.scraping-controls > h2 {
+.scraping-controls h2, p {
     text-align: center;
     font-weight: bold;
 }
 
-.scraping-controls > p {
-    text-align: center;
-    font-weight: bold;
-}
 
 .scraping-controls p {
     font-size: 20px;

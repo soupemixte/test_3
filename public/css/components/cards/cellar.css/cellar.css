@@ -3,54 +3,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: var(--components-bg);
-    color: var(--color-black);
+    background: var(--card-bg);
+    color: var(--components-bg);
     padding: 10px;
     border-radius: 10px;
     text-align: center;
-}
-
-/* Conteneur de la carte */
-.card_bottle_cellar {
-    width: 100%;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: space-evenly;
-    gap: 10px;
-    background-color: var(--dark-accent);
-    border-radius: 15px;
-    padding: 20px 0 20px 0;
-    text-align: center;
-    color: var(--color-black);
-    font-family: 'Georgia', serif;
-    /* box-shadow: 0 4px 8px var(--color-black); */
-
-    /*annimation*/
-    /* animation: fadeIn 1s ease-in-out forwards; */
-    /* opacity: 0; */
-}
-
-/* le corps de la carte*/
-.card_bottle_cellar .card-body {
-    margin-right: 20px;
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.card_bottle_cellar picture {
-    display: flex;
-}
-
-/* Image de la bouteille */
-.card_bottle_cellar picture img {
-    margin-left: 20px;
-    flex: 1;
-    max-width: 100px;
-}
-
-.card_description {
-    font-style: italic;
 }
