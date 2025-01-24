@@ -36,9 +36,9 @@
             <div class="form-control">
                 <label for="password_confirm">@lang('lang.password_confirm')</label>
                 <input type="password" id="password_confirmation" name="password_confirmation">
-                @if($errors->has('password_confirm'))
+                @if($errors->has('password_confirmation'))
                     <div class="alert_msg">
-                        {{$errors->first('password_confirm')}}
+                        {{$errors->first('password_confirmation')}}
                     </div>
                 @endif
             </div>
@@ -46,7 +46,7 @@
         </form>
 
         <div class="form_footer">
-            <p>@lang('lang.login_member')<a href="{{ route('auth.connection') }}">@lang('lang.login')</a></p>
+            <p>@lang('lang.login_member')</p><a href="{{ route('user.login') }}">@lang('lang.login')</a>
         </div>
     </section>
 </main>

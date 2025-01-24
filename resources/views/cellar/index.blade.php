@@ -3,7 +3,7 @@
 @section('content')
 <main class="flex-center"> 
     <section class="structure flex-col mb-20 mt-20 height80 gap20">
-        <div class="btn-container just-right"><a href="{{ route('cellar.create') }}" class="btn btn-icon">Ajouter un cellier <i class="fa-solid fa-plus"></i></a></div> 
+        
         @if ($cellars->isEmpty())
             <p>Aucun cellier disponibles.</p>
         @else
@@ -22,6 +22,7 @@
             </article>
         @endforeach
         @endif
+        <div class="flex-center"><a href="{{ route('cellar.create') }}" class="btn btn-icon"><i class="fa-solid fa-plus"></i></a></div> 
                 
     </section>
 </main>

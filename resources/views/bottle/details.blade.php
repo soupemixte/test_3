@@ -9,14 +9,18 @@
             </picture>
             <h2 class="details-title">{{ $bottle->title }}</h2>
 
-            <div class="btn-container just-right"><a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-icon">@lang('lang.add_cellar') <i class="fa-solid fa-plus"></i></a></div> 
+            <div class="btn-container just-right"><a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-icon"><i class="fa-solid fa-plus"></i></a></div> 
         </article>
 
         <div class="line"></div>
 
         <article class="info-details">
-            <h3>Infos détaillées</h3>
+            <!-- <h3>Infos détaillées</h3> -->
             <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Couleur :</span>
+                    <span class="info-value">{{ $bottle->color }}</span>
+                </div>
                 <div class="info-item">
                     <span class="info-label">Pays :</span>
                     <span class="info-value">{{ $bottle->country }}</span>
@@ -26,8 +30,20 @@
                     <span class="info-value">{{ $bottle->region }}</span>
                 </div>
                 <div class="info-item">
+                    <span class="info-label">Origine :</span>
+                    <span class="info-value">{{ $bottle->designation_of_origin }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Particularité :</span>
+                    <span class="info-value">{{ $bottle->particularity }}</span>
+                </div>
+                <div class="info-item">
                     <span class="info-label">Couleur :</span>
                     <span class="info-value">{{ $bottle->color }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Sépage :</span>
+                    <span class="info-value">{{ $bottle->grape_variety }}</span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Format :</span>
@@ -40,6 +56,10 @@
                 <div class="info-item">
                     <span class="info-label">@lang('lang.sugar_content') :</span>
                     <span class="info-value">{{ $bottle->sugar_content }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">@lang('lang.price') :</span>
+                    <span class="info-value">{{ $bottle->price }}</span>
                 </div>
             </div>
         </article>
