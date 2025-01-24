@@ -18,7 +18,7 @@
     <div class="logo">
         <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
     </div>
-    <ul>
+    <ul class="hidden">
         <div class="dropdown">
             <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
             <div class="dropdown-box">
@@ -58,7 +58,7 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <!-- <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a> -->
             <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
         @endauth
@@ -74,7 +74,7 @@
 
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
-  <a class="nav-link" href="{{ route('auth.connection') }}">
+  <a class="nav-link" href="{{ route('user.login') }}">
     <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
   </a>
 @else

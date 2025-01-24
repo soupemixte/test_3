@@ -50,3 +50,7 @@
     flex: 1;
     max-width: 100px;
 }
+
+.card_description {
+    font-style: italic;
+}

@@ -26,11 +26,11 @@ class BottleController extends Controller
             // Filter bottles by title using the search query
             $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
             ->orderby('title')
-            ->paginate(15);
+            ->paginate(5);
         } else {
             // If no search query, retrieve all bottles
             $bottles = Bottle::orderby('title')
-            ->paginate(15);
+            ->paginate(5);
         }
         // Pass the bottles and the query (to keep input value) to the view
         return view('bottle.index', compact('bottles', 'query'));

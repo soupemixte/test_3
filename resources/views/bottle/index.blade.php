@@ -35,7 +35,7 @@
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif
-            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
+            
             <section class="flex-col-center height60 gap20">
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
@@ -50,23 +50,24 @@
                             </div>
                             <div class="card-category">
                                 <p>{{ $bottle->color }}</p>
-                                <div class="line"></div>
-                                <p>{{ $bottle->size }}</p>
+                                <!-- <div class="line"></div>
+                                <p>{{ $bottle->size }}</p> -->
                                 <div class="line"></div>
                                 <p>{{ $bottle->country }}</p>
-                                <div class="line"></div>
-                                <p>{{ $bottle->price }}</p>
                             </div>
+                            <!-- <div class="card-category">
+                                <p>{{ $bottle->price }}</p>
+                            </div> -->
                             <div class="btn-container">
                                 <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
-                                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go">@lang('lang.add_cellar')</a>
+                                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
                             </div>
                     </article>
                 @endforeach
          
             </section>
 
-            
+            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
         </section>
 </main>
 

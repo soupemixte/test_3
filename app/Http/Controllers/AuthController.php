@@ -117,6 +117,6 @@ class AuthController extends Controller
             Auth::guard('web')->logout();
         }
 
-        return redirect()->route('auth.connection')->withSuccess('Déconnexion réussie.');
+        return redirect()->route('user.login')->withSuccess('Déconnexion réussie.');
     }
 }

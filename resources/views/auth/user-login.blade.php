@@ -44,7 +44,7 @@
         </form>
         
         <div class="form_footer">
-            <p>@lang('lang.register_question') <a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a></p>
+            <p>@lang('lang.register_question')</p><a href="{{ route('user.create') }}" class="new_member">@lang('lang.register_subtitle')</a>
         </div>
         
     </section>
