@@ -5,13 +5,13 @@
     border-radius: 8px;
     padding: 20px;
     font-family: Arial, sans-serif;
-    color: var(--color-white);
+    color: #ffffff;
 }
 
 /* Style pour le titre des résultats */
 .results h2 {
     font-size: 1.5em;
-    color: var(--color-white);
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -19,7 +19,7 @@
 .results span {
     display: inline-block;
     font-weight: bold;
-    color: var(--color-accent);
+    color: var(--accent-color);
     margin-bottom: 10px;
 }
 
@@ -33,5 +33,5 @@
 /* Style pour chaque élément de la liste */
 .results ul li {
     margin-bottom: 8px;
-    color: var(--color-white);
+    color: #ffffff;
 }

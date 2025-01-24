@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Registration')
 @section('content')
-
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form action="{{ route('user.store') }}" method="POST" class="form">
@@ -36,9 +35,9 @@
             <div class="form-control">
                 <label for="password_confirm">@lang('lang.password_confirm')</label>
                 <input type="password" id="password_confirmation" name="password_confirmation">
-                @if($errors->has('password_confirmation'))
+                @if($errors->has('password_confirm'))
                     <div class="alert_msg">
-                        {{$errors->first('password_confirmation')}}
+                        {{$errors->first('password_confirm')}}
                     </div>
                 @endif
             </div>
@@ -46,7 +45,7 @@
         </form>
 
         <div class="form_footer">
-            <p>@lang('lang.login_member')</p><a href="{{ route('user.login') }}">@lang('lang.login')</a>
+            <p>@lang('lang.login_member')<a href="{{ route('auth.connection') }}">@lang('lang.login')</a></p>
         </div>
     </section>
 </main>
