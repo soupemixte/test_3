@@ -33,19 +33,14 @@
     </div>
     @endif
 
-    @if(session('warning'))
-    <div class="alert warning">
-        <p>{{ session('warning') }}</p>
-        <button type="button" class="btn-close">X</button>
-    </div>
-    @endif
-
     @if(session('error'))
         <div class="alert error">
             <p>{{ session('error') }}</p>
             <button type="button" class="btn-close">X</button>
         </div>
     @endif
+
+    
 
 
     <!-- Success Modal -->
@@ -77,7 +72,7 @@
 
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
-  <a class="nav-link" href="{{ route('auth.connection') }}">
+  <a class="nav-link" href="{{ route('user.login') }}">
     <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
   </a>
 @else

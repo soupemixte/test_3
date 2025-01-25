@@ -52,7 +52,7 @@ class UserController extends Controller
             ->letters() 
             ->mixedCase() 
             ->numbers() , 
-            'confirmed', ],
+            'confirmed' ],
             'password_confirmation' => 'required',
             ]);
         $user = new User;
