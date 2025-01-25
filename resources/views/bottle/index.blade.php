@@ -71,35 +71,6 @@
         </div>
 </main>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const searchForm = document.getElementById('search-form');
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-
-   // Empêcher la soumission du formulaire si l'entrée est vide
-    searchForm.addEventListener('submit', function (e) {
-        if (searchInput.value.trim() === '') {
-            // Arrêter la soumission du formulaire
-            e.preventDefault(); 
-        }
-    });
-
-    // Autoriser l'extension de la saisie en cliquant sur le bouton de recherche
-    searchBtn.addEventListener('click', function (e) {
-        if (searchInput.value.trim() === '') {
-            // Empêcher la soumission du formulaire uniquement si l'entrée est vide
-            e.preventDefault(); 
-             // Focaliser l'entrée pour déclencher l'expansion
-            searchInput.focus();
-        }
-    });
-});
-
-
-</script>
-
-<!---Change the icon of the search box--->
-
+<script src="{{ asset('js/classes/SearchFormHandler.js') }}"></script>
 
 @endsection

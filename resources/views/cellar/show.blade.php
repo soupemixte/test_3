@@ -89,5 +89,6 @@
     </section>
 </main>
 
+<script src="{{ asset('js/classes/SearchFormHandler.js') }}"></script>
     
 @endsection
