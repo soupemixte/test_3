@@ -42,9 +42,9 @@ Route::get('/api/total-bottles', [BottleController::class, 'getTotalBottles'])->
 
 Route::middleware('auth')->group(function () {
     // Welcome route
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // });
     // Route::get('/', [CellarController::class, 'index']);
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
@@ -60,6 +60,7 @@ Route::middleware('auth')->group(function () {
     //Delete the bottle
     Route::get('/delete', [BottleController::class, 'destroy'])->name('bottle.delete');
     // Cellar Routes
+    Route::get('/', [CellarController::class, 'index'])->name('cellar.index');
     Route::get('/cellars', [CellarController::class, 'index'])->name('cellar.index');
     Route::get('/cellar/{cellar}', [CellarController::class, 'show'])->name('cellar.show');
     Route::post('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');

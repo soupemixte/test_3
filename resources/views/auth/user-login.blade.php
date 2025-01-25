@@ -2,22 +2,6 @@
 @section('title', 'Login')
 @section('content')
 
-@if(!$errors->isEmpty())
-    <div class="alert error" role="alert">
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>     
-        <button type="button" class="btn-close">X</button>
-    </div>                
-@endif          
-
-<!---composant pour le titre et la description de la page-->
-<!-- <x-header 
-    title="{{ __('lang.registration') }}"
-    subtitle="{{ __('lang.register_subtitle') }}"
-/> -->
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form method="POST" class="form" action="{{ route('user.login.submit') }}">
