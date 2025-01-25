@@ -66,15 +66,16 @@ class CellarController extends Controller
             ->where('id', '=', Auth::id())
             ->get();
         //Create the cellar
-        $name = $request->input('title')." ".$user->first()->name;
+        $name = $request->input('title');
         $cellar = Cellar::select()
             ->where('title', '=', $name)
+            ->where('user_id', '=', Auth::id())
             ->exists();
         if($cellar) {
-            // return "ici";
+            // TODO: return errors and old value
             return redirect()->route('cellar.create')->withError('Vous avez deja un cellier avec ce nom : '.$name);
         };
-        // return $name;
+        // Create Cellar
         Cellar::create([
             'user_id' => Auth::id(),
             'title' => $name,
