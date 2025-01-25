@@ -101,10 +101,7 @@ class CellarController extends Controller
             ->get(); */
         // Retrieve cellar_bottles for additional data if needed
         $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)->get();
-        // Debug the result
-        if ($bottles->isEmpty()) {
-            return redirect()->route('bottle.index');
-        }
+        
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
             return view('cellar.show', [
