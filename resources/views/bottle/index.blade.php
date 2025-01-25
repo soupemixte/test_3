@@ -5,7 +5,7 @@
 
 <main class="flex-center height80">    
         <div class="structure">
-            <header class="filter-wrapper">
+            <header class="filter-wrapper mb-10">
                 <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                     <input 
                         type="text" 
@@ -23,14 +23,14 @@
             </header>
              <!-- Afficher la quantité trouvée par défaut -->
              @if (empty($query))
-                <div class="results">
+                <div class="results hidden">
                     <h2>@lang('lang.result_title')</h2>
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 </div>
             @endif
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query))
-                <div class="results">
+                <div class="results mb-10">
                     <h2>Recherche de : "{{ $query }}"</h2>
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
@@ -58,7 +58,10 @@
                             </div>
                             <div>
                         </div>
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+                        <div class="btn-container">
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
+                        </div>
                     </article>
                 @endforeach
             

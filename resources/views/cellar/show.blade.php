@@ -4,7 +4,7 @@
 <main class="flex-center flex-center height80">   
     <section class="structure">
         <h1 class="page-title">{{ $cellar->title }}</h1> 
-        <header class="filter-wrapper">
+        <header class="filter-wrapper just-right mb-10">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                 <input 
                     type="text" 
@@ -20,13 +20,13 @@
                 
             </form>
         </header>
-        <div class="results">
+        <div class="results mb-10">
             <h2>@lang('lang.result_title')</h2>
             <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
             <p><span>Ajouter Les Bouteilles:</span></p>
             <a href="{{ route('bottle.index') }}" class="btn-border">Ajouter</a>
         </div>
-        <section class="flex-col gap20">
+        <section class="flex-col gap10">
             @if ($bottles->isEmpty())
                 <p>Aucune bouteille disponible.</p>
             @else
@@ -50,9 +50,16 @@
                             <div class="line"></div>
                             <p>{{ $bottle->country }}</p>
                         </div>
+                        <div>
+                            @foreach ($cellar_bottles as $cellar_bottle)
+                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                                <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
+                            @endif
+                            @endforeach
+                        </div>
                        
                         <!---the info would be placed in the view of the bottle details of the user-->
-                         <!-- <div class="card-list flex flex-col gap5">
+                         <!--<div class="card-list flex flex-col gap5">
                             <p>@lang('lang.region') : {{ $bottle->region }}</p>
                             <p>@lang('lang.degree_alcohol') : {{ $bottle->degree_alcohol }}</p>
                             <p>@lang('lang.sugar_content') : {{ $bottle->sugar_content }}</p>
