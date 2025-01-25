@@ -5,7 +5,7 @@
 
 <main class="flex-center height80">    
         <div class="structure">
-            <header class="filter-wrapper mb-10">
+            <header class="filter-wrapper mb-10 pt-20 pb-20">
                 <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                     <input 
                         type="text" 
@@ -36,7 +36,7 @@
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif
-            <section class="flex-col gap10">
+            <section class="grid">
                 
                 @foreach ($bottles as $bottle)
                     <article class="card_bottle">
@@ -71,35 +71,6 @@
         </div>
 </main>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const searchForm = document.getElementById('search-form');
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-
-   // Empêcher la soumission du formulaire si l'entrée est vide
-    searchForm.addEventListener('submit', function (e) {
-        if (searchInput.value.trim() === '') {
-            // Arrêter la soumission du formulaire
-            e.preventDefault(); 
-        }
-    });
-
-    // Autoriser l'extension de la saisie en cliquant sur le bouton de recherche
-    searchBtn.addEventListener('click', function (e) {
-        if (searchInput.value.trim() === '') {
-            // Empêcher la soumission du formulaire uniquement si l'entrée est vide
-            e.preventDefault(); 
-             // Focaliser l'entrée pour déclencher l'expansion
-            searchInput.focus();
-        }
-    });
-});
-
-
-</script>
-
-<!---Change the icon of the search box--->
-
+<script src="{{ asset('js/classes/SearchFormHandler.js') }}"></script>
 
 @endsection

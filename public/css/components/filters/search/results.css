@@ -35,3 +35,8 @@
     margin-bottom: 8px;
     color: #ffffff;
 }
+
+
+.results p {
+    text-align: left;
+}

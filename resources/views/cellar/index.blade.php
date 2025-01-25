@@ -12,9 +12,9 @@
                     </h2>
                     <p class="card_description">{{ $cellar->description }}</p>
                 </div> 
-                <div class="btn-container">
-                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.view')</a>
-                </div>               
+                
+                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.view')</a>
+                            
             </article>
             @endforeach
     </section>
