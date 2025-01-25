@@ -4,7 +4,40 @@
 <main class="flex-center flex-center height80">   
     <section class="structure">
         <h1 class="page-title">{{ $cellar->title }}</h1> 
-        <header class="filter-wrapper just-right mb-10 pt-20 pb-20">
+        <header class="filter-wrapper just-between mb-10 pt-20 pb-20">
+        <div class="filter-box">
+            <i class="fa-solid fa-filter"></i>
+            <div class="filter-options">
+                <div class="filter-item">
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option value="">All</option>
+                    <option value="red">Red</option>
+                    <option value="white">White</option>
+                    <option value="sparkling">Sparkling</option>
+                </select>
+                </div>
+                <div class="filter-item">
+                <label for="country">Country:</label>
+                <select id="country" name="country">
+                    <option value="">All</option>
+                    <option value="france">France</option>
+                    <option value="italy">Italy</option>
+                    <option value="spain">Spain</option>
+                </select>
+                </div>
+                <div class="filter-item">
+                <label for="volume">Volume:</label>
+                <select id="volume" name="volume">
+                    <option value="">All</option>
+                    <option value="750ml">750 ml</option>
+                    <option value="500ml">500 ml</option>
+                    <option value="1l">1 L</option>
+                </select>
+                </div>
+            </div>
+            </div>
+
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                 <input 
                     type="text" 

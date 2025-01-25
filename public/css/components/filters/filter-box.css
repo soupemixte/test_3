@@ -1,0 +1,72 @@
+.filter-box {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+  }
+  
+  .filter-box i {
+    font-size: 24px;
+    color: #555;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .filter-box:hover i {
+    color: #007bff;
+    transform: rotate(15deg);
+  }
+  
+  .filter-options {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 10px;
+    min-width: 200px;
+  }
+  
+  .filter-box:hover .filter-options {
+    display: block;
+  }
+  
+  .filter-item {
+    margin-bottom: 10px;
+  }
+  
+  .filter-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .filter-item label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .filter-item select {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    appearance: none;
+  }
+  
+  .filter-item select:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #ffffff;
+  }
+  
+  .filter-box:hover .filter-options select {
+    background-color: #ffffff;
+  }
+  
