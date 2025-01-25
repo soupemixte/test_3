@@ -12,19 +12,9 @@
 <body>
     <!-- Header -->
     <header class="header">
-    <div class="logo">
-    <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
-</div>
-</div>
-        <div class="welcome-user">
-            @guest
-            <button><a href="{{ route('auth.connection') }}">@lang('lang.login')</a></button>
-            @else
-            <button><a href="{{ route('logout') }}">@lang('lang.logout')</a></button>
-            @endguest
-
+        <div class="logo">
+            <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
         </div>
-        
         <ul>
             <div class="hidden dropdown">
                 <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
@@ -34,7 +24,6 @@
                 </div>
             </div>  
         </ul>
-
     </header>
 
     @if(session('success'))
