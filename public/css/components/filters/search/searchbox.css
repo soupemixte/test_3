@@ -3,6 +3,7 @@
 */
 .search-container{
     /* position: fixed; */
+    width: 100%;
     z-index: 909;
     background: #fff;
     height: 30px;

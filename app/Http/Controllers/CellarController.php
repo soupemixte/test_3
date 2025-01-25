@@ -98,12 +98,15 @@ class CellarController extends Controller
        
         // Check if the query exists
         $query = $request->input('search');
+        $filter = $request->input('filter');
         
-        if ($query) {
+        if ($query & $filter) {
+            // return $request;
+            // return $request->input('search');
             // Filter bottles by title and the current cellar ID
             $bottles = $cellar->bottles()
                 ->where('title', 'LIKE', '%' . $query . '%')
-                ->orderBy('title')
+                ->orderBy($filter)
                 ->paginate(5);
         } else {
             // Retrieve all bottles associated with this cellar

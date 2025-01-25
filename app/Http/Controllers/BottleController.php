@@ -19,21 +19,24 @@ class BottleController extends Controller
      */
     public function index(Request $request)
     {
-        // Check if a search query is provided
+        // Check if the query exists
         $query = $request->input('search');
+        $filter = $request->input('filter');
         
-        if ($query) {
-            // Filter bottles by title using the search query
+        if ($query & $filter) {
+            // return $filter;
+            // Filter bottles by filter using the search query
             $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
-            ->orderby('title')
+            ->orderby($filter)
             ->paginate(5);
+            // return $bottles;
         } else {
-            // If no search query, retrieve all bottles
+            // Retrieve all bottles associated with this cellar
             $bottles = Bottle::orderby('title')
             ->paginate(5);
         }
         // Pass the bottles and the query (to keep input value) to the view
-        return view('bottle.index', compact('bottles', 'query'));
+        return view('bottle.index', compact('bottles', 'query', 'filter'));
     }
     
 

@@ -6,20 +6,34 @@
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper mb-10 pt-20 pb-20">
-                <form action="{{ route('bottle.index') }}" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
-                    <input 
-                        type="text" 
-                        name="search" 
-                        placeholder="Recherche..." 
-                        class="search-input"
-                        value="{{ old('search', $query ?? '')}}"
-                        id="search-input"
-                    >
-                    <button type="submit" class="search-btn" id="search-btn">
-                        <i class="fas fa-search" id="search-icon"></i>
-                    </button>
-                   
-                </form>
+            <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
+            <div class="filter-box">
+            <i class="fa-solid fa-filter"></i>
+            <div class="filter-options">
+                <div class="filter-item">
+                <label for="type">Type :</label>
+                <select id="type" name="filter">
+                    <option value="title">Title</option>
+                    <option value="country">Country</option>
+                    <option value="Region">Region</option>
+                    <option value="color">Color</option>
+                </select>
+                </div>
+            </div>
+            </div>
+                <input 
+                    type="text" 
+                    name="search" 
+                    placeholder="Recherche..." 
+                    class="search-input"
+                    value="{{ old('search', $query ?? '')}}"
+                    id="search-input"
+                >
+                <button type="submit" class="search-btn" id="search-btn">
+                    <i class="fas fa-search" id="search-icon"></i>
+                </button>
+                
+            </form>
             </header>
              <!-- Afficher la quantité trouvée par défaut -->
              @if (empty($query))
