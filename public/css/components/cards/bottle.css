@@ -3,65 +3,60 @@
 }
 /* Conteneur de la carte */
 .card_bottle {
-    width: 350px;
     display: flex;
-    /* flex-direction: column; */
-    justify-content: space-evenly;
-    /* gap: 10px; */
-    background-color: var(--dark-accent);
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    background-color: #6b7384;
     border-radius: 15px;
-    padding: 20px 0 20px 0;
+    padding: 20px;
     text-align: center;
-    color: var(--color-black);
+    color: #333;
     font-family: 'Georgia', serif;
-    /* box-shadow: 0 4px 8px var(--color-black); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     /*annimation*/
-    /* animation: fadeIn 1s ease-in-out forwards; */
-    /* opacity: 0; */
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
 }
 
 /* le corps de la carte*/
 .card-body {
-    margin-right: 10px;
-    flex: 3;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 10px;
-}
-
-.card_bottle picture {
-    display: flex;
 }
 
 /* Image de la bouteille */
 .card_bottle picture img {
-    margin-left: 10px;
-    flex: 1;
-    max-width: 100px;
+    max-width: 80px;
     height: auto;
 }
 
 /* Titre de la carte */
 .card_bottle .card-title h2 {
-    font-size: 18px;
-    font-weight: normal;
-    color: var(--color-white);
+    /* width: 70%; */
+    font-size: 1em;
+    color: #fff;
+    text-align: left;
 }
 
 /* Section des détails de la carte */
 .card_bottle .card-category {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
-    gap: 10px;
-    color: var(--color-white);
-    font-size: 1em;
+    gap: 5px;
+    color: #fff;
+    font-size: 0.8em;
 }
 
+/* .card-category .line:last-child,
+.card-category p:last-child {
+    display: none;
+} */
 .card-list {
-    color: var(--color-white);
+    color: white;
 }
 
 /* Ligne de séparation */
@@ -69,7 +64,7 @@
     height: 1px;
     rotate: 90deg;
     width: 20px;
-    background-color: var(--color-white);
+    background-color: #fff;
 }
 
 /* Style du prix */
@@ -80,9 +75,39 @@
 }
 
 
+.card_bottle .btn-border {
+    width: 50%;
+    padding: 5px;
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+    .card_bottle .card-category {
+        display: flex;
+        justify-content: center;
+        font-size: 1.2em;
+    }
+    .card_bottle .card-title h2 {
+      width: 100%;
+    }
+    .card-category .line:last-child,
+    .card-category p:last-child {
+        display: block;  
+    }
+
+    .card_bottle picture img {
+        max-width: 100px;
+    }
+  }
+
+
+
+
 /*animations*/
 
-/* .card_bottle:nth-child(1) {
+.card_bottle:nth-child(1) {
     animation: fadeIn 1s ease-in-out forwards; 
     opacity: 0;
 }
@@ -113,7 +138,7 @@
 .card_bottle:nth-child(8) {
     animation: fadeIn 2.2s ease-in-out forwards; 
     opacity: 0;
-} */
+}
 
 .price {
     font-weight: bold;
