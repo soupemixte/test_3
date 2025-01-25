@@ -1,4 +1,5 @@
 @import url(search/search.css);
+@import url(filter-box.css);
 /*filters wrapper*/
 .filter-wrapper {
     display: flex;

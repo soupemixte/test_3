@@ -1,0 +1,10 @@
+.filter-box {
+    position: fixed;
+    left: 20px;
+}
+
+.filter-box i {
+    font-size: 40px;
+    color: #6b7384;
+    cursor: pointer;
+}

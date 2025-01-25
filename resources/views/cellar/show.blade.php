@@ -5,6 +5,8 @@
     <section class="structure">
         <h1 class="page-title">{{ $cellar->title }}</h1> 
         <header class="filter-wrapper just-right mb-10 pt-20 pb-20">
+            <div class="filter-box"><i class="fa-solid fa-filter"></i>
+            </div>
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                 <input 
                     type="text" 
