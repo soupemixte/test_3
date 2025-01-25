@@ -40,7 +40,7 @@
                 </div>
                 <div class="info-item">
                     <span class="info-label">Degré d'alcool :</span>
-                    <span class="info-value">{{ $bottle->price }}</span>
+                    <span class="info-value">{{ $bottle->degree_alcohol }}</span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Sucre :</span>
