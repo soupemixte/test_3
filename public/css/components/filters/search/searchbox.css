@@ -2,7 +2,7 @@
 * Merci pour: https://codepen.io/yuhomyan/pen/XWdYJdv
 */
 .search-container{
-    position: fixed;
+    /* position: fixed; */
     z-index: 909;
     background: #fff;
     height: 30px;
