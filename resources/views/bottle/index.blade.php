@@ -5,7 +5,7 @@
 
 <main class="flex-center height80">    
         <div class="structure">
-            <header class="filter-wrapper mb-10 pt-20 pb-20">
+            <header class="filter-wrapper">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
             <div class="filter-box">
             <i class="fa-solid fa-filter"></i>
@@ -44,9 +44,13 @@
             @endif
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query))
-                <div class="results mb-10">
-                    <h2>Recherche de : "{{ $query }}"</h2>
-                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                <div class="flex-col gap10 results">
+                    <div class="results-item">
+                        <h2>Recherche de : "{{ $query }}"</h2>
+                    </div>
+                    <div class="results-item">
+                        <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                    </div>
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
                 </div>
             @endif

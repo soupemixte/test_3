@@ -36,21 +36,19 @@
                 
             </form>
         </header>
+        @if (empty($query))
         <div class="results mb-10">
-            @if (!empty($query))
-                <!-- Display the search result title -->
-                <h2>@lang('lang.result_title')</h2>
-                <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-            @else
-                <!-- Display the default title -->
-                <h2>Vous avez <span>{{ $bottles->total() }} bouteilles</span></h2>
-            @endif
-
-            @if (empty($query))
-                <p><span>Ajouter Les Bouteilles:</span></p>
-                <a href="{{ route('bottle.index') }}" class="btn-border">Ajouter</a>
-            @endif
+            <!-- Display the search result title -->
+            <!-- <h2>@lang('lang.result_title')</h2>
+            <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p> -->
+            <!-- Display the default title -->
+            <h2>Vous avez <span class="total">{{ $bottles->total() }}</span> bouteilles</h2>
+            <div class="btn-container">
+                <p><span>Ajouter des Bouteilles :</span></p>
+                <a href="{{ route('bottle.index') }}" class="btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
+            </div>
         </div>
+        @endif
 
         <section class="flex-col gap10">
             @if ($bottles->isEmpty())

@@ -3,17 +3,18 @@
 */
 .search-container{
     /* position: fixed; */
+    border: 2px solid var(--red-wine);
     width: 100%;
     z-index: 909;
-    background: #fff;
+    background: var(--color-white);
     height: 30px;
-    border-radius: 30px;
+    border-radius: 8px;
     padding: 10px 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 0.8s;
+    /* transition: 0.8s; */
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
@@ -25,7 +26,7 @@
 .search-container:hover > .search-input,
 .search-btn:focus + .search-input {
     width: 250px;
-    transition: width 0.3s ease;
+    /* transition: width 0.3s ease; */
 }
 
 /* L'input reste élargi si la classe "expanded" est appliquée. */
@@ -41,7 +42,7 @@
     width: 0px;
     font-weight: 500;
     font-size: 16px;
-    transition: 0.8s;
+    /* transition: 0.8s; */
 
 }
 
@@ -78,10 +79,10 @@
     .search-container:hover > .search-input,
     .search-btn:focus + .search-input {
     width: 400px;
-    transition: width 0.3s ease;
+    /* transition: width 0.3s ease; */
     }
     .search-container.expanded > .search-input {
         width: 400px; 
-        transition: none;
+        /* transition: none; */
     }
 }
