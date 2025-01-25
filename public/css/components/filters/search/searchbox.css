@@ -2,6 +2,8 @@
 * Merci pour: https://codepen.io/yuhomyan/pen/XWdYJdv
 */
 .search-container{
+    position: fixed;
+    z-index: 909;
     background: #fff;
     height: 30px;
     border-radius: 30px;
@@ -11,7 +13,6 @@
     align-items: center;
     cursor: pointer;
     transition: 0.8s;
-    width: 100%;
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.2),

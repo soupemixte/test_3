@@ -78,26 +78,37 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar,Request $request) 
     {
-      //  echo $cellar->id;
+      
         
-
+        // Retrieve the cellar ID from the session
         $request->session()->put('id_cellier', $cellar->id);
-      //  die();
-        // Retrieve bottles associated with this cellar
-        $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
-        $cellar_bottles = CellarBottle::select()
-            ->where('cellar_id', '=', $cellar->first()->id)
-            ->get();
-        // Debug the result
-        if ($bottles->isEmpty()) {
-            return redirect()->route('bottle.index');
+       
+        // Check if the query exists
+        $query = $request->input('search');
+        
+        if ($query) {
+            // Filter bottles by title and the current cellar ID
+            $bottles = $cellar->bottles()
+                ->where('title', 'LIKE', '%' . $query . '%')
+                ->orderBy('title')
+                ->paginate(5);
+        } else {
+            // Retrieve all bottles associated with this cellar
+            $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
         }
+        /* $cellar_bottles = CellarBottle::select()
+            ->where('cellar_id', '=', $cellar->first()->id)
+            ->get(); */
+        // Retrieve cellar_bottles for additional data if needed
+        $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)->get();
+        
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
             return view('cellar.show', [
                 'cellar' => $cellar,
                 'bottles' => $bottles,
                 'cellar_bottles' => $cellar_bottles,
+                'query' => $query,
             ]);
         }
         
