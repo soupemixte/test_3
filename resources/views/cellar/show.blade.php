@@ -60,15 +60,20 @@
                         
                             <p>@lang('lang.producer') : {{ $bottle->producer }}</p>
                             <p>@lang('lang.grape_variety') : {{ $bottle->grape_variety }}</p>
-                                @foreach ($cellar_bottles as $cellar_bottle)
-                                @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
-                                    <div class="quantity">
-                                        @lang('lang.quantity') : {{ $cellar_bottle->quantity }}
-                                    </div>
-                                @endif
-                                @endforeach
-                        </div> -->
-                        <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+
+                            <p>@lang('lang.price') : {{ $bottle->price }}</p>
+                            @foreach ($cellar_bottles as $cellar_bottle)
+                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                                <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
+                            @endif
+                            @endforeach
+                        </div>
+                        
+                        <div class="btn-container">
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
+                            <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="btn-border btn-remove"><i class="fa-solid fa-minus"></i></a>
+                        </div>
+
                     </div>
                 </article>
             @endforeach
