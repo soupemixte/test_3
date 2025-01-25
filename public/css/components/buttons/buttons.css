@@ -12,8 +12,12 @@
 .btn-container {
     display: flex;
     gap:5px;
-
 }
+
+.btn-container a {
+    width: 100%;
+}
+
 /*Bouton général*/
 .btn {
     /* padding: 20px; */

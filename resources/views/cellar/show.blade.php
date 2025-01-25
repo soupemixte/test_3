@@ -71,7 +71,7 @@
                             <div class="line"></div>
                             <p>{{ $bottle->country }}</p>
                         </div>
-                        <div>
+                        <div class="card-list">
                             @foreach ($cellar_bottles as $cellar_bottle)
                             @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
                                 <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
