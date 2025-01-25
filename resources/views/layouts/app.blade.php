@@ -33,6 +33,13 @@
     </div>
     @endif
 
+    @if(session('warning'))
+    <div class="alert warning">
+        <p>{{ session('warning') }}</p>
+        <button type="button" class="btn-close">X</button>
+    </div>
+    @endif
+
     @if(session('error'))
         <div class="alert error">
             <p>{{ session('error') }}</p>
@@ -54,7 +61,7 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <!-- <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a> -->
             <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
         @endauth

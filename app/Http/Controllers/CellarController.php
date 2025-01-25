@@ -251,12 +251,14 @@ class CellarController extends Controller
                 return view('cellar.remove', compact('bottle'), ['cellar' => $cellar_bottle->first()])->withWarning('Pas assez de bouteilles dans le cellier.');
             }
             else if($result === 0) {
+                // return "ici";
                 $cellar_bottle = CellarBottle::select()
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->where('cellar_id', '=', $request->input('cellar_id'))
                 ->delete();
+                // return $bottle->first()->name;
                 // return "No bottles left in cellar."
-                return redirect()->route('cellar.index')->withSuccess('Il ne vous reste plus de bouteilles '.$bottle->first()->name.' dans votre cellier.');
+                return redirect()->route('cellar.index')->withSuccess('Il ne vous reste plus '.$bottle->first()->title.' dans votre cellier.');
             }
             else {
                 $cellar_bottle = CellarBottle::select()
