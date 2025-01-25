@@ -12,19 +12,9 @@
 <body>
     <!-- Header -->
     <header class="header">
-    <div class="logo">
-    <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
-</div>
-</div>
-        <div class="welcome-user">
-            @guest
-            <button><a href="{{ route('auth.connection') }}">@lang('lang.login')</a></button>
-            @else
-            <button><a href="{{ route('logout') }}">@lang('lang.logout')</a></button>
-            @endguest
-
+        <div class="logo">
+            <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
         </div>
-        
         <ul>
             <div class="hidden dropdown">
                 <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
@@ -34,12 +24,18 @@
                 </div>
             </div>  
         </ul>
-
     </header>
 
     @if(session('success'))
     <div class="alert success">
         <p>{{ session('success') }}</p>
+        <button type="button" class="btn-close">X</button>
+    </div>
+    @endif
+
+    @if(session('warning'))
+    <div class="alert warning">
+        <p>{{ session('warning') }}</p>
         <button type="button" class="btn-close">X</button>
     </div>
     @endif
@@ -65,7 +61,7 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <!-- <a class="nav-link" href="/"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a> -->
             <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
         @endauth
