@@ -78,11 +78,11 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar,Request $request) 
     {
-      //  echo $cellar->id;
+      
         
-
+        // Retrieve the cellar ID from the session
         $request->session()->put('id_cellier', $cellar->id);
-      //  die();
+        //  die();
         // Retrieve bottles associated with this cellar
         $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
         $cellar_bottles = CellarBottle::select()

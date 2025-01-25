@@ -52,7 +52,7 @@
                         </div>
                        
                         <!---the info would be placed in the view of the bottle details of the user-->
-                        <!-- <div class="card-list flex flex-col gap5">
+                         <!-- <div class="card-list flex flex-col gap5">
                             <p>@lang('lang.region') : {{ $bottle->region }}</p>
                             <p>@lang('lang.degree_alcohol') : {{ $bottle->degree_alcohol }}</p>
                             <p>@lang('lang.sugar_content') : {{ $bottle->sugar_content }}</p>
@@ -67,7 +67,7 @@
                                 <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
                             @endif
                             @endforeach
-                        </div>
+                        </div> -->
                         
                         <div class="btn-container">
                             <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
