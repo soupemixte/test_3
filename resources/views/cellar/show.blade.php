@@ -4,7 +4,7 @@
 <main class="flex-center flex-center height80">   
     <section class="structure">
         <h1 class="page-title">{{ $cellar->title }}</h1> 
-        <header class="filter-wrapper just-right mb-10">
+        <header class="filter-wrapper just-right mb-10 pt-20 pb-20">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                 <input 
                     type="text" 
