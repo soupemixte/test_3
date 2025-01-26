@@ -62,7 +62,9 @@ return [
     'register_subtitle' => 'Create an account',
     /* Details */
     'price' => 'Price :',
+    'bottles' => 'Bottles',
     'info' => 'Detailed Info',
+    'result_title' => 'All the results',
     /* Rights */
     'rights' => 'All Rights Reserved.',
 ]
