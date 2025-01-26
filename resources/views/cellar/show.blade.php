@@ -55,38 +55,39 @@
                 
             </form>
         </header>
-        <div class="results mb-10">
-            @if (!empty($query))
-                <!-- Display the search result title -->
-                <h2>@lang('lang.result_title')</h2>
-                <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-            @else
-                <!-- Display the default title -->
-                <h2>Vous avez <span>{{ $bottles->total() }} bouteilles</span></h2>
-            @endif
 
-            @if (empty($query))
-                <p><span>Ajouter Les Bouteilles:</span></p>
-                <a href="{{ route('bottle.index') }}" class="btn-border">Ajouter</a>
+        <!-- Afficher la quantité trouvée par défaut -->
+        @if (empty($query) && empty($color) && empty($country) && empty($size))
+                <div class="results">
+                    <h2>Vous avez <span>{{ $bottles->total() }} bouteilles</span></h2>
+                    <p><span>Ajouter plus de bouteilles:</span></p>
+                    <a href="{{ route('bottle.index') }}" class="btn-border">Ajouter</a>
+                </div>
             @endif
-        </div>
+             <!-- Afficher la quantité trouvée après le filtrage -->
+             
+        <!--Afficher la quantité trouvée après la requête -->
+        @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
+            <div class="results mb-10">
+                @if (!empty($query))
+                    <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
+                @endif
+                @if (!empty($color) || !empty($country) || !empty($size))
+                    <ul>Filtres:
+                        @if (!empty($color)) <li>{{ $color }}</li>@endif
+                        @if (!empty($color) && (!empty($country) || !empty($size))) @endif
+                        @if (!empty($country)) <li>{{ $country }}</li>@endif
+                        @if (!empty($country) && !empty($size)) @endif
+                        @if (!empty($size)) <li>{{ $size }}</li>@endif
+                    </ul>
+                @endif
+                <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                <a href="{{ route('cellar.show', ['cellar' => $cellar->id]) }}" class="btn-border">Retour au cellier</a>
+            </div>
+        @endif
 
         <section class="flex-col gap10">
-            @if ($bottles->isEmpty())
-            <div class="results">
-                    @if (!empty($query))
-                        <h2>Recherche de : "{{ $query }}"</h2>
-                        <p><span>0</span> résultats trouvés</p>
-                        <ul>
-                            <li>Désolé, aucun résultat trouvé dans ce cellier.</li>
-                            <li>Essayez une autre recherche</li>
-                        </ul>
-                        <a href="{{ route('cellar.show', ['cellar' => $cellar->id]) }}" class="btn-border">Retour au cellier</a>
-                    @else
-                        <p>Ce cellier est vide.</p>
-                    @endif
-                </div>
-            @else
+            
                       
             @foreach ($bottles as $bottle)
                 <article class="card_bottle">
@@ -140,7 +141,6 @@
                     </div>
                 </article>
             @endforeach
-        @endif
         </section>
     </section>
 </main>
