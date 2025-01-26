@@ -95,27 +95,38 @@ class CellarController extends Controller
         
         // Retrieve the cellar ID from the session
         $request->session()->put('id_cellier', $cellar->id);
+
+        $colors = $cellar->bottles()->distinct()->pluck('color')->filter()->all();
+        $countries = $cellar->bottles()->distinct()->pluck('country')->filter()->all();
+        $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
        
-        // Check if the query exists
+        // Check if the query or the filter exists
         $query = $request->input('search');
-        $filter = $request->input('filter');
+        $color = $request->input('color');
+        $country = $request->input('country');
+        $size = $request->input('size');
+
+        // start building the query
+        $bottlesQuery = $cellar->bottles();
+
+        // Apply filters if provided
         
-        if ($query & $filter) {
-            // return $request;
-            // return $request->input('search');
-            // Filter bottles by title and the current cellar ID
-            $bottles = $cellar->bottles()
-                ->where('title', 'LIKE', '%' . $query . '%')
-                ->orderBy($filter)
-                ->paginate(5);
-        } else {
-            // Retrieve all bottles associated with this cellar
-            $bottles = $cellar->bottles()->orderBy('title')->paginate(10);
+        if (!empty($query)) {
+            $bottlesQuery->where('title', 'LIKE', '%' . $query . '%');
         }
-        /* $cellar_bottles = CellarBottle::select()
-            ->where('cellar_id', '=', $cellar->first()->id)
-            ->get(); */
-        // Retrieve cellar_bottles for additional data if needed
+        if (!empty($color)) {
+            $bottlesQuery->where('color', $color);
+        }
+        if (!empty($country)) {
+            $bottlesQuery->where('country', $country);
+        }
+        if (!empty($size)) {
+            $bottlesQuery->where('size', $size);
+        }
+
+        //order and paginate
+        $bottles = $bottlesQuery->orderBy('title')->paginate(10);
+
         $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)->get();
         
         if (Auth::user()->hasCellar()) {
@@ -125,6 +136,12 @@ class CellarController extends Controller
                 'bottles' => $bottles,
                 'cellar_bottles' => $cellar_bottles,
                 'query' => $query,
+                'color' => $color,
+                'country' => $country,
+                'size' => $size,
+                'colors' => $colors,
+                'countries' => $countries,
+                'sizes' => $sizes,
             ]);
         }
         
