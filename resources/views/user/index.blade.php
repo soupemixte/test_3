@@ -22,7 +22,7 @@
                         @foreach($users as $user)
                         <tr>
                             <th scope="row">{{$user->id}}</th>
-                            <td>{{$user->name}}</td>
+                            <td><a href="{{ route('user.show', $user->id) }}">{{$user->name}}</a></td>
                             <!-- list of cellars -->
                             <!-- list of bottles -->
                             <td>

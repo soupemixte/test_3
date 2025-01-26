@@ -8,7 +8,7 @@
             @method('put')
             <div class="form-control">
                 <label for="name">@lang('lang.user_name')</label>
-                <input type="text" id="name" name="name" value="{{old('name')}}">
+                <input type="text" id="name" name="name" value="{{old('name', $user->name)}}">
                 @if ($errors->has('name'))
                     <div class="alert_msg">
                         {{$errors->first('name')}}
@@ -17,7 +17,7 @@
             </div>
             <div class="form-control">
                 <label for="email">@lang('lang.email')</label>
-                <input type="text" id="username" name="email"  value="{{old('email')}}">
+                <input type="text" id="username" name="email"  value="{{old('email', $user->email)}}">
                 @if ($errors->has('email'))
                     <div class="alert_msg">
                         {{$errors->first('email')}}
