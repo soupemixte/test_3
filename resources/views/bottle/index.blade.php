@@ -61,21 +61,19 @@
                     <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
                 </div>
             @endif
-             <!-- Afficher la quantité trouvée après le filtrage -->
-             
             <!--Afficher la quantité trouvée après la requête -->
-            @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
+            @if (!empty($query) || !empty($color) || !empty($country))
                 <div class="results mb-10">
                     @if (!empty($query))
                         <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
                     @endif
-                    @if (!empty($color) || !empty($country) || !empty($size))
+                    @if (!empty($color) || !empty($country) )
                         <ul>Filtres:
                             @if (!empty($color)) <li>{{ $color }}</li>@endif
-                            @if (!empty($color) && (!empty($country) || !empty($size))) @endif
+                            @if (!empty($color) && (!empty($country) )) @endif
                             @if (!empty($country)) <li>{{ $country }}</li>@endif
-                            @if (!empty($country) && !empty($size)) @endif
-                            @if (!empty($size)) <li>{{ $size }}</li>@endif
+                            @if (!empty($country)) @endif
+                            
                         </ul>
                     @endif
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
