@@ -19,24 +19,40 @@ class BottleController extends Controller
      */
     public function index(Request $request)
     {
-        // Check if the query exists
+        // Retrieve filter values
+        $colors = Bottle::select('color')->distinct()->pluck('color');
+        $countries = Bottle::select('country')->distinct()->pluck('country');
+        $sizes = Bottle::select('size')->distinct()->pluck('size');
+        // Check if the query or the filters exists
         $query = $request->input('search');
-        $filter = $request->input('filter');
+        $color = $request->input('color');
+        $country = $request->input('country');
+        $size = $request->input('size');
         
-        if ($query & $filter) {
+        //query
+        $bottlesQuery = Bottle::query();
+        
+        if ($query) {
             // return $filter;
             // Filter bottles by filter using the search query
             $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
-            ->orderby($filter)
-            ->paginate(5);
+                ->paginate(5);
             // return $bottles;
-        } else {
-            // Retrieve all bottles associated with this cellar
-            $bottles = Bottle::orderby('title')
-            ->paginate(5);
         }
+        if($color) {
+            $bottlesQuery->where('color', $color);
+        }
+
+        if($country) {
+            $bottlesQuery->where('country', $country);
+        }
+        if($size) {
+            $bottlesQuery->where('size', $size);
+        }
+
+        $bottles = $bottlesQuery->orderby('title')->paginate(5);
         // Pass the bottles and the query (to keep input value) to the view
-        return view('bottle.index', compact('bottles', 'query', 'filter'));
+        return view('bottle.index', compact('bottles', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
     }
     
 
