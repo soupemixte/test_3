@@ -26,8 +26,9 @@
 
 /* Style pour la liste des suggestions */
 .results ul {
+    font-size: 24px;
+    font-weight: bold;
     margin: 15px 0;
-    padding-left: 20px;
     list-style-type: disc;
 }
 
@@ -35,6 +36,11 @@
 .results ul li {
     margin-bottom: 8px;
     /* color: #ffffff; */
+    list-style:circle;
+    font-size: 18px;
+    font-weight: italic;
+    margin-left: 20px;
+    color: #ffffff;
 }
 
 

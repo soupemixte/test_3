@@ -67,7 +67,7 @@ return [
     /* Details */
     'price' => 'Prix :',
     'info' => 'Infos détaillées',
-    'result_title' => 'Tous les résultats :',
+    'result_title' => 'Tous les résultats',
     'result_subtitle' => ' résultats trouvés',
     'quantity' => 'Quantité',
     'region' => 'Region',
@@ -76,6 +76,7 @@ return [
     'promoting_agent' => 'Agent de promotion',
     'producer' => 'Producteur',
     'grape_variety' => 'Sépage',
+    'bottles' => 'Bouteilles',
     /* Rights */
     'rights' => 'Tous les droits sont reserves.',
 ]

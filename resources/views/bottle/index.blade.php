@@ -56,22 +56,31 @@
             </form>
             </header>
              <!-- Afficher la quantité trouvée par défaut -->
-             @if (empty($query))
-                <div class="results hidden">
-                    <h2>@lang('lang.result_title')</h2>
-                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+             @if (empty($query) && empty($color) && empty($country) && empty($size))
+                <div class="results">
+                    <h2>@lang('lang.result_title') :</h2>
+                    <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
                 </div>
             @endif
+             <!-- Afficher la quantité trouvée après le filtrage -->
+             
             <!--Afficher la quantité trouvée après la requête -->
-            @if (!empty($query))
-                <div class="flex-col gap10 results">
-                    <div class="results-item">
-                        <h2>Recherche de : "{{ $query }}"</h2>
-                    </div>
-                    <div class="results-item">
-                        <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                    </div>
-                    <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.bottles')</a>
+            @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
+                <div class="results mb-10">
+                    @if (!empty($query))
+                        <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
+                    @endif
+                    @if (!empty($color) || !empty($country) || !empty($size))
+                        <ul>Filtres:
+                            @if (!empty($color)) <li>{{ $color }}</li>@endif
+                            @if (!empty($color) && (!empty($country) || !empty($size))) @endif
+                            @if (!empty($country)) <li>{{ $country }}</li>@endif
+                            @if (!empty($country) && !empty($size)) @endif
+                            @if (!empty($size)) <li>{{ $size }}</li>@endif
+                        </ul>
+                    @endif
+                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                    <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
                 </div>
             @endif
             <section class="grid">
