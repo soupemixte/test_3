@@ -34,7 +34,7 @@
         </form>
             </div>
         </div>
-        <section class="gid mt-20 mb-10">
+        <section class="flex-col gap10">
         <!-- <p>ici</p> -->
         @foreach ($cellars as $cellar)
             <article class="card_cellar">
