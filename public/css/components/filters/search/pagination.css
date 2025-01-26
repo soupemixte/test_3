@@ -39,3 +39,9 @@
     color: #fff;
     border-color: var(--dark-accent);
 }
+
+@media (min-width: 500px) {
+.pagination-wrapper {
+    overflow: visible;
+}
+}
