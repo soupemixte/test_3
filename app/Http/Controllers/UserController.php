@@ -22,7 +22,7 @@ class UserController extends Controller
         $users = User::select()
         ->orderby('name')
         ->paginate(10);
-        return $users;
+        // return $users;
         return view('user.index', ['users' => $users]);
     }
 
@@ -110,6 +110,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('user.index')->withSuccess('Usager supprimer avec succes.');
     }
 }

@@ -97,7 +97,7 @@ class CellarController extends Controller
     {
         $colors = $cellar->bottles()->distinct()->pluck('color')->filter()->all();
         $countries = $cellar->bottles()->distinct()->pluck('country')->filter()->all();
-        $sizes = $cellar->bottles()->distinct()->pzluck('size')->filter()->all();
+        $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
        
         // Check if the query or the filter exists
         $query = $request->input('search');
@@ -173,18 +173,18 @@ class CellarController extends Controller
             ->where('title', '=', $name)
             ->get()
             ->first();
-        if($cellar && $cellar->title != $name)
+        if($cellar)
+        {
+            return redirect()->route('cellar.edit', ['cellar'=>$cellar])->withError('Vous avez deja un cellier avec ce nom : '.$name);
+        }
+        else 
         {
             $cellar->update([
                 'title' => $name,
                 'description' => $request->input('description'),
             ]);
-            //
-            return redirect()->route('cellar.show', $cellar->id)->withSuccess('Vous avez deja un cellier avec ce nom : '.$name);
-        }
-        else 
-        {
-            return redirect()->route('cellar.show', $cellar->id)->withError('Cellier mis à jour.');
+
+            return redirect()->route('cellar.show', $cellar->id)->withSuccess('Cellier mis à jour.');
         };
     }
        
@@ -337,9 +337,10 @@ class CellarController extends Controller
      */
     public function destroy(Cellar $cellar)
     {
+        // return $cellar;
         $cellar->delete();
         //
-        return redirect()->route('cellar.index')->withSuccess('Cellar deleted successfully.');
+        return redirect()->route('cellar.index')->withSuccess('Cellier supprimer avec succes.');
     }
 
 }

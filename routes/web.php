@@ -66,7 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/cellar/store', [CellarController::class, 'store'])->name('cellar.store');
     Route::get('/edit/cellar/{cellar}', [CellarController::class, 'edit'])->name('cellar.edit');
     Route::put('/edit/cellar/{cellar}', [CellarController::class, 'update'])->name('cellar.update');
-    Route::delete('/cellar/{cellar}', [CellarController::class, 'destroy'])->name('cellar.delete');
+    Route::delete('/destroy/cellar/{cellar}', [CellarController::class, 'destroy'])->name('cellar.destroy');
     Route::get('/cellar/add/{id}', [CellarController::class, 'add'])->name('cellar.add');    
     Route::post('/cellar/store-bottle', [CellarController::class, 'storeBottle'])->name('cellar.storeBottle');
     // Route::get('/cellar/ajout/{id}', [CellarController::class, 'switch'])->name('cellar.return');
