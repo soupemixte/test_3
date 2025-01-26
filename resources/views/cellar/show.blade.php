@@ -55,7 +55,6 @@
                 
             </form>
         </header>
-
         <!-- Afficher la quantité trouvée par défaut -->
         @if (empty($query) && empty($color) && empty($country) && empty($size))
                 <div class="results">
