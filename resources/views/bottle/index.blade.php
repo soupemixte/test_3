@@ -6,41 +6,40 @@
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">
-            <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
-           
-                <div class="filter-box">
-                    <i class="fa-solid fa-filter"></i>
+            <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
+            <div class="flex just-between filter-box">
+                    
+                    <div class="filter-order">
+                            <label for="order">Tri :</label>
+                            <select class="filter-item" id="type" name="order">
+                                <option value="title">Title</option>
+                                <option value="country">Country</option>
+                                <option value="region">Region</option>
+                                <option value="color">Color</option>
+                            </select>
+                        </div>
                     <div class="filter-options">
+                    <!-- <i class="fa-solid fa-filter"></i> -->
                         <div class="filter-item">
-                            <label for="color">Couleur:</label>
-                            <select id="color" name="color">
-                                <option value="">Tous</option>     
+                            <p>Couleur :</p>
+                            <div class="flex-al gap5">
                                 @foreach ($colors as $option)
-                                    <option value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>{{ $option }}</option>
+                                <label for="color">{{ $option }}</label>
+                                <input type="checkbox" id="color" name="color" value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>
                                 @endforeach
-                            </select>
+                            </div>
                         </div>
-                        <div class="filter-item">
-                            <label for="country">Pays:</label>
-                            <select id="country" name="country">
-                                <option value="">Tous</option>
+                        <div class="filter-item hidden">
+                            <p>Pays :</p>
+                            <div class="flex">
                                 @foreach ($countries as $option)
-                                    <option value="{{ $option }}" {{ $country === $option ? 'selected' : '' }}>{{ $option }}</option>
+                                <label for="country">{{ $option }}</label>
+                                <input type="checkbox" id="country" name="country" value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>
                                 @endforeach
-                            </select>
-                        </div>
-                        <div class="filter-item">
-                            <label for="size">Volume:</label>
-                            <select id="size" name="size">
-                                <option value="">Tous</option>
-                                @foreach ($sizes as $option)
-                                    <option value="{{ $option }}" {{ $size === $option ? 'selected' : '' }}>{{ $option }}</option>
-                                @endforeach
-                            </select>
+                            </div>    
                         </div>
                     </div>
                 </div>
-
                 <input 
                     type="text" 
                     name="search" 

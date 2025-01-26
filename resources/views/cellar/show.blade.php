@@ -10,6 +10,7 @@
             <div class="filter-box">
                     <i class="fa-solid fa-filter"></i>
                     <div class="filter-options">
+                        
                         <div class="filter-item">
                             <label for="color">Couleur:</label>
                             <select id="color" name="color">
