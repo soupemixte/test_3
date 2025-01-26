@@ -3,8 +3,7 @@
 @section('content')
 <main class="flex-center flex-center height80">   
     <section class="structure">
-        <h1 class="page-title">{{ $cellar->title }}</h1> 
-        <header class="filter-wrapper just-between mb-10 pt-20 pb-20">
+        <header class="filter-wrapper just-between">
         
 
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
@@ -58,9 +57,12 @@
         <!-- Afficher la quantité trouvée par défaut -->
         @if (empty($query) && empty($color) && empty($country) && empty($size))
                 <div class="results">
-                    <h2>Vous avez <span>{{ $bottles->total() }} bouteilles</span></h2>
-                    <p><span>Ajouter plus de bouteilles:</span></p>
-                    <a href="{{ route('bottle.index') }}" class="btn-border">Ajouter</a>
+                    <h2>Vous avez <span>{{ $bottles->total() }} bouteilles</span> dans {{ $cellar->title }}</h2>
+                    <div class="flex just-between">
+
+                        <p><span>Ajouter plus de bouteilles:</span></p>
+                        <a href="{{ route('bottle.index') }}" class="btn-border">Bouteilles</a>
+                    </div>
                 </div>
             @endif
              <!-- Afficher la quantité trouvée après le filtrage -->
@@ -86,12 +88,12 @@
         @endif
 
         <section class="flex-col gap10">
-            <div class="btn-container">
+            <div class="btn-container-top">
                 <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
                 <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
                 @csrf
                 @method('delete')
-                <button type="submit" class="">Supprimer</button>
+                <button type="submit" class="btn-border">Supprimer</button>
                 </form>
             </div>    
                       

@@ -13,7 +13,7 @@
     font-size: 1.5em;
     color: var(--color-black);
     margin-bottom: 10px;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 
 /* Style pour le nombre de résultats trouvés */

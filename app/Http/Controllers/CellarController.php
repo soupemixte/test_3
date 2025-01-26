@@ -272,7 +272,7 @@ class CellarController extends Controller
         else {
             if($request->input('quantity') < 1) {
                 // return "Cannot add negative number";
-                return redirect()->route('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity'), 'first_cellar' => $first_cellar])->withSuccess('Erreur de gestion du cellier.');
+                return redirect()->route('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->withSuccess('Erreur de gestion du cellier.');
             }
             // Attach the bottle to the selected cellar
             CellarBottle::create([
@@ -314,7 +314,6 @@ class CellarController extends Controller
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->where('cellar_id', '=', $request->input('cellar_id'))
                 ->delete();
-                // return $bottle->first()->name;
                 // return "No bottles left in cellar."
                 return redirect()->route('cellar.index')->withSuccess('Il ne vous reste plus '.$bottle->first()->title.' dans votre cellier.');
             }
