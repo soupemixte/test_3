@@ -18,27 +18,45 @@ class BottleController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        // Check if the query exists
-        $query = $request->input('search');
-        $filter = $request->input('filter');
-        
-        if ($query & $filter) {
-            // return $filter;
-            // Filter bottles by filter using the search query
-            $bottles = Bottle::where('title', 'LIKE', '%' . $query . '%')
-            ->orderby($filter)
-            ->paginate(5);
-            // return $bottles;
-        } else {
-            // Retrieve all bottles associated with this cellar
-            $bottles = Bottle::orderby('title')
-            ->paginate(5);
-        }
-        // Pass the bottles and the query (to keep input value) to the view
-        return view('bottle.index', compact('bottles', 'query', 'filter'));
+{
+    // Retrieve filter values
+    $colors = Bottle::select('color')->distinct()->pluck('color');
+    $countries = Bottle::select('country')->distinct()->pluck('country');
+    $sizes = Bottle::select('size')->distinct()->pluck('size');
+
+    // Check if the query or filters exist
+    $query = $request->input('search');
+    $color = $request->input('color');
+    $country = $request->input('country');
+    $size = $request->input('size');
+
+    // Base query
+    $bottlesQuery = Bottle::query();
+
+    // Apply filters if they exist
+    if ($query) {
+        $bottlesQuery->where('title', 'LIKE', '%' . $query . '%');
     }
-    
+
+    if ($color) {
+        $bottlesQuery->where('color', $color);
+    }
+
+    if ($country) {
+        $bottlesQuery->where('country', $country);
+    }
+
+    if ($size) {
+        $bottlesQuery->where('size', $size);
+    }
+
+    // Get filtered results
+    $bottles = $bottlesQuery->orderby('title')->paginate(5);
+
+    // Pass data to the view
+    return view('bottle.index', compact('bottles', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
+}
+
 
     public function details($id)
     {

@@ -75,15 +75,15 @@
 }
 
 
-.card_bottle .btn-border {
-    /* width: 50%; */
-    /* padding: 5px; */
-}
+
 
 
 
 
 @media only screen and (min-width: 600px) {
+    .card_bottle {
+        flex-direction: column;
+    }
     .card_bottle .card-category {
         display: flex;
         justify-content: center;
