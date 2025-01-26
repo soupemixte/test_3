@@ -4,16 +4,15 @@
 <main class="flex-center flex-center height80">   
     <section class="structure">
         <header class="filter-wrapper just-between">
-        <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
-            <div class="flex just-between filter-box">
-                    
+            <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
+                <div class="flex just-between filter-box">
                     <div class="filter-order">
                             <label for="order">Tri :</label>
                             <select class="filter-item" id="type" name="order">
-                                <option value="title">Title</option>
-                                <option value="country">Country</option>
-                                <option value="region">Region</option>
-                                <option value="color">Color</option>
+                                <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Title</option>
+                                <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Country</option>
+                                <option value="region" {{ $order === 'region' ? 'selected' : '' }}>Region</option>
+                                <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Color</option>
                             </select>
                         </div>
                     <div class="filter-options">
@@ -69,7 +68,7 @@
                 @if (!empty($query))
                     <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
                 @endif
-                @if (!empty($color) || !empty($country) )
+                @if (!empty($color) || !empty($country) || !empty($order))
                     <ul>Filtres:
                         @if (!empty($color)) <li>{{ $color }}</li>@endif
                         @if (!empty($color) && (!empty($country) )) @endif

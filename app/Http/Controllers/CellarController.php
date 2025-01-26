@@ -97,13 +97,13 @@ class CellarController extends Controller
     {
         $colors = $cellar->bottles()->distinct()->pluck('color')->filter()->all();
         $countries = $cellar->bottles()->distinct()->pluck('country')->filter()->all();
-        $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
+        // $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
        
-        // Check if the query or the filter exists
+        // Check if the query or filters exist
         $query = $request->input('search');
+        $filter = $request->input('order');
         $color = $request->input('color');
         $country = $request->input('country');
-        $size = $request->input('size');
 
         // start building the query
         $bottlesQuery = $cellar->bottles();
@@ -123,25 +123,18 @@ class CellarController extends Controller
             $bottlesQuery->where('size', $size);
         }
 
-        //order and paginate
-        $bottles = $bottlesQuery->orderBy('title')->paginate(10);
+        if ($filter) { $order = $filter; }
+        else {
+            $order = 'title';
+        }
+        // Get filtered results
+        $bottles = $bottlesQuery->orderby($order)->paginate(5);
 
         $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)->get();
         
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
-            return view('cellar.show', [
-                'cellar' => $cellar,
-                'bottles' => $bottles,
-                'cellar_bottles' => $cellar_bottles,
-                'query' => $query,
-                'color' => $color,
-                'country' => $country,
-                'size' => $size,
-                'colors' => $colors,
-                'countries' => $countries,
-                'sizes' => $sizes,
-            ]);
+            return view('bottle.index', compact('bottles', 'query', 'order', 'colors', 'countries', 'color', 'country'));
         }
         
     }

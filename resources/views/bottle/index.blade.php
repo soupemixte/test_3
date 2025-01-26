@@ -6,18 +6,17 @@
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">
-            <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
-            <div class="flex just-between filter-box">
-                    
+                <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
+                <div class="flex just-between filter-box">
                     <div class="filter-order">
-                            <label for="order">Tri :</label>
-                            <select class="filter-item" id="type" name="order">
-                                <option value="title">Title</option>
-                                <option value="country">Country</option>
-                                <option value="region">Region</option>
-                                <option value="color">Color</option>
-                            </select>
-                        </div>
+                        <label for="order">Tri :</label>
+                        <select class="filter-item" id="type" name="order">
+                            <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Title</option>
+                            <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Country</option>
+                            <option value="region" {{ $order === 'region' ? 'selected' : '' }}>Region</option>
+                            <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Color</option>
+                        </select>
+                    </div>
                     <div class="filter-options">
                     <!-- <i class="fa-solid fa-filter"></i> -->
                         <div class="filter-item">
