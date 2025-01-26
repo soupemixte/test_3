@@ -9,19 +9,38 @@
 
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
             <div class="filter-box">
-            <i class="fa-solid fa-filter"></i>
-            <div class="filter-options">
-                <div class="filter-item">
-                <label for="type">Type:</label>
-                <select id="type" name="filter">
-                    <option value="title">Title</option>
-                    <option value="country">Country</option>
-                    <option value="Region">Region</option>
-                    <option value="color">Color</option>
-                </select>
+                    <i class="fa-solid fa-filter"></i>
+                    <div class="filter-options">
+                        <div class="filter-item">
+                            <label for="color">Couleur:</label>
+                            <select id="color" name="color">
+                                <option value="">Tous</option>     
+                                @foreach ($colors as $option)
+                                    <option value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="country">Pays:</label>
+                            <select id="country" name="country">
+                                <option value="">Tous</option>
+                                @foreach ($countries as $option)
+                                    <option value="{{ $option }}" {{ $country === $option ? 'selected' : '' }}>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="size">Volume:</label>
+                            <select id="size" name="size">
+                                <option value="">Tous</option>
+                                @foreach ($sizes as $option)
+                                    <option value="{{ $option }}" {{ $size === $option ? 'selected' : '' }}>{{ $option }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            </div>
+
                 <input 
                     type="text" 
                     name="search" 
