@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cellar;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -38,7 +40,13 @@ class AuthController extends Controller
         if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
             $user = Auth::user();
             $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
-            return redirect()->route($redirect)->withSuccess('Connecté.');
+            $cellar = Cellar::select()
+                ->where('user_id', '=', Auth::id())
+                ->get()
+                ->first();
+            // Retrieve the cellar ID from the session
+            $request->session()->put('cellar_id', $cellar->id);
+            return redirect()->route($redirect, ['cellar' => $cellar])->withSuccess('Connecté.');
         }
 
         return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');

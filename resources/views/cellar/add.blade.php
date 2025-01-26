@@ -22,13 +22,15 @@
 
             <label for="cellar_id">Choisir le Cellier</label>
             <select name="cellar_id" id="cellar_id" required>
-                <option value="{{ $first_cellar->id }}">{{ $first_cellar->title }}</option>
+                <!-- <option value="{{ $first_cellar->id }}">{{ $first_cellar->title }}</option> -->
 
                 @if (Auth::user()->cellars && Auth::user()->cellars->count())
                     @foreach (Auth::user()->cellars as $cellar)
-                    @if ($cellar->id != $first_cellar->id)
-                        <option value="{{ $cellar->id }}">{{ $cellar->title }}</option>
-                    @endif
+                    
+                        <option value="{{ $cellar->id }}"
+                        @if($cellar->id == session('cellar_id')) selected 
+                        @endif>{{ $cellar->title }}</option>
+                    
                     @endforeach
                 @else
                     <option value="" disabled>Aucun cellier disponible</option>

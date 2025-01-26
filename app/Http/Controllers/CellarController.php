@@ -76,11 +76,15 @@ class CellarController extends Controller
             return redirect()->route('cellar.create')->withError('Vous avez deja un cellier avec ce nom : '.$name);
         };
         // Create Cellar
-        Cellar::create([
+        $cellar = Cellar::create([
             'user_id' => Auth::id(),
             'title' => $name,
             'description' => $request->input('description'),
         ]);
+
+        // Retrieve the cellar ID from the session
+        $request->session()->put('cellar_id', $cellar->id);
+        
         // if worked
         return redirect()->route('cellar.index')->withSuccess('Cellier '.$name.' créé avec succès !');
     }
@@ -89,16 +93,11 @@ class CellarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cellar $cellar,Request $request) 
+    public function show(Cellar $cellar, Request $request) 
     {
-      
-        
-        // Retrieve the cellar ID from the session
-        $request->session()->put('id_cellier', $cellar->id);
-
         $colors = $cellar->bottles()->distinct()->pluck('color')->filter()->all();
         $countries = $cellar->bottles()->distinct()->pluck('country')->filter()->all();
-        $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
+        $sizes = $cellar->bottles()->distinct()->pzluck('size')->filter()->all();
        
         // Check if the query or the filter exists
         $query = $request->input('search');
@@ -163,17 +162,32 @@ class CellarController extends Controller
     public function update(Request $request, Cellar $cellar)
     {
         $request->validate([
-            'title' => 'required|string|max:255|unique:cellars',
+            'title' => 'required|string|max:255',
             'description' => 'required|string',
         ]);
-    
-        $task->update([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-        ]);
-        //
-        return redirect()->route('cellar.show', $cellar->id)->withSuccess('Cellier mis à jour.');
+
+        $name = $request->input('title');
+            
+        $cellar = Cellar::select()
+            ->where('user_id', '=', Auth::id())
+            ->where('title', '=', $name)
+            ->get()
+            ->first();
+        if($cellar && $cellar->title != $name)
+        {
+            $cellar->update([
+                'title' => $name,
+                'description' => $request->input('description'),
+            ]);
+            //
+            return redirect()->route('cellar.show', $cellar->id)->withSuccess('Vous avez deja un cellier avec ce nom : '.$name);
+        }
+        else 
+        {
+            return redirect()->route('cellar.show', $cellar->id)->withError('Cellier mis à jour.');
+        };
     }
+       
 
 
     /**
