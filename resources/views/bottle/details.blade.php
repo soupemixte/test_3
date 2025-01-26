@@ -7,9 +7,9 @@
             <picture class="details-image_container">
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
             </picture>
-            <div class="structure flex-col">
+            <div class="flex-col gap10">
                 <h2 class="details-title">{{ $bottle->title }}</h2>
-                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-icon">Ajouter<i class="fa-solid fa-plus"></i></a>
+                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-icon m-auto">Ajouter<i class="fa-solid fa-plus"></i></a>
             </div>
         </article>
 
