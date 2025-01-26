@@ -22,7 +22,6 @@
 
             <label for="cellar_id">Choisir le Cellier</label>
             <select name="cellar_id" id="cellar_id" required>
-                <!-- <option value="{{ $first_cellar->id }}">{{ $first_cellar->title }}</option> -->
 
                 @if (Auth::user()->cellars && Auth::user()->cellars->count())
                     @foreach (Auth::user()->cellars as $cellar)
