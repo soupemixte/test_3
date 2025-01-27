@@ -34,8 +34,9 @@
         </form>
             </div>
         </div>
-        <section class="flex-col gap10">
         <!-- <p>ici</p> -->
+        @if($cellars)
+        <section class="flex-col gap10">
         @foreach ($cellars as $cellar)
             <article class="card_cellar">
                 <div class="card-body"> 
@@ -44,13 +45,27 @@
                     </h2>
                     <p class="card_description">{{ $cellar->description }}</p>
                 </div> 
-                
+                @if($total)
+                    <p class="card-description">{{ $total }}</p>                          
+
+                @endif
                 <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.view')</a>
-                          
+                <div class="btn-container-top">
+                <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
+                <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn-border">Supprimer</button>
+                </form>
+            </div>    
             </article>
         </section>
         @endforeach
-    </section>
+        @endif
+        
+        </section>
+        
+</section>
 </main>
 
 @endsection

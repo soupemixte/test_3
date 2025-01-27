@@ -83,14 +83,7 @@
         @endif
 
         <section class="flex-col gap10">
-            <div class="btn-container-top">
-                <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
-                <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn-border">Supprimer</button>
-                </form>
-            </div>    
+            
                       
             @foreach ($bottles as $bottle)
                 <article class="card_bottle">
