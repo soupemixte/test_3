@@ -6,39 +6,41 @@
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">
-                <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
-                <div class="flex just-between filter-box">
-                    <div class="filter-order">
-                        <label for="order">Tri :</label>
-                        <select class="filter-item" id="type" name="order">
-                            <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Title</option>
-                            <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Country</option>
-                            <option value="region" {{ $order === 'region' ? 'selected' : '' }}>Region</option>
-                            <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Color</option>
-                        </select>
-                    </div>
+            <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
+           
+                <div class="filter-box">
+                    <i class="fa-solid fa-filter"></i>
                     <div class="filter-options">
-                    <!-- <i class="fa-solid fa-filter"></i> -->
                         <div class="filter-item">
-                            <p>Couleur :</p>
-                            <div class="flex-al gap5">
+                            <label for="color">Couleur:</label>
+                            <select id="color" name="color">
+                                <option value="">Tous</option>     
                                 @foreach ($colors as $option)
-                                <label for="color">{{ $option }}</label>
-                                <input type="checkbox" id="color" name="color" value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>
+                                    <option value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>{{ $option }}</option>
                                 @endforeach
-                            </div>
+                            </select>
                         </div>
-                        <div class="filter-item hidden">
-                            <p>Pays :</p>
-                            <div class="flex">
+                        <div class="filter-item">
+                            <label for="country">Pays:</label>
+                            <select id="country" name="country">
+                                <option value="">Tous</option>
                                 @foreach ($countries as $option)
-                                <label for="country">{{ $option }}</label>
-                                <input type="checkbox" id="country" name="country" value="{{ $option }}" {{ $color === $option ? 'selected' : '' }}>
+                                    <option value="{{ $option }}" {{ $country === $option ? 'selected' : '' }}>{{ $option }}</option>
                                 @endforeach
-                            </div>    
+                            </select>
+                        </div>
+                        <div class="filter-item">
+                            <label for="size">Volume:</label>
+                            <select id="size" name="size">
+                                <option value="">Tous</option>
+                                @foreach ($sizes as $option)
+                                    <option value="{{ $option }}" {{ $size === $option ? 'selected' : '' }}>{{ $option }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
+
                 <input 
                     type="text" 
                     name="search" 
@@ -61,19 +63,22 @@
                 </div>
             @endif
             <!--Afficher la quantité trouvée après la requête -->
-            @if (!empty($query) || !empty($color) || !empty($country))
+            @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
                 <div class="results mb-10">
                     @if (!empty($query))
                         <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
                     @endif
-                    @if (!empty($color) || !empty($country) )
+                    @if (!empty($color) || !empty($country) || !empty($size) || !empty($order))
                         <ul>Filtres:
                             @if (!empty($color)) <li>{{ $color }}</li>@endif
-                            @if (!empty($color) && (!empty($country) )) @endif
+                            @if (!empty($color) && (!empty($country) || !empty($size))) @endif
                             @if (!empty($country)) <li>{{ $country }}</li>@endif
-                            @if (!empty($country)) @endif
-                            
+                            @if (!empty($country) && !empty($size)) @endif
+                            @if (!empty($size)) <li>{{ $size }}</li>@endif
                         </ul>
+                    @endif
+                    @if (!empty($order))
+                        <p>Ordonne par : {{ $order }}</p>
                     @endif
                     <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                     <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
