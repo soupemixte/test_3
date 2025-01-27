@@ -9,18 +9,20 @@
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
            
                 <div class="filter-box">
-                    <div class="filter-option">
-                        <div class="filter-item">
-                            <label for="order">Tri :</label>
-                            <select name="order" id="order">Tri :</select>
-                            <option value="title">Titre</option>
-                            <option value="color">Couleur</option>
-                            <option value="region">Region</option>
-                            <option value="country">Country</option>
-                        </div>
-                    </div>
+                 
                     <i class="fa-solid fa-filter"></i>
                     <div class="filter-options">
+                        
+                            <div class="filter-item">
+                                <label for="order">Tri :</label>
+                                <select name="order" id="order">Tri :
+                                    <option value="title">Titre</option>
+                                    <option value="color">Couleur</option>
+                                    <option value="region">Region</option>
+                                    <option value="country">Country</option>
+                                </select>
+                            </div>
+                        
                         <div class="filter-item">
                             <label for="color">Couleur:</label>
                             <select id="color" name="color">
