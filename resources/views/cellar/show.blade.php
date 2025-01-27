@@ -7,16 +7,15 @@
             <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                 <div class="flex just-between filter-box">
                     <div class="filter-order">
-                            <label for="order">Tri :</label>
-                            <select class="filter-item" id="type" name="order">
-                                <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Title</option>
-                                <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Country</option>
-                                <option value="region" {{ $order === 'region' ? 'selected' : '' }}>Region</option>
-                                <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Color</option>
-                            </select>
-                        </div>
+                        <label for="order">Tri :</label>
+                        <select class="filter-item" id="type" name="order">
+                            <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Title</option>
+                            <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Country</option>
+                            <option value="region" {{ $order === 'region' ? 'selected' : '' }}>Region</option>
+                            <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Color</option>
+                        </select>
+                    </div>
                     <div class="filter-options">
-                    <!-- <i class="fa-solid fa-filter"></i> -->
                         <div class="filter-item">
                             <p>Couleur :</p>
                             <div class="flex-al gap5">
@@ -48,20 +47,29 @@
                 <button type="submit" class="search-btn" id="search-btn">
                     <i class="fas fa-search" id="search-icon"></i>
                 </button>
-                
             </form>
         </header>
+
+        <!-- Actions principales du cellier -->
+        <div class="btn-container-top">
+            <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
+            <a href="{{ route('cellar.add', $cellar->id) }}" class="btn-border">
+                <i class="fa-solid fa-plus"></i> Ajouter une bouteille
+            </a>
+            <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn-border">Supprimer</button>
+            </form>
+        </div>    
+
         <!-- Afficher la quantité trouvée par défaut -->
         @if (empty($query) && empty($color) && empty($country) && empty($size))
             <div class="results">
                 <h2>Vous avez <span>{{ $bottles->total() }} bouteilles</span> dans {{ $cellar->title }}</h2>
-                <div class="flex just-between">
-
-                    <p><span>Ajouter plus de bouteilles:</span></p>
-                    <a href="{{ route('bottle.index') }}" class="btn-border">Bouteilles</a>
-                </div>
             </div>
         @endif
+
         <!--Afficher la quantité trouvée après la requête -->
         @if (!empty($query) || !empty($color) || !empty($country))
             <div class="results mb-10">
@@ -74,24 +82,13 @@
                         @if (!empty($color) && (!empty($country) )) @endif
                         @if (!empty($country)) <li>{{ $country }}</li>@endif
                         @if (!empty($country)) @endif
-                        
                     </ul>
                 @endif
                 <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
             </div>
         @endif
 
         <section class="flex-col gap10">
-            <div class="btn-container-top">
-                <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
-                <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn-border">Supprimer</button>
-                </form>
-            </div>    
-                      
             @foreach ($bottles as $bottle)
                 <article class="card_bottle">
                     <picture>
@@ -99,9 +96,7 @@
                     </picture>
                     <div class="card-body">
                         <div class="card-title">
-                            <h2>
-                                {{ $bottle->title }}
-                            </h2>
+                            <h2>{{ $bottle->title }}</h2>
                         </div>
                         <div class="card-category">
                             <p>{{ $bottle->color }}</p>
@@ -112,35 +107,18 @@
                         </div>
                         <div class="card-list">
                             @foreach ($cellar_bottles as $cellar_bottle)
-                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
-                                <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
-                            @endif
+                                @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                                    <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
+                                @endif
                             @endforeach
                         </div>
-                       
-                        <!---the info would be placed in the view of the bottle details of the user-->
-                         <!--<div class="card-list flex flex-col gap5">
-                            <p>@lang('lang.region') : {{ $bottle->region }}</p>
-                            <p>@lang('lang.degree_alcohol') : {{ $bottle->degree_alcohol }}</p>
-                            <p>@lang('lang.sugar_content') : {{ $bottle->sugar_content }}</p>
-                            <p>@lang('lang.promoting_agent') {{ $bottle->promoting_agent }}</p>
-                        
-                            <p>@lang('lang.producer') : {{ $bottle->producer }}</p>
-                            <p>@lang('lang.grape_variety') : {{ $bottle->grape_variety }}</p>
-
-                            <p>@lang('lang.price') : {{ $bottle->price }}</p>
-                            @foreach ($cellar_bottles as $cellar_bottle)
-                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
-                                <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
-                            @endif
-                            @endforeach
-                        </div> -->
                         
                         <div class="btn-container">
                             <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
-                            <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="btn-border btn-remove"><i class="fa-solid fa-minus"></i></a>
+                            <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="btn-border btn-remove">
+                                <i class="fa-solid fa-minus"></i>
+                            </a>
                         </div>
-
                     </div>
                 </article>
             @endforeach
@@ -149,5 +127,4 @@
 </main>
 
 <script src="{{ asset('js/classes/SearchFormHandler.js') }}"></script>
-    
 @endsection
