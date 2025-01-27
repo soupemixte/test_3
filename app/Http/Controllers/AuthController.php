@@ -39,17 +39,25 @@ class AuthController extends Controller
 
         if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
             $user = Auth::user();
-            $redirect = $user->hasCellar() ? 'cellar.index' : 'cellar.create';
-            $cellar = Cellar::select()
+            if($user->hasCellar()) {
+                $cellar = Cellar::select()
                 ->where('user_id', '=', Auth::id())
                 ->get()
                 ->first();
-            // Retrieve the cellar ID from the session
-            $request->session()->put('cellar_id', $cellar->id);
-            return redirect()->route($redirect, ['cellar' => $cellar])->withSuccess('Connecté.');
+                // Retrieve the cellar ID from the session
+                $request->session()->put('cellar_id', $cellar->id);
+                return redirect()->route('cellar.index', ['cellar' => $cellar])->withSuccess('Connecté.');
+            }
+            else {
+                return redirect()->route('cellar.create')->withSuccess('Connecté. Veuillez vous créer un cellier.');
+            }
+            
+        }
+        else {
+
+            return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
         }
 
-        return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
 
     /**
@@ -74,8 +82,10 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt($request->only('email', 'password'))) {
             return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
         }
+        else {
+            return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+        }
 
-        return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
 
 

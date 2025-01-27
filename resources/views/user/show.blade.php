@@ -34,23 +34,41 @@
         </form>
             </div>
         </div>
-        <section class="flex-col gap10">
         <!-- <p>ici</p> -->
+        @if($cellars)
+        <section class="flex-col gap10">
+        @if($count)
+            <h2>Nombres de Celliers : {{ $count }}</h2>
+        @endif
         @foreach ($cellars as $cellar)
             <article class="card_cellar">
                 <div class="card-body"> 
                     <h2 class="card-title">
-                        {{ $cellar->title }}
+                        Titre : {{ $cellar->title }}
                     </h2>
-                    <p class="card_description">{{ $cellar->description }}</p>
+                    <p class="card_description">Description : {{ $cellar->description }}</p>
                 </div> 
-                
-                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.view')</a>
-                          
+                @if($total)
+                    <p class="card-description">Nombre de Bouteilles dans Cellier : {{ $total }}</p>                          
+
+                @endif
+                <div class="btn-container-top">
+                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.view')</a>
+                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
+                    <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn-border">Supprimer</button>
+                    </form>
+                </div>    
             </article>
         </section>
         @endforeach
-    </section>
+        @endif
+        
+        </section>
+        
+</section>
 </main>
 
 @endsection

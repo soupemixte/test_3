@@ -75,10 +75,31 @@ class UserController extends Controller
         if (Auth::user()->hasCellar()) {
             $cellars = Cellar::where('user_id', Auth::user()->id)
                 ->get();
+            // return $cellars;
+            $count = $cellars->count();
+            foreach ($cellars as $cellar) {
+                # code...
+                $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)
+                    // ->where('user_id', '=', Auth::user()->id)
+                    ->get();
+            }
+            $total = 0;
+            foreach ($cellar_bottles as $cellar_bottle) {
+                $total += $cellar_bottle->quantity;
+            }
+            // return $cellar_bottles;
+            // return $bottles;
+            // return $cellars;
+            return view('user.show', ['user' => $user], compact('cellars', 'total', 'count'));
         }
+<<<<<<< HEAD
         
         // Passer toujours les deux variables à la vue
         return view('user.show', compact('user', 'cellars'));
+=======
+        return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
+
+>>>>>>> e177bd1e1548cacec90fdb1ec445332c7c0f968b
     }
 
     /**
