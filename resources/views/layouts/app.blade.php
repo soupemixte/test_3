@@ -10,7 +10,6 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="logo">
             <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
@@ -47,75 +46,87 @@
         </div>
     @endif
 
-    
-
-
-    <!-- Success Modal -->
     <div id="successModal" class="modal" style="display: none;">
         <div class="modal-content">
             <button type="button" class="btn-close" id="closeModal">&times;</button>
             <p id="successMessage"></p>
         </div>
     </div>
-    <!-- Content -->
+
     @yield('content')
-    <!-- Navigation -->
+
     <nav class="navigation">
-        <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"> <img src="{{asset('img/navigation/accueil.svg') }}" alt="nav-image">@lang('lang.home')</a>
-            <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
-            <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
-        @endauth
-        @auth('admin')
-            <a class="nav-link" href="{{ route('admin.dashboard') }}"> 
-                <img src="{{asset('img/navigation/dashboard.png') }}" alt="nav-image">@lang('lang.dashboard')
+            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}">
+                <div class="nav-icon">
+                    <img src="{{asset('img/navigation/accueil.svg') }}" alt="nav-image">
+                </div>
+                @lang('lang.home')
+            </a>
+            <a class="nav-link" href="{{ route('cellar.index') }}">
+                <div class="nav-icon">
+                    <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">
+                </div>
+                @lang('lang.cellars')
+            </a>
+            <a class="nav-link" href="{{ route('bottle.index') }}">
+                <div class="nav-icon">
+                    <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">
+                </div>
+                @lang('lang.bottles')
             </a>
         @endauth
-        @php
-    $isAdmin = Auth::guard('admin')->check(); // Check if admin is logged in
-    $isUser = Auth::guard('web')->check();    // Check if user is logged in
-@endphp
 
-@if(!$isAdmin && !$isUser)
-  <!-- Guest: Not logged in -->
-  <a class="nav-link" href="{{ route('user.login') }}">
-    <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
-  </a>
-@else
-  @if($isAdmin)
-    <!-- Admin logged in -->
-    <a class="nav-link" href="{{ route('logout') }}">
-      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout') (Admin)
-    </a>
-  @elseif($isUser)
-    <!-- User logged in -->
-    <a class="nav-link" href="{{ route('logout') }}">
-      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')
-    </a>
-  @endif
-@endif
+        @auth('admin')
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <div class="nav-icon">
+                    <img src="{{asset('img/navigation/dashboard.png') }}" alt="nav-image">
+                </div>
+                @lang('lang.dashboard')
+            </a>
+        @endauth
+
+        @php
+            $isAdmin = Auth::guard('admin')->check();
+            $isUser = Auth::guard('web')->check();
+        @endphp
+
+        @if(!$isAdmin && !$isUser)
+            <a class="nav-link" href="{{ route('user.login') }}">
+                <div class="nav-icon">
+                    <img src="{{ asset('img/navigation/déconnexion.svg') }}" alt="nav-image">
+                </div>
+                @lang('lang.login')
+            </a>
+        @else
+            @if($isAdmin)
+                <a class="nav-link" href="{{ route('logout') }}">
+                    <div class="nav-icon">
+                        <img src="{{ asset('img/navigation/déconnexion.svg') }}" alt="nav-image">
+                    </div>
+                    @lang('lang.logout') (Admin)
+                </a>
+            @elseif($isUser)
+                <a class="nav-link" href="{{ route('logout') }}">
+                    <div class="nav-icon">
+                        <img src="{{ asset('img/navigation/déconnexion.svg') }}" alt="nav-image">
+                    </div>
+                    @lang('lang.logout')
+                </a>
+            @endif
+        @endif
     </nav>
 
-    <!-----Script général réutilisable pour masquer la modale------>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-        const closeButtons = document.querySelectorAll(".btn-close");
-
-        closeButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                const alert = this.parentElement;
-                alert.classList.add("hide");
+            const closeButtons = document.querySelectorAll(".btn-close");
+            closeButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const alert = this.parentElement;
+                    alert.classList.add("hide");
+                });
             });
         });
-    });
-
     </script>
-
-
-    
-
-
-
 </body>
 </html>
