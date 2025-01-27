@@ -59,8 +59,9 @@ class UserController extends Controller
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
+        // return $user->email;
         //
-        return redirect(route('user.login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
+        return redirect(route('user.login', ['user' => $user]))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
     }
 
 
@@ -75,6 +76,18 @@ class UserController extends Controller
         if (Auth::user()->hasCellar()) {
             $cellars = Cellar::where('user_id', Auth::user()->id)
                 ->get();
+<<<<<<< HEAD
+=======
+            // foreach ($cellars as $cellar) {
+            //     # code...
+            //     $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)
+            //         -where('user_id', '=', Auth::user()->id)
+            //         ->get();
+            // }
+            // return $bottles;
+            // return $cellars;
+            return view('user.show', ['user' => $user], compact('cellars'));
+>>>>>>> 25d1b0574e8ad72a393a659f08a976daccf8f0b3
         }
         
     

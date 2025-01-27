@@ -7,18 +7,17 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    border: 1px solid var(--dark-accent);
-    background-color: var(--color-white);
-    border-radius: 8px;
-    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    padding: 20px;
     text-align: center;
-    color: var(--color-black);
+    color: #333;
     font-family: 'Georgia', serif;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     /*annimation*/
-    /* animation: fadeIn 1s ease-in-out forwards; */
-    /* opacity: 0; */
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0;
 }
 
 /* le corps de la carte*/
@@ -26,7 +25,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    flex: 3;
 }
 
 /* Image de la bouteille */
@@ -39,7 +37,7 @@
 .card_bottle .card-title h2 {
     /* width: 70%; */
     font-size: 1em;
-    color: var(--color-black);
+    /* color: #fff; */
     text-align: left;
 }
 
@@ -49,39 +47,29 @@
     justify-content: left;
     align-items: center;
     gap: 5px;
-    color: var(--color-black);
+    font-weight: bolder;
+    color:  #4b4b4b;
     font-size: 0.8em;
-    /* padding: 10px 0 10px 0; */
-    /* border-bottom: 1px solid var(--darker-accent); */
 }
 
-.card_bottle .card-title {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 5px;
-    color: var(--color-black);
-    /* font-size: 0.8em; */
-    /* padding: 10px 0 10px 0; */
-    /* border-bottom: 1px solid var(--darker-accent); */
+.card_bottle a {
+    width: 100%;
 }
 
 /* .card-category .line:last-child,
 .card-category p:last-child {
     display: none;
 } */
-.card-list {
-    color: var(--color-black);
-    font-size: 0.8em;
-    text-align: left;
-}
+/* .card-list {
+    color: white;
+} */
 
 /* Ligne de séparation */
 .card-category .line {
-    height: 1px;
+    height: 2px;
     rotate: 90deg;
     width: 20px;
-    background-color: var(--red-wine);
+    background-color: #4b4b4b;
 }
 
 /* Style du prix */
@@ -122,7 +110,7 @@
 
 
 
-/*animations
+/*animations*/
 
 .card_bottle:nth-child(1) {
     animation: fadeIn 1s ease-in-out forwards; 
@@ -156,7 +144,7 @@
     animation: fadeIn 2.2s ease-in-out forwards; 
     opacity: 0;
 }
-*/
+
 .price {
     font-weight: bold;
 }

@@ -119,9 +119,9 @@ class CellarController extends Controller
         if (!empty($country)) {
             $bottlesQuery->where('country', $country);
         }
-        if (!empty($size)) {
-            $bottlesQuery->where('size', $size);
-        }
+        // if (!empty($size)) {
+        //     $bottlesQuery->where('size', $size);
+        // }
 
         if ($filter) { $order = $filter; }
         else {
@@ -134,7 +134,7 @@ class CellarController extends Controller
         
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
-            return view('bottle.index', compact('bottles', 'query', 'order', 'colors', 'countries', 'color', 'country'));
+            return view('cellar.show', compact('cellar', 'cellar_bottles', 'bottles', 'query', 'order', 'colors', 'countries', 'color', 'country'));
         }
         
     }
