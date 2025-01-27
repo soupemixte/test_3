@@ -56,6 +56,44 @@
            </div>
        @endif
 
+        <section class="flex-col gap10">
+            
+                      
+            @foreach ($bottles as $bottle)
+                <article class="card_bottle">
+                    <picture>
+                        <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
+                    </picture>
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h2>
+                                {{ $bottle->title }}
+                            </h2>
+                        </div>
+                        <div class="card-category">
+                            <p>{{ $bottle->color }}</p>
+                            <div class="line"></div>
+                            <p>{{ $bottle->size }}</p>
+                            <div class="line"></div>
+                            <p>{{ $bottle->country }}</p>
+                        </div>
+                        <div class="card-list">
+                            @foreach ($cellar_bottles as $cellar_bottle)
+                            @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
+                                <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
+                            @endif
+                            @endforeach
+                        </div>
+                       
+                        <!---the info would be placed in the view of the bottle details of the user-->
+                         <!--<div class="card-list flex flex-col gap5">
+                            <p>@lang('lang.region') : {{ $bottle->region }}</p>
+                            <p>@lang('lang.degree_alcohol') : {{ $bottle->degree_alcohol }}</p>
+                            <p>@lang('lang.sugar_content') : {{ $bottle->sugar_content }}</p>
+                            <p>@lang('lang.promoting_agent') {{ $bottle->promoting_agent }}</p>
+                        
+                            <p>@lang('lang.producer') : {{ $bottle->producer }}</p>
+                            <p>@lang('lang.grape_variety') : {{ $bottle->grape_variety }}</p>
        @if (!empty($query) || !empty($color) || !empty($country))
            <div class="results mb-10">
                @if (!empty($query))

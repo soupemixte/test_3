@@ -40,6 +40,13 @@
         </div>
     @endif
 
+    @if(session('warning'))
+        <div class="alert warning">
+            <p>{{ session('warning') }}</p>
+            <button type="button" class="btn-close">X</button>
+        </div>
+    @endif
+
     
 
 
