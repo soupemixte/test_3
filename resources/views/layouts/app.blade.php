@@ -63,7 +63,7 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"> <img src="{{asset('img/navigation/accueil.svg') }}" alt="nav-image">@lang('lang.home')</a>
             <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
         @endauth
