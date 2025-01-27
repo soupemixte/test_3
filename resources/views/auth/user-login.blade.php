@@ -8,7 +8,7 @@
             @csrf
             <div class="form-control">
                 <label for="username" >@lang('lang.email')</label>
-                    <input type="text" id="username" name="email" value="{{old('email')}}">
+                    <input type="text" id="username" name="email" value="{{old('email', $user->email ?? '')}}">
                 </div>
                 @if ($errors->has('email'))
                     <div class="alert_msg">

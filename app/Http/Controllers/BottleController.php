@@ -20,15 +20,17 @@ class BottleController extends Controller
     public function index(Request $request)
 {
     // Retrieve filter values
+    
     $colors = Bottle::select('color')->distinct()->pluck('color');
     $countries = Bottle::select('country')->distinct()->pluck('country');
+    $sizes = Bottle::select('size')->distinct()->pluck('size');
 
-    // Check if the query or filters exist
     $query = $request->input('search');
     $filter = $request->input('order');
     $color = $request->input('color');
     $country = $request->input('country');
-
+    $size = $request->input('size');
+   
     // Base query
     $bottlesQuery = Bottle::query();
 
@@ -45,14 +47,20 @@ class BottleController extends Controller
         $bottlesQuery->where('country', $country);
     }
 
-    if ($filter) { $order = $filter; }
-    else {
+    if ($size) {
+        $bottlesQuery->where('size', $size);
+    }
+
+    if ($filter) {
+        $order = $filter;
+    } else {
         $order = 'title';
     }
     // Get filtered results
-    $bottles = $bottlesQuery->orderby($order)->paginate(5);
+    $bottles = $bottlesQuery->orderby('title')->paginate(5);
+
     // Pass data to the view
-    return view('bottle.index', compact('bottles', 'query', 'colors', 'countries', 'color', 'country'));
+    return view('bottle.index', compact('bottles', 'order', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
 }
 
 
