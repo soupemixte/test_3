@@ -59,8 +59,13 @@ class BottleController extends Controller
     // Get filtered results
     $bottles = $bottlesQuery->orderby('title')->paginate(5);
 
+<<<<<<< HEAD
+// Pass data to the view
+return view('bottle.index', compact('bottles', 'order', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
+=======
     // Pass data to the view
     return view('bottle.index', compact('bottles', 'order', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
+>>>>>>> e177bd1e1548cacec90fdb1ec445332c7c0f968b
 }
 
 

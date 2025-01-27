@@ -24,7 +24,7 @@
 }
 
 .header .logo img {
-    height: 60px;
+    height: auto;
     width: auto;
     max-width: 100%;
 }s
