@@ -92,14 +92,8 @@ class UserController extends Controller
             // return $cellars;
             return view('user.show', ['user' => $user], compact('cellars', 'total', 'count'));
         }
-<<<<<<< HEAD
-        
-        // Passer toujours les deux variables à la vue
-        return view('user.show', compact('user', 'cellars'));
-=======
         return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
 
->>>>>>> e177bd1e1548cacec90fdb1ec445332c7c0f968b
     }
 
     /**
