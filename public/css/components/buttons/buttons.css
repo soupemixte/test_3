@@ -12,24 +12,11 @@
 .btn-container {
     display: flex;
     gap:5px;
+}
+
+/* .btn-container a {
     width: 100%;
-}
-
-.btn-container > a {
-    flex: 1;
-}
-
-.btn-container-top {
-    display: flex;
-    gap:5px;
-    width: 100%;
-}
-
-.btn-container-top > * {
-    width: 100%;
-}
-
-
+} */
 
 /*Bouton général*/
 .btn {
@@ -40,8 +27,8 @@
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    /* text-decoration: none; */
-    /* transition: 1s; */
+    text-decoration: none;
+    transition: 1s;
     box-shadow: var(--btn-shadow);
     /* width: 100%; */
 }
@@ -51,14 +38,14 @@
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid var(--accent-color);
-    background: var(--color-gray);
+    background: none;
     color: var(--accent-color);
     font-size: 1em;
     font-weight: bold;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* width: 100%; */
+    
 }
 
 .btn-remove {
@@ -79,8 +66,7 @@
 
 .btn-go {
     border: 2px solid var(--success-color);
-    color: var(--color-white);
-    background-color: var(--success-color);
+    color: var(--success-color);
 }
 
 /* Hover effect for the link */

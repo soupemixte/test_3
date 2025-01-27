@@ -1,26 +1,26 @@
 /* Classe principale pour afficher les résultats de recherche */
 .results {
-    background-color: var(--color-white);
-    border: 2px solid var(--red-wine);
+    /* background-color: var(--dark-accent); */
+    background-color: var(--dark-accent);
+    border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     font-family: Arial, sans-serif;
-    /* color: var(--color-black); */
+    color: #ffffff;
 }
 
 /* Style pour le titre des résultats */
-.results > h2 {
+.results h2 {
     font-size: 1.5em;
-    color: var(--color-black);
+    color: #ffffff;
     margin-bottom: 10px;
-    /* text-decoration: underline; */
 }
 
 /* Style pour le nombre de résultats trouvés */
-.results > span {
+.results span {
     display: inline-block;
     font-weight: bold;
-    /* color: var(--accent-color); */
+    color: var(--accent-color);
     margin-bottom: 10px;
 }
 
@@ -34,24 +34,14 @@
 
 /* Style pour chaque élément de la liste */
 .results ul li {
-    margin-bottom: 8px;
-    /* color: #ffffff; */
     list-style:circle;
     font-size: 18px;
     font-weight: italic;
     margin-left: 20px;
-    color: var(--color-black);
+    color: #ffffff;
 }
 
 
 .results p {
     text-align: left;
-}
-
-.results .total {
-    color: var(--red-wine)
-}
-
-.results-item {
-    border-bottom: 1px solid var(--color-black);
 }
