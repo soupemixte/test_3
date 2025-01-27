@@ -27,8 +27,10 @@ class AdminController extends Controller
         if (Auth::guard('admin')->attempt($credentials)) {
             return redirect()->route('admin.dashboard')->with('success', 'Connecté avec succès.');
         }
+        else {
 
-        return back()->withErrors(['email' => 'Informations non valides.'])->withInput();
+            return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+        }
     }
 
     //Tableau de bord d'administration
@@ -42,6 +44,6 @@ class AdminController extends Controller
     //Déconnexion de l'administrateur
     public function logout() {
         Auth::guard('admin')->logout();
-        return redirect()->route('admin.login')->with('success', 'Déconnexion réussie.');
+        return redirect()->route('admin.login')->withSuccess('Déconnexion réussie.');
     }
 }

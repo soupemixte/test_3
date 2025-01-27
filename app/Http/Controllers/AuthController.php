@@ -53,8 +53,11 @@ class AuthController extends Controller
             }
             
         }
+        else {
 
-        return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+            return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+        }
+
     }
 
     /**
@@ -79,8 +82,10 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt($request->only('email', 'password'))) {
             return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
         }
+        else {
+            return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+        }
 
-        return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
     }
 
 
