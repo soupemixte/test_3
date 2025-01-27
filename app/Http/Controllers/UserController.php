@@ -70,6 +70,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+       
+        $cellars = collect();
+    
         if (Auth::user()->hasCellar()) {
             $cellars = Cellar::where('user_id', Auth::user()->id)
                 ->get();
@@ -91,8 +94,8 @@ class UserController extends Controller
             return view('user.show', ['user' => $user], compact('cellars', 'total', 'count'));
         }
         return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
-    }
 
+    }
 
     /**
      * Show the form for editing the specified resource.
