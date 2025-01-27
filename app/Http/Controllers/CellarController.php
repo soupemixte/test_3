@@ -29,19 +29,7 @@ class CellarController extends Controller
         return redirect()->route('cellar.create')->withWarning('Veuillez bien créer un cellier.');
 
     }
-
-
-  /*
-    public function switch($id)
-    {
-        $bottle = Bottle::findOrFail($id);
-        $cellars = Cellar::all();
-            // Redirect to cellar add page
-            return view('Cellar.add',['bottle'=>$bottle , 'cellars' => $cellars]);
-         
-        
-    }
-    */
+    
 
     /**
      * Show the form for creating a new resource.

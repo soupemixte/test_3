@@ -77,6 +77,7 @@ class UserController extends Controller
             $cellars = Cellar::where('user_id', Auth::user()->id)
                 ->get();
             // return $cellars;
+            $count = $cellars->count();
             foreach ($cellars as $cellar) {
                 # code...
                 $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)
@@ -90,7 +91,7 @@ class UserController extends Controller
             // return $cellar_bottles;
             // return $bottles;
             // return $cellars;
-            return view('user.show', ['user' => $user], compact('cellars', 'total'));
+            return view('user.show', ['user' => $user], compact('cellars', 'total', 'count'));
         }
         return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
 

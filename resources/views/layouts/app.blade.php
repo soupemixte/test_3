@@ -33,9 +33,9 @@
     </div>
     @endif
 
-    @if(session('error'))
+    @if(session('errors'))
         <div class="alert error">
-            <p>{{ session('error') }}</p>
+            <p>{{ session('errors')->first() }}</p>
             <button type="button" class="btn-close">X</button>
         </div>
     @endif
