@@ -13,7 +13,7 @@
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="{{ asset('img/header/vino-logo-horizontale.svg') }}" alt="Logo Vino">
+            <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
         </div>
         <ul>
             <div class="hidden dropdown">

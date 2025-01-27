@@ -59,9 +59,8 @@ class UserController extends Controller
         $user->fill($request->all());
         $user->password = Hash::make($request->password);
         $user->save();
-        // return $user->email;
         //
-        return redirect(route('user.login', ['user' => $user]))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
+        return redirect(route('user.login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
     }
 
 
@@ -70,7 +69,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-       
+        // Initialiser $cellars comme un tableau vide par défaut
         $cellars = collect();
     
         if (Auth::user()->hasCellar()) {
@@ -78,7 +77,7 @@ class UserController extends Controller
                 ->get();
         }
         
-    
+        // Passer toujours les deux variables à la vue
         return view('user.show', compact('user', 'cellars'));
     }
 
