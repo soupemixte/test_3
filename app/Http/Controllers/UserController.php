@@ -69,15 +69,17 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+       
+        $cellars = collect();
+    
         if (Auth::user()->hasCellar()) {
             $cellars = Cellar::where('user_id', Auth::user()->id)
                 ->get();
-            // return $cellars;
-            return view('user.show', ['user' => $user], compact('cellars'));
         }
-        return view('user.show');
+        
+    
+        return view('user.show', compact('user', 'cellars'));
     }
-
 
     /**
      * Show the form for editing the specified resource.
