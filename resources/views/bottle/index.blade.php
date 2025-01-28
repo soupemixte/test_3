@@ -124,8 +124,8 @@
                             <div>
                         </div>
                         <div class="btn-container flex-center gap5">
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go"><i class="fa-solid fa-plus"></i></a>
                         </div>
                     </article>
                 @endforeach

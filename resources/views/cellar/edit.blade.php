@@ -30,7 +30,7 @@
         <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
             @csrf
             @method('delete')
-            <button type="submit" class="btn-border btn-remove">Supprimer<i class="fa-solid fa-trash"></i></button>
+            <button type="submit" class="btn-border btn-icon btn-remove">Supprimer<i class="fa-solid fa-trash"></i></button>
         </form>
         @endif
     </section>

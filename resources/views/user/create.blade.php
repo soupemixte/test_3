@@ -37,7 +37,7 @@
                 @endif
             </div>
 
-            <button type="submit" class="btn-border btn-go">@lang('lang.save')</button>
+            <button type="submit" class="btn-border btn-icon btn-go">@lang('lang.save')</button>
         </form>
 
         <div class="form_footer">
