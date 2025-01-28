@@ -62,7 +62,15 @@ main {
 
 @media screen and (max-width: 768px) {
     .nav-link img {
+        
         width: 40px;
+    }
+
+    .nav-link i {
+        height: 40px;
+        width: 40px;
+        scale: 1;
+        margin-bottom: 5px;
     }
     
     .navigation {
