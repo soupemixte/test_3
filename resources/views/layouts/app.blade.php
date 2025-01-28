@@ -27,21 +27,15 @@
     </header>
 
     @if(session('success'))
-    <div class="alert success">
+    <div class="alert success flex-center just-between">
+        
         <p>{{ session('success') }}</p>
         <button type="button" class="btn-close">X</button>
     </div>
     @endif
 
-    @if(session('errors'))
-        <div class="alert error">
-            <p>{{ session('errors')->first() }}</p>
-            <button type="button" class="btn-close">X</button>
-        </div>
-    @endif
-
     @if(session('warning'))
-        <div class="alert warning">
+        <div class="alert warning flex-center just-between">
             <p>{{ session('warning') }}</p>
             <button type="button" class="btn-close">X</button>
         </div>
@@ -63,7 +57,7 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"> <img src="{{asset('img/navigation/home.svg') }}" alt="nav-image">@lang('lang.home')</a>
+            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>@lang('lang.home')</a>
             <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
         @endauth
@@ -80,18 +74,18 @@
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
   <a class="nav-link" href="{{ route('user.login') }}">
-    <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.login')
+  <i class="fa-solid fa-right-to-bracket"></i>@lang('lang.login')
   </a>
 @else
   @if($isAdmin)
     <!-- Admin logged in -->
     <a class="nav-link" href="{{ route('logout') }}">
-      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout') (Admin)
+    <i class="fa-solid fa-right-from-bracket"></i>@lang('lang.logout') (Admin)
     </a>
   @elseif($isUser)
     <!-- User logged in -->
     <a class="nav-link" href="{{ route('logout') }}">
-      <img src="{{ asset('img/navigation/profile.svg') }}" alt="nav-image">@lang('lang.logout')
+    <i class="fa-solid fa-right-from-bracket"></i>@lang('lang.logout')
     </a>
   @endif
 @endif

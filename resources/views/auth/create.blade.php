@@ -23,7 +23,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">@lang('lang.login')</button>
+            <button type="submit" class="btn-border">@lang('lang.login')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
         
         <div class="form_footer">
