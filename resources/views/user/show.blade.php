@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="btn-container flex-center">
-            <a href="{{ route('user.edit', $user->id) }}" class="btn-border btn-edit">modifier</a>
+            <a href="{{ route('user.edit', $user->id) }}" class="btn-border btn-edit">modifier<i class="fa-solid fa-pen-to-square"></i></a>
             
             </div>
         </div>
@@ -60,8 +60,8 @@
                     @endif
                 </div>
                 <div class="btn-container flex-center gap5">
-                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border btn-edit">modifier</a>
-                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border btn-show">voir</a>
+                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border btn-edit">modifier<i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border btn-show">voir<i class="fa-solid fa-eye"></i></a>
                     
                 </div> 
                 @endforeach

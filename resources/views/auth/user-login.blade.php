@@ -3,7 +3,7 @@
 @section('content')
 @if(session('errors'))
     @if(session('errors')->has('password'))
-        <div class="alert error">
+        <div class="alert warning flex-center just-between">
         <p>Assurez vous d'avoir les bonnes informations du compte.</p>
             <button type="button" class="btn-close">X</button>
         </div>
@@ -31,7 +31,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">@lang('lang.login')</button>
+            <button type="submit" class="btn-border">@lang('lang.login')<i class="fa-solid fa-right-to-bracket"></i></button>
         </form>
         
         <div class="form_footer">

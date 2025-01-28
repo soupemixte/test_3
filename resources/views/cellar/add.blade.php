@@ -1,7 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Ajouter la bouteille')
 @section('content')
-
+@if(session('errors'))
+    @if(session('errors')->has('password'))
+        <div class="alert warning flex-center just-between">
+        <p>Assurez vous d'avoir les bonnes informations du compte.</p>
+            <button type="button" class="btn-close">X</button>
+        </div>
+    @endif
+@endif
 <main class="flex-center">
     <section class="structure flex-col-center height80">
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
@@ -11,7 +18,7 @@
         </div>
         <div class="form-control">
             <label for="quantity">@lang('lang.quantity')</label>
-            <input type="number" name="quantity" id="" value="{{old('quantity')}}">
+            <input type="number" name="quantity" id="" value="{{old('quantity')}}" min="1">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
@@ -45,7 +52,7 @@
 
         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
 
-        <button type="submit" class="btn-border">@lang('lang.add_bottle')</button>
+        <button type="submit" class="btn-border">@lang('lang.add_bottle')<i class="fa-solid fa-plus"></i></button>
     </form>
 
 

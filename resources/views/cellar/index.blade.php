@@ -12,7 +12,7 @@
                     </h2>
                     <p class="card_description">{{ $cellar->description }}</p>
                     <div class="btn-container">
-                        <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border btn-show">@lang('lang.view')</a>
+                        <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border btn-show">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
                     </div>
                 </digv> 
                             
