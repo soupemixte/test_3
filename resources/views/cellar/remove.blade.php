@@ -30,7 +30,7 @@
         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
         <input type="hidden" name="cellar_id" value="{{ $cellar->cellar_id}}">
 
-        <button type="submit" class="btn-border">Retirer bouteille</button>
+        <button type="submit" class="btn-border">Retirer bouteille<i class="fa-solid fa-minus"></button>
     </form>
     </section>
 </main>
