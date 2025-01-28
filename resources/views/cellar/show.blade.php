@@ -7,12 +7,12 @@
             <form action="" method="GET" class="search-container flex-col gap5 {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
                 <div class="flex just-between filter-box">
                     <div class="filter-order">
-                            <label for="order">Tri :</label>
+                            <label for="order">Tri (A-Z) :</label>
                             <select class="filter-item" id="type" name="order">
-                                <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Title</option>
-                                <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Country</option>
+                                <option value="title" {{ $order === 'title' ? 'selected' : '' }}>Nom</option>
+                                <option value="country" {{ $order === 'country' ? 'selected' : '' }}>Pays</option>
                                 <option value="region" {{ $order === 'region' ? 'selected' : '' }}>Region</option>
-                                <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Color</option>
+                                <option value="color" {{ $order === 'color' ? 'selected' : '' }}>Couleur</option>
                             </select>
                         </div>
                     <div class="filter-options">
@@ -63,24 +63,33 @@
             </div>
         @endif
         <!--Afficher la quantité trouvée après la requête -->
-        @if (!empty($query) || !empty($color) || !empty($country))
+        @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
             <div class="results mb-10">
                 @if (!empty($query))
                     <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
                 @endif
                 @if (!empty($color) || !empty($country) || !empty($order))
-                    <ul>Filtres:
-                        @if (!empty($color)) <li>{{ $color }}</li>@endif
-                        @if (!empty($color) && (!empty($country) )) @endif
-                        @if (!empty($country)) <li>{{ $country }}</li>@endif
-                        @if (!empty($country)) @endif
-                        
+                <ul>Filtres:
+                            @if (!empty($color)) <li>{{ $color }}</li>@endif
+                            @if (!empty($color) && (!empty($country) || !empty($size))) @endif
+                            @if (!empty($country)) <li>{{ $country }}</li>@endif
+                            @if (!empty($country) && !empty($size)) @endif
+                            @if (!empty($size)) <li>{{ $size }}</li>@endif
+                        </ul>
+                    @if (!empty($order))
+                    <ul>Tri :
+                        @if($order === 'title') <li>Nom</li>@endif
+                        @if($order === 'country') <li>Pays</li>@endif
+                        @if($order === 'region') <li>Region</li>@endif
+                        @if($order === 'color') <li>Couleur</li>@endif
                     </ul>
+                    @endif
                 @endif
                 <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
                 <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
             </div>
         @endif
+
 
         <section class="flex-col gap10">
             <!-- <div class="btn-container-top">
