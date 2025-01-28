@@ -30,7 +30,7 @@
         <form action="{{ route('user.destroy', $user->id) }}" method="post">
             @csrf
             @method('delete')
-            <button type="submit" class="btn-border btn-remove">@lang('lang.delete')</button>
+            <button type="submit" class="btn-border btn-icon btn-remove">@lang('lang.delete')</button>
         </form>
         @endif
     </section>

@@ -10,7 +10,7 @@
 
 /*Enveloppe de bouton*/
 .btn-container {
-    /* width: 100%; */
+    width: 100%;
 }
 
 /* .btn-container a {
@@ -34,10 +34,10 @@
 
 /*Le bouton sans bordure*/
 .btn-border {
-    display: inline-block;
-    padding: 10px 20px;
+    /* display: inline-block; */
+    /* padding: 10px 20px; */
     /* border: 2px solid var(--accent-color); */
-    background: none;
+    /* background: none; */
     /* color: var(--accent-color); */
     font-size: 1em;
     font-weight: bold;
@@ -50,13 +50,13 @@
 
 .btn-edit {
     /* width: 100%; */
-    border: 2px solid var(--color-black);
-    background-color: var(--accent-color);
-    color: var(--color-black);
+    border: 4px solid var(--darkest-accent);
+    /* background-color: var(--accent-color); */
+    color: var(--darkest-accent);
 }
 
 .btn-remove {
-    border: 2px solid var(--error-color);
+    border: 4px solid var(--error-color);
     /* background: var(--color-white); */
     color: var(--error-color);
     /* background: none; */
@@ -73,12 +73,13 @@
 }
 
 .btn-show {
-    border: 2px solid var(--color-black);
-    background-color: var(--dark-accent);
-    color: var(--light-accent);
+    border: 4px solid var(--dark-accent);
+    /* background-color: var(--dark-accent); */
+    color: var(--dark-accent);
 }
 
 .btn-go {
+
     border: 2px solid var(--success-color) !important;
     color: white !important;
     background: var(--success-color) !important;
@@ -104,10 +105,8 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    border-radius: 10px;
-    color: var(--accent-color);
     font-size: 20px;
-    border: 4px solid var(--accent-color);
+    
     transition: all 1s;
     padding: 10px;
     width: fit-content;
