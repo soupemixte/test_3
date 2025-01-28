@@ -108,15 +108,14 @@
                         <picture>
                             <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
                         </picture>
-                        <form action="" class="cart">
-                            <button type="submit" class="btn-icon"><i class="fa-solid fa-cart-shopping"></i></button>
-                        </form>
+                        
                         
                         <div class="card-body">
-                            <div class="card-title">
+                            <div class="card-title flex just-between">
                                 <h2>
                                     {{ $bottle->title }}
                                 </h2>
+                                
                             </div>
                             <div class="card-category">
                                 <p>{{ $bottle->color }}</p>
@@ -128,8 +127,8 @@
                             <div>
                         </div>
                         <div class="btn-container flex-center gap5">
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go"><i class="fa-solid fa-plus"></i></a>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show flex-al just-between">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go flex-al just-between">Ajouter<i class="fa-solid fa-plus"></i></a>
 
                         </div>
                     </article>

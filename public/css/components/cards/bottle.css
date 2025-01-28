@@ -10,7 +10,7 @@
     gap: 10px;
     background-color: #f8f8f8;
     border-radius: 15px;
-    padding: 20px;
+    padding: 10px 5px 10px 5px ;
     text-align: center;
     color: #333;
     font-family: 'Georgia', serif;
@@ -38,7 +38,7 @@
 /* Titre de la carte */
 .card_bottle .card-title h2 {
     /* width: 70%; */
-    font-size: 1em;
+    font-size: 0.8em;
     /* color: #fff; */
     text-align: left;
 }
@@ -82,9 +82,9 @@
 }
 
 form.cart {
-    position: absolute;
+    /* position: absolute;
     right: 0;
-    padding-right: 10px;
+    padding-right: 10px; */
 }
 
 

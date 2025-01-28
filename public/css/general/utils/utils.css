@@ -52,7 +52,9 @@
 .just-left {
     justify-content: left;
 }
-
+.just-center {
+    justify-content: center;
+}
 
 .just-between {
     justify-content: space-between;

@@ -24,13 +24,13 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">@lang('lang.update')</button>
+            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.update')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
         @if(Auth::id() == $user->id)
         <form action="{{ route('user.destroy', $user->id) }}" method="post">
             @csrf
             @method('delete')
-            <button type="submit" class="btn-border btn-icon btn-remove">@lang('lang.delete')</button>
+            <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
         </form>
         @endif
     </section>
