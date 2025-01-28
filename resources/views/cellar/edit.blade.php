@@ -26,6 +26,13 @@
             </div>
             <button type="submit" class="btn-border">@lang('lang.cellar_create')</button>
         </form>
+        @if(Auth::id() == $cellar->user_id)
+        <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn-border btn-remove">Supprimer</button>
+        </form>
+        @endif
     </section>
 </main>
 

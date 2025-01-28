@@ -123,7 +123,7 @@
                             </div>
                             <div>
                         </div>
-                        <div class="btn-container">
+                        <div class="btn-container flex-center gap5">
                             <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border">@lang('lang.view')</a>
                             <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
                         </div>
