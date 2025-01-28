@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BottleController;
+use App\Http\Controllers\FutureListController;
 use App\Http\Controllers\CellarBottleController;
 use App\Http\Controllers\CellarController;
 use App\Http\Controllers\UserController;
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
+    Route::post('/futurelist/add/{bottle_id}', [FutureListController::class, 'add'])->name('futurelist.add');
+
 
     Route::post('/bottle/{id}/add-to-cellar', [BottleController::class, 'addToCellar'])->name('bottle.addToCellar');
 

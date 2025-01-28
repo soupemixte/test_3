@@ -108,7 +108,8 @@
                         <picture>
                             <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
                         </picture>
-                        <form action="" class="cart">
+                        <form action="{{ route('futurelist.add', ['bottle_id' => $bottle->id]) }}" method="POST" class="cart">
+                            @csrf
                             <button type="submit" class="btn-icon"><i class="fa-solid fa-cart-shopping"></i></button>
                         </form>
                         
