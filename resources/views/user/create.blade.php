@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Registration')
 @section('content')
+
+
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form action="{{ route('user.store') }}" method="POST" class="form">
@@ -27,20 +29,14 @@
                 <label for="password">@lang('lang.password')</label>
                 <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
-                    <div class="alert_msg">
-                        {{$errors->first('password')}}
+                <div class="alert_msg">
+                <p>Les regles de validation pour mot de passe sont les suivantes : doit contenir au moins une lettre, doit contenir au moins une majuscule et une minuscule, doit contenir au moins un chiffre.</p>
+                {{$errors->first('password')}}
+                   
                     </div>
                 @endif
             </div>
-            <div class="form-control">
-                <label for="password_confirmation">@lang('lang.password_confirm')</label>
-                <input type="password" id="password_confirmation" name="password_confirmation">
-                @if($errors->has('password_confirmation'))
-                    <div class="alert_msg">
-                        {{$errors->first('password_confirmation')}}
-                    </div>
-                @endif
-            </div>
+
             <button type="submit" class="btn-border btn-go">@lang('lang.save')</button>
         </form>
 

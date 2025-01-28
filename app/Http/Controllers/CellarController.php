@@ -61,7 +61,7 @@ class CellarController extends Controller
             ->exists();
         if($cellar) {
             // TODO: return errors and old value
-            return redirect()->route('cellar.create')->withError('Vous avez deja un cellier avec ce nom : '.$name);
+            return redirect()->route('cellar.create')->withErrors('Vous avez deja un cellier avec ce nom : '.$name);
         };
         // Create Cellar
         $cellar = Cellar::create([
@@ -156,7 +156,7 @@ class CellarController extends Controller
             ->first();
         if($cellar)
         {
-            return redirect()->route('cellar.edit', ['cellar'=>$cellar])->withError('Vous avez deja un cellier avec ce nom : '.$name);
+            return redirect()->route('cellar.edit', ['cellar'=>$cellar])->withWarning('Vous avez deja un cellier avec ce nom : '.$name);
         }
         else 
         {

@@ -27,21 +27,15 @@
     </header>
 
     @if(session('success'))
-    <div class="alert success">
+    <div class="alert success flex-center just-between">
+        
         <p>{{ session('success') }}</p>
         <button type="button" class="btn-close">X</button>
     </div>
     @endif
 
-    @if(session('errors'))
-        <div class="alert error">
-            <p>{{ session('errors')->first() }}</p>
-            <button type="button" class="btn-close">X</button>
-        </div>
-    @endif
-
     @if(session('warning'))
-        <div class="alert warning">
+        <div class="alert warning flex-center just-between">
             <p>{{ session('warning') }}</p>
             <button type="button" class="btn-close">X</button>
         </div>

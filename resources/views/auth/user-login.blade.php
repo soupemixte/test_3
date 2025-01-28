@@ -1,7 +1,14 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
-
+@if(session('errors'))
+    @if(session('errors')->has('password'))
+        <div class="alert error">
+        <p>Assurez vous d'avoir les bonnes informations du compte.</p>
+            <button type="button" class="btn-close">X</button>
+        </div>
+    @endif
+@endif
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
         <form method="POST" class="form" action="{{ route('user.login.submit') }}">

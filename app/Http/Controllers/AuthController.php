@@ -54,7 +54,7 @@ class AuthController extends Controller
             
         }
         else {
-
+            // return "ici";
             return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
         }
 
