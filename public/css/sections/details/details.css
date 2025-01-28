@@ -105,6 +105,14 @@
     line-height: 1.5;
 }
 
+.info-details.profile {
+    border: 2px solid var(--header-bg);
+}
+
+.info-details.profile-cellar {
+    border: 2px solid var(--darkest-accent);
+}
+
 
 
 @media only screen and (min-width: 500px) {

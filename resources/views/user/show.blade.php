@@ -9,9 +9,12 @@
 
 <main class="flex-center heigth80">
     <section class="structure">
-        <div class="info-details">
-            <h3>@lang('lang.user_name') : {{ $user->name }}</h3>
-            <div class="info-grid">
+        <div class="info-details profile">
+            <div class="info-grid mb-5">
+                <div class="info-item">
+                    <span class="info-label">@lang('lang.user_name') :</span>
+                    <span class="info-value">{{ $user->name }}</span>
+                </div>
                 <div class="info-item">
                     <span class="info-label">@lang('lang.email') :</span>
                     <span class="info-value">{{ $user->email }}</span>
@@ -25,47 +28,45 @@
                     <span class="info-value">{{ $user->updated_at }}</span>
                 </div>
             </div>
-            <div class="btn-container">
-            <a href="{{ route('user.edit', $user->id) }}" class="btn-border">@lang('lang.edit')</a>
-            <form action="{{ route('user.destroy', $user->id) }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn-border">@lang('lang.delete')</button>
-        </form>
+            <div class="btn-container flex-center">
+            <a href="{{ route('user.edit', $user->id) }}" class="btn-border btn-edit">modifier<i class="fa-solid fa-pen-to-square"></i></a>
+            
             </div>
         </div>
-        <!-- <p>ici</p> -->
+        <!-- cellars -->
         @if($cellars)
-        <section class="flex-col gap10">
-        @if($count)
-            <h2>Nombres de Celliers : {{ $count }}</h2>
-        @endif
-        @foreach ($cellars as $cellar)
-            <article class="card_cellar">
-                <div class="card-body"> 
-                    <h2 class="card-title">
-                        Titre : {{ $cellar->title }}
-                    </h2>
-                    <p class="card_description">Description : {{ $cellar->description }}</p>
-                </div> 
-                @if($total)
-                    <p class="card-description">Nombre de Bouteilles dans Cellier : {{ $total }}</p>                          
-
+            <section class="flex-col gap10">
+                @if($count)
+                <div class="flex-center">
+                    <h2>Nombres de Celliers : {{ $count }}</h2>
+                </div>
                 @endif
-                <div class="btn-container-top">
-                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.view')</a>
-                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
-                    <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn-border">Supprimer</button>
-                    </form>
-                </div>    
-            </article>
-        </section>
-        @endforeach
-        @endif
-        
+                <div class="info-details profile-cellar">
+                @foreach ($cellars as $cellar)
+                <div class="info-grid mb-5">
+                    <div class="info-item">
+                        <span class="info-label">Titre : </span>
+                        <span class="info-value">{{ $cellar->title }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Description : </span>
+                        <span class="info-value">{{ $cellar->description }}</span>
+                    </div>
+                    @if($total)
+                    <div class="info-item">
+                        <span class="info-label">Inventaire :</span>
+                        <span class="info-value">{{ $total }}</span>                          
+                    </div>
+                    @endif
+                </div>
+                <div class="btn-container flex-center gap5">
+                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border btn-edit">modifier<i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border btn-show">voir<i class="fa-solid fa-eye"></i></a>
+                    
+                </div> 
+                @endforeach
+                </div>
+            @endif
         </section>
         
 </section>

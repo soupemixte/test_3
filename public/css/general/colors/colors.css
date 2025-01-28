@@ -9,11 +9,12 @@
     --darkest-accent: #1C1F29;
     --components-bg: #FFFFFF;
     --header-bg: #722F37;
+    --warning-color: #E2D166;
     --color-alert: #F22C2C;
     --error-color: #c58989;;
     --color-white: #ffffff;
     --color-gray: #D9D9D9;
-    --color-black: #5e5e5e;
+    --color-black: #000000;
     --color-blue: #1807d9;
     --success-color: #52CE65;
     --font-size-small: 12px;

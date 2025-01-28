@@ -26,6 +26,13 @@
             </div>
             <button type="submit" class="btn-border">@lang('lang.update')</button>
         </form>
+        @if(Auth::id() == $user->id)
+        <form action="{{ route('user.destroy', $user->id) }}" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn-border btn-remove">@lang('lang.delete')</button>
+        </form>
+        @endif
     </section>
 </main>
 @endsection

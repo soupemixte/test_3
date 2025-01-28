@@ -41,26 +41,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validate = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => [ 
-            'required', 
-            'max:20', 
-            'min:6',
+            'required',
+            // 'min:6',
             Password::min(2) 
             ->letters() 
             ->mixedCase() 
-            ->numbers() , 
-            'confirmed' ],
-            'password_confirmation' => 'required',
+            ->numbers(), ],
+            // 'password_confirmation' => 'required',
             ]);
-        $user = new User;
-        $user->fill($request->all());
-        $user->password = Hash::make($request->password);
-        $user->save();
+        if($validate) { 
+            // return "cool"; 
+            $user = new User;
+            $user->fill($request->all());
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect(route('user.login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
+        }
+        // elseif(!$validate) {
+        //     return redirect(route('user.create'))->withError('Veuillez bien remplir le formulaire.');
+        // }
         //
-        return redirect(route('user.login'))->withSuccess('Usager créé avec succès, veuillez bien vous connecter.');
     }
 
 
@@ -92,14 +96,8 @@ class UserController extends Controller
             // return $cellars;
             return view('user.show', ['user' => $user], compact('cellars', 'total', 'count'));
         }
-<<<<<<< HEAD
-        
-        // Passer toujours les deux variables à la vue
-        return view('user.show', compact('user', 'cellars'));
-=======
         return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
 
->>>>>>> e177bd1e1548cacec90fdb1ec445332c7c0f968b
     }
 
     /**

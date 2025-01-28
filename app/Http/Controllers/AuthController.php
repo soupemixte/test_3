@@ -53,10 +53,7 @@ class AuthController extends Controller
             }
             
         }
-        else {
-
-            return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
-        }
+    
 
     }
 
@@ -83,7 +80,7 @@ class AuthController extends Controller
             return redirect()->route('admin.dashboard')->withSuccess('Administrateur connecté avec succès !');
         }
         else {
-            return redirect()->route('admin.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
+            return redirect()->route('admin.login')->withWarning('Combinaison e-mail / mot de passe incorrecte.');
         }
 
     }

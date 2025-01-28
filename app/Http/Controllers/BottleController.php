@@ -62,6 +62,34 @@ class BottleController extends Controller
         return view('bottle.index', compact('bottles', 'order', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
     }
 
+<<<<<<< HEAD
+=======
+    if ($color) {
+        $bottlesQuery->where('color', $color);
+    }
+
+    if ($country) {
+        $bottlesQuery->where('country', $country);
+    }
+
+    if ($size) {
+        $bottlesQuery->where('size', $size);
+    }
+
+    if ($filter) {
+        $order = $filter;
+    } else {
+        $order = 'title';
+    }
+    // Get filtered results
+    $bottles = $bottlesQuery->orderby('title')->paginate(5);
+
+    // Pass data to the view
+    return view('bottle.index', compact('bottles', 'order', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
+}
+
+
+>>>>>>> bf533333394fcbb1990e323b7135ec679c544187
     public function details($id)
     {
         // Retrieve the specific bottle
