@@ -108,7 +108,13 @@
                         <picture>
                             <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
                         </picture>
-                        
+
+                        <span class="cart">
+                            <a href="{{ route('futurelist.add', ['id' => $bottle->id]) }}">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </span>
+
                         
                         <div class="card-body">
                             <div class="card-title flex just-between">
