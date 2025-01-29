@@ -23,10 +23,10 @@
                     <span class="info-label">@lang('lang.created') :</span>
                     <span class="info-value">{{ $user->created_at }}</span>
                 </div>
-                <div class="info-item">
+                <!-- <div class="info-item hidden">
                     <span class="info-label">Derniere mise a jour :</span>
                     <span class="info-value">{{ $user->updated_at }}</span>
-                </div>
+                </div> -->
             </div>
             <div class="btn-container flex-center">
             <a href="{{ route('user.edit', $user->id) }}" class="btn-border btn-icon btn-edit flex-al just-between gap5">modifier<i class="fa-solid fa-pen-to-square"></i></a>
@@ -55,7 +55,7 @@
                     @if($total)
                     <div class="info-item">
                         <span class="info-label">Inventaire :</span>
-                        <span class="info-value">{{ $total }}</span>                          
+                        <span class="info-value">{{ $total }} Bouteille(s)</span>                          
                     </div>
                     @endif
                 </div>
@@ -66,9 +66,44 @@
                 </div> 
                 @endforeach
                 </div>
+            </section>
             @endif
-        </section>
-        
+            <!-- list -->
+            @if($list)
+            <section class="flex-col gap10">
+                @if($list->count())
+                <div class="flex-center">
+                    <h2>Liste d'achat(s) : {{ $list->count() }} bouteille(s)</h2>
+                </div>
+                @endif
+                <div class="info-details profile-cellar">
+                @if($list)
+                <div class="info-grid mb-5">
+                    <div class="info-item">
+                        <span class="info-label">Dernière mise à jour :</span>
+                        <span class="info-value">{{ $list->last()->updated_at}}</span>
+                    </div>
+                    @foreach ($bottles as $bottle)
+                    @if ($list->last()->bottle_id === $bottle->id)
+                    <div class="info-item">
+                        <span class="info-label">Nom : </span>
+                        <span class="info-value">{{ $bottle->title }}</span>
+                    </div>
+                    @endif
+                    @endforeach
+                    @if($facture)
+                    <div class="info-item">
+                        <span class="info-label">Approximation :</span>
+                        <span class="info-value">{{ $facture }} $</span>                          
+                    </div>
+                    @endif
+                </div>
+                @endif
+                
+                </div>
+                
+            </section>
+            @endif
 </section>
 </main>
 
