@@ -27,12 +27,26 @@
             <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.update')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
         @if(Auth::id() == $user->id)
-        <form action="{{ route('user.destroy', $user->id) }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
-        </form>
+        <button class="btn-border btn-icon btn-remove flex-al just-between gap5" id="delete-btn">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
+        
+        <div class="popup-overlay hide" id="popup-overlay">
+            <div class="popup-delete">
+                <div class="message">
+                    <h2>Etes-vous sûr de vouloir supprimer ?</h2>
+                </div>
+                <div class="confirm-buttons">
+                    <button id="cancel-btn">Annuler <i class="fa-solid fa-ban"></i></button>
+                    <form action="{{ route('user.destroy', $user->id) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
         @endif
     </section>
 </main>
+
+<script src="{{ asset('js/classes/ConfirmationModal.js') }}"></script>
 @endsection

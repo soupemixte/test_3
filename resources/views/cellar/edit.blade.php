@@ -48,19 +48,5 @@
 </main>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("#delete-btn").forEach(deleteBtn => {
-        const popupOverlay = document.querySelector(".popup-overlay");
-
-        deleteBtn.addEventListener("click", function () {
-            popupOverlay.classList.remove("hide");
-        });
-
-        popupOverlay.querySelector("#cancel-btn").addEventListener("click", function () {
-            popupOverlay.classList.add("hide"); 
-        });
-    });
-});
-</script>
+<script src="{{ asset('js/classes/ConfirmationModal.js') }}"></script>
 @endsection
