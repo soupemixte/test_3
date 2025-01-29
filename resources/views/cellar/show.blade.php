@@ -123,7 +123,7 @@
             </div>     -->
                       
             @foreach ($bottles as $bottle)
-                <article class="card_bottle">
+                <article class="card_bottle" id="card_bottle_cellar">
                     <picture>
                         <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
                     </picture>
@@ -150,7 +150,19 @@
                         
                         <div class="btn-container flex-center gap5">
                             <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show flex-center flex-al"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="btn-border btn-icon btn-remove flex-center flex-al"><i class="fa-solid fa-minus"></i></a>
+                            <button class="btn-border btn-icon btn-remove flex-center flex-al" id="delete-btn"><i class="fa-solid fa-minus"></i></button>
+                
+                            <div class="popup-overlay hide" id="popup-overlay">
+                                <div class="popup-delete">
+                                    <div class="message">
+                                        <h2>Etes-vous sûr de vouloir supprimer ?</h2>
+                                    </div>
+                                    <div class="confirm-buttons">
+                                        <button id="cancel-btn">Annuler <i class="fa-solid fa-ban"></i></button>
+                                        <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="btn-border btn-icon btn-remove flex-center flex-al"><i class="fa-solid fa-minus"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                             <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go flex-center flex-al"><i class="fa-solid fa-plus"></i></a>
                         </div>
 
@@ -162,5 +174,28 @@
 </main>
 
 <script src="{{ asset('js/classes/SearchFormHandler.js') }}"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("#delete-btn").forEach(deleteBtn => {
+        const popupOverlay = deleteBtn.closest(".card_bottle").querySelector(".popup-overlay");
+
+        deleteBtn.addEventListener("click", function () {
+            popupOverlay.classList.remove("hide");
+        });
+
+        popupOverlay.querySelector("#cancel-btn").addEventListener("click", function () {
+            popupOverlay.classList.add("hide"); 
+        });
+    });
+});
+
+
+
+
+
+
+
+</script>
     
 @endsection
