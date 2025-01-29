@@ -80,7 +80,7 @@
 
 .btn-go {
 
-    /* border: 2px solid var(--success-color) !important; */
+    border: 2px solid var(--success-color) !important;
     color: white !important;
     background: var(--success-color) !important;
 }
