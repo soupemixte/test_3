@@ -1,66 +1,90 @@
-.search-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-/* Position relative sur le conteneur du formulaire */
-form {
-    position: relative;
+/*
+* Merci pour: https://codepen.io/yuhomyan/pen/XWdYJdv
+*/
+.search-container{
+    /* position: fixed; */
+    z-index: 909;
+    background: #fff;
+    height: 30px;
+    border-radius: 30px;
+    padding: 10px 40px;
     width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-}
-
-/* Input de recherche */
-.search-input {
-    width: 100%;
-    height: 40px;
-    padding: 0.5rem 2.5rem 0.5rem 1rem; /* Padding droit pour la loupe */
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    box-sizing: border-box;
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.1);
-}
-
-/* Bouton de recherche */
-/* Bouton de recherche */
-.search-btn {
-    position: absolute;
-    right: 10px;
-    background-color: #722F37; /* Nouvelle couleur header-bg */
-    border: none;
     cursor: pointer;
-    padding: 0;
+    transition: 0.8s;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+
+/* L'input s'élargit au focus ou au survol du conteneur de recherche. */
+.search-container form:focus-within > .search-input,
+.search-container:hover > .search-input,
+.search-btn:focus + .search-input {
+    width: 250px;
+    transition: width 0.3s ease;
+}
+
+/* L'input reste élargi si la classe "expanded" est appliquée. */
+.search-container.expanded > .search-input {
+    width: 250px; 
+    transition: none; 
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 100%;
+    align-items: center;
 }
 
-.search-btn .fas {
-    font-size: 14px;
-    background-color: #722F37; /* Nouvelle couleur header-bg */
+.search-container:hover{
+    padding: 10px 20px;
 }
 
-.search-btn:hover .fas {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+/*icônes de bouton*/
+.search-container .search-btn .fa,
+.search-container .search-btn .fas{
+    font-size: 18px;
+}
+.search-container .search-btn .fas {
+    color: var(--accent-color);
+}
+.search-container .search-btn .fa {
+    color: rgb(137, 64, 64);
 }
 
-@media (max-width: 768px) {
-    .search-container {
-        padding: 0.5rem;
+
+/*Écran plus grand*/
+@media (min-width: 500px) {
+    /* .search-container form:focus-within > .search-input,
+    .search-container:hover > .search-input,
+    .search-btn:focus + .search-input {
+    width: 400px;
+    transition: width 0.3s ease;
+    } */
+    .search-container.expanded > .search-input {
+        width: 400px; 
+        transition: none;
     }
-    .search-input {
-        font-size: 16px;
+    .search-container {
+        max-width: 400px;
     }
 }

@@ -1,5 +1,5 @@
 :root {
-    --card-bg: var(--darker-accent);
+    --card-bg: #112d55;
 }
 /* Conteneur de la carte */
 .card_bottle {
