@@ -65,8 +65,8 @@
         <!-- Visible for regular users only -->
         @auth('web')
             <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>@lang('lang.home')</a>
-            <a class="nav-link" href="{{ route('cellar.index') }}"> <img src="{{asset('img/navigation/my-collection.svg') }}" alt="nav-image">@lang('lang.cellars')</a>
-            <a class="nav-link" href="{{ route('bottle.index') }}"> <img src="{{asset('img/navigation/catalog.svg') }}" alt="nav-image">@lang('lang.bottles')</a>
+            <a class="nav-link" href="{{ route('cellar.index') }}"> <i class="fa-solid fa-warehouse"></i>@lang('lang.cellars')</a>
+            <a class="nav-link" href="{{ route('bottle.index') }}"> <i class="fa-solid fa-bottle-droplet"></i>@lang('lang.bottles')</a>
         @endauth
         @auth('admin')
             <a class="nav-link" href="{{ route('admin.dashboard') }}"> 
