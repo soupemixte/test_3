@@ -11,23 +11,23 @@ class FutureListController extends Controller
     /**
      * Ajoutez la bouteille à la liste future
      */
-    public function add(Request $request) {
-        $request->validate([
-            'bottle_id' => 'required|exists:bottles,id',
-        ]);
+    public function add(Request $request, $id) {
+        $user = Auth::user();
 
         // Vérifier si la bouteille est déjà dans la liste future
-        $existing = FutureList::where('user_id', Auth::id())
-            ->where('bottle_id', $request->bottle_id)
-            ->first();
+        $exists = FutureList::where('user_id', $user->id)
+            ->where('bottle_id', $id)
+            ->exists();
 
-        if ($existing) {
-            return redirect()->back()->with('error', "Cette bouteille est déjà dans votre future liste !");
+        
+        if ($exists) {
+           // message si la bouteille est déjà ajoutée
+            return redirect()->back()->with('error', "Cette bouteille est déjà dans votre future liste.");
         }
 
         FutureList::create([
-            'user_id' => Auth::id(),
-            'bottle_id' => $request->bottle_id,
+            'user_id' => $user->id,
+            'bottle_id' => $id,
         ]);
 
         return redirect()->back()->with('success', "Bouteille ajoutée à votre future liste !");

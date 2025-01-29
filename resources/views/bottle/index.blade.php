@@ -108,10 +108,16 @@
                         <picture>
                             <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
                         </picture>
-                        <form action="{{ route('futurelist.add', ['bottle_id' => $bottle->id]) }}" method="POST" class="cart">
+                        <!-- <form action="{{ route('futurelist.add', $bottle->id) }}" method="POST" class="cart">
                             @csrf
                             <button type="submit" class="btn-icon"><i class="fa-solid fa-cart-shopping"></i></button>
-                        </form>
+                        </form> -->
+                        <span class="cart">
+                            <a href="{{ route('futurelist.add', ['id' => $bottle->id]) }}">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </span>
+                        {{ $bottle->id }}
                         
                         <div class="card-body">
                             <div class="card-title">

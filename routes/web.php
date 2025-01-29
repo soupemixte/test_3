@@ -50,7 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/cellar/create', [CellarController::class, 'create'])->name('cellar.create');
     // Bottle Route
     Route::get('/bottle/{id}', [BottleController::class, 'details'])->name('bottle.details');
-    Route::post('/futurelist/add/{bottle_id}', [FutureListController::class, 'add'])->name('futurelist.add');
+    /* Route::post('/futurelist/add/{id}', [FutureListController::class, 'add'])->name('futurelist.add'); */
+    Route::get('/futurelist/add/{id}', [FutureListController::class, 'add'])->name('futurelist.add');
+
+
 
 
     Route::post('/bottle/{id}/add-to-cellar', [BottleController::class, 'addToCellar'])->name('bottle.addToCellar');

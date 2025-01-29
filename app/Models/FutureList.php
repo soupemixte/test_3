@@ -9,6 +9,8 @@ class FutureList extends Model
 {
     use HasFactory;
 
+    protected $table = 'future_lists';
+
     protected $fillable = ['user_id', 'bottle_id'];
 
     public function user()
