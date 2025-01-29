@@ -8,25 +8,12 @@
 } */
 
 .header {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     background-color: var(--header-bg);
     color: white;
-    padding: 30px;
-    text-align: center;
-    
-}
-
-.header .logo {
-    display: flex;
-    justify-content: center;
 }
 
 .header .logo img {
-    height: auto;
-    width: auto;
-    max-width: 100%;
+    width: 80px;
 }s
 .welcome-user p{ 
     color: white;

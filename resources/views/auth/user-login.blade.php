@@ -11,6 +11,9 @@
 @endif
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
+        <div class="section-title">
+            <h2>Formulaire de connexion.</h2>
+        </div>
         <form method="POST" class="form" action="{{ route('user.login.submit') }}">
             @csrf
             <div class="form-control">

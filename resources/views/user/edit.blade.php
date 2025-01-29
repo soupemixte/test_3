@@ -3,6 +3,9 @@
 @section('content')
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
+        <div class="section-title">
+            <h2>Formulaire modification d'usager : {{ $user->name }}.</h2>
+        </div>
         <form method="POST" class="form">
             @csrf
             @method('put')

@@ -9,6 +9,9 @@
 
 <main class="flex-center heigth80">
     <section class="structure">
+        <div class="section-title">
+            <h2>Profil d'usager.</h2>
+        </div>
         <div class="info-details profile">
             <div class="info-grid mb-5">
                 <div class="info-item">

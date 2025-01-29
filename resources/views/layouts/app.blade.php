@@ -11,19 +11,15 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header flex-al just-between pb-20">
         <div class="logo">
             <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
         </div>
-        <ul>
-            <div class="hidden dropdown">
-                <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
-                <div class="dropdown-box">
-                    <a href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
-                    <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
-                </div>
-            </div>  
-        </ul>
+        <div class="pr-10">
+            @auth('web')
+                <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a>
+            @endauth
+        </div>
     </header>
 
     @if(session('success'))
@@ -64,7 +60,6 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>@lang('lang.home')</a>
             <a class="nav-link" href="{{ route('cellar.index') }}"> <i class="fa-solid fa-warehouse"></i>@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <i class="fa-solid fa-bottle-droplet"></i>@lang('lang.bottles')</a>
         @endauth

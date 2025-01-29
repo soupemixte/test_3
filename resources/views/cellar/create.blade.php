@@ -2,7 +2,10 @@
 @section('title', 'Create Cellar')
 @section('content')
 <main class="flex-center">
-    <section class="structure flex-col-center height80">   
+    <section class="structure flex-col-center height80">
+    <div class="section-title">
+        <h2>Formulaire création d'un cellier.</h2>
+    </div>   
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf
             <div class="form-control">

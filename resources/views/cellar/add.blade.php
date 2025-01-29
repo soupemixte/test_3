@@ -11,6 +11,9 @@
 @endif
 <main class="flex-center">
     <section class="structure flex-col-center height80">
+    <div class="section-title">
+        <h2>Formulaire pour ajouter une bouteille au cellier.</h2>
+    </div>
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
         <div class="form-title">

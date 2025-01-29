@@ -5,6 +5,9 @@
 
 <main class="flex-center">
     <section class="structure flex-col-center height60 gap20">
+        <div class="section-title">
+            <h2>Formulaire création d'usager.</h2>
+        </div>
         <form action="{{ route('user.store') }}" method="POST" class="form">
             @csrf
             <div class="form-control">

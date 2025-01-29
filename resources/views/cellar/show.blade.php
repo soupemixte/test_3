@@ -3,6 +3,9 @@
 @section('content')
 <main class="flex-center flex-center height80">   
     <section class="structure">
+    <div class="section-title">
+        <h2>Inventaire de : {{ $cellar->title }}.</h2>
+    </div>
     <header class="filter-wrapper">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
            

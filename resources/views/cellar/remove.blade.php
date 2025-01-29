@@ -5,7 +5,10 @@
 
 <main class="flex-center">
 
-    <section class="structure flex-col-center height80">   
+    <section class="structure flex-col-center height80">
+    <div class="section-title">
+        <h2>Formulaire de retrait bouteille.</h2>
+    </div>   
     <form class="form" action="{{ route('cellar.removeBottle') }}" method="POST">
         @csrf
         <div class="form-title">

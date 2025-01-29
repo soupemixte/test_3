@@ -5,6 +5,9 @@
 
 <main class="flex-center height80">    
         <div class="structure">
+        <div class="section-title">
+            <h2>Liste de nos bouteilles.</h2>
+        </div>
             <header class="filter-wrapper">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
            

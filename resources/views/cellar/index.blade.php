@@ -3,6 +3,9 @@
 @section('content')
 <main class="flex-center"> 
     <section class="structure flex-col mb-10 height80 gap10">
+    <div class="section-title">
+        <h2>Collection : {{ $cellars->count() }} cellier(s).</h2>
+    </div>
         <div class="btn-container flex-center"><a href="{{ route('cellar.create') }}" class="btn-border btn-icon btn-go flex-al gap5">Ajouter<i class="fa-solid fa-plus"></i></a></div> 
         @foreach ($cellars as $cellar)
             <article class="card_cellar">
