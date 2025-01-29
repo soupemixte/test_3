@@ -10,43 +10,44 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
+    
+    <header class="header flex-col">
+        @if(session('success'))
+        <div class="alert success">
+            
+            <p>{{ session('success') }}</p>
+            <button type="button" class="btn-close">X</button>
         </div>
-        <ul>
-            <div class="hidden dropdown">
-                <img src="{{ asset('img/navigation/language.png')}}" alt="language settings">
-                <div class="dropdown-box">
-                    <a href="{{ route('lang', 'en') }}">@lang('lang.lang_en')</a>
-                    <a href="{{ route('lang', 'fr') }}">@lang('lang.lang_fr')</a>
+        @endif
+    
+        @if(session('errors'))
+            @if(session('errors')->has('password'))
+                <div class="alert warning flex-center just-between">
+                <p>Assurez vous d'avoir les bonnes informations du compte.</p>
+                    <button type="button" class="btn-close">X</button>
                 </div>
-            </div>  
-        </ul>
+            @endif
+        @endif
+    
+        @if(session('warning'))
+            <div class="alert warning">
+                <p>{{ session('warning') }}</p>
+                <button type="button" class="btn-close">X</button>
+            </div>
+        @endif
+    <!-- Header -->
+     <div class="flex-al just-between">
+
+         <div class="logo">
+             <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
+         </div>
+         <div class="pr-10">
+             @auth('web')
+                 <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a>
+             @endauth
+         </div>
+     </div>
     </header>
-
-    @if(session('success'))
-    <div class="alert success">
-        
-        <p>{{ session('success') }}</p>
-        <button type="button" class="btn-close">X</button>
-    </div>
-    @endif
-
-    @if(session('error'))
-        <div class="alert error">
-            {{ session('error') }}
-            <button type="button" class="btn-close">X</button>
-        </div>
-    @endif
-
-    @if(session('warning'))
-        <div class="alert warning">
-            <p>{{ session('warning') }}</p>
-            <button type="button" class="btn-close">X</button>
-        </div>
-    @endif
 
     
 
@@ -64,7 +65,6 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>@lang('lang.home')</a>
             <a class="nav-link" href="{{ route('cellar.index') }}"> <i class="fa-solid fa-warehouse"></i>@lang('lang.cellars')</a>
             <a class="nav-link" href="{{ route('bottle.index') }}"> <i class="fa-solid fa-bottle-droplet"></i>@lang('lang.bottles')</a>
         @endauth
@@ -80,9 +80,10 @@
 
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
-  <a class="nav-link" href="{{ route('user.login') }}">
+   <p>Connectez vous !</p>
+  <!-- <a class="nav-link" href="{{ route('user.login') }}">
   <i class="fa-solid fa-right-to-bracket"></i>@lang('lang.login')
-  </a>
+  </a> -->
 @else
   @if($isAdmin)
     <!-- Admin logged in -->

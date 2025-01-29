@@ -1,8 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Edit cellar')
 @section('content')
-<main class="flex-center">
-    <section class="structure flex-col-center height80">   
+<main class="flex-center height70">
+    <section class="structure flex-col gap10">
+    <div class="section-title">
+        <h2>Formulaire modification du cellier : {{ $cellar->title }}.</h2>
+    </div>
+    <div class="line"></div>    
         <form class="form" method="POST">
             @csrf
             @method('put')

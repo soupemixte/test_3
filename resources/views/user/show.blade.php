@@ -7,8 +7,12 @@
     TODO: if cellars->isEmpty()
 -->
 
-<main class="flex-center heigth80">
-    <section class="structure">
+<main class="flex-center height60">
+    <section class="structure flex-col gap10">
+        <div class="section-title">
+            <h2>Profil d'usager.</h2>
+        </div>
+        <div class="line"></div> 
         <div class="info-details profile">
             <div class="info-grid mb-5">
                 <div class="info-item">
@@ -33,6 +37,7 @@
             
             </div>
         </div>
+
         <!-- cellars -->
         @if($cellars)
             <section class="flex-col gap10">
@@ -40,6 +45,7 @@
                 <div class="flex-center">
                     <h2>Nombres de Celliers : {{ $count }}</h2>
                 </div>
+                <div class="line"></div> 
                 @endif
                 <div class="info-details profile-cellar">
                 @foreach ($cellars as $cellar)
@@ -66,42 +72,6 @@
                 </div> 
                 @endforeach
                 </div>
-            </section>
-            @endif
-            <!-- list -->
-            @if($list)
-            <section class="flex-col gap10">
-                @if($list->count())
-                <div class="flex-center">
-                    <h2>Liste d'achat(s) : {{ $list->count() }} bouteille(s)</h2>
-                </div>
-                @endif
-                <div class="info-details profile-cellar">
-                @if($list)
-                <div class="info-grid mb-5">
-                    <div class="info-item">
-                        <span class="info-label">Dernière mise à jour :</span>
-                        <span class="info-value">{{ $list->last()->updated_at}}</span>
-                    </div>
-                    @foreach ($bottles as $bottle)
-                    @if ($list->last()->bottle_id === $bottle->id)
-                    <div class="info-item">
-                        <span class="info-label">Nom : </span>
-                        <span class="info-value">{{ $bottle->title }}</span>
-                    </div>
-                    @endif
-                    @endforeach
-                    @if($facture)
-                    <div class="info-item">
-                        <span class="info-label">Approximation :</span>
-                        <span class="info-value">{{ $facture }} $</span>                          
-                    </div>
-                    @endif
-                </div>
-                @endif
-                
-                </div>
-                
             </section>
             @endif
 </section>

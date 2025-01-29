@@ -3,9 +3,13 @@
 @section('content')
 
 
-<main class="flex-center">
+<main class="flex-center height60">
 
-    <section class="structure flex-col-center height80">   
+    <section class="structure flex-col gap10">
+    <div class="section-title">
+        <h2>Formulaire de retrait bouteille.</h2>
+    </div>
+    <div class="line"></div>   
     <form class="form" action="{{ route('cellar.removeBottle') }}" method="POST">
         @csrf
         <div class="form-title">
