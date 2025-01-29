@@ -12,27 +12,35 @@
   }
   
   .filter-box:hover i {
-    color: #007bff;
     transform: rotate(15deg);
   }
   
   .filter-options {
     display: none;
+   
     position: absolute;
-    top: 35px;
-    left: 0;
+    top: 25px;
+    left: -20px;
     background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10;
     padding: 10px;
-    min-width: 200px;
+    min-width: 280px;
   }
   
+/* section de filtrage*/
+.filter-section {
+  flex: 1;
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 10px;
+}
   
   .filter-box:hover .filter-options {
-    display: block;
+    display: flex;
+    gap: 5px;
   }
   
   .filter-item {
@@ -45,24 +53,28 @@
   
   .filter-item label {
     display: block;
+    text-align: center;
+    font-weight: bold;
     margin-bottom: 5px;
     font-size: 14px;
-    font-weight: 600;
-    color: #333;
+    color: var(--accent-color);
   }
   
   .filter-item select {
     width: 100%;
     padding: 8px 10px;
-    font-size: 14px;
+    font-size: 12px;
     border: 1px solid #ccc;
+    font-weight: bold;
+    
+    color: var(--general-title);
     border-radius: 4px;
+    text-align: center;
     background-color: #f9f9f9;
     appearance: none;
   }
   
   .filter-item select:focus {
-    border-color: #007bff;
     outline: none;
     background-color: #ffffff;
   }
