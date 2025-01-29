@@ -80,13 +80,13 @@
 
 .btn-go {
 
-    border: 2px solid var(--success-color) !important;
+    /* border: 2px solid var(--success-color) !important; */
     color: white !important;
     background: var(--success-color) !important;
 }
 
 .btn-cart {
-    border: 4px solid var(--darkest-accent);
+   /*  border: 4px solid var(--darkest-accent); */
     color: var(--light-accent);
     background-color: var(--darkest-accent);
 }
@@ -109,9 +109,10 @@
     text-decoration: none;
     /* display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 10px; */
+    align-items: center; */
+    gap: 10px;
     font-size: 20px;
+    border-radius: 10px;
     
     transition: all 1s;
     padding: 10px;
