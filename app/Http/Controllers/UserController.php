@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Cellar;
 use App\Models\Bottle;
 use App\Models\CellarBottle;
+use App\Models\FutureList;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
@@ -75,6 +76,10 @@ class UserController extends Controller
     {
         // Initialiser $cellars comme un tableau vide par défaut
         $cellars = collect();
+
+        $list = FutureList::where('user_id', Auth::user()->id)
+            ->get();
+        // return $list;
     
         if (Auth::user()->hasCellar()) {
             $cellars = Cellar::where('user_id', Auth::user()->id)
@@ -91,10 +96,24 @@ class UserController extends Controller
             foreach ($cellar_bottles as $cellar_bottle) {
                 $total += $cellar_bottle->quantity;
             }
-            // return $cellar_bottles;
-            // return $bottles;
-            // return $cellars;
-            return view('user.show', ['user' => $user], compact('cellars', 'total', 'count'));
+            $facture = 0;
+            $arrayBottle = [];
+            if($list){
+                foreach ($list as $item) {
+                    $bottles = Bottle::where('id', $item->bottle_id)
+                        ->get();
+                    $val = intval($bottles->first()->price);
+                    if($cellar_bottles) {
+                        foreach ($cellar_bottles as $cellar_bottle) {
+                            if($cellar_bottle->bottle_id == $item->bottle_id) {
+                                $facture += $val * $cellar_bottle->quantity;
+                            }
+                        }
+
+                    }
+                }
+            }
+            return view('user.show', ['user' => $user], compact('cellars', 'bottles' ,'total', 'count', 'list', 'facture'));
         }
         return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
 

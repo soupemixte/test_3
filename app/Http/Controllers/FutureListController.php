@@ -22,7 +22,7 @@ class FutureListController extends Controller
         
         if ($exists) {
            // message si la bouteille est déjà ajoutée
-            return redirect()->back()->with('error', "Cette bouteille est déjà dans votre future liste.");
+            return redirect()->back()->withWarning("Cette bouteille est déjà dans votre future liste.");
         }
 
         FutureList::create([
@@ -30,6 +30,6 @@ class FutureListController extends Controller
             'bottle_id' => $id,
         ]);
 
-        return redirect()->back()->with('success', "Bouteille ajoutée à votre future liste !");
+        return redirect()->back()->withSuccess('Bouteille ajoutée à votre future liste !');
     }
 }

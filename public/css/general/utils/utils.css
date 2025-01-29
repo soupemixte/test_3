@@ -22,6 +22,10 @@
     justify-content: center;
 }
 
+.flex-center > h2 {
+    font-size: 1em;
+}
+
 .flex-al {
     display: flex;
     align-items: center;

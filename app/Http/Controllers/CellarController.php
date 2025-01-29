@@ -83,33 +83,38 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar, Request $request) 
     {
-        $colors = $cellar->bottles()->distinct()->pluck('color')->filter()->all();
-        $countries = $cellar->bottles()->distinct()->pluck('country')->filter()->all();
-        // $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
-       
-        // Check if the query or filters exist
+        // Retrieve filter values
+        
+        $colors = Bottle::select('color')->distinct()->pluck('color');
+        $countries = Bottle::select('country')->distinct()->pluck('country');
+        $sizes = Bottle::select('size')->distinct()->pluck('size');
+        // return $sizes;
         $query = $request->input('search');
         $filter = $request->input('order');
         $color = $request->input('color');
         $country = $request->input('country');
+        $size = $request->input('size');
+    
+        // Base query
+        $bottlesQuery = Bottle::query();
 
-        // start building the query
-        $bottlesQuery = $cellar->bottles();
-
-        // Apply filters if provided
-        
-        if (!empty($query)) {
+        // Apply filters if they exist
+        if ($query) {
             $bottlesQuery->where('title', 'LIKE', '%' . $query . '%');
         }
-        if (!empty($color)) {
+
+        if ($color) {
             $bottlesQuery->where('color', $color);
         }
-        if (!empty($country)) {
+
+        if ($country) {
             $bottlesQuery->where('country', $country);
         }
-        // if (!empty($size)) {
-        //     $bottlesQuery->where('size', $size);
-        // }
+
+        if ($size) {
+            $bottlesQuery->where('size', $size);
+        }
+
 
         if ($filter) { $order = $filter; }
         else {
@@ -122,7 +127,7 @@ class CellarController extends Controller
         
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
-            return view('cellar.show', compact('cellar', 'cellar_bottles', 'bottles', 'query', 'order', 'colors', 'countries', 'color', 'country'));
+            return view('cellar.show', compact('cellar', 'cellar_bottles', 'bottles', 'query', 'order', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
         }
         
     }
