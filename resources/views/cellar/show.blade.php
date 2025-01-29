@@ -118,7 +118,7 @@
             </div>
         @endif
 
-        <div class="line"></div>
+        <!-- <div class="line"></div> -->
         <section class="flex-col gap10">
             <!-- <div class="btn-container-top">
                 <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
@@ -147,7 +147,7 @@
                             <div class="line"></div>
                             <p>{{ $bottle->country }}</p>
                         </div>
-                        <div class="card-list">
+                        <div class="card-category">
                             @foreach ($cellar_bottles as $cellar_bottle)
                             @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
                                 <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
