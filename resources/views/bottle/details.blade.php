@@ -9,8 +9,11 @@
             </picture>
             <div class="flex-col gap10">
                 <h2 class="details-title">{{ $bottle->title }}</h2>
-                <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn btn-icon m-auto">Ajouter<i class="fa-solid fa-plus"></i></a>
-            </div>
+                <div class="flex-al gap5">
+
+                    <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go flex-al just-between flex1 gap5">Ajouter<i class="fa-solid fa-plus"></i></a>
+                    <a href="{{ route('futurelist.add', ['id' => $bottle->id]) }}" class="btn-icon btn-cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
         </article>
 
         <div class="line"></div>

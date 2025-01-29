@@ -7,7 +7,7 @@
 
 body {
     margin: 0;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     min-height: 100vh;
     position: relative;
 }
@@ -24,14 +24,15 @@ main {
     align-items: center;
     padding: 20px;
     background-color: var(--header-bg);
-    border-top: 1px solid #ccc;
-    position: fixed;
-    bottom: 0;
+    /* border-top: 1px solid #ccc; */
+    /* position: fixed; */
+    /* bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
+    position:sticky;
 }
 
 .nav-link {
@@ -62,7 +63,15 @@ main {
 
 @media screen and (max-width: 768px) {
     .nav-link img {
+        
         width: 40px;
+    }
+
+    .nav-link i {
+        height: 40px;
+        width: 40px;
+        scale: 1;
+        margin-bottom: 5px;
     }
     
     .navigation {

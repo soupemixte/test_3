@@ -31,7 +31,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border btn-icon btn-go">@lang('lang.login')<i class="fa-solid fa-right-to-bracket"></i></button>
+            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.login')<i class="fa-solid fa-right-to-bracket"></i></button>
         </form>
         
         <div class="form_footer">

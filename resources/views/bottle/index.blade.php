@@ -76,30 +76,37 @@
             @endif
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
-                <div class="results mb-10">
-                    @if (!empty($query))
+            <div class="results flex-col">
+                <div>
+                @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
+                        @if(!empty($query))
                         <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
+                        @endif
+                        <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
                     @endif
-                    @if (!empty($color) || !empty($country) || !empty($order))
-                    <ul>Filtres:
-                                @if (!empty($color)) <li>{{ $color }}</li>@endif
-                                @if (!empty($color) && (!empty($country) || !empty($size))) @endif
-                                @if (!empty($country)) <li>{{ $country }}</li>@endif
-                                @if (!empty($country) && !empty($size)) @endif
-                                @if (!empty($size)) <li>{{ $size }}</li>@endif
-                            </ul>
-                        @if (!empty($order))
-                        <ul>Tri :
+                </div>
+                <div class="flex-al gap20">
+                    @if (!empty($color) || !empty($country) || !empty($size))
+                    <ul>Filtres :
+                        @if (!empty($color)) <li>{{ $color }}</li>@endif
+                        @if (!empty($color) && (!empty($country) || !empty($size))) @endif
+                        @if (!empty($country)) <li>{{ $country }}</li>@endif
+                        @if (!empty($country) && !empty($size)) @endif
+                        @if (!empty($size)) <li>{{ $size }}</li>@endif
+                    </ul>
+                    @endif
+                    @if (!empty($order))
+                        <ul>Tri (A - Z) :
                             @if($order === 'title') <li>Nom</li>@endif
                             @if($order === 'country') <li>Pays</li>@endif
                             @if($order === 'region') <li>Region</li>@endif
                             @if($order === 'color') <li>Couleur</li>@endif
                         </ul>
-                        @endif
                     @endif
-                    <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                    <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
                 </div>
+                <!-- <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a> -->
+            </div>
             @endif
             <section class="grid">
                 
@@ -108,15 +115,19 @@
                         <picture>
                             <img src="{{ $bottle->image_src ?? asset('img/gallery/bottle_1.webp') }}" alt="{{ $bottle->title }}">
                         </picture>
-                        <form action="" class="cart">
-                            <button type="submit" class="btn-icon"><i class="fa-solid fa-cart-shopping"></i></button>
-                        </form>
+<!-- 
+                        <span class="cart">
+                            <a href="{{ route('futurelist.add', ['id' => $bottle->id]) }}">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </span> -->
                         
                         <div class="card-body">
-                            <div class="card-title">
+                            <div class="card-title flex just-between">
                                 <h2>
                                     {{ $bottle->title }}
                                 </h2>
+                                
                             </div>
                             <div class="card-category">
                                 <p>{{ $bottle->color }}</p>
@@ -128,8 +139,8 @@
                             <div>
                         </div>
                         <div class="btn-container flex-center gap5">
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go"><i class="fa-solid fa-plus"></i></a>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show flex-al just-between">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go flex-al just-between">Ajouter<i class="fa-solid fa-plus"></i></a>
 
                         </div>
                     </article>
@@ -137,7 +148,7 @@
             
             </section>
 
-            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
+            <div class="pagination-wrapper">{{ $bottles->onEachSide(0)->links('pagination::bootstrap-4') }}</div>
         </div>
 </main>
 

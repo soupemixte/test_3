@@ -22,6 +22,10 @@
     justify-content: center;
 }
 
+.flex-center > h2 {
+    font-size: 1em;
+}
+
 .flex-al {
     display: flex;
     align-items: center;
@@ -38,6 +42,10 @@
     flex-direction: column;
 }
 
+.flex1 {
+    flex: 1;
+}
+
 .height-center {
     display: flex;
     justify-content: center;
@@ -52,7 +60,9 @@
 .just-left {
     justify-content: left;
 }
-
+.just-center {
+    justify-content: center;
+}
 
 .just-between {
     justify-content: space-between;
