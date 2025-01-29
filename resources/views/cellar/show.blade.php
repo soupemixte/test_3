@@ -137,6 +137,7 @@
                             <p>{{ $bottle->color }}</p>
                             <div class="line"></div>
                             <p>{{ $bottle->size }}</p>
+                            <p>{{ $bottle->size }}</p>
                             <div class="line"></div>
                             <p>{{ $bottle->country }}</p>
                         </div>
