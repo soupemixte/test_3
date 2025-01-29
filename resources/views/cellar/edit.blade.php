@@ -24,13 +24,13 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">@lang('lang.cellar_create')<i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.cellar_create')<i class="fa-solid fa-pen-to-square"></i></button>
         </form>
         @if(Auth::id() == $cellar->user_id)
         <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
             @csrf
             @method('delete')
-            <button type="submit" class="btn-border btn-remove">Supprimer<i class="fa-solid fa-trash"></i></button>
+            <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">supprimer<i class="fa-solid fa-trash"></i></button>
         </form>
         @endif
     </section>

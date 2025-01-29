@@ -1,19 +1,19 @@
 /* Classe principale pour afficher les résultats de recherche */
 .results {
     /* background-color: var(--dark-accent); */
-    background-color: var(--dark-accent);
-    border: 1px solid #ddd;
+    background-color: var(--light-accent);
+    border: 2px solid var(--red-wine);
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     font-family: Arial, sans-serif;
-    color: #ffffff;
+    color: var(--color-black);
 }
 
 /* Style pour le titre des résultats */
 .results h2 {
-    font-size: 1.5em;
-    color: #ffffff;
-    margin-bottom: 10px;
+    font-size: 0.8em;
+    color: var(--color-black);
+    /* margin-bottom: 10px; */
 }
 
 /* Style pour le nombre de résultats trouvés */

@@ -23,7 +23,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border">@lang('lang.cellar_create')<i class="fa-solid fa-floppy-disk"></i></button>
+            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.save')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
     </section>
 </main>

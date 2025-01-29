@@ -34,10 +34,10 @@
 
 /*Le bouton sans bordure*/
 .btn-border {
-    display: inline-block;
-    padding: 10px 20px;
+    /* display: inline-block; */
+    /* padding: 10px 20px; */
     /* border: 2px solid var(--accent-color); */
-    background: none;
+    /* background: none; */
     /* color: var(--accent-color); */
     font-size: 1em;
     font-weight: bold;
@@ -50,15 +50,15 @@
 
 .btn-edit {
     /* width: 100%; */
-    border: 2px solid var(--color-black);
-    background-color: var(--accent-color);
-    color: var(--color-black);
+    border: 4px solid var(--darkest-accent);
+    /* background-color: var(--accent-color); */
+    color: var(--darkest-accent);
 }
 
 .btn-remove {
-    border: 2px solid var(--error-color);
-    /* background: var(--color-white); */
-    color: var(--error-color);
+    border: 4px solid var(--error-color);
+    background: var(--error-color);
+    color: var(--darkest-accent);
     /* background: none; */
     /* text-decoration: none; */
     /* display: inline-block; */
@@ -73,15 +73,22 @@
 }
 
 .btn-show {
-    border: 2px solid var(--color-black);
-    background-color: var(--dark-accent);
-    color: var(--light-accent);
+    border: 4px solid var(--dark-accent);
+    /* background-color: var(--dark-accent); */
+    color: var(--dark-accent);
 }
 
 .btn-go {
+
     border: 2px solid var(--success-color) !important;
     color: white !important;
     background: var(--success-color) !important;
+}
+
+.btn-cart {
+    border: 4px solid var(--darkest-accent);
+    color: var(--light-accent);
+    background-color: var(--darkest-accent);
 }
 
 /* Hover effect for the link */
@@ -98,16 +105,14 @@
 
 /*Le bouton avec une icône*/
 .btn-icon {
-    background: none;
+    /* background: none; */
     text-decoration: none;
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    border-radius: 10px;
-    color: var(--accent-color);
+    gap: 10px; */
     font-size: 20px;
-    border: 4px solid var(--accent-color);
+    
     transition: all 1s;
     padding: 10px;
     width: fit-content;
