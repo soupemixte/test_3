@@ -95,7 +95,7 @@
                         <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
                     @endif
                 </div>
-                <div class="flex-al gap20">
+                <div class="flex just-between gap20">
                     @if (!empty($color) || !empty($country) || !empty($size))
                     <ul>Filtres :
                         @if (!empty($color)) <li>{{ $color }}</li>@endif
@@ -150,8 +150,8 @@
                             <div>
                         </div>
                         <div class="btn-container flex-center gap5">
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-show flex-al just-between">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go flex-al just-between">Ajouter<i class="fa-solid fa-plus"></i></a>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-icon btn-go flex-al just-between">Ajouter<i class="fa-solid fa-plus"></i></a>
 
                         </div>
                     </article>
