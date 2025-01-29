@@ -19,7 +19,7 @@
         
         <div class="form-control">
             <label for="quantity">@lang('lang.quantity')</label>
-            <input type="number" name="quantity" id="" value="{{ $cellar->quantity, old('quantity') }}">
+            <input type="number" name="quantity" id="" value="{{ old('quantity') }}">
 
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
