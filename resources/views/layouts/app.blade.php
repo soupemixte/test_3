@@ -61,9 +61,9 @@
     <nav class="navigation">
         <!-- Visible for regular users only -->
         @auth('web')
-            <a class="nav-link" href="{{ route('cellar.index') }}"> <i class="fa-solid fa-warehouse"></i>@lang('lang.cellars')</a>
-            <a class="nav-link" href="{{ route('bottle.index') }}"> <i class="fa-solid fa-bottle-droplet"></i>@lang('lang.bottles')</a>
-            <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a>
+            <a class="nav-link {{ Request::routeIs('cellar.index') ? 'active' : '' }}" href="{{ route('cellar.index') }}"> <i class="fa-solid fa-warehouse"></i>@lang('lang.cellars')</a>
+            <a class="nav-link {{ Request::routeIs('bottle.index') ? 'active' : '' }}" href="{{ route('bottle.index') }}"> <i class="fa-solid fa-bottle-droplet"></i>@lang('lang.bottles')</a>
+            <a class="nav-link {{ Request::routeIs('user.show') ? 'active' : '' }}" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a>
         @endauth
         @auth('admin')
             <a class="nav-link" href="{{ route('admin.dashboard') }}"> 
