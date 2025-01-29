@@ -1,34 +1,30 @@
-/* Classe principale pour afficher les résultats de recherche */
 .results {
     /* background-color: var(--dark-accent); */
-    background-color: var(--light-accent);
-    border: 2px solid var(--red-wine);
+    background-color: var(--dark-accent);
+    border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px;
     font-family: Arial, sans-serif;
-    color: var(--color-black);
+    color: #ffffff;
 }
 
-/* Style pour le titre des résultats */
 .results h2 {
-    font-size: 0.8em;
-    color: var(--header-bg);
-    /* margin-bottom: 10px; */
-}
-
-/* Style pour le nombre de résultats trouvés */
-.results span {
-    display: inline-block;
-    font-weight: bold;
-    color: var(--header-bg);
+    font-size: 1.5em;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
-/* Style pour la liste des suggestions */
+.results span {
+    display: inline-block;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
 .results ul {
     font-size: 24px;
     font-weight: bold;
-    /* margin: 15px 0; */
+    margin: 15px 0;
     list-style-type: disc;
 }
 
@@ -36,12 +32,12 @@
 .results ul li {
     list-style:circle;
     font-size: 18px;
-    /* font-weight: italic; */
+    font-weight: italic;
     margin-left: 20px;
-    color: var(--color-black);
+    color: #ffffff;
 }
 
-
 .results p {
-    text-align: left;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
 }
