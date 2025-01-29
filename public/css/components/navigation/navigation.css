@@ -44,6 +44,10 @@ main {
     transition: color 0.3s ease;
 }
 
+.nav-link i {
+    font-size: 40px;
+}
+
 .nav-link img {
     width: 60px;
     height: auto;
@@ -61,19 +65,7 @@ main {
     }
 }
 
-@media screen and (max-width: 768px) {
-    .nav-link img {
-        
-        width: 40px;
-    }
-
-    .nav-link i {
-        height: 40px;
-        width: 40px;
-        scale: 1;
-        margin-bottom: 5px;
-    }
-    
+@media screen and (max-width: 768px) {    
     .navigation {
         padding: 10px;
     }
