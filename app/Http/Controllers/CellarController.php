@@ -106,9 +106,9 @@ class CellarController extends Controller
         $color = $request->input('color');
         $country = $request->input('country');
         $size = $request->input('size');
-
-        // start building the query
-        $bottlesQuery = $cellar->bottles();
+    
+        // Base query
+        $bottlesQuery = $cellar->bottles();;
 
         // Apply filters if provided
         
