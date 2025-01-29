@@ -38,6 +38,10 @@
     flex-direction: column;
 }
 
+.flex1 {
+    flex: 1;
+}
+
 .height-center {
     display: flex;
     justify-content: center;
