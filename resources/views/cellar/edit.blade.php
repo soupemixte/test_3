@@ -28,10 +28,10 @@
                 </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.cellar_create')<i class="fa-solid fa-pen-to-square"></i></button>
+            <button type="submit" class="btn-icon btn-go flex-al just-between">Modifier<i class="fa-solid fa-pen-to-square"></i></button>
         </form>
         @if(Auth::id() == $cellar->user_id)
-        <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5" id="delete-btn">supprimer<i class="fa-solid fa-trash"></i></button>
+        <button type="submit" class="btn-icon btn-remove flex-al just-between" id="delete-btn">supprimer<i class="fa-solid fa-trash"></i></button>
         <div class="popup-overlay hide" id="popup-overlay">
             <div class="popup-delete">
                 <div class="message">
@@ -42,7 +42,7 @@
                     <form method="POST" action="{{ route('cellar.destroy', $cellar->id) }}">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">supprimer<i class="fa-solid fa-trash"></i></button>
+                        <button type="submit" class="btn-icon btn-remove flex-al just-between">supprimer<i class="fa-solid fa-trash"></i></button>
                     </form>
                 </div>
             </div>

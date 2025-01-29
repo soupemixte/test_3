@@ -27,7 +27,7 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.save')<i class="fa-solid fa-floppy-disk"></i></button>
+            <button type="submit" class="btn-icon btn-show flex-al just-between">@lang('lang.save')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
     </section>
 </main>

@@ -33,7 +33,7 @@
                 </div> -->
             </div>
             <div class="btn-container flex-center gap5">
-            <a href="{{ route('user.edit', $user->id) }}" class="btn-border btn-icon btn-edit flex-al just-between gap5">modifier<i class="fa-solid fa-pen-to-square"></i></a>
+            <a href="{{ route('user.edit', $user->id) }}" class="btn-icon btn-edit flex-al just-between">modifier<i class="fa-solid fa-pen-to-square"></i></a>
             <!-- <a href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a> -->
 
             </div>
@@ -60,6 +60,7 @@
                         <span class="info-value">{{ $cellar->description }}</span>
                     </div>
                     @if($total)
+                    <p>test</p>
                     <div class="info-item">
                         <span class="info-label">Inventaire :</span>
                         <span class="info-value">{{ $total }} Bouteille(s)</span>                          
@@ -67,8 +68,8 @@
                     @endif
                 </div>
                 <div class="btn-container flex-center gap5">
-                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border btn-icon btn-edit flex-al just-between gap5">modifier<i class="fa-solid fa-pen-to-square"></i></a>
-                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border btn-icon btn-show flex-al just-between gap5">voir<i class="fa-solid fa-eye"></i></a>
+                    <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-icon btn-edit flex-al just-between">modifier<i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">voir<i class="fa-solid fa-eye"></i></a>
                     
                 </div> 
                 @endforeach
@@ -76,8 +77,8 @@
             </section>
             @endif
             @auth('web')
-            <div class="btn-container">
-                    <a href="{{ route('logout') }}" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.logout')
+            <div class="btn-container flex-center">
+                    <a href="{{ route('logout') }}" class="btn-icon btn-remove flex-al just-between">@lang('lang.logout')
             <i class="fa-solid fa-right-from-bracket"></i>
             </a>
 

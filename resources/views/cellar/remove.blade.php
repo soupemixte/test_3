@@ -52,7 +52,7 @@
         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
         <input type="hidden" name="cellar_id" value="{{ $cellar->cellar_id}}">
 
-        <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">Retirer<i class="fa-solid fa-minus"></i></button>
+        <button type="submit" class="btn-icon btn-remove flex-al just-between">Retirer<i class="fa-solid fa-minus"></i></button>
     </form>
     </section>
 </main>

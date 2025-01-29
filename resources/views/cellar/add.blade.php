@@ -56,7 +56,7 @@
 
         <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
 
-        <button type="submit" class="btn-border btn-icon btn-go">@lang('lang.add_bottle')<i class="fa-solid fa-plus"></i></button>
+        <button type="submit" class="btn-icon btn-go flex-al just-between">@lang('lang.add_bottle')<i class="fa-solid fa-plus"></i></button>
     </form>
 
     </section>
