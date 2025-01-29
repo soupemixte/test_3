@@ -117,7 +117,6 @@
                                 <i class="fa-solid fa-cart-shopping"></i>
                             </a>
                         </span>
-                        {{ $bottle->id }}
                         
                         <div class="card-body">
                             <div class="card-title">
@@ -143,7 +142,7 @@
             
             </section>
 
-            <div class="pagination-wrapper">{{ $bottles->links('pagination::bootstrap-4') }}</div>
+            <div class="pagination-wrapper">{{ $bottles->onEachSide(0)->links('pagination::bootstrap-4') }}</div>
         </div>
 </main>
 
