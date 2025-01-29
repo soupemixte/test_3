@@ -60,7 +60,8 @@
 
 /*Écran plus grand*/
 @media (min-width: 600px) {
+    .filter-options,
     .search-container {
-        max-width: 400px;
+        width: 400px;
     }
 }
