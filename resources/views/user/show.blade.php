@@ -7,11 +7,12 @@
     TODO: if cellars->isEmpty()
 -->
 
-<main class="flex-center heigth80">
-    <section class="structure">
+<main class="flex-center height60">
+    <section class="structure flex-col gap10">
         <div class="section-title">
             <h2>Profil d'usager.</h2>
         </div>
+        <div class="line"></div> 
         <div class="info-details profile">
             <div class="info-grid mb-5">
                 <div class="info-item">
@@ -36,6 +37,7 @@
             
             </div>
         </div>
+
         <!-- cellars -->
         @if($cellars)
             <section class="flex-col gap10">
@@ -43,6 +45,7 @@
                 <div class="flex-center">
                     <h2>Nombres de Celliers : {{ $count }}</h2>
                 </div>
+                <div class="line"></div> 
                 @endif
                 <div class="info-details profile-cellar">
                 @foreach ($cellars as $cellar)

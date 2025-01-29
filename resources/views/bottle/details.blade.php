@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Détails')
 @section('content')
-<main class="flex-center height80">
-    <section class="structure flex-col gap20">
+<main class="flex-center height60">
+    <section class="structure flex-col gap10">
         <div class="section-title">
             <h2>Infos détaillées.</h2>
         </div>
+        <div class="line"></div>
         <article class="details-article">
             <picture class="details-image_container">
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">

@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Create Cellar')
 @section('content')
-<main class="flex-center">
-    <section class="structure flex-col-center height80">
+<main class="flex-center height70">
+    <section class="structure flex-col gap10">
     <div class="section-title">
         <h2>Formulaire création d'un cellier.</h2>
     </div>   
+    <div class="line"></div> 
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf
             <div class="form-control">

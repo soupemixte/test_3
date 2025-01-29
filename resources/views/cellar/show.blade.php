@@ -1,11 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Cellar Show')
 @section('content')
-<main class="flex-center flex-center height80">   
-    <section class="structure">
+<main class="flex-center height60">   
+    <section class="structure flex-col gap10">
     <div class="section-title">
         <h2>Inventaire de : {{ $cellar->title }}.</h2>
     </div>
+    <div class="line"></div>
     <header class="filter-wrapper">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
            
@@ -68,6 +69,7 @@
                 
             </form>
             </header>
+            
         <!-- Afficher la quantité trouvée par défaut -->
         @if (empty($query) && empty($color) && empty($country) && empty($size))
             <div class="results">
@@ -114,7 +116,7 @@
             </div>
         @endif
 
-
+        <div class="line"></div>
         <section class="flex-col gap10">
             <!-- <div class="btn-container-top">
                 <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-border">Modifier</a>
@@ -161,6 +163,7 @@
                 </article>
             @endforeach
         </section>
+
     </section>
 </main>
 

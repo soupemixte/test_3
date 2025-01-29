@@ -10,39 +10,44 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body>
+    
+    <header class="header flex-col">
+        @if(session('success'))
+        <div class="alert success">
+            
+            <p>{{ session('success') }}</p>
+            <button type="button" class="btn-close">X</button>
+        </div>
+        @endif
+    
+        @if(session('errors'))
+            @if(session('errors')->has('password'))
+                <div class="alert warning flex-center just-between">
+                <p>Assurez vous d'avoir les bonnes informations du compte.</p>
+                    <button type="button" class="btn-close">X</button>
+                </div>
+            @endif
+        @endif
+    
+        @if(session('warning'))
+            <div class="alert warning">
+                <p>{{ session('warning') }}</p>
+                <button type="button" class="btn-close">X</button>
+            </div>
+        @endif
     <!-- Header -->
-    <header class="header flex-al just-between pb-20">
-        <div class="logo">
-            <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
-        </div>
-        <div class="pr-10">
-            @auth('web')
-                <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a>
-            @endauth
-        </div>
+     <div class="flex-al just-between">
+
+         <div class="logo">
+             <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
+         </div>
+         <div class="pr-10">
+             @auth('web')
+                 <a class="nav-link" href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a>
+             @endauth
+         </div>
+     </div>
     </header>
-
-    @if(session('success'))
-    <div class="alert success">
-        
-        <p>{{ session('success') }}</p>
-        <button type="button" class="btn-close">X</button>
-    </div>
-    @endif
-
-    @if(session('error'))
-        <div class="alert error">
-            {{ session('error') }}
-            <button type="button" class="btn-close">X</button>
-        </div>
-    @endif
-
-    @if(session('warning'))
-        <div class="alert warning">
-            <p>{{ session('warning') }}</p>
-            <button type="button" class="btn-close">X</button>
-        </div>
-    @endif
 
     
 
@@ -75,9 +80,10 @@
 
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
-  <a class="nav-link" href="{{ route('user.login') }}">
+   <p>Connectez vous !</p>
+  <!-- <a class="nav-link" href="{{ route('user.login') }}">
   <i class="fa-solid fa-right-to-bracket"></i>@lang('lang.login')
-  </a>
+  </a> -->
 @else
   @if($isAdmin)
     <!-- Admin logged in -->
