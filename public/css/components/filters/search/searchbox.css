@@ -10,10 +10,11 @@
     padding: 10px 40px;
     width: 100%;
     display: flex;
+    gap: 5px;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 0.8s;
+    /* transition: 0.8s; */
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
               -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.2),
@@ -21,28 +22,16 @@
 }
 
 /* L'input s'élargit au focus ou au survol du conteneur de recherche. */
-.search-container form:focus-within > .search-input,
-.search-container:hover > .search-input,
-.search-btn:focus + .search-input {
-    width: 250px;
-    transition: width 0.3s ease;
-}
 
-/* L'input reste élargi si la classe "expanded" est appliquée. */
-.search-container.expanded > .search-input {
-    width: 250px; 
-    transition: none; 
-}
 
 .search-container .search-input{
     background: transparent;
     border: none;
-    outline:none;
-    width: 0px;
+    outline:none; 
+   /*  width: 100%; */
     font-weight: 500;
     font-size: 16px;
-    transition: 0.8s;
-
+    /* transition: 0.8s; */
 }
 
 .search-container .search-btn {
@@ -55,9 +44,6 @@
     align-items: center;
 }
 
-.search-container:hover{
-    padding: 10px 20px;
-}
 
 /*icônes de bouton*/
 .search-container .search-btn .fa,
@@ -73,17 +59,7 @@
 
 
 /*Écran plus grand*/
-@media (min-width: 500px) {
-    /* .search-container form:focus-within > .search-input,
-    .search-container:hover > .search-input,
-    .search-btn:focus + .search-input {
-    width: 400px;
-    transition: width 0.3s ease;
-    } */
-    .search-container.expanded > .search-input {
-        width: 400px; 
-        transition: none;
-    }
+@media (min-width: 600px) {
     .search-container {
         max-width: 400px;
     }

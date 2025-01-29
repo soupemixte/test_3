@@ -6,7 +6,7 @@
 <main class="flex-center height80">    
         <div class="structure">
             <header class="filter-wrapper">
-            <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
+            <form action="" method="GET" class="search-container" id="search-form">
            
                 <div class="filter-box">
                  
