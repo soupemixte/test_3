@@ -118,7 +118,7 @@
                 <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
             </div>
             @endif
-            <div class="line"></div>
+            <!-- <div class="line"></div> -->
             <section class="grid">
                 
                 @foreach ($bottles as $bottle)

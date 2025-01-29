@@ -32,9 +32,10 @@
                     <span class="info-value">{{ $user->updated_at }}</span>
                 </div> -->
             </div>
-            <div class="btn-container flex-center">
+            <div class="btn-container flex-center gap5">
             <a href="{{ route('user.edit', $user->id) }}" class="btn-border btn-icon btn-edit flex-al just-between gap5">modifier<i class="fa-solid fa-pen-to-square"></i></a>
-            
+            <!-- <a href="{{ route('user.show', Auth::id()) }}"><i class="fa-solid fa-address-card"></i>Profil</a> -->
+
             </div>
         </div>
 
@@ -74,6 +75,16 @@
                 </div>
             </section>
             @endif
+            @auth('web')
+            <div class="btn-container">
+                    <a href="{{ route('logout') }}" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.logout')
+            <i class="fa-solid fa-right-from-bracket"></i>
+            </a>
+
+
+            </div>
+            
+            @endauth
 </section>
 </main>
 
