@@ -3,8 +3,12 @@
 @section('content')
 
 
-<main class="flex-center height80">    
-        <div class="structure">
+<main class="flex-center height60">    
+        <div class="structure flex-col gap10">
+        <div class="section-title">
+            <h2>Liste de nos bouteilles.</h2>
+        </div>
+        <div class="line"></div>
             <header class="filter-wrapper">
             <form action="" method="GET" class="search-container" id="search-form">
            
@@ -104,10 +108,11 @@
                         </ul>
                     @endif
                 </div>
-                <!-- <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a> -->
+                <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
             </div>
             @endif
+            <div class="line"></div>
             <section class="grid">
                 
                 @foreach ($bottles as $bottle)
@@ -147,7 +152,6 @@
                 @endforeach
             
             </section>
-
             <div class="pagination-wrapper">{{ $bottles->onEachSide(0)->links('pagination::bootstrap-4') }}</div>
         </div>
 </main>

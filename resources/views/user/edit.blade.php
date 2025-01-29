@@ -1,8 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Edit User')
 @section('content')
-<main class="flex-center">
-    <section class="structure flex-col-center height60 gap20">
+<main class="flex-center height60">
+    <section class="structure flex-col gap10">
+        <div class="section-title">
+            <h2>Formulaire modification d'usager : {{ $user->name }}.</h2>
+        </div>
+        <div class="line"></div> 
         <form method="POST" class="form">
             @csrf
             @method('put')
@@ -28,7 +32,7 @@
         </form>
         @if(Auth::id() == $user->id)
         <button class="btn-border btn-icon btn-remove flex-al just-between gap5" id="delete-btn">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
-        
+        <div class="line"></div> 
         <div class="popup-overlay hide" id="popup-overlay">
             <div class="popup-delete">
                 <div class="message">

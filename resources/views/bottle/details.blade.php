@@ -1,8 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Détails')
 @section('content')
-<main class="flex-center height80">
-    <section class="structure flex-col gap20">
+<main class="flex-center height60">
+    <section class="structure flex-col gap10">
+        <div class="section-title">
+            <h2>Infos détaillées.</h2>
+        </div>
+        <div class="line"></div>
         <article class="details-article">
             <picture class="details-image_container">
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">
@@ -10,16 +14,13 @@
             <div class="flex-col gap10">
                 <h2 class="details-title">{{ $bottle->title }}</h2>
                 <div class="flex-al gap5">
-
                     <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-icon btn-go flex-al just-between flex1 gap5">Ajouter<i class="fa-solid fa-plus"></i></a>
-                    <a href="{{ route('futurelist.add', ['id' => $bottle->id]) }}" class="btn-icon btn-cart"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
         </article>
 
         <div class="line"></div>
 
         <article class="info-details">
-            <h3>Infos détaillées</h3>
             <div class="info-grid">
                 <div class="info-item">
                     <span class="info-label">Pays :</span>

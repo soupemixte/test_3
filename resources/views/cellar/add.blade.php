@@ -9,8 +9,12 @@
         </div>
     @endif
 @endif
-<main class="flex-center">
-    <section class="structure flex-col-center height80">
+<main class="flex-center height80">
+    <section class="structure flex-col gap10">
+    <div class="section-title">
+        <h2>Formulaire pour ajouter une bouteille au cellier.</h2>
+    </div>
+    <div class="line"></div> 
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
         <div class="form-title">
@@ -54,7 +58,6 @@
 
         <button type="submit" class="btn-border btn-icon btn-go">@lang('lang.add_bottle')<i class="fa-solid fa-plus"></i></button>
     </form>
-
 
     </section>
 </main>
