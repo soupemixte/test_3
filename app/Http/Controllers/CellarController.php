@@ -96,7 +96,7 @@ class CellarController extends Controller
         $size = $request->input('size');
     
         // Base query
-        $bottlesQuery = Bottle::query();
+        $bottlesQuery = $cellar->bottles();
 
         // Apply filters if they exist
         if ($query) {
