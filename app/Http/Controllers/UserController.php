@@ -78,7 +78,7 @@ class UserController extends Controller
         $cellars = collect();
 
         $list = FutureList::where('user_id', Auth::user()->id)
-            ->get();
+            ->exists();
         // return $list;
     
         if (Auth::user()->hasCellar()) {
@@ -98,7 +98,11 @@ class UserController extends Controller
             }
             $facture = 0;
             $arrayBottle = [];
+            // return $list;
             if($list){
+                $list = FutureList::where('user_id', Auth::user()->id)
+                ->get();
+                // return "ici";
                 foreach ($list as $item) {
                     $bottles = Bottle::where('id', $item->bottle_id)
                         ->get();
@@ -112,8 +116,13 @@ class UserController extends Controller
 
                     }
                 }
+                // return $facture;
+                return view('user.show', ['user' => $user], compact('cellars', 'bottles' ,'total', 'count', 'list', 'facture'));
+            } else {
+                // return "la";
+                return view('user.show', ['user' => $user], compact('cellars' ,'total', 'count', 'list'));
             }
-            return view('user.show', ['user' => $user], compact('cellars', 'bottles' ,'total', 'count', 'list', 'facture'));
+            
         }
         return redirect()->route('cellar.create')->withWarning('Veuillez vous créer un cellier.');
 

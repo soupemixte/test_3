@@ -29,7 +29,19 @@ class CellarController extends Controller
         return redirect()->route('cellar.create')->withWarning('Veuillez bien créer un cellier.');
 
     }
-    
+
+
+  /*
+    public function switch($id)
+    {
+        $bottle = Bottle::findOrFail($id);
+        $cellars = Cellar::all();
+            // Redirect to cellar add page
+            return view('Cellar.add',['bottle'=>$bottle , 'cellars' => $cellars]);
+         
+        
+    }
+    */
 
     /**
      * Show the form for creating a new resource.
@@ -61,7 +73,7 @@ class CellarController extends Controller
             ->exists();
         if($cellar) {
             // TODO: return errors and old value
-            return redirect()->route('cellar.create')->withErrors('Vous avez deja un cellier avec ce nom : '.$name);
+            return redirect()->route('cellar.create')->withError('Vous avez deja un cellier avec ce nom : '.$name);
         };
         // Create Cellar
         $cellar = Cellar::create([
@@ -83,12 +95,12 @@ class CellarController extends Controller
      */
     public function show(Cellar $cellar, Request $request) 
     {
-        // Retrieve filter values
-        
-        $colors = Bottle::select('color')->distinct()->pluck('color');
-        $countries = Bottle::select('country')->distinct()->pluck('country');
-        $sizes = Bottle::select('size')->distinct()->pluck('size');
+        $colors = $cellar->bottles()->distinct()->pluck('color')->filter()->all();
+        $countries = $cellar->bottles()->distinct()->pluck('country')->filter()->all();
+        $sizes = $cellar->bottles()->distinct()->pluck('size')->filter()->all();
         // return $sizes;
+       
+        // Check if the query or filters exist
         $query = $request->input('search');
         $filter = $request->input('order');
         $color = $request->input('color');
@@ -96,25 +108,22 @@ class CellarController extends Controller
         $size = $request->input('size');
     
         // Base query
-        $bottlesQuery = $cellar->bottles();
+        $bottlesQuery = $cellar->bottles();;
 
-        // Apply filters if they exist
-        if ($query) {
+        // Apply filters if provided
+        
+        if (!empty($query)) {
             $bottlesQuery->where('title', 'LIKE', '%' . $query . '%');
         }
-
-        if ($color) {
+        if (!empty($color)) {
             $bottlesQuery->where('color', $color);
         }
-
-        if ($country) {
+        if (!empty($country)) {
             $bottlesQuery->where('country', $country);
         }
-
-        if ($size) {
+        if (!empty($size)) {
             $bottlesQuery->where('size', $size);
         }
-
 
         if ($filter) { $order = $filter; }
         else {
@@ -127,7 +136,7 @@ class CellarController extends Controller
         
         if (Auth::user()->hasCellar()) {
             // Return to cellar show view with all the bottles
-            return view('cellar.show', compact('cellar', 'cellar_bottles', 'bottles', 'query', 'order', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
+            return view('cellar.show', compact('cellar', 'cellar_bottles', 'bottles', 'query', 'sizes', 'order', 'colors', 'countries', 'color', 'country', 'size'));
         }
         
     }
@@ -161,7 +170,7 @@ class CellarController extends Controller
             ->first();
         if($cellar)
         {
-            return redirect()->route('cellar.edit', ['cellar'=>$cellar])->withWarning('Vous avez deja un cellier avec ce nom : '.$name);
+            return redirect()->route('cellar.edit', ['cellar'=>$cellar])->withError('Vous avez deja un cellier avec ce nom : '.$name);
         }
         else 
         {
@@ -229,8 +238,6 @@ class CellarController extends Controller
     {
         $bottle = Bottle::findOrFail($request->input('bottle_id'));
         // $first_cellar = Cellar::where('user_id', Auth::user()->id)->first();
-        $cellar = Cellar::findOrFail($request->input('cellar_id'));
-        // return $cellar;
         $request->validate([
            'cellar_id' => 'required',
            'bottle_id' => 'required',
@@ -247,13 +254,10 @@ class CellarController extends Controller
                 ->get();
             $bd_quantity = $cellar_bottle->first()->quantity;
             
-            // if($request->input('quantity') < 1) {
-            //     // return "ici";
-            //     // return "Not enough bottles in cellar.";
-            //     // return view('cellar.add', compact('bottle'))->withErrors('Pas assez de bouteilles dans le cellier.');
-    
-            //     return view('cellar.add', compact('bottle'), ['cellar' => $cellar])->withErrors('Pas assez de bouteilles dans le cellier.');
-            // }
+            if($request->input('quantity') < 1) {
+                // return "Not enough bottles in cellar.";
+                return view('cellar.add', compact('bottle'))->withWarning('Pas assez de bouteilles dans le cellier.');
+            }
             CellarBottle::where('cellar_id', '=', $request->input('cellar_id'))
                 ->where('bottle_id', '=', $request->input('bottle_id'))
                 ->update([
@@ -261,11 +265,10 @@ class CellarController extends Controller
                 ]);
         }
         else {
-            // if($request->input('quantity') < 1) {
-            //     return "ici";
-            //     // return "Cannot add negative number";
-            //     return redirect()->route('cellar.add', $request->input('cellar_id'), compact('bottle'), ['quantity' => $request->input('quantity')])->withWarning('Erreur de gestion du cellier.');
-            // }
+            if($request->input('quantity') < 1) {
+                // return "Cannot add negative number";
+                return redirect()->route('cellar.add', compact('bottle'), ['quantity' => $request->input('quantity')])->withSuccess('Erreur de gestion du cellier.');
+            }
             // Attach the bottle to the selected cellar
             CellarBottle::create([
                'cellar_id' => $request->input('cellar_id'),
