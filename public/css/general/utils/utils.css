@@ -55,9 +55,11 @@
 
 /*jusitfy*/
 .just-right {
+    display: flex;
     justify-content: right;
 }
 .just-left {
+    display: flex;
     justify-content: left;
 }
 .just-center {
