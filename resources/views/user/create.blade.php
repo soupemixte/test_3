@@ -8,7 +8,7 @@
         <div class="section-title">
             <h1>Formulaire création d'usager.</h1>
         </div>
-        <div class="line"></div> 
+        <!-- <div class="line"></div>  -->
         <form action="{{ route('user.store') }}" method="POST" class="form">
             @csrf
             <div class="form-control">

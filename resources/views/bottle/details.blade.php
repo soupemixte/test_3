@@ -6,7 +6,7 @@
         <div class="section-title">
             <h1>Infos détaillées.</h1>
         </div>
-        <div class="line"></div>
+        <!-- <div class="line"></div> -->
         <article class="details-article">
             <picture class="details-image_container">
                 <img class="details-image" src="{{ $bottle->image_src ?? asset('img/gallery/bottle_static.webp') }}" alt="{{ $bottle->title }}">

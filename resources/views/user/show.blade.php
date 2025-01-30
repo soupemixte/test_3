@@ -12,7 +12,7 @@
         <div class="section-title">
             <h1>Profil d'usager</h1>
         </div>
-        <div class="line"></div> 
+        <!-- <div class="line"></div>  -->
         <div class="info-details profile">
             <div class="info-grid mb-5">
                 <div class="info-item">
@@ -39,6 +39,7 @@
             </div>
         </div>
 
+        <div class="line"></div> 
         <!-- cellars -->
         @if($cellars)
             <section class="flex-col gap10">
@@ -46,7 +47,6 @@
                 <div class="flex-center">
                     <h2>Nombres de Celliers : {{ $count }}</h2>
                 </div>
-                <div class="line"></div> 
                 @endif
                 <div class="info-details profile-cellar">
                 @foreach ($cellars as $cellar)
@@ -67,11 +67,12 @@
                     </div>
                     @endif
                 </div>
-                <div class="btn-container flex-center gap5">
+                <div class="btn-container flex-center gap5 mb-5">
                     <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-icon btn-edit flex-al just-between">modifier<i class="fa-solid fa-pen-to-square"></i></a>
                     <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">voir<i class="fa-solid fa-eye"></i></a>
                     
                 </div> 
+                <!-- <div class="line"></div> -->
                 @endforeach
                 </div>
             </section>

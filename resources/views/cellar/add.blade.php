@@ -14,7 +14,7 @@
     <div class="section-title">
         <h1>Formulaire pour ajouter une bouteille au cellier.</h1>
     </div>
-    <div class="line"></div> 
+    <!-- <div class="line"></div>  -->
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
         <div class="form-title">

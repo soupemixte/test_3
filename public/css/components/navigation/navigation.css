@@ -18,6 +18,11 @@ main {
     margin: 0 auto;
 }
 
+nav {
+    width: 100%;
+}
+
+
 .navigation {
     display: flex;
     justify-content: space-around;

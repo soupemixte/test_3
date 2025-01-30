@@ -7,9 +7,9 @@
 
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h2>Formulaire de retrait bouteille.</h2>
+        <h1>Formulaire de retrait bouteille.</h1>
     </div>
-    <div class="line"></div>   
+    <!-- <div class="line"></div>    -->
     <form class="form" action="{{ route('cellar.removeBottle') }}" method="POST">
         @csrf
         <div class="form-title">

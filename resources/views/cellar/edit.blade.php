@@ -6,7 +6,7 @@
     <div class="section-title">
         <h1>Formulaire modification du cellier : {{ $cellar->title }}.</h1>
     </div>
-    <div class="line"></div>    
+    <!-- <div class="line"></div>     -->
         <form class="form" method="POST">
             @csrf
             @method('put')

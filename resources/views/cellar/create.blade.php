@@ -6,7 +6,7 @@
     <div class="section-title">
         <h1>Formulaire création d'un cellier.</h1>
     </div>   
-    <div class="line"></div> 
+    <!-- <div class="line"></div>  -->
         <form class="form" action="{{ route('cellar.store') }}" method="POST">
             @csrf
             <div class="form-control">
