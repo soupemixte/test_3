@@ -1,11 +1,13 @@
 class SearchFormHandler {
-    constructor(formId, inputId, buttonId, filterSelectors) {
+    constructor(formId, inputId, buttonId, filterSelectors, orderSelector) {
         this.searchForm = document.getElementById(formId);
         this.searchInput = document.getElementById(inputId);
         this.searchBtn = document.getElementById(buttonId);
         this.filterSelectors = filterSelectors.map((selector) =>
             document.getElementById(selector)
         );
+
+        this.orderSelector = document.getElementById(orderSelector);
 
         this.initializeEvents();
     }
@@ -15,11 +17,12 @@ class SearchFormHandler {
         this.searchForm.addEventListener("submit", (e) => {
             if (
                 this.searchInput.value.trim() === "" &&
-                !this.isAnyFilterSelected()
+                !this.isAnyFilterSelected() &&
+                !this.isAnyOptionSelected()
             ) {
                 e.preventDefault();
                 alert(
-                    "Veuillez entrer un terme de recherche ou choisir un filtre."
+                    "Veuillez entrer un terme de recherche ou choisir un filtre ou sélectionner un ordre de tri."
                 );
             }
         });
@@ -28,7 +31,8 @@ class SearchFormHandler {
         this.searchBtn.addEventListener("click", (e) => {
             if (
                 this.searchInput.value.trim() === "" &&
-                !this.isAnyFilterSelected()
+                !this.isAnyFilterSelected() &&
+                !this.isAnyOptionSelected()
             ) {
                 e.preventDefault();
                 this.searchInput.focus();
@@ -41,12 +45,19 @@ class SearchFormHandler {
             (filter) => filter.value.trim() !== ""
         );
     }
+
+    // Check if an ordering option is selected
+    isAnyOptionSelected() {
+        return this.orderSelector && this.orderSelector.value.trim() !== "";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    new SearchFormHandler("search-form", "search-input", "search-btn", [
-        "color",
-        "country",
-        "size",
-    ]);
+    new SearchFormHandler(
+        "search-form",
+        "search-input",
+        "search-btn",
+        ["color", "country", "size"],
+        "order"
+    );
 });
