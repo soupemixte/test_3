@@ -55,7 +55,7 @@ main {
 }
 
 .nav-link.active {
-    color: var(--color-primary);
+    color: var(--accent-color);
     font-weight: bold;
 }
 
