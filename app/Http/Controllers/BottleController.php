@@ -30,6 +30,7 @@ class BottleController extends Controller
     $color = $request->input('color');
     $country = $request->input('country');
     $size = $request->input('size');
+    // return $filter;
    
     // Base query
     $bottlesQuery = Bottle::query();
@@ -56,10 +57,11 @@ class BottleController extends Controller
     } else {
         $order = 'title';
     }
+    // return $order;
     // Get filtered results
-    $bottles = $bottlesQuery->orderby('title')->paginate(5);
+    $bottles = $bottlesQuery->orderby($order)->paginate(5);
 
-
+    return $bottles;
     // Pass data to the view
     return view('bottle.index', compact('bottles', 'order', 'query', 'colors', 'countries', 'sizes', 'color', 'country', 'size'));
 

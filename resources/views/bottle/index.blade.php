@@ -19,12 +19,12 @@
                         
                         <div class="filter-section">
                             <div class="filter-item">
-                                <label for="order" class="filter-title">Tri:</label>
+                                <label for="order" class="filter-title">Trier par:</label>
                                 <select name="order" id="order">
                                     <option value="">Tous ▼</option>
                                     <option value="title">Titre</option>
                                     <option value="color">Couleur</option>
-                                    <option value="region">Region</option>
+                                    <option value="region">Région</option>
                                     <option value="country">Pays</option>
                                 </select>
                             </div>
