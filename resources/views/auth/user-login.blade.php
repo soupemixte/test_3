@@ -7,7 +7,7 @@
         <div class="section-title">
             <h1>Formulaire de connexion.</h1>
         </div>
-        <div class="line"></div>
+        <!-- <div class="line"></div> -->
         <form method="POST" class="form" action="{{ route('user.login.submit') }}">
             @csrf
             <div class="form-control">

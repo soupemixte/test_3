@@ -6,7 +6,7 @@
     <div class="section-title">
         <h1>Inventaire de : {{ $cellar->title }}.</h1>
     </div>
-    <div class="line"></div>
+    <!-- <div class="line"></div> -->
     <header class="filter-wrapper">
             <form action="" method="GET" class="search-container {{ !empty($query) ? 'expanded' : '' }}" id="search-form">
            
@@ -115,7 +115,7 @@
                     @endif
                 </div>
                 <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-border">@lang('lang.result_title')</a>
+                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a>
             </div>
         @endif
 
@@ -157,9 +157,9 @@
                         </div>
                         
                         <div class="btn-container flex-center gap5">
-                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="btn-border btn-show"><i class="fa-solid fa-eye"></i></a>
-                            <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="btn-border btn-remove"><i class="fa-solid fa-minus"></i></a>
-                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
+                            <a href="{{ route('bottle.details', ['id' => $bottle->id]) }}" class="flex-center flex-al btn-border btn-show"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{ route('cellar.remove', ['id' => $bottle->id, 'cellar_id' => $cellar->id]) }}" class="flex-center flex-al btn-border btn-remove"><i class="fa-solid fa-minus"></i></a>
+                            <a href="{{ route('cellar.add', ['id' => $bottle->id]) }}" class="flex-center flex-al btn-border btn-go"><i class="fa-solid fa-plus"></i></a>
                         </div>
 
                     </div>

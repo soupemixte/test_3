@@ -89,9 +89,9 @@
     </a>
   @elseif($isUser)
     <!-- User logged in -->
-    <a class="nav-link" href="{{ route('logout') }}">
+    <!-- <a class="nav-link" href="{{ route('logout') }}">
     <i class="fa-solid fa-right-from-bracket"></i>@lang('lang.logout')
-    </a>
+    </a> -->
   @endif
 @endif
     </nav>

@@ -6,7 +6,7 @@
         <div class="section-title">
             <h1>Formulaire modification d'usager : {{ $user->name }}.</h1>
         </div>
-        <div class="line"></div> 
+        <!-- <div class="line"></div>  -->
         <form method="POST" class="form">
             @csrf
             @method('put')
