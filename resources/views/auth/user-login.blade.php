@@ -5,7 +5,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Formulaire de connexion.</h1>
+            <h1>Connexion utilisateur</h1>
         </div>
         <!-- <div class="line"></div> -->
         <form method="POST" class="form" action="{{ route('user.login.submit') }}">

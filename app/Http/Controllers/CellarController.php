@@ -254,7 +254,7 @@ class CellarController extends Controller
                 ->get();
             $bd_quantity = $cellar_bottle->first()->quantity;
             $result = intval($request->input('quantity')) + $bd_quantity;
-            return $result;
+            // return $result;
             if($request->input('quantity') < 1) {
                 // return "Not enough bottles in cellar.";
                 return view('cellar.add', compact('bottle'))->withWarning('Pas assez de bouteilles dans le cellier.');

@@ -4,7 +4,7 @@
 <main class="flex-center height70">
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h1>Formulaire modification du cellier : {{ $cellar->title }}.</h1>
+        <h1>Modifier : {{ $cellar->title }}</h1>
     </div>
     <!-- <div class="line"></div>     -->
         <form class="form" method="POST">
@@ -35,7 +35,7 @@
         <div class="popup-overlay hide" id="popup-overlay">
             <div class="popup-delete">
                 <div class="message">
-                    <h2>Etes-vous sûr de vouloir supprimer ?</h2>
+                    <h2>Etes-vous sûr ?</h2>
                 </div>
                 <div class="confirm-buttons">
                     <button id="cancel-btn">Annuler <i class="fa-solid fa-ban"></i></button>
