@@ -81,7 +81,7 @@
             <div class="results">
                 <h2>Vous avez <span>{{ $bottles->total() }} bouteille(s)</span> dans {{ $cellar->title }}.</h2>
                 <!-- <p><span>Ajouter plus de bouteilles:</span></p> -->
-                <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between">Nos bouteilles</a>
+                <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between">Ajout à la collection</a>
 
             </div>
         @endif

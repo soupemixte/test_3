@@ -50,10 +50,13 @@ class AuthController extends Controller
             }
             else {
                 return redirect()->route('cellar.create')->withSuccess('Connecté. Veuillez vous créer un cellier.');
-            }
+            } 
             
+        } 
+        else {
+
+            return redirect()->route('user.login')->withErrors('Combinaison e-mail / mot de passe incorrecte.');
         }
-    
 
     }
 
