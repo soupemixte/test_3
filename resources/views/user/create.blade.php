@@ -41,13 +41,12 @@
                 @endif
             </div>
 
-            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.save')<i class="fa-solid fa-floppy-disk"></i></button>
+            <button type="submit" class="btn-icon btn-go flex-al just-between">@lang('lang.save')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
 
         <div class="form_footer">
             <p>@lang('lang.login_member') <a href="{{ route('user.login') }}" class="new_member">@lang('lang.login')</a></p>
         </div>
-        <div class="line"></div> 
     </section>
 </main>
 @endsection

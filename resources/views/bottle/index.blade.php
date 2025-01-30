@@ -87,12 +87,14 @@
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
             <div class="results flex-col">
-                <div>
+                <div class="flex-al just-between">
                 @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
                         @if(!empty($query))
+                      
                         <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
                         @endif
                         <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
+                        <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between"><i class="fa-solid fa-rotate-left"></i></a>
                     @endif
                 </div>
                 <div class="flex just-between gap20">
@@ -114,8 +116,8 @@
                         </ul>
                     @endif
                 </div>
+                
                 <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                <a href="{{ route('bottle.index') }}" class="btn-border">@lang('lang.result_title')</a>
             </div>
             @endif
             <!-- <div class="line"></div> -->

@@ -116,6 +116,7 @@ class UserController extends Controller
 
                     }
                 }
+                // return $total;
                 // return $facture;
                 return view('user.show', ['user' => $user], compact('cellars', 'bottles' ,'total', 'count', 'list', 'facture'));
             } else {

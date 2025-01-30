@@ -28,10 +28,10 @@
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-border btn-icon btn-go flex-al just-between gap5">@lang('lang.update')<i class="fa-solid fa-floppy-disk"></i></button>
+            <button type="submit" class="btn-icon btn-edit flex-al just-between">@lang('lang.update')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
         @if(Auth::id() == $user->id)
-        <button class="btn-border btn-icon btn-remove flex-al just-between gap5" id="delete-btn">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
+        <button class="btn-icon btn-remove flex-al just-between" id="delete-btn">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
         <div class="line"></div> 
         <div class="popup-overlay hide" id="popup-overlay">
             <div class="popup-delete">
@@ -43,7 +43,7 @@
                     <form action="{{ route('user.destroy', $user->id) }}" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
+                        <button type="submit" class="btn-icon btn-remove flex-al just-between">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
                     </form>
                 </div>
             </div>
