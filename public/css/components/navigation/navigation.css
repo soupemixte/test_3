@@ -7,7 +7,7 @@
 
 body {
     margin: 0;
-    /* padding-bottom: 100px; */
+    padding-bottom: 100px; /* Ajoutez un padding en bas pour éviter que le contenu ne soit caché par la barre de navigation */
     min-height: 100vh;
     position: relative;
 }
@@ -22,22 +22,20 @@ nav {
     width: 100%;
 }
 
-
 .navigation {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 20px;
     background-color: var(--header-bg);
-    /* border-top: 1px solid #ccc; */
-    /* position: fixed; */
-    /* bottom: 0;
+    border-top: 1px solid #ccc;
+    position: fixed; /* Fixe la barre de navigation */
+    bottom: 0; /* Ancrage en bas */
     left: 0;
-    right: 0; */
+    right: 0;
     width: 100%;
     z-index: 1000;
     box-sizing: border-box;
-    position:sticky;
 }
 
 .nav-link {
@@ -45,7 +43,7 @@ nav {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: var(--nav-color);
+    color: var(--nav-color); /* Utilisation de la variable déjà définie */
     transition: color 0.3s ease;
 }
 
@@ -60,18 +58,19 @@ nav {
 }
 
 .nav-link.active {
-    color: var(--accent-color);
+    color: var(--accent-color); /* Assurez-vous que cette variable est définie */
     font-weight: bold;
 }
 
 .navigation p {
-    color: var(--color-white);
+    color: var(--nav-color); /* Utilisation de la variable déjà définie */
     font-size: 0.7em;
     font-weight: bold;
 }
+
 @media (hover: hover) {
     .nav-link:hover {
-        color: var(--color-primary);
+        color: var(--color-primary); /* Assurez-vous que cette variable est définie */
     }
 }
 

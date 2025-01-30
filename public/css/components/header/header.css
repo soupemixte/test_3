@@ -10,15 +10,21 @@
 .header {
     background-color: var(--header-bg);
     color: white;
+    padding: 0; /* Supprime le padding par défaut */
+    margin: 0;  /* Supprime la marge par défaut */
 }
 
 .header .logo img {
     width: 80px;
-}s
-.welcome-user p{ 
-    color: white;
-}
-.welcome-user span{ 
-    color: var(--accent-color);
+    display: block; /* Évite les espaces réservés des éléments inline */
+    margin: 3px;      /* Supprime la marge autour de l'image */
+    padding: 3px;     /* Supprime le padding autour de l'image */
 }
 
+.welcome-user p {
+    color: white;
+}
+
+.welcome-user span {
+    color: var(--accent-color);
+}
