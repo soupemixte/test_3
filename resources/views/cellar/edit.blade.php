@@ -4,7 +4,7 @@
 <main class="flex-center height70">
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h2>Formulaire modification du cellier : {{ $cellar->title }}.</h2>
+        <h1>Formulaire modification du cellier : {{ $cellar->title }}.</h1>
     </div>
     <div class="line"></div>    
         <form class="form" method="POST">
@@ -12,7 +12,7 @@
             @method('put')
             <div class="form-control">
                 <label for="title">@lang('lang.cellar_name')</label>
-                <input type="text" name="title" value="{{ old('title', $cellar->title) }}" placeholder="Entrez le nom...">
+                <input type="text" name="title" id="title" value="{{ old('title', $cellar->title) }}" placeholder="Entrez le nom...">
                 @if ($errors->has('title'))
                 <div class="alert_msg">
                     {{$errors->first('title')}}
@@ -21,7 +21,7 @@
             </div>
             <div class="form-control">
                 <label for="description">@lang('lang.cellar_desc')</label>
-                <textarea name="description" placeholder="Description de ce cellier....">{{ old('description', $cellar->description) }}</textarea>
+                <textarea name="description" id="description" placeholder="Description de ce cellier....">{{ old('description', $cellar->description) }}</textarea>
                 @if ($errors->has('description'))
                 <div class="alert_msg">
                     {{$errors->first('description')}}

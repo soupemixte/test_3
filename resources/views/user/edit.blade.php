@@ -4,7 +4,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h2>Formulaire modification d'usager : {{ $user->name }}.</h2>
+            <h1>Formulaire modification d'usager : {{ $user->name }}.</h1>
         </div>
         <div class="line"></div> 
         <form method="POST" class="form">
@@ -21,18 +21,17 @@
             </div>
             <div class="form-control">
                 <label for="email">@lang('lang.email')</label>
-                <input type="text" id="username" name="email"  value="{{old('email', $user->email)}}">
+                <input type="text" id="email" name="email"  value="{{old('email', $user->email)}}">
                 @if ($errors->has('email'))
                     <div class="alert_msg">
                         {{$errors->first('email')}}
                     </div>
                 @endif
             </div>
-            <button type="submit" class="btn-icon btn-edit flex-al just-between">@lang('lang.update')<i class="fa-solid fa-floppy-disk"></i></button>
+            <button type="submit" class="btn-icon btn-go flex-al just-between">@lang('lang.update')<i class="fa-solid fa-floppy-disk"></i></button>
         </form>
         @if(Auth::id() == $user->id)
         <button class="btn-icon btn-remove flex-al just-between" id="delete-btn">@lang('lang.delete')<i class="fa-solid fa-trash"></i></button>
-        <div class="line"></div> 
         <div class="popup-overlay hide" id="popup-overlay">
             <div class="popup-delete">
                 <div class="message">

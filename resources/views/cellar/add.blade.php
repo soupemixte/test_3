@@ -12,7 +12,7 @@
 <main class="flex-center height80">
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h2>Formulaire pour ajouter une bouteille au cellier.</h2>
+        <h1>Formulaire pour ajouter une bouteille au cellier.</h1>
     </div>
     <div class="line"></div> 
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
@@ -22,7 +22,7 @@
         </div>
         <div class="form-control">
             <label for="quantity">@lang('lang.quantity')</label>
-            <input type="number" name="quantity" id="" value="{{old('quantity')}}" min="1">
+            <input type="number" name="quantity" id="quantity" value="{{old('quantity')}}" min="1">
             @if ($errors->has('quantity'))
                 <div class="alert_msg">
                     {{$errors->first('quantity')}}
@@ -54,7 +54,8 @@
             @endif
         </div>
 
-        <input type="hidden" name="bottle_id" value="{{ $bottle->id }}">
+        <label for="bottle_id" class="hidden"></label>
+        <input type="hidden" name="bottle_id" id="bottle_id" value="{{ $bottle->id }}">
 
         <button type="submit" class="btn-icon btn-go flex-al just-between">@lang('lang.add_bottle')<i class="fa-solid fa-plus"></i></button>
     </form>
