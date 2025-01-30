@@ -84,12 +84,12 @@
     /* margin: 20px 0; */
 }
 
-/* .info-details {
-    padding: 10px;
+.info-details {
+    padding: 5px;  /* Réduit de 10px à 5px */
     background-color: var(--components-bg);
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} */
+    /* Supprimé box-shadow car nous n'en avons plus besoin */
+}
 
 .info-details h3 {
     padding: 20px;
