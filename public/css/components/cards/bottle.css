@@ -36,7 +36,7 @@
 }
 
 /* Titre de la carte */
-.card_bottle .card-title h2 {
+.card_bottle .card-title h4 {
     /* width: 70%; */
     font-size: 0.8em;
     /* color: #fff; */
@@ -49,9 +49,13 @@
     justify-content: left;
     align-items: center;
     gap: 5px;
-    font-weight: bolder;
-    color:  #4b4b4b;
-    font-size: 0.8em;
+    color:  var(--darkest-accent);
+    font-size: 0.7em;
+
+    > h4 {
+        font-size: 0.8em;
+        font-weight: normal;
+    }
 }
 
 .card_bottle a {
@@ -70,8 +74,8 @@
 .card-category .line {
     height: 2px;
     rotate: 90deg;
-    width: 20px;
-    background-color: #4b4b4b;
+    width: 13px;
+    background-color: var(--dark-accent);
 }
 
 /* Style du prix */

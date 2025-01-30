@@ -4,7 +4,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col-center gap10">
     <div class="section-title">
-        <h1>Formulaire création d'un cellier.</h1>
+        <h1>Créer un cellier</h1>
     </div>   
     <!-- <div class="line"></div>  -->
         <form class="form" action="{{ route('cellar.store') }}" method="POST">

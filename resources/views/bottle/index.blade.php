@@ -86,18 +86,20 @@
             @endif
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
-            <div class="results flex-col">
+            <div class="results flex-col gap5">
                 <div class="flex-al just-between">
                 @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
+                <div class="flex-col gap5">
                         @if(!empty($query))
-                      
-                        <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
-                        @endif
-                        <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
-                        <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between"><i class="fa-solid fa-rotate-left"></i></a>
+
+                            <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
+                            @endif
+                            <h3><span>{{ $bottles->total() }}</span> Bouteille(s)</h3>
+                        </div>
+                        <a href="{{ route('bottle.index') }}" class="btn-icon btn-reset flex-al"><i class="fa-solid fa-rotate-left"></i></a>
                     @endif
                 </div>
-                <div class="flex just-between gap20">
+                <div class="flex-al gap20">
                     @if (!empty($color) || !empty($country) || !empty($size))
                     <ul>Filtres :
                         @if (!empty($color)) <li>{{ $color }}</li>@endif
@@ -117,7 +119,7 @@
                     @endif
                 </div>
                 
-                <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
+                <!-- <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p> -->
             </div>
             @endif
             <!-- <div class="line"></div> -->
@@ -137,9 +139,9 @@
                         
                         <div class="card-body">
                             <div class="card-title flex just-between">
-                                <h2>
+                                <h4>
                                     {{ $bottle->title }}
-                                </h2>
+                                </h4>
                                 
                             </div>
                             <div class="card-category">

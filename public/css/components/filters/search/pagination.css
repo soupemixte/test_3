@@ -44,18 +44,18 @@
     border-color: var(--dark-accent);
 }
 
-@media (min-width: 500px) {
+@media (min-width: 375px) {
     .pagination {
         list-style: none;
         padding: 0;
         display: flex;
-        gap: 10px;
+        /* gap: 10px; */
     }
     
     .pagination-wrapper {
         overflow: visible;
     }
     .pagination a, .pagination span {
-        padding: 10px 15px;
+        padding: 10px 10px;
     }
 }

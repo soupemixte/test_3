@@ -7,16 +7,16 @@
 
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h1>Formulaire de retrait bouteille.</h1>
+        <h1>Retirer ou déplacer une bouteille dans un cellier</h1>
     </div>
     <!-- <div class="line"></div>    -->
     <form class="form" action="{{ route('cellar.removeBottle') }}" method="POST">
         @csrf
-        <div class="form-title">
+        <div class="form-title mb-5">
             <h2>{{ $bottle->title }}</h2>
             <!-- <p></p> -->
         </div>
-        <div class="info-item mb-5">
+        <div class="info-item mb-5 mt-5">
             <span class="info-label">Collection : </span>
             <span class="info-value">{{ $cellar->quantity }}</span>
         </div>

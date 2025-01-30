@@ -6,7 +6,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Formulaire création d'usager.</h1>
+            <h1>Créer un utilisateur</h1>
         </div>
         <!-- <div class="line"></div>  -->
         <form action="{{ route('user.store') }}" method="POST" class="form">

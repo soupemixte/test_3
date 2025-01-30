@@ -80,19 +80,23 @@
         @if (empty($query) && empty($color) && empty($country) && empty($size))
             <div class="results">
                 <h2>Vous avez <span>{{ $bottles->total() }} bouteille(s)</span> dans {{ $cellar->title }}.</h2>
-                <p><span>Ajouter plus de bouteilles:</span></p>
+                <!-- <p><span>Ajouter plus de bouteilles:</span></p> -->
                 <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between">Nos bouteilles</a>
+
             </div>
         @endif
         <!--Afficher la quantité trouvée après la requête -->
         @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
-        <div class="results flex-col">
-                <div>
-                    @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
+        <div class="results flex-col gap5">
+               <div class="flex-al just-between">
+                @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
                         @if(!empty($query))
+                      
                         <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
                         @endif
-                        <p><span>{{ $bottles->total() }}</span> @lang('lang.bottles')</p>
+                        <p><span>{{ $bottles->total() }}</span> Bouteille(s)</p>
+                        <!-- <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a> -->
+                        <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-reset flex-al"><i class="fa-solid fa-rotate-left"></i></a>
                     @endif
                 </div>
                 <div class="flex-al gap20">
@@ -114,8 +118,9 @@
                         </ul>
                     @endif
                 </div>
-                <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p>
-                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a>
+                <!-- <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p> -->
+                <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between">Nos bouteilles<i class="fa-solid fa-bottle-droplet"></i></a>
+                <!-- <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a> -->
             </div>
         @endif
 
@@ -137,21 +142,22 @@
                     </picture>
                     <div class="card-body">
                         <div class="card-title">
-                            <h2>
+                            <h4>
                                 {{ $bottle->title }}
-                            </h2>
+                            </h4>
                         </div>
                         <div class="card-category">
-                            <p>{{ $bottle->color }}</p>
+                            <h4>{{ $bottle->color }}</h4>
                             <div class="line"></div>
-                            <p>{{ $bottle->size }}</p>
+                            <h4>{{ $bottle->size }}</h4>
                             <div class="line"></div>
-                            <p>{{ $bottle->country }}</p>
+                            <h4>{{ $bottle->country }}</h4>
                         </div>
-                        <div class="card-category">
+                        <div class="info-item">
                             @foreach ($cellar_bottles as $cellar_bottle)
                             @if ($cellar->id == $cellar_bottle->cellar_id && $bottle->id == $cellar_bottle->bottle_id)
-                                <p>@lang('lang.quantity') : {{ $cellar_bottle->quantity }}</p>
+                                <span class="info-label">Collection : </span>
+                                <span class="info-value">{{ $cellar_bottle->quantity }}</span>
                             @endif
                             @endforeach
                         </div>

@@ -53,6 +53,12 @@
     min-height: 100dvh;
 }
 
+/* .just-start {
+    display: flex;
+    gap: 20;
+    align-items: flex-start;
+} */
+
 /*jusitfy*/
 .just-right {
     display: flex;

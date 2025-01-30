@@ -10,7 +10,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Profil d'usager</h1>
+            <h1>Mon profil</h1>
         </div>
         <!-- <div class="line"></div>  -->
         <div class="info-details profile">
@@ -59,13 +59,6 @@
                         <span class="info-label">Description : </span>
                         <span class="info-value">{{ $cellar->description }}</span>
                     </div>
-                    @if($total)
-                    <!-- <p>test</p> -->
-                    <div class="info-item">
-                        <span class="info-label">Inventaire :</span>
-                        <span class="info-value">{{ $total }} Bouteille(s)</span>                          
-                    </div>
-                    @endif
                 </div>
                 <div class="btn-container flex-center gap5 mb-5">
                     <a href="{{ route('cellar.edit', $cellar->id) }}" class="btn-icon btn-edit flex-al just-between">modifier<i class="fa-solid fa-pen-to-square"></i></a>
