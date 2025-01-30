@@ -4,7 +4,7 @@
 <main class="flex-center height60">   
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h2>Inventaire de : {{ $cellar->title }}.</h2>
+        <h1>Inventaire de : {{ $cellar->title }}.</h1>
     </div>
     <div class="line"></div>
     <header class="filter-wrapper">
@@ -17,13 +17,13 @@
                         
                         <div class="filter-section">
                             <div class="filter-item">
-                                <label for="order">Trier :</label>
+                                <label for="order">Trier par :</label>
                                 <select name="order" id="order">
                                     <option value=""> Par défaut ▼</option>
                                     <option value="title">Titre</option>
                                     <option value="color">Couleur</option>
-                                    <option value="region">Region</option>
-                                    <option value="country">Country</option>
+                                    <option value="region">Région</option>
+                                    <option value="country">Pays</option>
                                 </select>
                             </div>
                         </div>
@@ -59,17 +59,18 @@
                         </div>
                     </div>
                 </div>
-
-                <input 
+                <div>
+                    <label for="search-input" class="search-input-label">Search input</label>
+                    <input 
                     type="text" 
                     name="search" 
                     placeholder="Recherche..." 
                     class="search-input"
                     value="{{ old('search', $query ?? '')}}"
-                    id="search-input"
-                >
+                    id="search-input">
+                </div>
                 <button type="submit" class="search-btn" id="search-btn">
-                    <i class="fas fa-search" id="search-icon"></i>
+                    search<i class="fas fa-search" id="search-icon"></i>
                 </button>
                 
             </form>

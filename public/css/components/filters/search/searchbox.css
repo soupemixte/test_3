@@ -23,6 +23,9 @@
 
 /* L'input s'élargit au focus ou au survol du conteneur de recherche. */
 
+.search-input-label {
+    font-size: 0;
+}
 
 .search-container .search-input{
     background: transparent;
@@ -42,6 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 0;
 }
 
 

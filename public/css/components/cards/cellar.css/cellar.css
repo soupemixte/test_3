@@ -13,7 +13,7 @@
 
 .card_cellar {
     & .card-title {
-        color: var(--accent-color);
+        color: var(--color-black);
     }
     & .card_description {
         font-weight: bold;
@@ -23,7 +23,5 @@
 
 .card_cellar a {
     width: 70%;
-    color: white;
-    background-color: var(--accent-color);
     font-weight: bold;
 }
