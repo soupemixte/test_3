@@ -61,17 +61,18 @@
                         </div>
                     </div>
                 </div>
-
-                <input 
+                <div>
+                    <label for="search-input" class="search-input-label">Search input</label>
+                    <input 
                     type="text" 
                     name="search" 
                     placeholder="Recherche..." 
                     class="search-input"
                     value="{{ old('search', $query ?? '')}}"
-                    id="search-input"
-                >
+                    id="search-input">
+                </div>
                 <button type="submit" class="search-btn" id="search-btn">
-                    <i class="fas fa-search" id="search-icon"></i>
+                    search<i class="fas fa-search" id="search-icon"></i>
                 </button>
                 
             </form>
@@ -142,11 +143,11 @@
                                 
                             </div>
                             <div class="card-category">
-                                <p>{{ $bottle->color }}</p>
+                                <h4>{{ $bottle->color }}</h4>
                                 <div class="line"></div>
-                                <p>{{ $bottle->size }}</p>
+                                <h4>{{ $bottle->size }}</h4>
                                 <div class="line"></div>
-                                <p>{{ $bottle->country }}</p>
+                                <h4>{{ $bottle->country }}</h4>
                             </div>
                             <div>
                         </div>

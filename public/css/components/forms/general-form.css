@@ -80,7 +80,7 @@
 
 .form_footer {
     font-weight: normal;
-    color: var(--label-color);
+    color: var(--color-black);
 }
 
 .form_footer a {
@@ -94,8 +94,9 @@
     background-color: var(--error-color);
     /* padding: 10px; */
     color: var(--color-white);
-    font-weight: bold;
-    font-size: var(--font-size-small);
+    font-weight: normal;
+    font-size: 14px;
+    /* font-size: var(--font-size-small); */
     padding: 10px;
     border-radius: var(--input-radius);
 }

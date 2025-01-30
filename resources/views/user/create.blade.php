@@ -6,7 +6,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h2>Formulaire création d'usager.</h2>
+            <h1>Formulaire création d'usager.</h1>
         </div>
         <div class="line"></div> 
         <form action="{{ route('user.store') }}" method="POST" class="form">
@@ -16,13 +16,15 @@
                 <input type="text" id="name" name="name" value="{{old('name')}}">
                 @if ($errors->has('name'))
                     <div class="alert_msg">
-                        {{$errors->first('name')}}
+                        <p>
+                            {{$errors->first('name')}}
+                        </p>
                     </div>
                 @endif
             </div>
             <div class="form-control">
                 <label for="email">@lang('lang.email')</label>
-                <input type="text" id="username" name="email"  value="{{old('email')}}">
+                <input type="text" id="email" name="email"  value="{{old('email')}}">
                 @if ($errors->has('email'))
                     <div class="alert_msg">
                         {{$errors->first('email')}}
@@ -34,7 +36,7 @@
                 <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
                 <div class="alert_msg">
-                <p>Les regles de validation pour mot de passe sont les suivantes : doit contenir au moins une lettre, doit contenir au moins une majuscule et une minuscule, doit contenir au moins un chiffre.</p>
+                <p>Au moins une lettre, au moins une majuscule ET une minuscule, doit contenir au moins un chiffre.</p>
                 {{$errors->first('password')}}
                    
                     </div>
