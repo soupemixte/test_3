@@ -4,7 +4,7 @@
 
 
 <main class="flex-center height60">    
-        <div class="structure flex-col gap10">
+        <div class="structure flex-col gap20">
         <div class="section-title">
             <h1>Liste de nos bouteilles</h1>
         </div>

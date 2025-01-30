@@ -31,10 +31,9 @@
     background: transparent;
     border: none;
     outline:none; 
-   /*  width: 100%; */
+    width: 85%;
     font-weight: 500;
     font-size: 16px;
-    /* transition: 0.8s; */
 }
 
 .search-container .search-btn {

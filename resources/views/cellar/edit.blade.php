@@ -2,7 +2,7 @@
 @section('title', 'Edit cellar')
 @section('content')
 <main class="flex-center height70">
-    <section class="structure flex-col gap10">
+    <section class="structure flex-col-center gap10">
     <div class="section-title">
         <h1>Modifier : {{ $cellar->title }}</h1>
     </div>

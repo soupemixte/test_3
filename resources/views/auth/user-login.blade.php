@@ -3,7 +3,7 @@
 @section('content')
 
 <main class="flex-center height60">
-    <section class="structure flex-col gap10">
+    <section class="structure flex-col-center gap10">
         <div class="section-title">
             <h1>Connexion utilisateur</h1>
         </div>
