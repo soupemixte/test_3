@@ -17,7 +17,7 @@
     <!-- <div class="line"></div>  -->
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">
         @csrf
-        <div class="form-title">
+        <div class="form-title mb-5">
             <h2>{{ $bottle->title }}</h2>
         </div>
         <div class="form-control">

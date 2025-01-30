@@ -58,6 +58,7 @@
     border: 4px solid var(--error-color);
     background: var(--error-color);
     color: var(--darkest-accent);
+    font-weight: bold;
     /* transition: all 1s; */
 }
 
@@ -77,6 +78,11 @@
    /*  border: 4px solid var(--darkest-accent); */
     color: var(--light-accent);
     background-color: var(--darkest-accent);
+}
+
+.btn-reset {
+    background-color: var(--accent-color);
+    color: var(--red-wine);
 }
 
 /* Hover effect for the link */

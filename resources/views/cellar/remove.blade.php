@@ -12,7 +12,7 @@
     <!-- <div class="line"></div>    -->
     <form class="form" action="{{ route('cellar.removeBottle') }}" method="POST">
         @csrf
-        <div class="form-title">
+        <div class="form-title mb-5">
             <h2>{{ $bottle->title }}</h2>
             <!-- <p></p> -->
         </div>

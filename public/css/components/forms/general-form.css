@@ -101,6 +101,10 @@
     border-radius: var(--input-radius);
 }
 
+.form-title h2 {
+    font-size: 1.2em;
+    font-weight: normal;
+}
 /* Grands écrans (ordinateurs de bureau) */
 
 @media (min-width: 700px) {

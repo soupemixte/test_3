@@ -36,7 +36,7 @@
 }
 
 /* Titre de la carte */
-.card_bottle .card-title h2 {
+.card_bottle .card-title h4 {
     /* width: 70%; */
     font-size: 0.8em;
     /* color: #fff; */
@@ -49,9 +49,12 @@
     justify-content: left;
     align-items: center;
     gap: 5px;
-    font-weight: bolder;
-    color:  #4b4b4b;
-    font-size: 0.8em;
+    color:  var(--darkest-accent);
+    font-size: 0.7em;
+
+    > h4 {
+        font-weight: normal;
+    }
 }
 
 .card_bottle a {

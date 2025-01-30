@@ -35,7 +35,7 @@
         <div class="popup-overlay hide" id="popup-overlay">
             <div class="popup-delete">
                 <div class="message">
-                    <h2>Etes-vous sûr de vouloir supprimer ?</h2>
+                    <h2>Etes-vous sûr ?</h2>
                 </div>
                 <div class="confirm-buttons">
                     <button id="cancel-btn">Annuler <i class="fa-solid fa-ban"></i></button>
