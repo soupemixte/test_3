@@ -5,8 +5,25 @@
     gap: 10px;
     background: var(--color-white);
     color: var(--color-black);
-    border: 2px solid var(--header-bg);
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.card_cellar {
+    & .card-title {
+        color: var(--accent-color);
+    }
+    & .card_description {
+        font-weight: bold;
+        color: var(--general-title);
+    }
+}   
+
+.card_cellar a {
+    width: 70%;
+    color: white;
+    background-color: var(--accent-color);
+    font-weight: bold;
 }

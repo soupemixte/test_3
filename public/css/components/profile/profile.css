@@ -1,0 +1,39 @@
+/* Profile-specific styles */
+.info-grid-profile {
+    background-color: rgb(249 250 251);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.info-item-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+}
+
+/* Cellar-specific styles */
+.info-grid-cellar {
+    background-color: white;
+    border-left: 4px solid rgb(59 130 246);
+    padding-left: 1rem;
+}
+
+.info-item-cellar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+}
+
+/* Common styles for labels and values */
+.info-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(107 114 128);
+}
+
+.info-value {
+    font-size: 1rem;
+    color: rgb(17 24 39);
+}
