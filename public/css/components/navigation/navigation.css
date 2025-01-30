@@ -59,6 +59,11 @@ main {
     font-weight: bold;
 }
 
+.navigation p {
+    color: var(--color-white);
+    font-size: 0.7em;
+    font-weight: bold;
+}
 @media (hover: hover) {
     .nav-link:hover {
         color: var(--color-primary);

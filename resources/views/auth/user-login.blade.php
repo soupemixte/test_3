@@ -5,26 +5,31 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h2>Formulaire de connexion.</h2>
+            <h1>Formulaire de connexion.</h1>
         </div>
         <div class="line"></div>
         <form method="POST" class="form" action="{{ route('user.login.submit') }}">
             @csrf
             <div class="form-control">
                 <label for="username" >@lang('lang.email')</label>
-                    <input type="text" id="username" name="email" value="{{old('email', $user->email ?? '')}}">
-                </div>
+                <input type="text" id="username" name="email" value="{{old('email', $user->email ?? '')}}">
+                
                 @if ($errors->has('email'))
                     <div class="alert_msg">
-                        {{$errors->first('email')}}
+                        <p>
+                            {{$errors->first('email')}}
+                        </p>
                     </div>
                 @endif
+                </div>
             <div class="form-control">
                 <label for="password">@lang('lang.password')</label>
                 <input type="password" id="password" name="password">
                 @if ($errors->has('password'))
                     <div class="alert_msg">
-                        {{$errors->first('password')}}
+                        <p>
+                            {{$errors->first('password')}}
+                        </p>
                     </div>
                 @endif
             </div>
