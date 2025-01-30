@@ -173,6 +173,7 @@
             @endforeach
         </section>
 
+        <div class="pagination-wrapper">{{ $bottles->onEachSide(0)->links('pagination::bootstrap-4') }}</div>
     </section>
 </main>
 

@@ -130,7 +130,7 @@ class CellarController extends Controller
             $order = 'title';
         }
         // Get filtered results
-        $bottles = $bottlesQuery->orderby($order)->paginate(5);
+        $bottles = $bottlesQuery->orderby($order)->paginate(3);
 
         $cellar_bottles = CellarBottle::where('cellar_id', $cellar->id)->get();
         

@@ -59,7 +59,7 @@ class BottleController extends Controller
     }
     // return $order;
     // Get filtered results
-    $bottles = $bottlesQuery->orderby($order)->paginate(5);
+    $bottles = $bottlesQuery->orderby($order)->paginate(3);
 
     // return $bottles;
     // Pass data to the view
