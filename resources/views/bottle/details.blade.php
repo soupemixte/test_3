@@ -4,7 +4,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Infos détaillées.</h1>
+            <h1>Infos détaillées</h1>
         </div>
         <!-- <div class="line"></div> -->
         <article class="details-article">

@@ -10,6 +10,7 @@
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
 /* Style pour le contrôle de formulaire */
@@ -73,6 +74,8 @@
 
 /*form footer*/
 .form_footer {
+    margin: 0 auto;
+    text-align: center;
     background-color: var(--general-form-bg);
     padding: 20px;
     border-radius: 10px;
@@ -104,8 +107,12 @@
 /* Grands écrans (ordinateurs de bureau) */
 
 @media (min-width: 700px) {
+    .form_footer,
     .form {
         width: 450px;
+    }
+
+    .form  {
         padding: 30px;
     }
 }

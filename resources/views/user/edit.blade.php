@@ -2,7 +2,7 @@
 @section('title', 'Edit User')
 @section('content')
 <main class="flex-center height60">
-    <section class="structure flex-col gap10">
+    <section class="structure flex-col-center gap10">
         <div class="section-title">
             <h1>Formulaire modification d'usager : {{ $user->name }}.</h1>
         </div>

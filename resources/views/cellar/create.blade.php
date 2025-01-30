@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Create Cellar')
 @section('content')
-<main class="flex-center height70">
-    <section class="structure flex-col gap10">
+<main class="flex-center height60">
+    <section class="structure flex-col-center gap10">
     <div class="section-title">
         <h1>Formulaire création d'un cellier.</h1>
     </div>   

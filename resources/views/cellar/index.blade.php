@@ -4,7 +4,7 @@
 <main class="flex-center height70"> 
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h1>Collection : {{ $cellars->count() }} cellier(s).</h1>
+        <h1>Collection : {{ $cellars->count() }} cellier(s)</h1>
     </div>
     <div class="btn-container just-right"><a href="{{ route('cellar.create') }}" class="btn-icon btn-go">Ajouter<i class="fa-solid fa-plus"></i></a></div> 
     @foreach ($cellars as $cellar)
