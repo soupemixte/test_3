@@ -12,11 +12,6 @@ body {
     position: relative;
 }
 
-main {
-    padding: 10px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 nav {
     width: 100%;
@@ -28,7 +23,6 @@ nav {
     align-items: center;
     padding: 20px;
     background-color: var(--header-bg);
-    border-top: 1px solid #ccc;
     position: fixed; /* Fixe la barre de navigation */
     bottom: 0; /* Ancrage en bas */
     left: 0;

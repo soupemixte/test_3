@@ -1,20 +1,14 @@
 
 
 .alert {
-    /* position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%; */
     padding: 20px 25px;
-    /* border-radius: 10px; */
+    position: relative;
     color: #6b7384;
     background-color: #f5f5f5;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 9999;
     animation: slideDown 0.5s ease-in-out;
 }
-
 .alert.error {
     background-color: var(--error-color);
     color: white;
@@ -43,10 +37,10 @@
     border: none;
     font-size: 16px;
     font-weight: bold;
-    color: var(--color-white);
+    color: #6b6a6a;
     padding: 5px 10px;
     border-radius: 8px;
-    background: #4f4f4f;
+    background: var(--light-accent);
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -84,5 +78,7 @@
 @media only screen and (min-width: 900px) {
     .alert {
         width: 50%;
+        margin: 0 auto;
+        border-radius: 10px;
     }
 }

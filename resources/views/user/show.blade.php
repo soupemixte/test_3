@@ -73,9 +73,22 @@
             @endif
             @auth('web')
             <div class="btn-container flex-center">
-                    <a href="{{ route('logout') }}" class="btn-icon btn-remove flex-al just-between">@lang('lang.logout')
-            <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
+                <button class="btn-icon btn-remove flex-al just-between" id="delete-btn">@lang('lang.logout')
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+                <div class="popup-overlay hide" id="popup-overlay">
+                    <div class="popup-delete">
+                        <div class="message">
+                            <h2>Êtes-vous sûr de vouloir vous déconnecter ?</h2>
+                        </div>
+                        <div class="confirm-buttons">
+                            <button id="cancel-btn">Annuler <i class="fa-solid fa-ban"></i></button>
+                            <a href="{{ route('logout') }}" class="btn-icon btn-remove flex-al just-between">@lang('lang.logout')
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
 
             </div>
@@ -85,5 +98,7 @@
 
 </section>
 </main>
+
+<script src="{{ asset('js/classes/ConfirmationModal.js') }}"></script>
 
 @endsection

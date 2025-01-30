@@ -40,7 +40,8 @@
   
   .filter-box:hover .filter-options {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    gap: 10px;
   }
   
   .filter-item {
@@ -57,7 +58,7 @@
     font-weight: bold;
     margin-bottom: 5px;
     font-size: 14px;
-    color: var(--accent-color);
+    color: var(--color-black);
   }
   
   .filter-item select {
