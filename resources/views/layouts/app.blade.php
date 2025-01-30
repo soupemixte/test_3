@@ -36,7 +36,7 @@
             </div>
         @endif
     <!-- Header -->
-     <div class="flex-al just-between">
+     <div class="flex-center">
 
          <div class="logo">
              <img src="{{ asset('img/header/vino_logo_final.svg') }}" alt="Logo Vino">
