@@ -86,7 +86,7 @@
             @endif
             <!--Afficher la quantité trouvée après la requête -->
             @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
-            <div class="results flex-col">
+            <div class="results flex-col gap5">
                 <div class="flex-al just-between">
                 @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
                 <div class="flex-col gap5">

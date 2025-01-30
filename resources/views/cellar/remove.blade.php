@@ -16,7 +16,7 @@
             <h2>{{ $bottle->title }}</h2>
             <!-- <p></p> -->
         </div>
-        <div class="info-item mb-5">
+        <div class="info-item mb-5 mt-5">
             <span class="info-label">Collection : </span>
             <span class="info-value">{{ $cellar->quantity }}</span>
         </div>
