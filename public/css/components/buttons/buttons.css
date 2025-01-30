@@ -103,8 +103,6 @@
     transition: all 1s;
     padding: 5px 8px; /* Réduit de 10px à 5px 8px pour avoir un peu plus d'espace horizontal */
     width: fit-content;
-    margin: 5px 15px; /* Ajoute de l'espace vertical autour du bouton */
-
 }
 /*survol - Le bouton avec une icône*/
 .btn-icon:hover {

@@ -16,21 +16,12 @@
             </h2>
             <p class="card_description">{{ $cellar->description }}</p>
             <div class="btn-container flex-center">
-
-                
-
                 <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
-
             </div>
-        </digv> 
+        </div> 
         
     </article>
     @endforeach
-
-    
-
-    
-
     </section>
 </main>
 
