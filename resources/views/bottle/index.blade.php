@@ -8,7 +8,6 @@
         <div class="section-title">
             <h1>Liste de nos bouteilles.</h1>
         </div>
-        <div class="line"></div>
             <header class="filter-wrapper">
             <form action="" method="GET" class="search-container" id="search-form">
            

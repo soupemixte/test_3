@@ -14,3 +14,45 @@
     font-size: 30px;
     text-align: center;
 }
+
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+.section-title h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    position: relative;
+    background: linear-gradient(90deg, #722f37, #1a3d6e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Cool Underline Effect */
+.section-title h1::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(90deg, #722f37, #1a3d6e);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.section-title:hover h2 {
+    transform: scale(1.05);
+}
+
+.section-title:hover h2::after {
+    width: 80%;
+}

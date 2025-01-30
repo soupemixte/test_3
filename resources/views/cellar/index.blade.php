@@ -6,7 +6,6 @@
     <div class="section-title">
         <h1>Collection : {{ $cellars->count() }} cellier(s).</h1>
     </div>
-    <div class="line"></div>
     <div class="btn-container just-right"><a href="{{ route('cellar.create') }}" class="btn-icon btn-go">Ajouter<i class="fa-solid fa-plus"></i></a></div> 
     @foreach ($cellars as $cellar)
     <article class="card_bottle card_cellar">
