@@ -23,7 +23,7 @@
                                     <option value="title">Titre</option>
                                     <option value="color">Couleur</option>
                                     <option value="region">Region</option>
-                                    <option value="country">Country</option>
+                                    <option value="country">Pays</option>
                                 </select>
                             </div>
                         </div>
