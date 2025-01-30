@@ -74,17 +74,7 @@
                 @endforeach
                 </div>
             </section>
-            @endif
-            @auth('web')
-            <div class="btn-container">
-                    <a href="{{ route('logout') }}" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.logout')
-            <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
-
-
-            </div>
-            
-            @endauth
+        @endif
 </section>
 </main>
 

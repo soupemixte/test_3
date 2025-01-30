@@ -84,12 +84,12 @@
     /* margin: 20px 0; */
 }
 
-.info-details {
+/* .info-details {
     padding: 10px;
     background-color: var(--components-bg);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .info-details h3 {
     padding: 20px;
@@ -104,16 +104,6 @@
     color: #6b6b6b;
     line-height: 1.5;
 }
-
-.info-details.profile {
-    border: 2px solid var(--header-bg);
-}
-
-.info-details.profile-cellar {
-    border: 2px solid var(--darkest-accent);
-}
-
-
 
 @media only screen and (min-width: 500px) {
     .details-article {
