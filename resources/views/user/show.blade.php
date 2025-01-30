@@ -88,7 +88,6 @@
             
             @endauth
 
-        @endif
 
 </section>
 </main>

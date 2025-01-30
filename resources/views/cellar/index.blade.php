@@ -16,18 +16,13 @@
             </h2>
             <p class="card_description">{{ $cellar->description }}</p>
             <div class="btn-container flex-center">
-
-                <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
-
                 <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show">@lang('lang.view')<i class="fa-solid fa-eye"></i></a>
 
             </div>
         </digv> 
         
     </article>
-    @endforeach
-
-    <div class="btn-container flex-center"><a href="{{ route('cellar.create') }}" class="btn-icon btn-go flex-al just-between">Ajouter<i class="fa-solid fa-plus"></i></a></div> 
+    @endforeach 
 
     
 
