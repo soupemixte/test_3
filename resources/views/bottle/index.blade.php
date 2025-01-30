@@ -6,7 +6,7 @@
 <main class="flex-center height60">    
         <div class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Liste de nos bouteilles.</h1>
+            <h1>Liste de nos bouteilles</h1>
         </div>
             <header class="filter-wrapper">
             <form action="" method="GET" class="search-container" id="search-form">

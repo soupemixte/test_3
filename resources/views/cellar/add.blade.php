@@ -12,7 +12,7 @@
 <main class="flex-center height80">
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h1>Formulaire pour ajouter une bouteille au cellier.</h1>
+        <h1>Ajouter une bouteille à un cellier</h1>
     </div>
     <!-- <div class="line"></div>  -->
     <form class="form" action="{{ route('cellar.storeBottle') }}" method="POST">

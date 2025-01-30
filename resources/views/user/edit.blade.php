@@ -4,7 +4,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Formulaire modification d'usager : {{ $user->name }}.</h1>
+            <h1>Modifier mon profil</h1>
         </div>
         <!-- <div class="line"></div>  -->
         <form method="POST" class="form">

@@ -7,7 +7,7 @@
 
     <section class="structure flex-col gap10">
     <div class="section-title">
-        <h1>Formulaire de retrait bouteille.</h1>
+        <h1>Retirer ou déplacer une bouteille dans un cellier</h1>
     </div>
     <!-- <div class="line"></div>    -->
     <form class="form" action="{{ route('cellar.removeBottle') }}" method="POST">

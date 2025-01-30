@@ -10,7 +10,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h1>Profil d'usager</h1>
+            <h1>Mon profil</h1>
         </div>
         <!-- <div class="line"></div>  -->
         <div class="info-details profile">
