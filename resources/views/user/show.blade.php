@@ -25,7 +25,7 @@
                 </div>
                 <div class="info-item">
                     <span class="info-label">@lang('lang.created') :</span>
-                    <span class="info-value">{{ $user->created_at }}</span>
+                    <span class="info-value">{{ $user->created_at->format('d/m/y') }}</span>
                 </div>
                 <!-- <div class="info-item hidden">
                     <span class="info-label">Derniere mise a jour :</span>
@@ -60,7 +60,7 @@
                         <span class="info-value">{{ $cellar->description }}</span>
                     </div>
                     @if($total)
-                    <p>test</p>
+                    <!-- <p>test</p> -->
                     <div class="info-item">
                         <span class="info-label">Inventaire :</span>
                         <span class="info-value">{{ $total }} Bouteille(s)</span>                          

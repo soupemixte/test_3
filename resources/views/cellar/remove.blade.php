@@ -39,7 +39,7 @@
             <option value="" selected>ne pas deplacer</option>
             @foreach (Auth::user()->cellars as $to_cellar)
             @if($to_cellar->id !== $cellar->cellar_id)
-            <option value="{{ $cellar->id }}">{{ $to_cellar->title }}</option>
+            <option value="{{ $to_cellar->id }}">{{ $to_cellar->title }}</option>
             @endif
             @endforeach
             </select>
