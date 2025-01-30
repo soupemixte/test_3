@@ -10,7 +10,7 @@
 <main class="flex-center height60">
     <section class="structure flex-col gap10">
         <div class="section-title">
-            <h2>Profil d'usager.</h2>
+            <h2>Profil d'usager</h2>
         </div>
         <div class="line"></div> 
         <div class="info-details profile">
@@ -74,17 +74,7 @@
                 @endforeach
                 </div>
             </section>
-            @endif
-            @auth('web')
-            <div class="btn-container">
-                    <a href="{{ route('logout') }}" class="btn-border btn-icon btn-remove flex-al just-between gap5">@lang('lang.logout')
-            <i class="fa-solid fa-right-from-bracket"></i>
-            </a>
-
-
-            </div>
-            
-            @endauth
+        @endif
 </section>
 </main>
 
