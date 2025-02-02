@@ -145,12 +145,12 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|unique:users',
+            'email' => 'required|string',
         ]); 
 
         $user->update([
             'name' => $request->name,
-            'username' => $request->username,
+            'email' => $request->email,
         ]);
 
         return redirect()->route('user.show', $user->id)->withSuccess('Usager # '.$user->id.' : '.$user->name.' mis à jour avec succès.');

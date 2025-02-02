@@ -88,18 +88,8 @@
         <!--Afficher la quantité trouvée après la requête -->
         @if (!empty($query) || !empty($color) || !empty($country) || !empty($size))
         <div class="results flex-col gap5">
-               <div class="flex-al just-between">
-                @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
-                        @if(!empty($query))
-                      
-                        <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
-                        @endif
-                        <p><span>{{ $bottles->total() }}</span> Bouteille(s)</p>
-                        <!-- <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a> -->
-                        <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-reset flex-al"><i class="fa-solid fa-rotate-left"></i></a>
-                    @endif
-                </div>
-                <div class="flex-al gap20">
+                <h2>Recherche de : "<span>{{ $query }}</span>"</h2>
+                <div class="flex just-between gap-20">
                     @if (!empty($color) || !empty($country) || !empty($size))
                     <ul>Filtres :
                         @if (!empty($color)) <li>{{ $color }}</li>@endif
@@ -118,8 +108,19 @@
                         </ul>
                     @endif
                 </div>
+               <div class="flex-al just-between">
+                @if (!empty($query) || !empty($color) || !empty($country) || !empty($size) || !empty($order))
+                        @if(!empty($query))
+                      
+                        @endif
+                        <p><span>{{ $bottles->total() }}</span> Bouteille(s)</p>
+                        <!-- <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a> -->
+                        <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-reset flex-al"><i class="fa-solid fa-rotate-left"></i></a>
+                    @endif
+                </div>
+               
                 <!-- <p><span>{{ $bottles->total() }}</span>@lang('lang.result_subtitle')</p> -->
-                <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between">Nos bouteilles<i class="fa-solid fa-bottle-droplet"></i></a>
+                <a href="{{ route('bottle.index') }}" class="btn-icon btn-show flex-al just-between">Collection Vino<i class="fa-solid fa-bottle-droplet"></i></a>
                 <!-- <a href="{{ route('cellar.show', $cellar->id) }}" class="btn-icon btn-show flex-al just-between">@lang('lang.result_title')</a> -->
             </div>
         @endif

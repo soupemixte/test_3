@@ -77,10 +77,9 @@
 
 @if(!$isAdmin && !$isUser)
   <!-- Guest: Not logged in -->
-   <p>Connectez vous !</p>
-  <!-- <a class="nav-link" href="{{ route('user.login') }}">
+  <a class="nav-link" href="{{ route('user.login') }}">
   <i class="fa-solid fa-right-to-bracket"></i>@lang('lang.login')
-  </a> -->
+  </a>
 @else
   @if($isAdmin)
     <!-- Admin logged in -->
