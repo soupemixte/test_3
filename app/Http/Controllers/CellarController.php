@@ -154,23 +154,19 @@ class CellarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cellar $cellar)
-    {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-        ]);
+    public function update(Request $request, Cellar $cellar){$request->validate(['title' => 'required|string|max:255','description' => 'required|string',]);
 
         $name = $request->input('title');
-            
-        $cellar = Cellar::select()
+
+        // return $cellar;
+        $to_cellar = Cellar::select()
             ->where('user_id', '=', Auth::id())
             ->where('title', '=', $name)
             ->get()
             ->first();
-        if($cellar)
+        if($to_cellar)
         {
-            return redirect()->route('cellar.edit', ['cellar'=>$cellar])->withError('Vous avez deja un cellier avec ce nom : '.$name);
+            return redirect()->route('cellar.edit', ['cellar'=>$to_cellar])->withWarning('Vous avez deja un cellier avec ce nom : '.$name);
         }
         else 
         {

@@ -99,7 +99,7 @@
                         <a href="{{ route('bottle.index') }}" class="btn-icon btn-reset flex-al"><i class="fa-solid fa-rotate-left"></i></a>
                     @endif
                 </div>
-                <div class="flex-al gap20">
+                <div class="flex just-between gap20">
                     @if (!empty($color) || !empty($country) || !empty($size))
                     <ul>Filtres :
                         @if (!empty($color)) <li>{{ $color }}</li>@endif
